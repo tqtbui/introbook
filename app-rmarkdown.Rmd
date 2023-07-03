@@ -1,0 +1,65 @@
+# Introduction to Rmarkdown
+
+## Install Rmarkdown
+
+**Rmarkdown** is a file format that helps you write reports which combine texts and codes and code outputs in an easy way. In fact, this book was written in Rmarkdown as well!
+
+In order to work with Rmarkdown, you will need to install the `rmarkdown` package 
+```{r rmakdown-install, eval=FALSE}
+install.packages('rmarkdown')
+```
+
+To write a new Rmarkdown file:
+
+- Click File > New File > R Markdown or 
+
+- click the New File button under the File button in the top left of the RStudio window, choose R Markdown. 
+
+You can choose the output format that you want, but usually we will choose PDF or HTML format. To generate PDF output, you will need to install LaTeX. You can install an independent LaTeX distribution, for example, personally I use [MiKTeX](https://miktex.org/). However, for anyone who never uses LaTeX before, you can just install `tinytex`, which is a convenient, lightweight, and beginner-friendly LaTeX distribution
+```{r rmarkdown-tinytex, eval=FALSE}
+install.packages('tinytex')
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+## Components of A Rmarkdown File
+
+When you open a new Rmarkdown file, you will see that the top of the file contains some information about the file, for example, title, date, output format, etc. This component is written in between two `---` signs. This is called the metadata of the file. You can change the metadata by typing the name, date, author of your file. 
+
+Then, you can start writing the texts. The text is written in using the markdown language. Basically you can just write the text you want. Other caveats about headings, tables, colors, etc. can be found [here](https://www.markdownguide.org/basic-syntax/). 
+
+Maths can be typed using LaTeX syntax inside two dollar signs, for example `$3^2$` will result in $3^2$. More information about LaTeX math syntax can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics). 
+
+Finally, you can add **R** code chunks into the Rmarkdown document by clicking the green <kbd>+C</kbd> button under the code file tab and choose **R**. 
+```{r rmarkdown-chunk, out.width="80%", fig.cap="Adding a code chunk", echo = FALSE, fig.align="center"}
+knitr::include_graphics(paste0(fig.path, "app-rintro/rchunk.PNG"))
+```
+
+An **R** code chunk starts with ` ```{r} ` and end with three back ticks. You can set some options to the code chunks. Two of the most important options are 
+
+- `eval=TRUE`: This means that Rmarkdown will evaluate your code when "knitting" the .Rmarkdown file into PDF (or HTML, or Words). If `eval=FALSE`, then Rmarkdown will not evaluate your code when knitting. You can use this option by typing ` ```{r, eval=FALSE} `. This is useful when you just want to show the code but don't want to run it. 
+- `echo=TRUE`: This means that Rmarkdown will display your code when "knitting" the file. `echo=FALSE` means that Rmarkdown will not display your code when knitting the file. 
+
+```{r rmarkdown-chunk-explain, out.width="80%", fig.cap="Components of a code chunk", echo = FALSE, fig.align="center"}
+knitr::include_graphics(paste0(fig.path, "app-rintro/rmarkdown.PNG"))
+```
+
+Finally, you can "knit" your Rmarkdown file into a PDF file by hitting the <kbd>Knit</kbd> button on the top bar under the file tabs. 
+
+```{r rmarkdown-knit, out.width="80%", fig.cap="Knitting an Rmarkdown file", echo = FALSE, fig.align="center"}
+knitr::include_graphics(paste0(fig.path, "app-rintro/knit.PNG"))
+```
+
+::: {.myExercise}
+::: {.exercise}
+Create a PDF file that includes the solution (code and output) to Exercises \@ref(exr:exr-rintro-calculation) and \@ref(exr:exr-rintro-data-set). 
+:::
+:::
+
+::: {.empty}
+:::
+
+::: {.myNote data-latex=""}
+**<ins>Notes:</ins>** To learn more about **Rmarkdown**, visit  [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/).
+:::
+
+

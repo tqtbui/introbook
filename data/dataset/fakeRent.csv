@@ -1,0 +1,1346 @@
+"study","gender","faculty","distance","area","washroom","rent"
+"Undergraduate","Female","Math","less than 15 minutes",11,1,890
+"Undergraduate","Female","Math","less than 15 minutes",16.1,1,1120
+"Graduate","Others","Environment","more than 45 minutes",14,0,590
+"Undergraduate","Female","Health","less than 15 minutes",10.9,0,830
+"Undergraduate","Male","Math","less than 15 minutes",12.4,1,910
+"Graduate","Female","Science","30-45 minutes",13.8,1,940
+"Graduate","Male","Math","more than 45 minutes",14.3,0,550
+"Undergraduate","Female","Science","15-30 minutes",13.5,0,850
+"Undergraduate","Male","Health","less than 15 minutes",12.1,1,930
+"Undergraduate","Female","Arts","15-30 minutes",14.5,1,1040
+"Undergraduate","Male","Math","less than 15 minutes",13.9,0,860
+"Undergraduate","Male","Arts","30-45 minutes",12.9,1,720
+"Undergraduate","Female","Math","less than 15 minutes",12.1,1,1020
+"Graduate","Female","Environment","more than 45 minutes",11.4,0,540
+"Undergraduate","Others","Science","15-30 minutes",12.2,0,680
+"Undergraduate","Female","Health","30-45 minutes",12.4,0,700
+"Undergraduate","Female","Engineering","15-30 minutes",11.5,0,760
+"Undergraduate","Female","Arts","30-45 minutes",14.2,0,730
+"Undergraduate","Male","Math","30-45 minutes",13.4,1,730
+"Undergraduate","Female","Health","15-30 minutes",12.9,1,910
+"Undergraduate","Others","Math","15-30 minutes",13,1,960
+"Graduate","Male","Math","more than 45 minutes",9.2,0,350
+"Undergraduate","Male","Science","less than 15 minutes",11.1,1,940
+"Undergraduate","Male","Engineering","15-30 minutes",13.3,0,710
+"Undergraduate","Female","Math","15-30 minutes",11.7,1,820
+"Undergraduate","Female","Engineering","15-30 minutes",11.2,0,680
+"Undergraduate","Male","Environment","15-30 minutes",11,0,570
+"Undergraduate","Male","Science","less than 15 minutes",11.8,0,760
+"Undergraduate","Female","Engineering","15-30 minutes",12,0,750
+"Graduate","Others","Environment","30-45 minutes",14,0,720
+"Graduate","Male","Science","more than 45 minutes",12.3,1,710
+"Undergraduate","Female","Arts","30-45 minutes",12.3,0,710
+"Undergraduate","Female","Math","15-30 minutes",11,1,760
+"Graduate","Male","Science","15-30 minutes",11.1,0,590
+"Graduate","Female","Math","30-45 minutes",12.1,0,650
+"Undergraduate","Female","Arts","15-30 minutes",13,0,760
+"Undergraduate","Female","Health","15-30 minutes",12.7,1,940
+"Undergraduate","Female","Math","less than 15 minutes",10.2,0,760
+"Undergraduate","Others","Science","30-45 minutes",10.7,0,560
+"Undergraduate","Female","Engineering","15-30 minutes",10.1,0,650
+"Undergraduate","Male","Engineering","less than 15 minutes",12.9,0,810
+"Undergraduate","Others","Science","15-30 minutes",13.8,0,830
+"Undergraduate","Male","Science","30-45 minutes",11,1,620
+"Graduate","Female","Math","15-30 minutes",11.2,0,740
+"Graduate","Male","Science","30-45 minutes",14.1,0,800
+"Undergraduate","Female","Engineering","15-30 minutes",10.6,0,590
+"Undergraduate","Others","Health","15-30 minutes",10.9,0,690
+"Graduate","Female","Health","more than 45 minutes",12.7,0,490
+"Graduate","Female","Science","more than 45 minutes",13.8,0,560
+"Undergraduate","Male","Engineering","less than 15 minutes",12.3,0,790
+"Undergraduate","Male","Engineering","15-30 minutes",15,0,900
+"Graduate","Female","Science","15-30 minutes",12.7,0,760
+"Undergraduate","Female","Math","15-30 minutes",12,0,760
+"Undergraduate","Male","Science","15-30 minutes",12.3,0,710
+"Graduate","Female","Health","15-30 minutes",15.1,1,1070
+"Graduate","Male","Environment","30-45 minutes",10.5,1,620
+"Undergraduate","Others","Engineering","30-45 minutes",12.2,1,860
+"Undergraduate","Male","Math","30-45 minutes",12.8,1,740
+"Graduate","Male","Science","30-45 minutes",14.7,1,820
+"Graduate","Female","Arts","15-30 minutes",11.2,1,840
+"Undergraduate","Male","Math","less than 15 minutes",12.2,0,830
+"Undergraduate","Female","Science","15-30 minutes",11,0,700
+"Undergraduate","Female","Health","15-30 minutes",10.7,0,660
+"Undergraduate","Others","Science","less than 15 minutes",12.1,1,980
+"Undergraduate","Male","Math","15-30 minutes",15.1,0,860
+"Undergraduate","Female","Math","less than 15 minutes",13.2,1,980
+"Graduate","Female","Health","30-45 minutes",13.7,0,640
+"Undergraduate","Others","Math","15-30 minutes",14.4,0,980
+"Graduate","Male","Environment","more than 45 minutes",10.8,1,580
+"Undergraduate","Male","Math","15-30 minutes",10.9,0,580
+"Graduate","Female","Arts","30-45 minutes",10.2,1,690
+"Graduate","Female","Health","30-45 minutes",14.9,1,1000
+"Undergraduate","Others","Engineering","15-30 minutes",15.1,0,850
+"Undergraduate","Female","Environment","less than 15 minutes",12.7,0,890
+"Undergraduate","Female","Math","15-30 minutes",14.4,0,830
+"Graduate","Male","Math","30-45 minutes",10.8,1,690
+"Graduate","Male","Science","30-45 minutes",15.8,1,990
+"Undergraduate","Female","Engineering","15-30 minutes",10.8,0,710
+"Graduate","Female","Science","15-30 minutes",9.7,0,580
+"Graduate","Female","Math","15-30 minutes",13.5,0,820
+"Undergraduate","Female","Arts","30-45 minutes",12.8,1,850
+"Graduate","Male","Math","more than 45 minutes",12,0,540
+"Undergraduate","Female","Math","less than 15 minutes",13,1,970
+"Undergraduate","Male","Environment","30-45 minutes",10.6,0,540
+"Graduate","Female","Health","30-45 minutes",12.6,0,650
+"Undergraduate","Female","Engineering","less than 15 minutes",11.1,0,790
+"Undergraduate","Male","Math","15-30 minutes",11.4,0,720
+"Undergraduate","Others","Math","15-30 minutes",15.8,1,1090
+"Graduate","Male","Math","15-30 minutes",12.2,1,800
+"Undergraduate","Male","Health","less than 15 minutes",13.6,1,990
+"Undergraduate","Male","Environment","15-30 minutes",11.3,1,810
+"Undergraduate","Male","Math","less than 15 minutes",13,0,820
+"Undergraduate","Female","Environment","15-30 minutes",12.7,1,910
+"Undergraduate","Others","Science","30-45 minutes",11.5,0,600
+"Undergraduate","Others","Engineering","15-30 minutes",13.5,0,870
+"Undergraduate","Others","Math","30-45 minutes",10.9,0,650
+"Undergraduate","Others","Math","less than 15 minutes",13.4,0,990
+"Undergraduate","Female","Engineering","15-30 minutes",11.6,0,720
+"Undergraduate","Male","Arts","15-30 minutes",11.5,0,710
+"Undergraduate","Male","Engineering","30-45 minutes",12.4,0,540
+"Undergraduate","Male","Science","30-45 minutes",12.4,1,700
+"Undergraduate","Others","Math","15-30 minutes",13.5,0,720
+"Undergraduate","Male","Science","15-30 minutes",17.4,0,860
+"Undergraduate","Female","Math","less than 15 minutes",13.9,0,910
+"Undergraduate","Male","Science","15-30 minutes",11.8,1,840
+"Undergraduate","Male","Math","15-30 minutes",10.3,0,520
+"Graduate","Male","Environment","30-45 minutes",12.4,0,570
+"Undergraduate","Female","Science","15-30 minutes",15.6,1,1100
+"Undergraduate","Male","Math","15-30 minutes",15.7,1,1010
+"Undergraduate","Female","Environment","15-30 minutes",12.3,1,860
+"Undergraduate","Male","Science","15-30 minutes",13.5,1,960
+"Undergraduate","Male","Science","less than 15 minutes",13.6,1,1040
+"Undergraduate","Female","Arts","15-30 minutes",12.3,1,900
+"Undergraduate","Female","Math","15-30 minutes",12.8,0,790
+"Undergraduate","Others","Arts","15-30 minutes",11.4,1,870
+"Undergraduate","Others","Math","less than 15 minutes",11,1,850
+"Undergraduate","Male","Arts","15-30 minutes",12,0,750
+"Undergraduate","Male","Health","15-30 minutes",14.3,0,720
+"Undergraduate","Female","Math","15-30 minutes",13.5,1,930
+"Graduate","Male","Environment","30-45 minutes",9.8,1,700
+"Graduate","Female","Health","30-45 minutes",14,1,830
+"Undergraduate","Female","Environment","less than 15 minutes",12.7,1,1000
+"Undergraduate","Male","Engineering","30-45 minutes",9.8,0,490
+"Undergraduate","Male","Science","15-30 minutes",12.6,0,790
+"Graduate","Male","Health","15-30 minutes",11.4,0,630
+"Undergraduate","Female","Environment","15-30 minutes",11.7,0,750
+"Undergraduate","Female","Health","30-45 minutes",12.3,0,690
+"Undergraduate","Male","Engineering","15-30 minutes",11.3,0,630
+"Undergraduate","Others","Health","15-30 minutes",13.4,0,740
+"Undergraduate","Others","Health","less than 15 minutes",12.9,0,820
+"Undergraduate","Male","Engineering","15-30 minutes",12.9,0,730
+"Undergraduate","Female","Math","15-30 minutes",12.5,0,720
+"Undergraduate","Male","Environment","15-30 minutes",12,1,900
+"Graduate","Male","Math","15-30 minutes",12.6,0,680
+"Undergraduate","Female","Environment","15-30 minutes",11.9,1,900
+"Undergraduate","Female","Science","15-30 minutes",14.8,0,830
+"Undergraduate","Male","Science","15-30 minutes",13.2,0,730
+"Graduate","Others","Health","more than 45 minutes",11.9,0,530
+"Undergraduate","Male","Math","15-30 minutes",10.9,0,680
+"Undergraduate","Female","Health","less than 15 minutes",14.8,1,1090
+"Graduate","Male","Science","15-30 minutes",12.7,1,920
+"Graduate","Female","Science","15-30 minutes",12.8,0,770
+"Graduate","Others","Engineering","15-30 minutes",10.9,0,640
+"Undergraduate","Others","Science","30-45 minutes",11.2,0,560
+"Undergraduate","Male","Science","15-30 minutes",11.6,1,790
+"Undergraduate","Others","Math","15-30 minutes",13.6,0,830
+"Graduate","Female","Math","30-45 minutes",12.6,0,670
+"Undergraduate","Female","Health","15-30 minutes",14,0,820
+"Undergraduate","Male","Math","15-30 minutes",14.4,0,760
+"Undergraduate","Male","Science","less than 15 minutes",10.4,1,860
+"Undergraduate","Female","Arts","15-30 minutes",9.2,0,570
+"Undergraduate","Others","Math","less than 15 minutes",14,1,1110
+"Undergraduate","Male","Engineering","15-30 minutes",11.6,1,890
+"Graduate","Others","Engineering","15-30 minutes",15.1,1,1050
+"Undergraduate","Male","Math","15-30 minutes",12.4,0,720
+"Undergraduate","Male","Health","30-45 minutes",11.3,0,490
+"Graduate","Male","Science","30-45 minutes",12.9,1,660
+"Graduate","Male","Environment","15-30 minutes",13.2,0,820
+"Graduate","Male","Environment","15-30 minutes",12.6,0,840
+"Undergraduate","Male","Health","less than 15 minutes",12.6,0,900
+"Graduate","Female","Science","15-30 minutes",11.8,0,730
+"Undergraduate","Others","Health","15-30 minutes",12.1,0,750
+"Graduate","Male","Engineering","15-30 minutes",13.2,1,920
+"Undergraduate","Male","Health","15-30 minutes",15.2,0,820
+"Undergraduate","Female","Math","30-45 minutes",13.1,1,770
+"Graduate","Female","Environment","30-45 minutes",12.5,0,660
+"Undergraduate","Others","Arts","15-30 minutes",12.2,0,780
+"Graduate","Female","Math","15-30 minutes",12.8,0,690
+"Undergraduate","Male","Science","less than 15 minutes",11.2,0,830
+"Undergraduate","Others","Math","15-30 minutes",13.5,0,810
+"Graduate","Female","Engineering","30-45 minutes",11.2,1,750
+"Undergraduate","Female","Math","15-30 minutes",14.7,1,980
+"Undergraduate","Others","Math","15-30 minutes",12.4,1,1000
+"Undergraduate","Male","Engineering","15-30 minutes",12.7,0,600
+"Undergraduate","Female","Arts","less than 15 minutes",11.8,0,800
+"Undergraduate","Others","Math","30-45 minutes",11,0,570
+"Undergraduate","Male","Engineering","30-45 minutes",13.6,0,650
+"Undergraduate","Male","Science","15-30 minutes",10.9,1,700
+"Undergraduate","Others","Math","15-30 minutes",11.8,0,770
+"Undergraduate","Female","Health","30-45 minutes",14.5,1,890
+"Undergraduate","Female","Environment","30-45 minutes",12.7,0,700
+"Graduate","Male","Engineering","more than 45 minutes",12.6,0,620
+"Graduate","Female","Science","30-45 minutes",15.7,1,870
+"Undergraduate","Male","Science","30-45 minutes",11.1,1,630
+"Undergraduate","Male","Math","30-45 minutes",12.4,0,570
+"Graduate","Male","Math","30-45 minutes",12.1,0,520
+"Graduate","Male","Arts","15-30 minutes",13.5,0,740
+"Undergraduate","Female","Environment","15-30 minutes",12.3,1,870
+"Undergraduate","Male","Math","30-45 minutes",10.7,0,600
+"Undergraduate","Female","Environment","15-30 minutes",12.1,0,760
+"Graduate","Male","Environment","30-45 minutes",10.7,0,510
+"Undergraduate","Female","Math","less than 15 minutes",14.5,0,900
+"Undergraduate","Male","Science","less than 15 minutes",11.5,0,770
+"Undergraduate","Male","Science","less than 15 minutes",11.2,0,800
+"Graduate","Male","Arts","more than 45 minutes",13.1,0,520
+"Undergraduate","Female","Math","15-30 minutes",11.2,0,610
+"Graduate","Female","Environment","15-30 minutes",10.9,0,590
+"Undergraduate","Male","Environment","less than 15 minutes",11.8,0,790
+"Undergraduate","Female","Math","15-30 minutes",13.4,0,800
+"Graduate","Male","Math","15-30 minutes",14,1,980
+"Undergraduate","Male","Math","15-30 minutes",11.6,0,650
+"Undergraduate","Female","Arts","15-30 minutes",11.9,0,650
+"Graduate","Male","Engineering","more than 45 minutes",11.9,1,650
+"Undergraduate","Others","Math","less than 15 minutes",12.5,0,860
+"Undergraduate","Male","Engineering","less than 15 minutes",13.2,1,960
+"Undergraduate","Male","Engineering","15-30 minutes",13.2,1,970
+"Graduate","Male","Engineering","more than 45 minutes",11.6,1,700
+"Undergraduate","Male","Science","less than 15 minutes",14.9,0,860
+"Undergraduate","Male","Engineering","less than 15 minutes",10.5,0,740
+"Graduate","Male","Environment","15-30 minutes",11.3,0,600
+"Graduate","Male","Math","more than 45 minutes",11.5,1,610
+"Undergraduate","Male","Science","less than 15 minutes",12.1,1,980
+"Undergraduate","Female","Health","30-45 minutes",12,1,770
+"Graduate","Female","Health","15-30 minutes",12.1,0,690
+"Graduate","Others","Math","30-45 minutes",11.8,0,630
+"Undergraduate","Male","Engineering","15-30 minutes",11.9,0,680
+"Graduate","Male","Arts","15-30 minutes",15.9,0,770
+"Undergraduate","Female","Science","less than 15 minutes",11.7,0,850
+"Undergraduate","Male","Science","less than 15 minutes",13.4,0,880
+"Graduate","Female","Arts","30-45 minutes",12.9,1,900
+"Graduate","Others","Math","30-45 minutes",12.8,1,860
+"Graduate","Female","Arts","more than 45 minutes",13.6,1,740
+"Undergraduate","Male","Math","less than 15 minutes",13.6,1,1040
+"Graduate","Others","Math","15-30 minutes",12.6,0,810
+"Graduate","Male","Engineering","more than 45 minutes",12.3,1,590
+"Graduate","Male","Health","more than 45 minutes",12,0,510
+"Undergraduate","Female","Environment","30-45 minutes",14.1,0,650
+"Undergraduate","Male","Health","30-45 minutes",13.8,0,730
+"Undergraduate","Female","Arts","less than 15 minutes",12.1,0,930
+"Graduate","Female","Health","30-45 minutes",13.3,0,740
+"Undergraduate","Male","Math","15-30 minutes",10.4,0,640
+"Undergraduate","Male","Engineering","30-45 minutes",13.1,0,570
+"Undergraduate","Female","Math","15-30 minutes",11.4,0,640
+"Undergraduate","Others","Science","less than 15 minutes",11.1,1,910
+"Undergraduate","Female","Arts","15-30 minutes",18.4,0,940
+"Undergraduate","Others","Science","15-30 minutes",11.8,0,720
+"Undergraduate","Female","Science","30-45 minutes",14.1,0,740
+"Graduate","Male","Math","30-45 minutes",14.2,0,750
+"Undergraduate","Female","Health","less than 15 minutes",11.3,0,780
+"Undergraduate","Female","Arts","30-45 minutes",11.7,0,620
+"Undergraduate","Female","Engineering","15-30 minutes",12.4,1,840
+"Undergraduate","Female","Science","less than 15 minutes",13.6,1,1070
+"Undergraduate","Male","Arts","15-30 minutes",13.3,0,740
+"Graduate","Female","Environment","30-45 minutes",13.1,1,880
+"Graduate","Male","Science","30-45 minutes",12.8,0,560
+"Graduate","Female","Environment","15-30 minutes",11.6,1,910
+"Undergraduate","Female","Health","30-45 minutes",11.1,1,750
+"Undergraduate","Male","Science","15-30 minutes",10.7,1,740
+"Undergraduate","Male","Environment","15-30 minutes",11.6,0,640
+"Graduate","Female","Math","30-45 minutes",12.6,1,770
+"Undergraduate","Male","Math","30-45 minutes",13.9,0,610
+"Graduate","Female","Arts","30-45 minutes",16.2,1,970
+"Undergraduate","Male","Engineering","15-30 minutes",11.9,0,690
+"Undergraduate","Male","Engineering","15-30 minutes",13.2,1,820
+"Undergraduate","Female","Math","15-30 minutes",13.3,0,800
+"Undergraduate","Female","Science","30-45 minutes",12.3,0,590
+"Undergraduate","Male","Math","15-30 minutes",11,1,690
+"Graduate","Female","Math","30-45 minutes",11,1,730
+"Undergraduate","Others","Math","15-30 minutes",10.6,0,630
+"Undergraduate","Others","Health","15-30 minutes",11.3,1,780
+"Undergraduate","Others","Engineering","15-30 minutes",12.2,0,730
+"Undergraduate","Male","Arts","15-30 minutes",13.2,0,780
+"Undergraduate","Male","Science","less than 15 minutes",14,1,890
+"Undergraduate","Male","Math","less than 15 minutes",13.3,0,900
+"Undergraduate","Male","Engineering","less than 15 minutes",11.2,1,940
+"Undergraduate","Male","Engineering","15-30 minutes",13,0,720
+"Undergraduate","Female","Environment","30-45 minutes",13,0,650
+"Undergraduate","Male","Math","15-30 minutes",11.1,0,610
+"Undergraduate","Others","Engineering","15-30 minutes",12.9,0,740
+"Undergraduate","Others","Science","less than 15 minutes",10.4,0,800
+"Undergraduate","Female","Engineering","15-30 minutes",11,1,930
+"Undergraduate","Male","Math","15-30 minutes",12.3,1,800
+"Undergraduate","Male","Arts","less than 15 minutes",12.4,0,820
+"Undergraduate","Others","Math","30-45 minutes",13.2,0,780
+"Graduate","Female","Health","30-45 minutes",13.6,0,710
+"Undergraduate","Male","Environment","less than 15 minutes",14,0,890
+"Graduate","Others","Environment","30-45 minutes",10.9,0,580
+"Graduate","Male","Math","15-30 minutes",12.1,0,600
+"Graduate","Male","Engineering","30-45 minutes",11,1,670
+"Undergraduate","Male","Math","less than 15 minutes",10.9,1,900
+"Undergraduate","Male","Engineering","15-30 minutes",13.1,0,680
+"Undergraduate","Male","Science","15-30 minutes",13.7,0,720
+"Graduate","Male","Math","30-45 minutes",11.8,0,530
+"Undergraduate","Male","Math","15-30 minutes",10.6,0,580
+"Graduate","Male","Engineering","more than 45 minutes",14.1,0,580
+"Undergraduate","Male","Engineering","less than 15 minutes",14.4,0,800
+"Graduate","Male","Environment","15-30 minutes",11.2,0,660
+"Undergraduate","Others","Environment","30-45 minutes",13.5,0,650
+"Undergraduate","Female","Arts","less than 15 minutes",10.6,0,760
+"Graduate","Male","Engineering","30-45 minutes",11,1,700
+"Graduate","Female","Math","30-45 minutes",13.8,0,720
+"Undergraduate","Male","Math","15-30 minutes",11.5,0,640
+"Undergraduate","Male","Science","15-30 minutes",14,0,800
+"Undergraduate","Female","Arts","15-30 minutes",16.2,0,950
+"Undergraduate","Male","Engineering","15-30 minutes",13.5,0,790
+"Undergraduate","Female","Health","less than 15 minutes",14.9,0,1050
+"Undergraduate","Others","Engineering","15-30 minutes",15.2,1,1020
+"Undergraduate","Male","Math","15-30 minutes",14.9,0,800
+"Undergraduate","Female","Arts","less than 15 minutes",14.5,1,1110
+"Graduate","Female","Health","30-45 minutes",10.4,0,570
+"Graduate","Male","Health","30-45 minutes",13,0,560
+"Graduate","Male","Engineering","15-30 minutes",12,0,660
+"Undergraduate","Male","Engineering","30-45 minutes",15.3,0,710
+"Undergraduate","Female","Engineering","15-30 minutes",12.4,0,800
+"Undergraduate","Male","Engineering","15-30 minutes",13.1,0,780
+"Undergraduate","Male","Health","15-30 minutes",11.7,1,760
+"Undergraduate","Male","Arts","15-30 minutes",11.7,1,760
+"Undergraduate","Male","Math","15-30 minutes",12.3,1,750
+"Graduate","Female","Math","15-30 minutes",10.4,0,720
+"Graduate","Female","Environment","more than 45 minutes",12.3,0,650
+"Undergraduate","Male","Engineering","15-30 minutes",11.3,0,710
+"Undergraduate","Female","Math","15-30 minutes",14.9,0,800
+"Undergraduate","Female","Math","15-30 minutes",12.8,1,980
+"Undergraduate","Male","Science","30-45 minutes",11,1,680
+"Undergraduate","Female","Engineering","15-30 minutes",13,1,900
+"Undergraduate","Male","Engineering","15-30 minutes",10.1,0,620
+"Undergraduate","Female","Health","30-45 minutes",12.4,1,730
+"Undergraduate","Female","Arts","15-30 minutes",12.9,0,670
+"Undergraduate","Male","Health","15-30 minutes",15,0,830
+"Undergraduate","Female","Math","30-45 minutes",10.4,0,580
+"Undergraduate","Male","Engineering","15-30 minutes",14.9,1,920
+"Undergraduate","Male","Science","15-30 minutes",11.8,1,830
+"Undergraduate","Male","Science","less than 15 minutes",11.6,0,830
+"Undergraduate","Female","Math","15-30 minutes",12.5,0,710
+"Undergraduate","Male","Health","15-30 minutes",12.4,1,870
+"Undergraduate","Female","Environment","15-30 minutes",10.6,0,620
+"Graduate","Female","Environment","30-45 minutes",10.2,0,530
+"Undergraduate","Others","Math","less than 15 minutes",12,0,830
+"Graduate","Male","Math","30-45 minutes",12.8,0,590
+"Undergraduate","Male","Math","30-45 minutes",12.1,0,630
+"Undergraduate","Female","Environment","30-45 minutes",15.5,0,800
+"Undergraduate","Male","Arts","30-45 minutes",11.9,0,520
+"Graduate","Female","Math","30-45 minutes",13.5,0,650
+"Undergraduate","Male","Math","15-30 minutes",12,0,630
+"Graduate","Female","Health","30-45 minutes",10.7,0,570
+"Graduate","Male","Arts","30-45 minutes",11.1,1,680
+"Undergraduate","Male","Engineering","30-45 minutes",11.8,0,580
+"Undergraduate","Male","Math","less than 15 minutes",11.7,1,860
+"Graduate","Female","Arts","30-45 minutes",11.8,0,610
+"Graduate","Female","Health","30-45 minutes",13.4,0,770
+"Undergraduate","Male","Health","15-30 minutes",13,0,770
+"Graduate","Male","Engineering","more than 45 minutes",10.9,1,570
+"Undergraduate","Female","Math","less than 15 minutes",13.7,1,1050
+"Graduate","Male","Engineering","more than 45 minutes",12.7,1,600
+"Undergraduate","Male","Science","15-30 minutes",13.6,0,800
+"Undergraduate","Male","Math","15-30 minutes",10.7,1,670
+"Undergraduate","Female","Environment","15-30 minutes",11.3,0,820
+"Undergraduate","Male","Engineering","15-30 minutes",11.5,0,720
+"Undergraduate","Female","Engineering","less than 15 minutes",13.3,0,960
+"Undergraduate","Male","Engineering","30-45 minutes",12.8,0,650
+"Undergraduate","Female","Science","15-30 minutes",13.6,0,830
+"Undergraduate","Female","Math","less than 15 minutes",12,0,780
+"Graduate","Female","Health","30-45 minutes",11.9,0,590
+"Undergraduate","Female","Health","15-30 minutes",12,1,830
+"Undergraduate","Male","Environment","15-30 minutes",13.8,1,950
+"Undergraduate","Male","Engineering","less than 15 minutes",17,0,1010
+"Undergraduate","Male","Arts","less than 15 minutes",12.6,1,1070
+"Undergraduate","Male","Engineering","15-30 minutes",11.5,1,810
+"Undergraduate","Female","Health","30-45 minutes",9.9,0,580
+"Undergraduate","Others","Engineering","less than 15 minutes",12.4,0,920
+"Undergraduate","Others","Math","less than 15 minutes",12.3,0,760
+"Undergraduate","Others","Math","30-45 minutes",13.4,0,670
+"Undergraduate","Male","Engineering","30-45 minutes",11.2,0,500
+"Undergraduate","Male","Engineering","30-45 minutes",12.3,0,650
+"Undergraduate","Male","Health","less than 15 minutes",13.9,1,980
+"Undergraduate","Others","Science","15-30 minutes",11.9,1,860
+"Undergraduate","Male","Math","30-45 minutes",12.6,1,810
+"Graduate","Female","Science","30-45 minutes",13.2,0,700
+"Undergraduate","Male","Science","15-30 minutes",11.6,0,690
+"Undergraduate","Female","Math","30-45 minutes",11.3,0,610
+"Undergraduate","Female","Health","less than 15 minutes",11.7,1,1020
+"Undergraduate","Male","Arts","15-30 minutes",10.3,1,760
+"Graduate","Male","Arts","more than 45 minutes",11.6,0,480
+"Undergraduate","Others","Math","less than 15 minutes",10,1,840
+"Undergraduate","Male","Health","15-30 minutes",12.4,0,700
+"Undergraduate","Female","Math","less than 15 minutes",12.5,1,1040
+"Undergraduate","Female","Health","15-30 minutes",13.2,0,820
+"Undergraduate","Male","Health","less than 15 minutes",11.9,1,1020
+"Undergraduate","Others","Environment","30-45 minutes",12.4,1,830
+"Undergraduate","Female","Arts","15-30 minutes",14,0,790
+"Graduate","Female","Math","30-45 minutes",10.5,1,740
+"Undergraduate","Female","Math","less than 15 minutes",13.6,1,1090
+"Undergraduate","Male","Engineering","15-30 minutes",10.7,0,670
+"Graduate","Female","Environment","more than 45 minutes",13.1,1,650
+"Undergraduate","Female","Health","15-30 minutes",11.9,0,770
+"Undergraduate","Male","Health","15-30 minutes",13.5,0,760
+"Undergraduate","Male","Science","30-45 minutes",14.1,1,780
+"Undergraduate","Male","Math","15-30 minutes",11.6,1,780
+"Undergraduate","Male","Engineering","less than 15 minutes",12.5,0,870
+"Undergraduate","Others","Health","15-30 minutes",14.9,1,1060
+"Undergraduate","Male","Arts","15-30 minutes",14,1,930
+"Undergraduate","Others","Arts","less than 15 minutes",12.6,0,790
+"Graduate","Female","Science","30-45 minutes",13.6,0,670
+"Undergraduate","Male","Engineering","15-30 minutes",9.7,1,680
+"Graduate","Female","Science","30-45 minutes",12.6,0,660
+"Undergraduate","Others","Science","15-30 minutes",12.2,1,890
+"Undergraduate","Male","Math","less than 15 minutes",10.7,1,800
+"Graduate","Female","Math","30-45 minutes",12.6,1,710
+"Undergraduate","Male","Math","15-30 minutes",10.1,1,740
+"Undergraduate","Male","Health","15-30 minutes",12.6,0,760
+"Graduate","Female","Health","15-30 minutes",11.5,1,920
+"Graduate","Male","Arts","more than 45 minutes",15,0,680
+"Undergraduate","Others","Math","15-30 minutes",13.4,0,750
+"Undergraduate","Male","Math","15-30 minutes",10.3,1,680
+"Undergraduate","Female","Engineering","15-30 minutes",10.7,0,630
+"Graduate","Male","Engineering","15-30 minutes",10.8,0,610
+"Graduate","Female","Health","15-30 minutes",12.5,0,760
+"Undergraduate","Male","Arts","15-30 minutes",12.3,1,880
+"Undergraduate","Male","Engineering","15-30 minutes",11.3,0,690
+"Undergraduate","Male","Environment","15-30 minutes",11.5,0,580
+"Undergraduate","Male","Science","15-30 minutes",11.9,1,790
+"Undergraduate","Female","Science","15-30 minutes",11.9,1,890
+"Undergraduate","Female","Math","30-45 minutes",13.5,0,640
+"Undergraduate","Female","Health","15-30 minutes",10.6,0,720
+"Graduate","Male","Math","30-45 minutes",11.4,0,500
+"Graduate","Male","Math","15-30 minutes",11.8,1,880
+"Undergraduate","Female","Engineering","30-45 minutes",14.8,1,910
+"Undergraduate","Female","Health","15-30 minutes",13.5,0,860
+"Graduate","Others","Math","30-45 minutes",11.8,0,660
+"Undergraduate","Others","Math","15-30 minutes",14,0,870
+"Graduate","Male","Health","30-45 minutes",12.7,1,760
+"Graduate","Female","Math","15-30 minutes",16.1,1,1130
+"Undergraduate","Male","Science","15-30 minutes",10.2,1,720
+"Undergraduate","Female","Math","less than 15 minutes",16,0,950
+"Graduate","Female","Engineering","30-45 minutes",11.1,0,660
+"Undergraduate","Others","Science","15-30 minutes",12,0,660
+"Undergraduate","Female","Math","15-30 minutes",15.1,0,790
+"Graduate","Male","Engineering","more than 45 minutes",9.6,0,380
+"Undergraduate","Female","Math","30-45 minutes",16.6,1,1080
+"Undergraduate","Female","Engineering","less than 15 minutes",14.8,0,1010
+"Graduate","Male","Engineering","15-30 minutes",11.1,0,640
+"Undergraduate","Male","Math","30-45 minutes",15.5,1,850
+"Undergraduate","Male","Math","15-30 minutes",10.5,1,780
+"Graduate","Male","Math","30-45 minutes",12.3,1,710
+"Undergraduate","Female","Arts","15-30 minutes",10.9,1,830
+"Undergraduate","Male","Math","15-30 minutes",11.1,1,810
+"Undergraduate","Female","Arts","15-30 minutes",11.3,0,770
+"Undergraduate","Male","Environment","15-30 minutes",10.1,1,770
+"Graduate","Male","Science","15-30 minutes",10.6,0,620
+"Undergraduate","Others","Health","less than 15 minutes",11.8,0,870
+"Undergraduate","Male","Arts","30-45 minutes",10.5,1,670
+"Undergraduate","Female","Science","15-30 minutes",10,0,720
+"Undergraduate","Male","Environment","less than 15 minutes",12.9,0,860
+"Undergraduate","Male","Arts","less than 15 minutes",13.7,0,820
+"Undergraduate","Male","Engineering","15-30 minutes",10.3,1,730
+"Graduate","Male","Science","more than 45 minutes",14.6,0,670
+"Graduate","Others","Science","15-30 minutes",10.9,1,790
+"Undergraduate","Female","Math","15-30 minutes",12,1,920
+"Undergraduate","Female","Math","30-45 minutes",10.6,0,690
+"Undergraduate","Female","Arts","15-30 minutes",16.5,0,950
+"Graduate","Others","Environment","30-45 minutes",10.6,0,600
+"Undergraduate","Male","Engineering","30-45 minutes",15.3,0,730
+"Undergraduate","Female","Engineering","less than 15 minutes",14.2,0,1030
+"Undergraduate","Male","Health","15-30 minutes",14.1,1,860
+"Graduate","Male","Environment","30-45 minutes",12.1,0,500
+"Undergraduate","Male","Engineering","15-30 minutes",13.7,1,910
+"Undergraduate","Male","Science","15-30 minutes",9.9,0,540
+"Undergraduate","Male","Math","15-30 minutes",11.5,1,800
+"Undergraduate","Others","Engineering","15-30 minutes",12.7,0,780
+"Graduate","Others","Science","30-45 minutes",15.5,1,850
+"Graduate","Male","Engineering","30-45 minutes",13.4,0,680
+"Graduate","Female","Engineering","more than 45 minutes",11.9,1,660
+"Undergraduate","Others","Engineering","less than 15 minutes",13.4,0,870
+"Undergraduate","Others","Health","15-30 minutes",12.4,0,700
+"Undergraduate","Others","Health","15-30 minutes",11.8,1,850
+"Undergraduate","Male","Arts","30-45 minutes",12.5,1,830
+"Undergraduate","Female","Engineering","15-30 minutes",12.5,0,740
+"Undergraduate","Male","Math","30-45 minutes",11.3,1,720
+"Undergraduate","Female","Science","15-30 minutes",13.6,0,830
+"Undergraduate","Others","Math","30-45 minutes",11.4,1,810
+"Undergraduate","Male","Engineering","15-30 minutes",11.2,1,830
+"Undergraduate","Male","Math","15-30 minutes",10.9,1,680
+"Graduate","Female","Health","30-45 minutes",12.9,0,670
+"Graduate","Others","Math","30-45 minutes",10.1,0,560
+"Undergraduate","Female","Health","15-30 minutes",12.5,0,750
+"Graduate","Male","Engineering","30-45 minutes",14.2,0,630
+"Undergraduate","Male","Math","less than 15 minutes",14,0,890
+"Undergraduate","Male","Science","less than 15 minutes",11.8,0,830
+"Undergraduate","Female","Math","30-45 minutes",14.3,0,680
+"Undergraduate","Female","Math","less than 15 minutes",12.3,1,930
+"Undergraduate","Female","Engineering","30-45 minutes",13.2,0,700
+"Undergraduate","Male","Environment","15-30 minutes",12.3,1,830
+"Undergraduate","Female","Environment","less than 15 minutes",11.8,0,830
+"Graduate","Others","Math","30-45 minutes",12.2,1,810
+"Undergraduate","Others","Health","30-45 minutes",14.1,1,930
+"Undergraduate","Male","Math","30-45 minutes",10.7,0,540
+"Undergraduate","Male","Math","15-30 minutes",10.9,1,720
+"Undergraduate","Male","Math","less than 15 minutes",13.4,1,930
+"Graduate","Male","Science","15-30 minutes",13.2,0,720
+"Undergraduate","Female","Engineering","15-30 minutes",11.8,1,840
+"Undergraduate","Others","Health","15-30 minutes",12.8,0,770
+"Undergraduate","Female","Science","15-30 minutes",13.6,0,770
+"Graduate","Male","Engineering","15-30 minutes",11.4,0,640
+"Undergraduate","Female","Environment","15-30 minutes",11,0,640
+"Undergraduate","Female","Math","less than 15 minutes",15.1,0,880
+"Undergraduate","Others","Science","less than 15 minutes",13.1,0,880
+"Graduate","Male","Arts","30-45 minutes",12.8,0,620
+"Graduate","Male","Arts","more than 45 minutes",12.6,0,520
+"Undergraduate","Others","Math","15-30 minutes",16.9,0,990
+"Undergraduate","Male","Health","30-45 minutes",14.9,0,760
+"Undergraduate","Others","Arts","less than 15 minutes",16,0,990
+"Graduate","Others","Engineering","30-45 minutes",10.6,1,720
+"Undergraduate","Others","Engineering","15-30 minutes",12.4,0,750
+"Undergraduate","Male","Health","less than 15 minutes",13.2,1,930
+"Undergraduate","Others","Science","less than 15 minutes",11.5,1,910
+"Graduate","Female","Health","15-30 minutes",13.4,1,1030
+"Graduate","Others","Arts","30-45 minutes",14.1,1,860
+"Graduate","Female","Math","15-30 minutes",10.2,0,550
+"Undergraduate","Male","Math","30-45 minutes",12.1,0,580
+"Graduate","Female","Arts","15-30 minutes",11.5,0,770
+"Graduate","Male","Math","30-45 minutes",12.3,0,570
+"Graduate","Male","Health","more than 45 minutes",14.4,1,850
+"Undergraduate","Female","Environment","15-30 minutes",12.3,1,910
+"Graduate","Female","Math","30-45 minutes",11.5,0,590
+"Undergraduate","Male","Engineering","less than 15 minutes",11.6,1,950
+"Graduate","Male","Math","15-30 minutes",9.9,1,760
+"Undergraduate","Female","Health","less than 15 minutes",12.6,0,850
+"Undergraduate","Male","Engineering","30-45 minutes",11.7,0,600
+"Undergraduate","Female","Math","less than 15 minutes",12.2,1,1020
+"Undergraduate","Male","Health","15-30 minutes",13.8,0,790
+"Graduate","Male","Math","30-45 minutes",13.6,0,610
+"Undergraduate","Female","Environment","less than 15 minutes",12.8,0,800
+"Undergraduate","Female","Math","less than 15 minutes",11.3,1,920
+"Undergraduate","Female","Science","15-30 minutes",16.5,0,940
+"Graduate","Female","Health","15-30 minutes",10.1,0,700
+"Undergraduate","Others","Math","15-30 minutes",11.3,1,800
+"Graduate","Female","Arts","30-45 minutes",15.5,0,790
+"Graduate","Male","Engineering","30-45 minutes",15.8,0,720
+"Undergraduate","Male","Math","less than 15 minutes",13.1,1,850
+"Undergraduate","Female","Science","30-45 minutes",11.3,0,670
+"Undergraduate","Female","Arts","15-30 minutes",13.7,1,1000
+"Undergraduate","Female","Arts","15-30 minutes",9.5,0,660
+"Undergraduate","Male","Engineering","15-30 minutes",10.3,1,660
+"Undergraduate","Male","Science","30-45 minutes",18,0,830
+"Undergraduate","Male","Math","30-45 minutes",11.6,0,540
+"Undergraduate","Male","Science","30-45 minutes",11.7,1,710
+"Undergraduate","Male","Engineering","30-45 minutes",12.3,0,660
+"Graduate","Others","Health","30-45 minutes",15,0,730
+"Undergraduate","Female","Science","15-30 minutes",12.2,1,990
+"Undergraduate","Male","Math","15-30 minutes",12.6,0,730
+"Undergraduate","Female","Environment","15-30 minutes",10,0,580
+"Undergraduate","Female","Engineering","30-45 minutes",11.4,0,610
+"Undergraduate","Female","Engineering","15-30 minutes",13.1,0,890
+"Undergraduate","Female","Engineering","30-45 minutes",10.8,0,630
+"Undergraduate","Others","Science","less than 15 minutes",10.6,0,830
+"Undergraduate","Male","Science","less than 15 minutes",11.1,0,820
+"Undergraduate","Male","Engineering","less than 15 minutes",13.6,1,1020
+"Undergraduate","Male","Math","less than 15 minutes",9.8,1,870
+"Undergraduate","Male","Engineering","15-30 minutes",10.8,1,850
+"Undergraduate","Female","Health","15-30 minutes",12.3,0,780
+"Undergraduate","Male","Math","15-30 minutes",12.9,0,750
+"Undergraduate","Female","Math","15-30 minutes",11.7,0,740
+"Graduate","Male","Arts","more than 45 minutes",12.8,0,530
+"Undergraduate","Female","Science","30-45 minutes",13.7,1,870
+"Graduate","Male","Health","30-45 minutes",13,0,690
+"Undergraduate","Male","Environment","less than 15 minutes",11.8,0,760
+"Undergraduate","Others","Engineering","less than 15 minutes",15.2,0,920
+"Undergraduate","Female","Health","30-45 minutes",11.1,1,760
+"Graduate","Female","Engineering","30-45 minutes",13.9,0,710
+"Undergraduate","Male","Science","15-30 minutes",9.7,1,740
+"Undergraduate","Others","Math","15-30 minutes",14.8,1,970
+"Graduate","Others","Environment","30-45 minutes",11.6,1,730
+"Graduate","Female","Engineering","more than 45 minutes",11.9,0,480
+"Undergraduate","Others","Science","15-30 minutes",12.9,0,840
+"Undergraduate","Others","Math","15-30 minutes",12.4,1,930
+"Graduate","Male","Engineering","30-45 minutes",12.4,0,590
+"Graduate","Female","Engineering","more than 45 minutes",11.5,0,500
+"Undergraduate","Female","Health","15-30 minutes",13.5,0,780
+"Graduate","Female","Arts","30-45 minutes",11.6,0,660
+"Undergraduate","Female","Arts","15-30 minutes",12.8,1,900
+"Undergraduate","Others","Arts","15-30 minutes",14.3,0,810
+"Undergraduate","Male","Engineering","15-30 minutes",12.7,0,750
+"Undergraduate","Female","Math","15-30 minutes",11.4,0,760
+"Graduate","Female","Science","30-45 minutes",11.2,1,700
+"Undergraduate","Female","Science","less than 15 minutes",10.4,1,1040
+"Undergraduate","Others","Arts","less than 15 minutes",11.2,0,820
+"Graduate","Male","Science","30-45 minutes",10.4,0,520
+"Undergraduate","Others","Science","15-30 minutes",12.9,0,740
+"Graduate","Male","Engineering","more than 45 minutes",11,0,410
+"Undergraduate","Female","Health","less than 15 minutes",12.1,1,1010
+"Graduate","Female","Environment","15-30 minutes",10.7,0,610
+"Graduate","Male","Math","30-45 minutes",13.1,1,800
+"Graduate","Male","Health","30-45 minutes",15.1,1,930
+"Undergraduate","Male","Math","15-30 minutes",10.1,1,710
+"Undergraduate","Female","Environment","less than 15 minutes",14.5,1,1180
+"Graduate","Male","Environment","15-30 minutes",10.1,1,880
+"Undergraduate","Others","Health","15-30 minutes",12.6,1,960
+"Undergraduate","Male","Math","30-45 minutes",10.2,0,540
+"Graduate","Male","Arts","15-30 minutes",11,1,750
+"Undergraduate","Male","Science","15-30 minutes",11.6,0,620
+"Undergraduate","Female","Science","less than 15 minutes",10.2,1,910
+"Undergraduate","Female","Environment","30-45 minutes",18.1,1,1000
+"Undergraduate","Male","Science","15-30 minutes",11.6,1,900
+"Undergraduate","Female","Health","30-45 minutes",12.7,0,660
+"Graduate","Female","Arts","more than 45 minutes",10.2,0,410
+"Undergraduate","Male","Math","less than 15 minutes",13.3,1,960
+"Graduate","Female","Arts","30-45 minutes",10.6,1,740
+"Undergraduate","Male","Science","15-30 minutes",11.9,1,770
+"Undergraduate","Male","Science","15-30 minutes",18.8,0,950
+"Undergraduate","Female","Health","30-45 minutes",13.7,1,920
+"Undergraduate","Female","Math","15-30 minutes",10.3,0,650
+"Undergraduate","Male","Science","less than 15 minutes",12,0,840
+"Graduate","Others","Health","30-45 minutes",10.7,0,590
+"Undergraduate","Male","Math","15-30 minutes",12.9,0,630
+"Undergraduate","Male","Science","15-30 minutes",10.3,0,620
+"Graduate","Others","Environment","15-30 minutes",12.2,0,740
+"Graduate","Male","Arts","30-45 minutes",12.9,0,640
+"Undergraduate","Female","Math","30-45 minutes",11.7,0,580
+"Graduate","Male","Engineering","30-45 minutes",16,0,780
+"Undergraduate","Male","Science","15-30 minutes",12.8,0,630
+"Undergraduate","Others","Math","15-30 minutes",11.8,0,720
+"Undergraduate","Female","Science","less than 15 minutes",13.5,1,1080
+"Undergraduate","Male","Science","30-45 minutes",13.6,0,700
+"Undergraduate","Male","Math","less than 15 minutes",14.4,0,890
+"Undergraduate","Others","Health","less than 15 minutes",13.5,0,950
+"Undergraduate","Male","Engineering","15-30 minutes",11.6,1,790
+"Undergraduate","Male","Science","less than 15 minutes",10.3,0,770
+"Graduate","Male","Math","more than 45 minutes",12.6,0,470
+"Graduate","Female","Science","more than 45 minutes",11.9,0,550
+"Undergraduate","Others","Arts","30-45 minutes",11.4,1,820
+"Undergraduate","Female","Math","15-30 minutes",11.7,1,880
+"Graduate","Male","Arts","30-45 minutes",10.7,0,510
+"Undergraduate","Female","Arts","15-30 minutes",11,1,860
+"Undergraduate","Male","Science","15-30 minutes",12.2,1,860
+"Undergraduate","Male","Math","15-30 minutes",10.7,1,750
+"Undergraduate","Male","Math","15-30 minutes",13.8,0,660
+"Undergraduate","Female","Environment","30-45 minutes",13.8,0,680
+"Undergraduate","Male","Math","less than 15 minutes",12.4,1,890
+"Undergraduate","Female","Environment","15-30 minutes",10.9,0,730
+"Undergraduate","Male","Math","15-30 minutes",12,1,820
+"Undergraduate","Female","Arts","15-30 minutes",9.9,1,780
+"Graduate","Male","Math","more than 45 minutes",11.6,1,700
+"Undergraduate","Others","Math","15-30 minutes",13.5,0,880
+"Undergraduate","Others","Math","15-30 minutes",11.8,0,780
+"Undergraduate","Male","Math","less than 15 minutes",13,0,780
+"Undergraduate","Others","Engineering","30-45 minutes",12.1,1,750
+"Undergraduate","Female","Math","15-30 minutes",11.8,0,850
+"Undergraduate","Male","Science","15-30 minutes",9.8,0,610
+"Undergraduate","Female","Health","30-45 minutes",13.3,0,750
+"Undergraduate","Male","Science","15-30 minutes",12.6,0,730
+"Undergraduate","Others","Engineering","15-30 minutes",11.6,0,670
+"Graduate","Male","Arts","30-45 minutes",11,1,740
+"Undergraduate","Male","Environment","15-30 minutes",12.6,1,860
+"Undergraduate","Male","Arts","15-30 minutes",12.8,1,870
+"Graduate","Female","Math","30-45 minutes",13,0,610
+"Undergraduate","Male","Engineering","less than 15 minutes",11.4,0,730
+"Undergraduate","Male","Math","15-30 minutes",12.5,0,630
+"Undergraduate","Male","Arts","30-45 minutes",14.9,1,890
+"Undergraduate","Male","Math","less than 15 minutes",11.6,0,710
+"Graduate","Female","Arts","15-30 minutes",14.9,0,800
+"Undergraduate","Female","Arts","less than 15 minutes",12.3,1,990
+"Undergraduate","Female","Arts","less than 15 minutes",11.9,0,840
+"Undergraduate","Male","Science","less than 15 minutes",10.2,1,920
+"Undergraduate","Male","Engineering","less than 15 minutes",18.4,0,1060
+"Undergraduate","Male","Math","30-45 minutes",10.9,0,470
+"Graduate","Male","Math","30-45 minutes",13,0,570
+"Undergraduate","Male","Math","less than 15 minutes",13.7,1,1030
+"Undergraduate","Male","Environment","15-30 minutes",11.5,0,730
+"Undergraduate","Female","Health","30-45 minutes",11.9,0,690
+"Undergraduate","Male","Math","15-30 minutes",12.7,0,700
+"Graduate","Male","Health","30-45 minutes",12.9,1,820
+"Graduate","Others","Science","15-30 minutes",15.9,1,1060
+"Undergraduate","Female","Math","15-30 minutes",10.8,0,720
+"Graduate","Female","Science","15-30 minutes",11.6,0,600
+"Undergraduate","Male","Science","less than 15 minutes",14.6,0,900
+"Graduate","Male","Science","more than 45 minutes",12.9,1,700
+"Undergraduate","Female","Science","15-30 minutes",12.5,0,790
+"Undergraduate","Female","Science","less than 15 minutes",13.3,1,1040
+"Undergraduate","Others","Science","less than 15 minutes",12,0,830
+"Undergraduate","Others","Math","15-30 minutes",11.9,0,730
+"Undergraduate","Male","Engineering","15-30 minutes",13.4,1,850
+"Undergraduate","Female","Health","15-30 minutes",12.7,1,970
+"Undergraduate","Male","Math","15-30 minutes",12.7,1,890
+"Undergraduate","Male","Science","15-30 minutes",12.9,0,600
+"Undergraduate","Male","Math","15-30 minutes",12.6,0,700
+"Graduate","Female","Environment","30-45 minutes",15.9,0,830
+"Graduate","Female","Health","30-45 minutes",10.1,0,520
+"Undergraduate","Male","Engineering","15-30 minutes",11.8,0,670
+"Graduate","Male","Math","15-30 minutes",13.1,1,910
+"Undergraduate","Female","Math","15-30 minutes",13.6,0,760
+"Undergraduate","Female","Math","15-30 minutes",11.3,0,670
+"Undergraduate","Male","Engineering","15-30 minutes",11.4,0,600
+"Graduate","Female","Engineering","15-30 minutes",14.5,0,890
+"Undergraduate","Others","Engineering","less than 15 minutes",12.4,1,990
+"Undergraduate","Female","Science","less than 15 minutes",14,0,880
+"Graduate","Female","Engineering","15-30 minutes",12,0,730
+"Undergraduate","Female","Math","30-45 minutes",13.2,0,720
+"Undergraduate","Female","Engineering","30-45 minutes",10.3,1,670
+"Undergraduate","Female","Science","30-45 minutes",10.6,0,630
+"Undergraduate","Female","Engineering","30-45 minutes",15,0,680
+"Undergraduate","Others","Math","15-30 minutes",12.1,0,640
+"Undergraduate","Others","Engineering","30-45 minutes",12.6,0,680
+"Undergraduate","Others","Engineering","30-45 minutes",12.8,1,890
+"Undergraduate","Female","Health","30-45 minutes",12.1,0,600
+"Undergraduate","Male","Health","less than 15 minutes",12.2,0,770
+"Undergraduate","Others","Math","30-45 minutes",14.5,0,770
+"Undergraduate","Female","Math","less than 15 minutes",11.2,0,820
+"Graduate","Male","Health","30-45 minutes",12.1,1,760
+"Graduate","Male","Engineering","15-30 minutes",10.9,0,580
+"Undergraduate","Female","Engineering","15-30 minutes",11.2,0,760
+"Undergraduate","Male","Health","15-30 minutes",11.4,1,780
+"Undergraduate","Male","Math","15-30 minutes",14.1,0,760
+"Undergraduate","Male","Math","15-30 minutes",12.1,0,620
+"Undergraduate","Female","Engineering","15-30 minutes",13.2,1,940
+"Undergraduate","Male","Engineering","15-30 minutes",12.6,0,740
+"Undergraduate","Male","Health","30-45 minutes",12,0,620
+"Undergraduate","Female","Math","15-30 minutes",12.1,0,760
+"Undergraduate","Female","Math","15-30 minutes",11.6,1,860
+"Graduate","Female","Arts","more than 45 minutes",13,1,630
+"Graduate","Female","Arts","more than 45 minutes",11.5,0,500
+"Undergraduate","Female","Math","less than 15 minutes",13.6,1,1040
+"Undergraduate","Female","Health","30-45 minutes",12,0,660
+"Undergraduate","Male","Arts","less than 15 minutes",10.6,0,760
+"Undergraduate","Female","Math","15-30 minutes",14.2,1,1030
+"Graduate","Female","Engineering","15-30 minutes",14.6,1,1050
+"Undergraduate","Female","Health","15-30 minutes",11.1,0,680
+"Undergraduate","Others","Science","less than 15 minutes",13.8,0,1070
+"Graduate","Male","Math","15-30 minutes",15.7,0,890
+"Undergraduate","Female","Health","less than 15 minutes",11.7,0,830
+"Undergraduate","Female","Math","15-30 minutes",11.7,1,920
+"Graduate","Female","Math","more than 45 minutes",12,1,680
+"Graduate","Female","Health","30-45 minutes",11.5,0,590
+"Graduate","Male","Math","30-45 minutes",13.3,0,640
+"Undergraduate","Male","Engineering","30-45 minutes",12.4,0,700
+"Undergraduate","Female","Engineering","15-30 minutes",14,0,770
+"Undergraduate","Male","Engineering","15-30 minutes",14.2,1,960
+"Graduate","Male","Environment","30-45 minutes",14.6,0,670
+"Undergraduate","Male","Science","15-30 minutes",12.1,0,660
+"Graduate","Female","Arts","15-30 minutes",14.4,1,1030
+"Undergraduate","Male","Engineering","15-30 minutes",10.4,1,880
+"Undergraduate","Female","Arts","15-30 minutes",15.2,0,830
+"Graduate","Female","Math","30-45 minutes",13,1,830
+"Undergraduate","Male","Engineering","30-45 minutes",11.2,0,630
+"Undergraduate","Female","Science","15-30 minutes",13.1,1,940
+"Graduate","Others","Health","30-45 minutes",10.2,0,470
+"Undergraduate","Others","Environment","less than 15 minutes",13.6,1,1130
+"Graduate","Male","Math","30-45 minutes",12.2,0,600
+"Undergraduate","Male","Math","15-30 minutes",12,1,840
+"Graduate","Female","Arts","30-45 minutes",13.4,0,540
+"Undergraduate","Others","Environment","less than 15 minutes",13.5,0,940
+"Undergraduate","Others","Math","15-30 minutes",11.3,1,840
+"Undergraduate","Female","Arts","15-30 minutes",13.2,0,780
+"Undergraduate","Female","Engineering","15-30 minutes",14.9,0,890
+"Undergraduate","Others","Science","15-30 minutes",13.2,0,780
+"Graduate","Male","Engineering","30-45 minutes",11.1,1,660
+"Undergraduate","Male","Math","15-30 minutes",9.9,0,550
+"Undergraduate","Female","Math","less than 15 minutes",15.1,1,1110
+"Undergraduate","Others","Math","less than 15 minutes",13.9,1,980
+"Undergraduate","Male","Arts","15-30 minutes",10.4,0,550
+"Undergraduate","Male","Engineering","30-45 minutes",13.1,1,770
+"Undergraduate","Female","Health","15-30 minutes",10.1,1,760
+"Undergraduate","Male","Math","less than 15 minutes",14.1,0,850
+"Undergraduate","Male","Environment","15-30 minutes",13,0,730
+"Graduate","Male","Engineering","30-45 minutes",10.8,0,500
+"Undergraduate","Male","Science","less than 15 minutes",11.1,0,790
+"Undergraduate","Female","Environment","less than 15 minutes",12.9,0,760
+"Undergraduate","Others","Environment","less than 15 minutes",11.1,0,740
+"Undergraduate","Male","Engineering","15-30 minutes",12.4,0,650
+"Graduate","Male","Engineering","15-30 minutes",12,0,680
+"Undergraduate","Male","Engineering","15-30 minutes",10.6,0,600
+"Undergraduate","Male","Engineering","15-30 minutes",12.4,1,880
+"Graduate","Male","Engineering","more than 45 minutes",12.2,0,430
+"Undergraduate","Male","Health","30-45 minutes",12.3,0,640
+"Undergraduate","Female","Health","15-30 minutes",12.6,0,760
+"Undergraduate","Female","Environment","30-45 minutes",11.5,1,730
+"Undergraduate","Female","Science","15-30 minutes",14.2,0,880
+"Graduate","Male","Arts","more than 45 minutes",13.3,0,530
+"Undergraduate","Male","Engineering","less than 15 minutes",10.6,0,740
+"Undergraduate","Male","Engineering","15-30 minutes",14.3,1,990
+"Undergraduate","Male","Health","less than 15 minutes",13.2,0,860
+"Undergraduate","Female","Science","less than 15 minutes",13.3,1,980
+"Undergraduate","Male","Science","15-30 minutes",12.7,1,860
+"Undergraduate","Female","Arts","15-30 minutes",11,0,670
+"Undergraduate","Others","Health","15-30 minutes",14.1,0,830
+"Undergraduate","Female","Math","15-30 minutes",10.3,0,670
+"Graduate","Others","Math","30-45 minutes",15,0,720
+"Undergraduate","Male","Health","15-30 minutes",13.2,1,950
+"Undergraduate","Female","Health","less than 15 minutes",12.4,1,1160
+"Graduate","Female","Science","30-45 minutes",11.6,0,650
+"Undergraduate","Others","Health","15-30 minutes",11.5,1,910
+"Undergraduate","Male","Science","15-30 minutes",13.7,1,920
+"Undergraduate","Male","Health","15-30 minutes",11.6,1,800
+"Undergraduate","Others","Science","15-30 minutes",12.6,0,740
+"Undergraduate","Male","Engineering","less than 15 minutes",15.5,1,1130
+"Undergraduate","Female","Arts","less than 15 minutes",12.1,1,1000
+"Undergraduate","Others","Arts","30-45 minutes",11.5,1,730
+"Graduate","Others","Engineering","30-45 minutes",12.9,0,640
+"Undergraduate","Female","Math","less than 15 minutes",12.1,0,830
+"Undergraduate","Female","Arts","15-30 minutes",13.3,0,840
+"Undergraduate","Male","Arts","less than 15 minutes",13,0,760
+"Graduate","Female","Engineering","30-45 minutes",13.9,0,760
+"Graduate","Male","Math","30-45 minutes",11.8,1,680
+"Graduate","Female","Arts","15-30 minutes",9.6,0,650
+"Undergraduate","Female","Arts","less than 15 minutes",12.3,1,1030
+"Undergraduate","Male","Math","15-30 minutes",15,1,990
+"Undergraduate","Male","Health","less than 15 minutes",10.8,1,920
+"Undergraduate","Others","Health","15-30 minutes",12.5,0,820
+"Undergraduate","Male","Health","15-30 minutes",11.3,1,840
+"Graduate","Female","Math","more than 45 minutes",10.6,0,510
+"Undergraduate","Male","Math","15-30 minutes",13.4,0,700
+"Graduate","Others","Science","15-30 minutes",15.4,0,850
+"Undergraduate","Others","Engineering","15-30 minutes",10.7,0,710
+"Undergraduate","Female","Engineering","less than 15 minutes",11.8,0,880
+"Undergraduate","Others","Arts","less than 15 minutes",13.2,1,1040
+"Graduate","Male","Arts","30-45 minutes",12.9,1,780
+"Graduate","Male","Science","15-30 minutes",11.7,1,860
+"Undergraduate","Female","Science","less than 15 minutes",12.8,1,1070
+"Undergraduate","Male","Math","15-30 minutes",11.9,1,790
+"Graduate","Male","Math","15-30 minutes",11.6,0,620
+"Undergraduate","Male","Engineering","15-30 minutes",11.9,0,670
+"Undergraduate","Others","Math","15-30 minutes",14.8,0,900
+"Undergraduate","Female","Arts","less than 15 minutes",9.9,0,780
+"Undergraduate","Female","Math","15-30 minutes",12.8,1,890
+"Undergraduate","Male","Arts","less than 15 minutes",10.2,0,770
+"Undergraduate","Male","Engineering","15-30 minutes",16.3,0,810
+"Undergraduate","Others","Environment","15-30 minutes",12.2,0,820
+"Undergraduate","Male","Math","15-30 minutes",13.9,0,780
+"Graduate","Female","Environment","15-30 minutes",13,0,960
+"Undergraduate","Male","Engineering","less than 15 minutes",12.1,0,790
+"Graduate","Others","Math","30-45 minutes",11.2,0,610
+"Graduate","Others","Science","30-45 minutes",12.2,1,730
+"Undergraduate","Others","Science","30-45 minutes",10.7,0,660
+"Undergraduate","Male","Health","15-30 minutes",13,1,910
+"Graduate","Others","Science","more than 45 minutes",14.1,0,550
+"Undergraduate","Female","Health","15-30 minutes",10.4,1,870
+"Graduate","Female","Science","15-30 minutes",10.6,0,710
+"Undergraduate","Male","Engineering","15-30 minutes",11.6,0,550
+"Undergraduate","Female","Arts","15-30 minutes",11.3,0,700
+"Undergraduate","Female","Environment","15-30 minutes",11.9,1,850
+"Undergraduate","Female","Health","15-30 minutes",10.7,0,640
+"Undergraduate","Male","Math","15-30 minutes",11.8,0,610
+"Undergraduate","Male","Math","15-30 minutes",15.1,0,840
+"Undergraduate","Female","Science","15-30 minutes",12.5,0,720
+"Graduate","Male","Math","30-45 minutes",14,0,760
+"Graduate","Male","Science","30-45 minutes",12.5,0,660
+"Undergraduate","Female","Math","15-30 minutes",11.3,1,850
+"Undergraduate","Male","Math","15-30 minutes",12.5,0,740
+"Undergraduate","Others","Math","15-30 minutes",11.5,0,650
+"Undergraduate","Male","Engineering","15-30 minutes",11.5,0,630
+"Undergraduate","Female","Science","15-30 minutes",11,0,690
+"Undergraduate","Female","Arts","less than 15 minutes",12.7,0,790
+"Undergraduate","Male","Science","15-30 minutes",13.9,0,770
+"Graduate","Others","Environment","30-45 minutes",13.5,0,670
+"Graduate","Male","Engineering","15-30 minutes",15.2,0,900
+"Undergraduate","Female","Science","15-30 minutes",14.1,0,770
+"Undergraduate","Male","Math","less than 15 minutes",13.2,0,840
+"Undergraduate","Others","Health","15-30 minutes",13.6,1,1030
+"Undergraduate","Male","Engineering","30-45 minutes",11.5,0,580
+"Undergraduate","Male","Science","less than 15 minutes",10.8,0,740
+"Undergraduate","Female","Science","30-45 minutes",9.9,0,590
+"Graduate","Others","Engineering","30-45 minutes",11.1,1,800
+"Graduate","Male","Science","15-30 minutes",10.6,1,650
+"Graduate","Others","Science","more than 45 minutes",12.4,0,670
+"Undergraduate","Male","Environment","15-30 minutes",10.6,1,710
+"Graduate","Female","Science","15-30 minutes",11.3,1,830
+"Undergraduate","Female","Environment","30-45 minutes",12.2,1,890
+"Graduate","Female","Arts","30-45 minutes",12.6,1,870
+"Undergraduate","Female","Arts","less than 15 minutes",11.4,0,890
+"Undergraduate","Male","Engineering","less than 15 minutes",11.3,1,830
+"Undergraduate","Female","Math","15-30 minutes",11,1,790
+"Undergraduate","Male","Math","less than 15 minutes",9.7,0,710
+"Undergraduate","Male","Engineering","less than 15 minutes",13.4,0,870
+"Undergraduate","Male","Math","15-30 minutes",11.9,0,550
+"Undergraduate","Male","Science","30-45 minutes",12.6,0,520
+"Undergraduate","Female","Math","15-30 minutes",11.3,1,790
+"Undergraduate","Female","Engineering","15-30 minutes",10.6,0,650
+"Undergraduate","Female","Health","15-30 minutes",11,0,640
+"Graduate","Male","Arts","30-45 minutes",14.2,1,720
+"Undergraduate","Male","Arts","15-30 minutes",13.1,1,940
+"Graduate","Male","Engineering","30-45 minutes",13.2,0,640
+"Undergraduate","Female","Math","15-30 minutes",12.6,0,760
+"Undergraduate","Female","Environment","15-30 minutes",13.9,0,810
+"Graduate","Female","Environment","30-45 minutes",11.8,0,730
+"Undergraduate","Male","Math","15-30 minutes",11.3,0,580
+"Graduate","Others","Math","30-45 minutes",13.5,0,730
+"Undergraduate","Male","Science","less than 15 minutes",14.3,1,960
+"Undergraduate","Female","Math","30-45 minutes",10.9,0,640
+"Graduate","Female","Engineering","30-45 minutes",12.7,0,720
+"Undergraduate","Female","Environment","less than 15 minutes",12.6,0,840
+"Undergraduate","Male","Engineering","15-30 minutes",11,1,800
+"Undergraduate","Male","Science","15-30 minutes",12.7,0,850
+"Undergraduate","Male","Arts","15-30 minutes",13.6,1,950
+"Undergraduate","Male","Math","15-30 minutes",14.3,1,900
+"Undergraduate","Female","Environment","30-45 minutes",12.1,1,800
+"Undergraduate","Male","Health","less than 15 minutes",11.8,1,890
+"Undergraduate","Male","Environment","less than 15 minutes",13.6,0,950
+"Undergraduate","Male","Environment","15-30 minutes",11.8,0,700
+"Undergraduate","Male","Science","30-45 minutes",12.2,0,610
+"Undergraduate","Female","Science","15-30 minutes",14,1,1010
+"Undergraduate","Female","Arts","15-30 minutes",12.8,1,880
+"Graduate","Female","Arts","30-45 minutes",12.8,0,640
+"Undergraduate","Others","Science","15-30 minutes",10.5,0,660
+"Graduate","Others","Health","15-30 minutes",11.2,1,870
+"Undergraduate","Male","Arts","15-30 minutes",11.8,1,810
+"Undergraduate","Female","Health","less than 15 minutes",14.1,1,1110
+"Graduate","Female","Arts","15-30 minutes",12,1,880
+"Graduate","Male","Science","30-45 minutes",11.8,1,800
+"Undergraduate","Male","Science","15-30 minutes",10.7,0,770
+"Undergraduate","Male","Math","less than 15 minutes",12.9,1,1010
+"Graduate","Male","Science","30-45 minutes",13.4,0,630
+"Graduate","Male","Environment","15-30 minutes",12.4,0,700
+"Graduate","Female","Math","more than 45 minutes",11.8,1,600
+"Undergraduate","Male","Science","15-30 minutes",11.6,0,600
+"Graduate","Others","Science","30-45 minutes",12.2,1,760
+"Undergraduate","Others","Arts","30-45 minutes",12.4,1,850
+"Undergraduate","Male","Engineering","less than 15 minutes",12.2,1,880
+"Undergraduate","Female","Math","less than 15 minutes",13.9,1,1050
+"Undergraduate","Female","Math","less than 15 minutes",14.5,0,860
+"Undergraduate","Female","Math","less than 15 minutes",10.3,0,650
+"Undergraduate","Male","Engineering","15-30 minutes",14.3,0,800
+"Undergraduate","Male","Arts","15-30 minutes",13.5,0,770
+"Undergraduate","Male","Math","30-45 minutes",10,0,420
+"Undergraduate","Male","Engineering","less than 15 minutes",12,1,1010
+"Graduate","Male","Math","15-30 minutes",11.4,0,560
+"Graduate","Female","Health","more than 45 minutes",13.2,0,700
+"Undergraduate","Male","Math","15-30 minutes",14.2,1,870
+"Undergraduate","Male","Math","15-30 minutes",12.4,0,660
+"Graduate","Male","Environment","30-45 minutes",13.7,1,770
+"Undergraduate","Male","Science","15-30 minutes",12.9,0,710
+"Undergraduate","Male","Health","15-30 minutes",12.8,1,860
+"Undergraduate","Others","Math","30-45 minutes",11.5,0,600
+"Undergraduate","Male","Arts","15-30 minutes",13.2,0,710
+"Undergraduate","Male","Science","30-45 minutes",13.4,1,730
+"Undergraduate","Male","Science","30-45 minutes",11.1,0,600
+"Undergraduate","Male","Engineering","15-30 minutes",14.8,0,820
+"Undergraduate","Others","Engineering","30-45 minutes",11.8,1,770
+"Undergraduate","Male","Science","15-30 minutes",11.3,1,860
+"Undergraduate","Female","Arts","30-45 minutes",11.2,0,580
+"Undergraduate","Male","Environment","15-30 minutes",13.5,1,880
+"Undergraduate","Male","Health","30-45 minutes",15.8,1,930
+"Undergraduate","Male","Math","15-30 minutes",15.9,0,790
+"Undergraduate","Male","Math","less than 15 minutes",13.8,0,820
+"Graduate","Male","Science","30-45 minutes",13.1,0,630
+"Graduate","Male","Engineering","15-30 minutes",10.7,0,720
+"Undergraduate","Male","Health","less than 15 minutes",13.5,0,780
+"Undergraduate","Others","Health","15-30 minutes",11.7,1,820
+"Undergraduate","Male","Environment","less than 15 minutes",13,0,850
+"Undergraduate","Others","Science","15-30 minutes",11.4,1,880
+"Undergraduate","Male","Health","less than 15 minutes",12.6,0,800
+"Undergraduate","Others","Engineering","15-30 minutes",11.3,0,770
+"Undergraduate","Others","Math","30-45 minutes",12.8,1,870
+"Undergraduate","Female","Science","less than 15 minutes",12.3,1,990
+"Undergraduate","Male","Science","15-30 minutes",14.2,1,880
+"Graduate","Male","Engineering","30-45 minutes",12.2,0,630
+"Undergraduate","Male","Engineering","15-30 minutes",11.2,1,780
+"Undergraduate","Female","Science","less than 15 minutes",12.7,0,890
+"Undergraduate","Others","Science","30-45 minutes",12.3,0,700
+"Undergraduate","Male","Math","15-30 minutes",13.1,0,680
+"Undergraduate","Others","Math","15-30 minutes",14.3,1,1010
+"Undergraduate","Female","Environment","15-30 minutes",12.7,0,740
+"Undergraduate","Male","Engineering","15-30 minutes",12.3,0,710
+"Undergraduate","Male","Arts","less than 15 minutes",13,0,810
+"Undergraduate","Female","Math","15-30 minutes",13.1,0,760
+"Undergraduate","Male","Engineering","15-30 minutes",11.7,1,770
+"Graduate","Male","Engineering","30-45 minutes",12.6,0,690
+"Undergraduate","Female","Arts","15-30 minutes",11.5,1,830
+"Graduate","Female","Engineering","15-30 minutes",11.7,1,900
+"Undergraduate","Male","Environment","30-45 minutes",12,0,660
+"Undergraduate","Female","Environment","15-30 minutes",11.7,1,860
+"Undergraduate","Male","Math","less than 15 minutes",12.7,1,1060
+"Undergraduate","Male","Science","15-30 minutes",14.2,1,900
+"Undergraduate","Male","Health","less than 15 minutes",11.3,1,970
+"Undergraduate","Female","Math","15-30 minutes",11.9,0,740
+"Undergraduate","Others","Environment","30-45 minutes",12.7,1,740
+"Undergraduate","Female","Arts","15-30 minutes",11.7,0,760
+"Undergraduate","Male","Engineering","15-30 minutes",11.6,0,680
+"Undergraduate","Male","Health","less than 15 minutes",11.8,0,720
+"Undergraduate","Female","Health","15-30 minutes",15.7,0,950
+"Undergraduate","Female","Health","15-30 minutes",10.7,1,780
+"Undergraduate","Others","Science","15-30 minutes",10.8,1,770
+"Graduate","Others","Math","30-45 minutes",12.2,0,660
+"Graduate","Male","Environment","30-45 minutes",12.7,1,840
+"Undergraduate","Male","Math","15-30 minutes",14.3,0,800
+"Undergraduate","Female","Science","30-45 minutes",12.8,1,860
+"Graduate","Male","Engineering","15-30 minutes",11.9,1,870
+"Graduate","Male","Health","30-45 minutes",12.8,0,550
+"Undergraduate","Others","Engineering","15-30 minutes",12.5,0,770
+"Undergraduate","Female","Engineering","30-45 minutes",11.7,1,720
+"Graduate","Male","Math","15-30 minutes",15.9,1,930
+"Undergraduate","Male","Engineering","15-30 minutes",14.4,0,740
+"Undergraduate","Female","Science","15-30 minutes",12.8,0,800
+"Undergraduate","Male","Engineering","less than 15 minutes",14.5,1,1070
+"Graduate","Others","Science","30-45 minutes",12.6,0,690
+"Graduate","Female","Environment","30-45 minutes",13.4,0,690
+"Undergraduate","Female","Health","less than 15 minutes",11,0,840
+"Undergraduate","Others","Engineering","less than 15 minutes",12,0,880
+"Undergraduate","Male","Engineering","less than 15 minutes",10.7,0,740
+"Undergraduate","Male","Engineering","30-45 minutes",12,0,670
+"Undergraduate","Male","Engineering","15-30 minutes",12.5,0,690
+"Undergraduate","Female","Math","30-45 minutes",13.3,0,690
+"Graduate","Male","Science","30-45 minutes",11.2,1,700
+"Graduate","Female","Health","15-30 minutes",10.7,0,740
+"Undergraduate","Female","Math","less than 15 minutes",12.5,1,980
+"Graduate","Male","Math","30-45 minutes",10.7,0,500
+"Graduate","Male","Engineering","15-30 minutes",10.8,1,760
+"Undergraduate","Female","Math","30-45 minutes",13.2,0,670
+"Undergraduate","Male","Math","15-30 minutes",10,0,590
+"Undergraduate","Female","Math","15-30 minutes",11.4,0,590
+"Undergraduate","Others","Health","15-30 minutes",12.8,1,940
+"Graduate","Female","Science","15-30 minutes",13.6,1,900
+"Graduate","Male","Arts","15-30 minutes",15.4,0,840
+"Graduate","Others","Engineering","30-45 minutes",12.5,0,750
+"Undergraduate","Male","Math","30-45 minutes",13.1,1,720
+"Undergraduate","Male","Engineering","30-45 minutes",12.5,0,630
+"Graduate","Female","Arts","30-45 minutes",14.1,0,720
+"Undergraduate","Male","Math","15-30 minutes",12.3,0,690
+"Graduate","Others","Environment","30-45 minutes",11.1,1,740
+"Graduate","Female","Science","30-45 minutes",11.8,0,580
+"Undergraduate","Male","Engineering","less than 15 minutes",10.6,0,690
+"Graduate","Male","Science","30-45 minutes",13.8,0,710
+"Graduate","Others","Environment","15-30 minutes",12.9,0,750
+"Undergraduate","Male","Math","15-30 minutes",12.3,1,830
+"Undergraduate","Female","Environment","less than 15 minutes",12.8,1,1030
+"Undergraduate","Male","Arts","15-30 minutes",10.2,0,550
+"Undergraduate","Female","Engineering","30-45 minutes",11.9,1,810
+"Graduate","Others","Engineering","15-30 minutes",11.8,1,950
+"Graduate","Male","Health","30-45 minutes",11.3,0,560
+"Graduate","Male","Arts","15-30 minutes",9.6,0,550
+"Undergraduate","Others","Math","15-30 minutes",12.4,0,740
+"Undergraduate","Male","Math","15-30 minutes",11,0,630
+"Undergraduate","Male","Arts","15-30 minutes",12.4,0,740
+"Undergraduate","Male","Arts","30-45 minutes",14.2,0,670
+"Undergraduate","Male","Health","15-30 minutes",11.1,0,580
+"Graduate","Male","Science","30-45 minutes",11.7,1,800
+"Undergraduate","Others","Health","less than 15 minutes",10.2,1,980
+"Undergraduate","Others","Science","15-30 minutes",9.7,0,630
+"Undergraduate","Others","Environment","15-30 minutes",15.8,0,880
+"Undergraduate","Male","Science","less than 15 minutes",15.3,1,1050
+"Graduate","Female","Math","15-30 minutes",12.7,1,880
+"Undergraduate","Female","Math","30-45 minutes",13.5,1,850
+"Undergraduate","Female","Health","less than 15 minutes",12.7,0,870
+"Undergraduate","Female","Science","less than 15 minutes",10.4,1,930
+"Undergraduate","Female","Arts","30-45 minutes",14,0,820
+"Graduate","Male","Science","more than 45 minutes",12.9,0,550
+"Undergraduate","Female","Health","30-45 minutes",13.7,0,690
+"Undergraduate","Female","Health","30-45 minutes",12.4,1,810
+"Graduate","Female","Engineering","15-30 minutes",11.7,0,720
+"Undergraduate","Male","Math","15-30 minutes",11.5,0,590
+"Undergraduate","Female","Science","less than 15 minutes",12,0,920
+"Undergraduate","Male","Engineering","15-30 minutes",10.9,0,660
+"Graduate","Male","Health","30-45 minutes",11.1,1,700
+"Undergraduate","Female","Health","30-45 minutes",10.5,0,590
+"Undergraduate","Male","Science","30-45 minutes",12.8,1,780
+"Graduate","Male","Arts","30-45 minutes",12.8,0,580
+"Undergraduate","Female","Math","15-30 minutes",10.9,0,640
+"Graduate","Others","Math","30-45 minutes",10.3,0,530
+"Undergraduate","Male","Arts","15-30 minutes",11.9,0,660
+"Undergraduate","Female","Science","15-30 minutes",12.5,0,700
+"Undergraduate","Male","Math","15-30 minutes",11.9,1,740
+"Undergraduate","Female","Arts","15-30 minutes",13.3,0,780
+"Graduate","Female","Health","30-45 minutes",11.2,1,660
+"Undergraduate","Others","Math","30-45 minutes",12.5,1,820
+"Graduate","Others","Environment","30-45 minutes",10.8,1,750
+"Undergraduate","Female","Environment","15-30 minutes",12.7,1,890
+"Graduate","Female","Math","30-45 minutes",10.1,0,480
+"Undergraduate","Male","Arts","less than 15 minutes",12,0,720
+"Undergraduate","Female","Health","less than 15 minutes",12,0,810
+"Undergraduate","Male","Health","less than 15 minutes",14.6,1,1070
+"Undergraduate","Female","Math","15-30 minutes",14,0,870
+"Undergraduate","Male","Engineering","15-30 minutes",12.6,0,720
+"Undergraduate","Male","Math","15-30 minutes",13.3,0,770
+"Undergraduate","Female","Environment","15-30 minutes",11,1,830
+"Graduate","Female","Health","15-30 minutes",10.3,0,640
+"Undergraduate","Male","Engineering","15-30 minutes",11.5,1,830
+"Graduate","Female","Math","30-45 minutes",10.4,1,640
+"Undergraduate","Others","Math","less than 15 minutes",12,1,900
+"Undergraduate","Male","Science","30-45 minutes",13.7,0,590
+"Graduate","Female","Health","15-30 minutes",10.9,0,640
+"Undergraduate","Female","Math","15-30 minutes",11.3,0,760
+"Undergraduate","Male","Math","30-45 minutes",12,1,720
+"Undergraduate","Female","Engineering","15-30 minutes",11.1,1,800
+"Undergraduate","Female","Math","less than 15 minutes",12.8,0,860
+"Undergraduate","Others","Science","15-30 minutes",15.1,0,890
+"Graduate","Male","Math","15-30 minutes",12.1,0,740
+"Undergraduate","Female","Math","15-30 minutes",12.8,0,690
+"Undergraduate","Female","Health","15-30 minutes",12.3,1,1040
+"Undergraduate","Male","Science","30-45 minutes",14,1,850
+"Graduate","Male","Science","15-30 minutes",13.2,0,700
+"Undergraduate","Male","Engineering","30-45 minutes",11.8,1,790
+"Undergraduate","Others","Science","30-45 minutes",14.5,0,650
+"Undergraduate","Male","Math","less than 15 minutes",12,1,930
+"Undergraduate","Female","Math","15-30 minutes",12.3,0,770
+"Graduate","Others","Math","30-45 minutes",12.1,0,600
+"Graduate","Male","Health","30-45 minutes",15.1,0,670
+"Undergraduate","Male","Math","15-30 minutes",11.7,0,660
+"Undergraduate","Male","Math","15-30 minutes",11.9,0,680
+"Undergraduate","Female","Health","15-30 minutes",12.7,0,760
+"Graduate","Female","Environment","more than 45 minutes",12,0,550
+"Graduate","Male","Engineering","more than 45 minutes",12.4,0,490
+"Graduate","Female","Health","30-45 minutes",12.2,0,660
+"Undergraduate","Male","Science","30-45 minutes",12.4,1,810
+"Undergraduate","Male","Engineering","30-45 minutes",11.4,0,510
+"Undergraduate","Others","Science","15-30 minutes",11.6,1,890
+"Undergraduate","Others","Math","less than 15 minutes",11.8,0,820
+"Undergraduate","Female","Arts","30-45 minutes",12.7,0,580
+"Undergraduate","Male","Math","15-30 minutes",12.2,1,790
+"Undergraduate","Female","Science","15-30 minutes",12.2,1,890
+"Undergraduate","Female","Health","less than 15 minutes",9.9,0,790
+"Undergraduate","Male","Math","15-30 minutes",13.4,1,890
+"Undergraduate","Female","Math","15-30 minutes",13.3,0,790
+"Graduate","Others","Health","more than 45 minutes",11.5,0,500
+"Undergraduate","Female","Health","30-45 minutes",12.9,1,770
+"Undergraduate","Female","Math","15-30 minutes",13.2,1,850
+"Undergraduate","Female","Health","less than 15 minutes",9.9,0,790
+"Undergraduate","Male","Math","30-45 minutes",15.7,0,670
+"Undergraduate","Female","Math","15-30 minutes",12.5,0,710
+"Undergraduate","Male","Math","15-30 minutes",13.8,0,710
+"Graduate","Female","Arts","30-45 minutes",11.9,0,660
+"Undergraduate","Female","Arts","less than 15 minutes",12.5,0,840
+"Undergraduate","Female","Arts","15-30 minutes",11.8,1,890
+"Graduate","Female","Health","30-45 minutes",13.3,0,630
+"Undergraduate","Male","Science","15-30 minutes",11.8,0,610
+"Undergraduate","Male","Health","15-30 minutes",10.9,0,630
+"Undergraduate","Male","Math","15-30 minutes",12.5,0,650
+"Undergraduate","Female","Math","15-30 minutes",11.6,1,780
+"Graduate","Male","Math","more than 45 minutes",11.6,1,670
+"Undergraduate","Female","Engineering","15-30 minutes",13,0,810
+"Undergraduate","Male","Math","less than 15 minutes",14.9,0,910
+"Graduate","Female","Health","15-30 minutes",17.2,0,950
+"Undergraduate","Male","Math","30-45 minutes",12.6,0,580
+"Graduate","Others","Engineering","15-30 minutes",15.2,0,870
+"Graduate","Others","Health","30-45 minutes",12.1,0,580
+"Undergraduate","Female","Arts","30-45 minutes",11.6,0,670
+"Undergraduate","Male","Science","less than 15 minutes",13,0,850
+"Undergraduate","Male","Health","30-45 minutes",13.8,0,620
+"Undergraduate","Male","Environment","15-30 minutes",13,0,790
+"Graduate","Male","Math","30-45 minutes",14,1,740
+"Graduate","Male","Arts","30-45 minutes",13.8,0,650
+"Undergraduate","Male","Math","less than 15 minutes",10.3,1,770
+"Undergraduate","Female","Engineering","less than 15 minutes",10.3,1,930
+"Graduate","Female","Math","30-45 minutes",13.3,0,740
+"Undergraduate","Female","Science","15-30 minutes",13.6,0,870
+"Undergraduate","Female","Math","15-30 minutes",14.8,1,1010
+"Undergraduate","Male","Health","15-30 minutes",13,0,710
+"Graduate","Others","Math","30-45 minutes",11.9,1,770
+"Graduate","Others","Science","15-30 minutes",11.5,0,620
+"Undergraduate","Female","Math","less than 15 minutes",11.1,1,860
+"Undergraduate","Male","Arts","less than 15 minutes",13.3,0,760
+"Graduate","Others","Math","30-45 minutes",12.5,1,780
+"Graduate","Male","Science","30-45 minutes",11.4,1,810
+"Undergraduate","Male","Math","15-30 minutes",13.2,1,790
+"Undergraduate","Male","Science","less than 15 minutes",11.3,0,800
+"Graduate","Male","Engineering","30-45 minutes",11.9,0,600
+"Undergraduate","Male","Engineering","less than 15 minutes",12.2,0,770
+"Undergraduate","Male","Math","less than 15 minutes",11.4,0,740
+"Undergraduate","Male","Arts","15-30 minutes",11.4,1,860
+"Undergraduate","Male","Math","15-30 minutes",11.8,1,810
+"Undergraduate","Female","Science","15-30 minutes",11.9,0,710
+"Undergraduate","Male","Engineering","less than 15 minutes",13.1,1,960
+"Undergraduate","Female","Science","less than 15 minutes",14.3,0,910
+"Graduate","Female","Health","15-30 minutes",11.6,0,640
+"Graduate","Male","Arts","30-45 minutes",10.4,0,450
+"Undergraduate","Female","Math","15-30 minutes",13.4,1,930
+"Graduate","Male","Math","30-45 minutes",12.8,0,540
+"Graduate","Others","Arts","30-45 minutes",12.1,1,800
+"Graduate","Female","Environment","30-45 minutes",15.9,1,1110
+"Undergraduate","Female","Environment","less than 15 minutes",14.9,0,900
+"Undergraduate","Others","Science","less than 15 minutes",13.1,0,900
+"Graduate","Female","Math","more than 45 minutes",11,0,490
+"Undergraduate","Female","Math","30-45 minutes",13.4,0,640
+"Graduate","Female","Environment","30-45 minutes",13.1,0,650
+"Undergraduate","Others","Engineering","less than 15 minutes",11.9,0,840
+"Undergraduate","Others","Engineering","less than 15 minutes",11.3,1,930
+"Undergraduate","Male","Science","less than 15 minutes",10.6,0,650
+"Undergraduate","Male","Science","30-45 minutes",12,1,700
+"Graduate","Female","Environment","15-30 minutes",13.1,0,730
+"Undergraduate","Male","Science","15-30 minutes",13.8,0,780
+"Undergraduate","Female","Science","15-30 minutes",11.3,0,780
+"Undergraduate","Male","Math","less than 15 minutes",15.6,0,930
+"Undergraduate","Male","Math","less than 15 minutes",13,0,810
+"Undergraduate","Others","Engineering","15-30 minutes",13.2,0,850
+"Undergraduate","Female","Health","15-30 minutes",12.9,0,760
+"Undergraduate","Female","Environment","15-30 minutes",15,0,930
+"Graduate","Male","Arts","30-45 minutes",12.1,0,590
+"Graduate","Male","Arts","30-45 minutes",10.8,1,730
+"Graduate","Female","Health","30-45 minutes",11.9,1,790
+"Undergraduate","Male","Science","less than 15 minutes",11.6,1,950
+"Undergraduate","Female","Math","15-30 minutes",10.3,0,690
+"Undergraduate","Others","Engineering","30-45 minutes",11.9,0,630
+"Undergraduate","Male","Science","15-30 minutes",12.6,0,720
+"Undergraduate","Male","Math","less than 15 minutes",12,1,870
+"Graduate","Female","Science","30-45 minutes",12.2,0,610
+"Undergraduate","Female","Arts","less than 15 minutes",12.9,0,890
+"Undergraduate","Others","Health","15-30 minutes",13.4,0,920
+"Undergraduate","Female","Health","30-45 minutes",12.2,1,840
+"Graduate","Female","Math","more than 45 minutes",14.7,0,550
+"Graduate","Male","Arts","15-30 minutes",11.6,0,700
+"Undergraduate","Others","Environment","15-30 minutes",11.6,0,710
+"Undergraduate","Male","Math","15-30 minutes",13.1,0,640
+"Undergraduate","Others","Engineering","15-30 minutes",15.6,0,830
+"Undergraduate","Others","Health","30-45 minutes",11.9,0,720
+"Undergraduate","Male","Math","15-30 minutes",18.7,0,990
+"Undergraduate","Others","Math","15-30 minutes",11.7,0,700
+"Undergraduate","Male","Engineering","30-45 minutes",15.5,0,760
+"Undergraduate","Male","Environment","less than 15 minutes",11.9,0,840
+"Undergraduate","Female","Environment","less than 15 minutes",12.1,0,880
+"Graduate","Male","Math","15-30 minutes",13.1,0,660
+"Graduate","Female","Math","30-45 minutes",11.9,0,540
+"Graduate","Others","Arts","more than 45 minutes",12.2,1,680
+"Undergraduate","Male","Engineering","15-30 minutes",12.1,1,810
+"Graduate","Female","Health","30-45 minutes",13.8,0,720
+"Undergraduate","Female","Arts","30-45 minutes",11.9,0,720
+"Undergraduate","Female","Health","less than 15 minutes",11.5,1,1010
+"Undergraduate","Male","Engineering","15-30 minutes",11.9,0,630
+"Undergraduate","Male","Science","30-45 minutes",13.7,1,840
+"Graduate","Male","Environment","more than 45 minutes",13.7,0,530
+"Undergraduate","Male","Health","15-30 minutes",15,0,830
+"Undergraduate","Male","Engineering","15-30 minutes",11.3,0,650
+"Undergraduate","Female","Environment","15-30 minutes",11.9,0,690
+"Undergraduate","Others","Arts","less than 15 minutes",11.2,0,830
+"Undergraduate","Female","Math","15-30 minutes",12.8,0,780
+"Graduate","Male","Health","30-45 minutes",13.3,0,570
+"Undergraduate","Female","Health","15-30 minutes",11.1,0,610
+"Undergraduate","Male","Health","less than 15 minutes",12.8,1,1020
+"Graduate","Female","Health","more than 45 minutes",11.3,0,470
+"Graduate","Male","Math","30-45 minutes",11.2,1,720
+"Undergraduate","Female","Arts","15-30 minutes",13.8,0,790
+"Graduate","Male","Engineering","more than 45 minutes",11.1,1,570
+"Undergraduate","Male","Math","15-30 minutes",11.9,0,630
+"Undergraduate","Male","Engineering","30-45 minutes",14.7,1,900
+"Graduate","Male","Engineering","15-30 minutes",12,0,750
+"Undergraduate","Male","Environment","15-30 minutes",11.7,1,880
+"Undergraduate","Male","Arts","15-30 minutes",14.2,0,880
+"Undergraduate","Female","Math","15-30 minutes",11.1,0,730
+"Undergraduate","Female","Science","15-30 minutes",13.3,1,960
+"Undergraduate","Male","Math","15-30 minutes",14.2,1,960
+"Undergraduate","Male","Engineering","15-30 minutes",13.1,0,720
+"Graduate","Others","Engineering","15-30 minutes",12.5,0,760
+"Undergraduate","Male","Math","less than 15 minutes",12.9,1,980
+"Undergraduate","Others","Health","15-30 minutes",11,1,920
+"Undergraduate","Male","Arts","30-45 minutes",10,0,450
+"Undergraduate","Male","Science","15-30 minutes",13.2,0,680
+"Undergraduate","Male","Engineering","15-30 minutes",13.4,1,890
+"Undergraduate","Others","Math","less than 15 minutes",11.4,1,890
+"Undergraduate","Others","Arts","less than 15 minutes",12.3,1,1030
+"Graduate","Male","Science","30-45 minutes",14.1,0,660
+"Graduate","Female","Engineering","30-45 minutes",12.1,0,600
+"Undergraduate","Male","Math","15-30 minutes",11.5,0,600
+"Graduate","Male","Engineering","15-30 minutes",12.6,1,920
+"Undergraduate","Others","Science","less than 15 minutes",12,0,820
+"Undergraduate","Male","Environment","less than 15 minutes",11.7,1,890
+"Undergraduate","Male","Math","30-45 minutes",12.5,1,740
+"Undergraduate","Female","Health","15-30 minutes",11.9,1,880
+"Undergraduate","Female","Science","15-30 minutes",12.2,0,780
+"Undergraduate","Others","Health","15-30 minutes",12.9,1,990
+"Undergraduate","Male","Math","15-30 minutes",11.2,0,570
+"Undergraduate","Others","Arts","15-30 minutes",12.5,0,790
+"Graduate","Male","Engineering","30-45 minutes",13.9,0,670
+"Graduate","Female","Arts","more than 45 minutes",13.5,1,730
+"Undergraduate","Female","Health","15-30 minutes",13.6,0,800
+"Graduate","Female","Math","15-30 minutes",13.1,0,760
+"Graduate","Male","Math","more than 45 minutes",11.7,1,660
+"Graduate","Male","Arts","more than 45 minutes",10.3,1,580
+"Undergraduate","Female","Math","30-45 minutes",12.1,1,700
+"Undergraduate","Female","Health","less than 15 minutes",9.8,0,780
+"Graduate","Others","Math","30-45 minutes",15.4,0,700
+"Undergraduate","Male","Science","15-30 minutes",10.6,0,620
+"Undergraduate","Male","Arts","30-45 minutes",13.2,1,740
+"Undergraduate","Others","Environment","less than 15 minutes",10.2,0,820
+"Undergraduate","Female","Arts","30-45 minutes",12.8,1,800
+"Graduate","Others","Health","30-45 minutes",14.8,0,740
+"Undergraduate","Female","Health","15-30 minutes",14.7,0,850
+"Undergraduate","Female","Science","less than 15 minutes",12.9,0,840
+"Graduate","Female","Science","30-45 minutes",16.5,0,790
+"Undergraduate","Male","Environment","15-30 minutes",11.2,0,650
+"Undergraduate","Male","Health","less than 15 minutes",11.5,0,690
+"Graduate","Male","Engineering","15-30 minutes",12.2,0,630
+"Graduate","Female","Engineering","30-45 minutes",16.1,0,880
+"Undergraduate","Female","Arts","less than 15 minutes",12.6,0,770
+"Undergraduate","Male","Environment","less than 15 minutes",12.5,1,940
+"Undergraduate","Male","Engineering","less than 15 minutes",13.3,1,1040
+"Undergraduate","Female","Science","15-30 minutes",11.3,1,840
+"Undergraduate","Male","Engineering","15-30 minutes",12.3,0,680
+"Graduate","Male","Engineering","30-45 minutes",10.9,1,670
+"Undergraduate","Male","Engineering","30-45 minutes",13.3,0,550
+"Undergraduate","Female","Health","15-30 minutes",12.7,0,720
+"Undergraduate","Others","Science","less than 15 minutes",15.4,1,1200
+"Undergraduate","Others","Engineering","15-30 minutes",13.3,1,890
+"Graduate","Others","Math","30-45 minutes",11.5,0,640
+"Undergraduate","Female","Health","15-30 minutes",12.5,0,710
+"Graduate","Male","Math","more than 45 minutes",11.7,1,610
+"Undergraduate","Others","Math","15-30 minutes",12.4,1,890
+"Undergraduate","Others","Science","15-30 minutes",12,1,860
+"Undergraduate","Male","Science","less than 15 minutes",11.7,1,920
+"Undergraduate","Others","Math","15-30 minutes",13.5,0,800
+"Undergraduate","Female","Math","less than 15 minutes",13.7,0,850
+"Graduate","Others","Science","more than 45 minutes",16.5,0,720
+"Undergraduate","Male","Math","30-45 minutes",11.7,1,670
+"Graduate","Male","Health","more than 45 minutes",12.1,0,450
+"Graduate","Female","Math","30-45 minutes",11.2,1,760
+"Graduate","Male","Science","30-45 minutes",14,0,700
+"Undergraduate","Female","Environment","less than 15 minutes",13,0,820
+"Graduate","Female","Science","30-45 minutes",11.4,0,570
+"Undergraduate","Female","Arts","15-30 minutes",10.7,0,720
+"Undergraduate","Female","Science","less than 15 minutes",13.3,0,940
+"Graduate","Male","Environment","15-30 minutes",12.3,0,720
+"Undergraduate","Male","Health","less than 15 minutes",11.5,0,800
+"Graduate","Female","Science","30-45 minutes",12.1,1,760
+"Undergraduate","Male","Math","less than 15 minutes",13.2,0,860
+"Graduate","Female","Math","30-45 minutes",10.4,1,740
+"Graduate","Others","Math","15-30 minutes",12.1,1,850
+"Undergraduate","Female","Engineering","less than 15 minutes",14.6,0,970
+"Graduate","Others","Math","more than 45 minutes",12.6,0,550
+"Undergraduate","Female","Health","less than 15 minutes",12.6,1,1060
+"Graduate","Female","Math","30-45 minutes",13.6,0,700
+"Undergraduate","Male","Arts","15-30 minutes",11.7,1,810
+"Undergraduate","Male","Engineering","30-45 minutes",12.6,0,580
+"Undergraduate","Female","Arts","15-30 minutes",10.9,0,790
+"Graduate","Female","Environment","30-45 minutes",11.7,0,670
+"Undergraduate","Female","Health","15-30 minutes",15.9,0,890
+"Undergraduate","Female","Math","less than 15 minutes",13.1,0,850
+"Undergraduate","Male","Math","less than 15 minutes",12.4,0,810
+"Graduate","Others","Science","30-45 minutes",11.4,1,740
+"Graduate","Female","Arts","30-45 minutes",10.9,1,690
+"Undergraduate","Others","Engineering","30-45 minutes",11.2,1,750
+"Undergraduate","Male","Environment","less than 15 minutes",13.4,0,790
+"Undergraduate","Female","Math","less than 15 minutes",10.2,1,960
+"Graduate","Female","Health","15-30 minutes",11.1,0,720
+"Undergraduate","Female","Arts","less than 15 minutes",12.8,0,890
+"Undergraduate","Female","Math","15-30 minutes",14.8,0,880
+"Undergraduate","Others","Arts","15-30 minutes",14.4,0,800
+"Graduate","Others","Health","30-45 minutes",13,0,670
+"Undergraduate","Female","Health","30-45 minutes",12.1,0,710
+"Undergraduate","Male","Math","15-30 minutes",12.6,1,800
+"Graduate","Male","Science","more than 45 minutes",10.8,0,440
+"Undergraduate","Male","Engineering","15-30 minutes",13.9,1,930
+"Undergraduate","Male","Engineering","15-30 minutes",13.1,0,740
+"Graduate","Female","Arts","30-45 minutes",12.8,1,890
+"Undergraduate","Female","Math","less than 15 minutes",10.9,0,700
+"Undergraduate","Male","Engineering","15-30 minutes",14,0,800
+"Graduate","Others","Environment","more than 45 minutes",13.3,0,610
+"Undergraduate","Female","Health","less than 15 minutes",13.8,0,870
+"Undergraduate","Male","Engineering","30-45 minutes",11.9,0,540
+"Undergraduate","Male","Engineering","30-45 minutes",13.2,0,640
+"Undergraduate","Male","Health","15-30 minutes",14.2,0,810
+"Undergraduate","Male","Science","15-30 minutes",11.7,0,740
+"Undergraduate","Female","Science","15-30 minutes",10.6,1,840
+"Graduate","Female","Health","15-30 minutes",10.8,0,710
+"Undergraduate","Male","Math","15-30 minutes",12.8,1,920
+"Undergraduate","Female","Math","less than 15 minutes",12.1,0,770
+"Graduate","Male","Science","30-45 minutes",13.8,0,620
+"Undergraduate","Male","Engineering","15-30 minutes",12.8,0,720
+"Undergraduate","Female","Math","15-30 minutes",11.1,1,830
+"Undergraduate","Female","Math","less than 15 minutes",14.9,1,1020
+"Undergraduate","Male","Science","15-30 minutes",11.6,0,700

@@ -1,0 +1,26 @@
+# Data Set {#app-dataset}
+
+We use an artificially generated pseudo data set `r embed_data_file("data/dataset/fakeRent.csv")` as a running example throughout the book. The data set contains information about students' rent expenses. The variables collected in the data set corresponds to columns in the data set, namely
+
+- `rent`: the rent price of students, which is continuous.
+
+- `study`: indicates whether the level of study of the student is undergraduate or graduate. This variable is categorical.
+
+- `gender`: the gender of the student, which can be either `"female"`, `"male"`, or `"others"`. This variable is categorical.
+
+- `faculty`: the faculty of the student. It can be either `"Arts"`, `"Engineering"`, `"Environment"`, `"Health"`, `"Math"`, or `"Science"`. This variable is categorical.
+
+- `distance`: the distance from the rented place to school. It can be either `"less than 15 minutes"`, `"15-30 minutes"`, `"30-45 minutes"`, or `"more than 40 minutes"`. This variable is categorical.
+
+- `washroom`: whether the rented place has a private washroom. `1` indicates there is a private washroom and `0` otherwise. This variable is binary.
+
+- `area`: the area of the rented place in $m^2$. This variable is continuous.
+
+Read the data set and save it into **R** working environment as an object called `rent` using the following code
+
+```{r dataset, echo=TRUE, eval=FALSE}
+rent <- read.csv("fakeRent.csv")
+```
+
+This `rent` object will be used throughout the book.
+
