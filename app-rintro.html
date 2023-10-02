@@ -850,7 +850,7 @@ Figure A.1: RStduio windows
 </div>
 <div id="load-data-files" class="section level3 hasAnchor" number="13.8.2">
 <h3><span class="header-section-number">A.8.2</span> Load Data Files<a href="app-rintro.html#load-data-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose that your data is saved in a file called <a href="C:/Users/trang/Documents/mybooks/stat_1st_course/book/_book/data/mydata.txt" download="mydata.txt">mydata.txt</a>. You can import the dataset into <strong>R</strong> environment.</p>
+<p>Suppose that your data is saved in a file called <a href="data/mydata.txt" download="mydata.txt">mydata.txt</a>. You can import the dataset into <strong>R</strong> environment.</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="app-rintro.html#cb124-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;mydata.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The argument <code>header=TRUE</code> tells <strong>R</strong> to use the first line in the text file as the names of the columns. If the column headings are not included in the file, the argument can be omitted.</p>
 <p>Now, the <code>mydata.txt</code> data set is loaded into <strong>R</strong> environment and is saved as a <strong>data-frame</strong> object called <code>mydata</code>. We can then work with this data set using <strong>R</strong>.</p>
