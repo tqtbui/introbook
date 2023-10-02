@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Confidence Intervals | A First Course In Statistics</title>
+  <meta name="description" content="7 Confidence Intervals | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Confidence Intervals | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Confidence Intervals | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-mean.html"/>
+<link rel="next" href="chap-hyp.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-confint" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Confidence Intervals<a href="chap-confint.html#chap-confint" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the last chapter, we have learned about sampling distribution and a very important theorem in Statistics: the Central Limit Theorem, which states that no matter which distribution you start with, as long as you have a <strong>large enough</strong> independent sample from an identical distribution, your sample mean will always approximately follow normal distribution. Now we have all the tools we need to do <strong>statistical inference</strong>, which was promised in Chapter <a href="chap-step.html#chap-step">1</a>.</p>
+<p>Recall that statistical inference helps you use information from a sample to make conclusions about the population. There are two popular types of conclusions that we can make: (i) the intervals where the population parameter can lie in with high probabilities, i.e., <strong>confidence intervals</strong>; and (ii) the probabilistic answers to yes-no questions about the population parameter, i.e., <strong>hypothesis tests</strong>. In this chapter, we will first learn about confidence intervals.</p>
+<div id="confint-sec-pivotal" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Pivotal Quantity<a href="chap-confint.html#confint-sec-pivotal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An <strong>important tool</strong> for confidence intervals and hypothesis tests is <strong>pivotal quantity</strong>. A <strong>pivotal quantity</strong> <span class="math inline">\(Q_{\theta}\)</span> for a population parameter <span class="math inline">\(\theta\)</span> is a function of the random sample data <span class="math inline">\(X_1, X_2, ..., X_n\)</span> and <span class="math inline">\(\theta\)</span>, i.e.,
+<span class="math display">\[Q_{\theta} = g(X_1, X_2, ..., X_n, \theta),\]</span>
+so that <strong>the distribution of <span class="math inline">\(Q_{\theta}\)</span> is the same for all values of <span class="math inline">\(\theta\)</span></strong>.</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> In this chapter, we will be studying confidence intervals for the population mean <span class="math inline">\(\mu\)</span>. Therefore, we will focus our attention on pivotal quantities for <span class="math inline">\(\mu\)</span>.</p>
+</div>
+<div id="linearity-of-normal-distribution-1" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Linearity of Normal Distribution<a href="chap-confint.html#linearity-of-normal-distribution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall in Chapter <a href="chap-normal.html#chap-normal">5</a>, we learn that</p>
+<div class="myEquation">
+<p><span class="math display">\[\text{If } X \sim \mathcal{N}(\mu, \sigma^2) \text{ then } a+bX \sim \mathcal{N}(a + b\mu, b^2\sigma^2)\]</span></p>
+</div>
+</div>
+<div id="pivotal-quantity-for-the-mean-of-a-normal-population" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Pivotal Quantity for the Mean of a Normal Population<a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Suppose our population is normal</strong>, i.e., <span class="math inline">\(X\sim \mathcal{N}(\mu, \sigma^2)\)</span>, and we have the sample <span class="math inline">\(X_1, X_2, ..., X_n\)</span>. Then from Chapter <a href="chap-mean.html#chap-mean">6</a>, we learn the property of normal distribution that</p>
+<p><span class="math display">\[\bar{X}_n = \frac{X_1 + X_2 + ... + X_n}{n} \sim N\left(\mu, \frac{\sigma^2}{n}\right)\]</span></p>
+<p>Note that <span class="math inline">\(\bar{X}_n\)</span> here is not a pivotal quantity for <span class="math inline">\(\mu\)</span> because</p>
+<ul>
+<li><p>the formula of <span class="math inline">\(\bar{X}_n\)</span> does not contain <span class="math inline">\(\mu\)</span>,</p></li>
+<li><p>the distribution of <span class="math inline">\(\bar{X}_n\)</span> changes as <span class="math inline">\(\mu\)</span> changes.</p></li>
+</ul>
+<p>How do we create a pivotal quantity for <span class="math inline">\(\mu\)</span>? Because <span class="math inline">\(\bar{X}_n\)</span> is normally distributed, let’s use the linearity property of normal distribution to transform <span class="math inline">\(\bar{X}_n\)</span> into a <strong><span class="math inline">\(Z\)</span>-score</strong></p>
+<div class="myEquation">
+<p><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1)\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<p>Now, <span class="math inline">\(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}\)</span> is a <strong>pivotal quantity for <span class="math inline">\(\mu\)</span></strong> because</p>
+<ul>
+<li><p>it is a function of both the sample data <span class="math inline">\(X_1, X_2, ..., X_n\)</span> and <span class="math inline">\(\mu\)</span></p></li>
+<li><p>its distribution is always <span class="math inline">\(\mathcal{N}(0, 1)\)</span> and does not change with <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+</div>
+<div id="pivotal-quantity-for-population-mean-via-clt" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Pivotal Quantity for Population Mean via CLT<a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose our population has mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, i.e., <span class="math inline">\(X \sim (\mu, \sigma^2)\)</span> and again we have the data <span class="math inline">\(X_1, X_2, ..., X_n\)</span>. But now, if we <strong>do not assume a normal distribution</strong> and we know that our <strong>sample size is large enough</strong>, we can use the Central Limit Theorem, which says that the sample mean is approximately normal:</p>
+<p><span class="math display">\[\bar{X}_n = \frac{X_1 + X_2 + ... + X_n}{n} \overset{\cdot}{\sim} N\left(\mu, \frac{\sigma^2}{n}\right)\]</span></p>
+<p>to similarly construct the <strong>pivotal quantity for <span class="math inline">\(\mu\)</span> when <span class="math inline">\(n\)</span> is large</strong></p>
+<div class="myEquation">
+<p><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \overset{\cdot}{\sim} \mathcal{N}(0,1)\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> So, for</p>
+<ul>
+<li><p>normal population <span class="math inline">\((\mu, \sigma^2)\)</span> and sample size <span class="math inline">\(n\)</span>;</p></li>
+<li><p>any population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and a large enough sample size (<span class="math inline">\(n &gt; 30\)</span>);</p></li>
+</ul>
+<p>the pivotal quantity for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[Q_{\mu} = \frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1)\]</span></p>
+</div>
+</div>
+<div id="confint-sec-pivotal-unknown" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown<a href="chap-confint.html#confint-sec-pivotal-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can see that the pivotal quantity in the previous sections involves not only <span class="math inline">\(\mu\)</span> but also <span class="math inline">\(\sigma\)</span>. If <span class="math inline">\(\sigma\)</span> is unknown, then it will no longer be a pivotal quantity for <span class="math inline">\(\mu\)</span>.</p>
+<p>We however can approximate <span class="math inline">\(\sigma\)</span> by the sample standard deviation <span class="math inline">\(S\)</span>:
+<span class="math display">\[S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n(X_i - \bar{X})^2}\]</span>
+Note here that different from <span class="math inline">\(s\)</span> (actual obtained value from the data set), <span class="math inline">\(S\)</span> here is a random variable calculated from the random sample data <span class="math inline">\(X_1, X_2, ..., X_n\)</span>.</p>
+<p>When we replace <span class="math inline">\(\sigma\)</span> by <span class="math inline">\(S\)</span>, we have the following result</p>
+<div class="myEquation">
+<p><span class="math display">\[\frac{\bar{X}_n - \mu}{S/\sqrt{n}} \sim t(n-1)\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<p>where <span class="math inline">\(t(n-1)\)</span> is the (central) <strong><span class="math inline">\(t\)</span>-distribution of <span class="math inline">\(n-1\)</span> degrees of freedom</strong><a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>. Now, this is a pivotal quantity because</p>
+<ul>
+<li><p>it is a function of both the sample data <span class="math inline">\(X_1, X_2, ..., X_n\)</span> and <span class="math inline">\(\mu\)</span>. (<span class="math inline">\(S\)</span> is also a function of the data)</p></li>
+<li><p>its distribution is always <span class="math inline">\(t(n-1)\)</span> and does not change with <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+<p>Thus, <strong>when <span class="math inline">\(\sigma\)</span> is unknown</strong>, we can construct a confidence interval for <span class="math inline">\(\mu\)</span> using this pivotal quantity.</p>
+<div id="the-t-distribution" class="section level4 hasAnchor" number="7.1.4.1">
+<h4><span class="header-section-number">7.1.4.1</span> The <span class="math inline">\(t\)</span>-distribution<a href="chap-confint.html#the-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The (central) <span class="math inline">\(t\)</span>-distribution has only one parameter, which is the degree of freedom <span class="math inline">\(df\)</span>.</p>
+<p>The <span class="math inline">\(t\)</span>-distribution is <strong>similar</strong> to the standard normal distribution in the sense that it is</p>
+<ul>
+<li><p>symmetric around 0</p></li>
+<li><p>unimodal</p></li>
+<li><p>bell-shaped</p></li>
+</ul>
+<p>It is <strong>different</strong> from the standard normal distribution in the sense that</p>
+<ul>
+<li><p>It is more spread out. The spread of the distribution is controlled by the <strong>degrees of freedom</strong> parameter.</p></li>
+<li><p>There is more probability in the tail areas (heavy-tailed). Therefore, there is less probability in the center of the distribution</p></li>
+</ul>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> As the degrees of freedom <strong>increase</strong>, the <span class="math inline">\(t\)</span>-curve becomes <strong>closer to the standard normal curve</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<img src="_main_files/figure-html/unnamed-chunk-34-1.png" alt="The probability curves of the $t$-distributions. Notice that the tails of the $t$-distributions are fatter than that of the standard normal distribution. We say that the $t$-distributions are \textbf{heavy-tailed}." width="672" height="15%" />
+<p class="caption">
+Figure 7.1: The probability curves of the <span class="math inline">\(t\)</span>-distributions. Notice that the tails of the <span class="math inline">\(t\)</span>-distributions are fatter than that of the standard normal distribution. We say that the <span class="math inline">\(t\)</span>-distributions are .
+</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>We will see how pivotal quantity helps us <strong>construct confidence intervals</strong> and <strong>hypothesis tests</strong> in the following sections and in Chapter <a href="chap-hyp.html#chap-hyp">8</a>.</p>
+</div>
+</div>
+</div>
+<div id="confint-sec-confint" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Confidence Intervals<a href="chap-confint.html#confint-sec-confint" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-is-a-confidence-interval" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> What is a Confidence Interval?<a href="chap-confint.html#what-is-a-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is intuitive to use the sample mean <span class="math inline">\(\bar{X}_n\)</span> to give an <strong>estimate</strong> of the <strong>population mean</strong> <span class="math inline">\(\mu\)</span>. However, this one <strong>point estimate</strong> (the observed actual number <span class="math inline">\(\bar{x}_n\)</span>) does not reflect the <strong>uncertainty</strong> related to the <strong>random process</strong> to obtain the sample itself (i.e., each time we collect the data we will get a different set of observed values and a different number <span class="math inline">\(\bar{x}_n\)</span>). That is, it does not say how sure we are when we say <span class="math inline">\(\mu \approx \bar{x}_n\)</span> or how far <span class="math inline">\(\bar{x}_n\)</span> is from <span class="math inline">\(\mu\)</span>.</p>
+<p>To the rescue, <strong>confidence intervals</strong> provide an <strong>interval estimate</strong>, i.e., <strong>the range of plausible values</strong> where the population parameter of interest (here, <span class="math inline">\(\mu\)</span>) lies within for a given probability. In this sense, confidence intervals acknowledge and quantify the uncertainty of the sample.</p>
+<p>All confidence intervals are based on a <strong>level of confidence</strong>, <span class="math inline">\((1-\alpha)100\%\)</span>. Here <span class="math inline">\(\alpha\)</span> is called the <strong>significance level</strong>. For example, for <span class="math inline">\(\alpha = 0.05\)</span>, we have a <span class="math inline">\(95\%\)</span> confidence interval, and for <span class="math inline">\(\alpha = 0.01\)</span>, we have <span class="math inline">\(99\%\)</span> confidence interval, …</p>
+</div>
+<div id="interpret-a-confidence-interval" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Interpret a Confidence Interval<a href="chap-confint.html#interpret-a-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we are interested in the population mean <span class="math inline">\(\mu\)</span>. A <span class="math inline">\((1-\alpha)100\%\)</span> <strong>confidence interval</strong> of <span class="math inline">\(\mu\)</span> is of the form <span class="math inline">\((L_n, U_n)\)</span> so that
+<span class="math display">\[\mathbb{P}(L_n &lt; \mu &lt; U_n) = 1-\alpha\]</span>
+where <span class="math inline">\(L_n\)</span> and <span class="math inline">\(U_n\)</span> are calculated from the sample <span class="math inline">\(X_1, ..., X_n\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(L_n\)</span> and <span class="math inline">\(U_n\)</span> are functions of random variables <span class="math inline">\(X_1, ..., X_n\)</span>. Therefore, they are also <strong>random variables</strong>. This means that with different observed sample data <span class="math inline">\(x_1, x_2, ..., x_n\)</span>, we will obtain a different confidence interval <span class="math inline">\((l_n, u_n)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(L_n &lt; \mu &lt; U_n) = 1-\alpha\)</span> means: if we <strong>repeat</strong> collecting the sample of the <strong>same</strong> size <span class="math inline">\(n\)</span> <strong>for many times</strong> and each times obtain a <strong>different</strong> interval <span class="math inline">\((l_n, u_n)\)</span>, then <strong><span class="math inline">\((1-\alpha)100\%\)</span> of those intervals will contain the true population parameter <span class="math inline">\(\mu\)</span></strong>.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="data/images/chap-confint/confint.png" alt="Suppose we are interested in the mean $\mu$. If we repeat collecting samples many times and then calculate many $95\%$ confidence intervals for $\mu$, then $95\%$ of those intervals will contain the true population parameter $\mu$ (will cross the green vertical line) and $5\%$ of the intervals will not contain $\mu$." width="302" height="50%" />
+<p class="caption">
+Figure 7.2: Suppose we are interested in the mean <span class="math inline">\(\mu\)</span>. If we repeat collecting samples many times and then calculate many <span class="math inline">\(95\%\)</span> confidence intervals for <span class="math inline">\(\mu\)</span>, then <span class="math inline">\(95\%\)</span> of those intervals will contain the true population parameter <span class="math inline">\(\mu\)</span> (will cross the green vertical line) and <span class="math inline">\(5\%\)</span> of the intervals will not contain <span class="math inline">\(\mu\)</span>.
+</p>
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> There are two types of <strong>interpretations</strong> for a <span class="math inline">\((1-\alpha)100\%\)</span> confidence interval of the population parameter <span class="math inline">\(\mu\)</span></p>
+<ul>
+<li><p><strong>the exact interpretation</strong>: If we repeat collecting samples and calculating confidence intervals, then <span class="math inline">\((1-\alpha)100\%\)</span> of those intervals will contain <span class="math inline">\(\mu\)</span> and <span class="math inline">\(100\alpha\%\)</span> of the intervals will <strong>not</strong> contain <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p><strong>the casual interpretation</strong>: we are <span class="math inline">\((1-\alpha)100\%\)</span> confident that the true but unknown parameter <span class="math inline">\(\mu\)</span> will lie within the interval.</p>
+<ul>
+<li>If someone asks: what do you mean by <span class="math inline">\((1-\alpha)100\%\)</span> confident? <span class="math inline">\(\rightarrow\)</span> Go to the exact interpretation.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="confint-sec-confint-known" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known<a href="chap-confint.html#confint-sec-confint-known" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="construct-the-confidence-interval" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Construct the Confidence Interval<a href="chap-confint.html#construct-the-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From Section <a href="chap-confint.html#confint-sec-pivotal">7.1</a>, we know that for</p>
+<ul>
+<li><p>normal population <span class="math inline">\((\mu, \sigma^2)\)</span> and sample size <span class="math inline">\(n\)</span>;</p></li>
+<li><p>any population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and a large enough sample size <span class="math inline">\(n &gt; 30\)</span>;</p></li>
+</ul>
+<p>the pivotal quantity for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[Q_{\mu} = \frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1)\]</span></p>
+<p>We can construct a <span class="math inline">\((1-\alpha)100\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> from the <span class="math inline">\(Q_\mu\)</span>, starting by finding the interval <span class="math inline">\((a, b)\)</span> such that</p>
+<p><span class="math display">\[\begin{align*}
+1-\alpha &amp; = \mathbb{P}(a &lt; Q_{\mu} &lt; b) \\
+&amp; = \mathbb{P}\left(a &lt; \frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} &lt; b\right) \\
+&amp; = \mathbb{P}\left(\bar{X}_n - b\times \frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \bar{X}_n - a\times \frac{\sigma}{\sqrt{n}}\right)
+\end{align*}\]</span></p>
+<p>So for <span class="math inline">\((a, b)\)</span> such that <span class="math inline">\(\mathbb{P}(a &lt; Q_{\mu} &lt; b) = 1-\alpha\)</span>,
+<span class="math display">\[\left(\bar{X}_n - b\times \frac{\sigma}{\sqrt{n}}, \bar{X}_n - a\times \frac{\sigma}{\sqrt{n}}\right)\]</span>
+is a confidence interval for <span class="math inline">\(\mu\)</span>.</p>
+<p>But how to find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? Because <span class="math inline">\(Q_{\mu} \sim \mathcal{N}(0, 1)\)</span>, any number <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span> which satisfy <span class="math inline">\(\mathbb{P}(a &lt; Z &lt; b) = 1-\alpha\)</span> will work! Note that this is why I always say “a” confidence interval, not “the” confidence interval.</p>
+<p>Now, let <span class="math inline">\(z_{q}\)</span> denote the <span class="math inline">\(q\)</span>-quantile of <span class="math inline">\(Z\)</span> (i.e., <span class="math inline">\(\mathbb{P}(Z &lt; z_q) = q\)</span>). Then some choices of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are</p>
+<ul>
+<li><p><span class="math inline">\(a = -\infty\)</span> and <span class="math inline">\(b = z_{1-\alpha}\)</span></p></li>
+<li><p><span class="math inline">\(a = z_{\alpha}\)</span> and <span class="math inline">\(b = +\infty\)</span></p></li>
+<li><p><span class="math inline">\(a = z_{m}\)</span> and <span class="math inline">\(b = z_{1-\alpha+m}\)</span> for some number <span class="math inline">\(0 &lt; m &lt; \alpha\)</span>.</p></li>
+</ul>
+<p>The three choices are illustrated by the following figure</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="_main_files/figure-html/unnamed-chunk-36-1.png" alt="Possible choices of interval $(a,b)$ that satisfy $\mathbb{P}(a &lt; Z &lt; b) = 1-\alpha$" width="768" />
+<p class="caption">
+Figure 7.3: Possible choices of interval <span class="math inline">\((a,b)\)</span> that satisfy <span class="math inline">\(\mathbb{P}(a &lt; Z &lt; b) = 1-\alpha\)</span>
+</p>
+</div>
+<p><strong>Convention:</strong> choose the third option and let <span class="math inline">\(m = \alpha/2\)</span>, meaning <span class="math inline">\(a = z_{\alpha/2}\)</span> and <span class="math inline">\(b = z_{1-\alpha/2}\)</span>, so that
+<span class="math display">\[a = -b = -z_{1-\alpha/2}\]</span>
+and the interval <span class="math inline">\((a,b)\)</span> will be <strong>symmetric</strong>. This is because the standard normal distribution is <strong>symmetric</strong> around 0! This choice is illustrated by the figure below.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
+<img src="_main_files/figure-html/unnamed-chunk-37-1.png" alt="We choose a symmetric interval $(a,b)$ where $a = z_{\alpha/2}$ and $b = z_{1-\alpha/2}$" width="50%" />
+<p class="caption">
+Figure 7.4: We choose a symmetric interval <span class="math inline">\((a,b)\)</span> where <span class="math inline">\(a = z_{\alpha/2}\)</span> and <span class="math inline">\(b = z_{1-\alpha/2}\)</span>
+</p>
+</div>
+<p>Replace <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> into our formula of confidence intervals, we have a <span class="math inline">\((1-\alpha)100\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span></p>
+<p><span class="math display">\[\left(\bar{X}_n - z_{1-\alpha/2}\times \frac{\sigma}{\sqrt{n}}, \bar{X}_n + z_{1-\alpha/2}\times \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<p>So, the probability that <span class="math inline">\(\mu\)</span> lies between <span class="math inline">\(\left(\bar{X}_n - z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}, \bar{X}_n + z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\right)\)</span> is <span class="math inline">\(1-\alpha\)</span> and therefore it is a <strong>confidence interval</strong> for <span class="math inline">\(\mu\)</span>. Short notation for such a confidence interval:
+<span class="math display">\[\bar{X}_n \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\]</span></p>
+<p>If we replace <span class="math inline">\(\bar{X}_n\)</span> by the actual observed value <span class="math inline">\(\bar{x}_n\)</span>, we obtain an <strong>actual value</strong> of the <span class="math inline">\((1-\alpha)100\%\)</span> confidence interval
+<span class="math display">\[\bar{x}_n \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-confint-oecd" class="example"><strong>Example 7.1  </strong></span>The Organisation for Economic Co-operation and Development (OECD) surveyed <span class="math inline">\(1000\)</span> people at random in each of its member countries in <span class="math inline">\(2011\)</span>. They found that the number of hours worked by Canadians was <span class="math inline">\(1699\)</span> hours per year on average, whereas for the average OECD country it was <span class="math inline">\(1739\)</span>. Assume that the population standard deviation for Canadians is 486 hours. Do Canadians work less than the average OECD countries?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a <span class="math inline">\(95\%\)</span> confidence interval for the population mean?</p></li>
+<li><p>Create a <span class="math inline">\(99\%\)</span> confidence interval for the population mean?</p></li>
+</ol>
+<p><em>Solution:</em> For this question, <span class="math inline">\(n = 1000\)</span>, <span class="math inline">\(\bar{x} = 1699\)</span>, <span class="math inline">\(\sigma = 486\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(95\%\)</span> confidence interval means <span class="math inline">\(1-\alpha = 0.95\)</span> and <span class="math inline">\(\alpha = 0.05\)</span>. Then <span class="math inline">\(\alpha/2 = 0.05\)</span> and <span class="math inline">\(z_{1-\alpha/2} = z_{0.975}\)</span>. Look at the table, <span class="math inline">\(z_{0.975} = -z_{0.025} = 1.96\)</span>. Hence, a <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[\bar{x} \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}} = 1699 \pm 1.96\times \frac{486}{\sqrt{1000}} = (1668.88, 1729.12)\]</span></p>
+<p>Because this confidence interval lies entirely below the value of <span class="math inline">\(1739\)</span> and hence at a <span class="math inline">\(95\%\)</span> confidence level the data suggests that on average Canadians work less than the OECD average.</p></li>
+<li><p><span class="math inline">\(99\%\)</span> confidence interval means <span class="math inline">\(\alpha = 0.01\)</span> and <span class="math inline">\(z_{1-\alpha/2} = z_{0.995} = -z_{-0.005} = 2.575\)</span>. So a <span class="math inline">\(99\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> is</p>
+<p><span class="math display">\[\bar{x} \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}} = 1699 \pm 2.575\times \frac{486}{\sqrt{1000}} = (1659.43, 1738.57)\]</span></p>
+<p>Again, even when we increase the confidence level and obtain a <strong>wider</strong> the confidence interval, it still lies entirely below the value of <span class="math inline">\(1739\)</span>. Hence at a <span class="math inline">\(99\%\)</span> confidence level the data suggests that on average Canadians work less than the OECD average.</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> In Example <a href="chap-confint.html#exm:ex-confint-oecd">7.1</a>, we can <strong>interpret</strong> the <span class="math inline">\(95\%\)</span> confidence interval <span class="math inline">\((1668.88, 1729.12)\)</span> as “we are <strong><span class="math inline">\(95\%\)</span> confident</strong> that the true but unknown average number of hours worked by Canadians lies between 1668.88 hours and 1729.12 hours”.</p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-90" class="exercise"><strong>Exercise 7.1  </strong></span>A management consulting firm has installed a new computer-based billing system in a trucking company. To determine if this system is better than the old billing system, the firm collects the payment times of <span class="math inline">\(65\)</span> new payments. They find that the mean of the <span class="math inline">\(65\)</span> payment times is <span class="math inline">\(18.11\)</span> and from previous knowledge it is known that <span class="math inline">\(\sigma=4.2\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a <span class="math inline">\(95\%\)</span> confidence interval for the mean payment time using the new system.</p></li>
+<li><p>The mean payment time using the old billing system was approximately <span class="math inline">\(39\)</span> days. Based on the interval found in (a), does the new system appear to be better? Explain.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="margin-of-error" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Margin of Error<a href="chap-confint.html#margin-of-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For the confidence interval <span class="math inline">\(\bar{x}_n \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\)</span>:</p>
+<ul>
+<li><p>the <strong>length</strong> of the confidence interval is <span class="math inline">\(2\times z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\)</span></p></li>
+<li><p>the <strong>margin of error</strong> is <span class="math inline">\(m = z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\)</span>.</p></li>
+</ul>
+<p>So, the size of a <strong>confidence interval (CI)</strong> depends on</p>
+<ul>
+<li><p>the <strong>confidence level</strong> <span class="math inline">\((1-\alpha)100\%\)</span>: When the confidence level <strong>increases</strong>, the CI gets <strong>wider</strong> because <span class="math inline">\(z_{a} &lt; z_{b}\)</span> if <span class="math inline">\(a &lt; b\)</span>.</p>
+<ul>
+<li>If we want to be more confident about our conclusion, we need to include more possible values for <span class="math inline">\(\mu\)</span> and so the CI needs to be wider.</li>
+</ul></li>
+<li><p>the <strong>standard deviation</strong> <span class="math inline">\(\sigma\)</span>: When <span class="math inline">\(\sigma\)</span> <strong>increases</strong>, the CI gets <strong>wider</strong>.</p>
+<ul>
+<li>Notice that <span class="math inline">\(\sigma\)</span> describes the variability in the population distribution of <span class="math inline">\(X\)</span> to begin with. When the variability in the population is already large, in repeated sampling, the values of the data <span class="math inline">\(X_1, X_2, ..., X_n\)</span> will vary more and <span class="math inline">\(\bar{X}_n\)</span> will be often farther from <span class="math inline">\(\mu\)</span>. So the CI needs to become wider to make sure that <span class="math inline">\(\mu\)</span> is covered.</li>
+</ul></li>
+<li><p>the <strong>sample size</strong> <span class="math inline">\(n\)</span>: When <span class="math inline">\(n\)</span> <strong>increases</strong>, the CI gets <strong>narrower</strong>.</p>
+<ul>
+<li>When the sample size increases, the sample we collect become closer to the population, making us closer to the true parameter <span class="math inline">\(\mu\)</span>, hence the CI becomes narrower.</li>
+</ul></li>
+</ul>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> A <strong>good CI</strong> will give us <strong>precise</strong> conclusion with <strong>high confidence</strong>, hence it should be <strong>narrow</strong> and of <strong>high confidence level</strong>.</p>
+</div>
+</div>
+<div id="determining-the-minimum-sample-size-n" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Determining the Minimum Sample Size <span class="math inline">\(n\)</span><a href="chap-confint.html#determining-the-minimum-sample-size-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From the formula
+<span class="math display">\[m = z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\]</span>
+we can determine the <strong>sample size</strong> before the sample is collected if we specify the margin of error, the level of confidence and if we know <span class="math inline">\(\sigma\)</span>.</p>
+<p>For example, if we want that our margin of error to be of certain level <span class="math inline">\(m\)</span>, i.e., we want our estimate <span class="math inline">\(\bar{x}_n\)</span> to be <strong>at most <span class="math inline">\(m\)</span> away</strong> from the true population parameter <span class="math inline">\(\mu\)</span> at a confidence level <span class="math inline">\(1-\alpha\)</span>, then solving
+<span class="math display">\[z_{1-\alpha/2} \times \frac{\sigma}{\sqrt{n}} \le m\]</span>
+we have
+<span class="math display">\[n \ge \left(\frac{z_{1-\alpha/2}\times\sigma}{m} \right)^2\]</span></p>
+<ul>
+<li><p>This is the <strong>minimum</strong> sample size required when you are planning on drawing a simple random sample (SRS) from the population (i.e., you obtain <strong>iid</strong> sample data <span class="math inline">\(X_1, X_2, ..., X_n\)</span>)</p></li>
+<li><p>This provides you with a guideline to the required sample size</p></li>
+<li><p>Sometimes, you may find that this value is not achievable in real-life due to time and budget constraints, or it is simply not practical.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-confint-black-friday" class="example"><strong>Example 7.2  </strong></span>In a survey done of Black Friday shoppers, one question was “How many hours do you usually spend shopping on Black Friday?” <strong>How many</strong> shoppers should be included in a sample designed to estimate the average number of hours spent shopping on Black Friday if you want the to estimate to deviate no more than <span class="math inline">\(0.5\)</span> hour from the true mean? Assume you want <span class="math inline">\(95\%\)</span> confidence and <span class="math inline">\(\sigma=3\)</span>.</p>
+<p><em>Solution:</em></p>
+<p>In this question</p>
+<ul>
+<li><p>the desired margin of error is <span class="math inline">\(m = 0.5\)</span></p></li>
+<li><p>the confidence level is <span class="math inline">\(95\%\)</span> so we use <span class="math inline">\(z_{0.975} = 1.96\)</span></p></li>
+<li><p>the population standard deviation <span class="math inline">\(\sigma = 3\)</span></p></li>
+</ul>
+<p>Hence, the sample size required is
+<span class="math display">\[\begin{align*}
+n &amp; \ge \left(\frac{z_{1-\alpha/2}\times \sigma}{m}\right)^2 \\
+&amp; \ge \left(\frac{1.96 \times 3}{0.5}\right)^2 \\
+&amp; \ge 138.2976 \\
+n &amp; \ge 139
+\end{align*}\]</span></p>
+<p>So we need to interview <strong>at least</strong> <span class="math inline">\(139\)</span> people.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-91" class="exercise"><strong>Exercise 7.2  </strong></span>In Example <a href="chap-confint.html#exm:ex-confint-black-friday">7.2</a>, what will happen if the desired level of confidence is <span class="math inline">\(90\%\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+<div id="confidence-interval-for-mu-when-sigma-is-unknown" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown<a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="construct-the-confidence-interval-1" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Construct the Confidence Interval<a href="chap-confint.html#construct-the-confidence-interval-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In reality, it is common that we do not know <span class="math inline">\(\sigma\)</span> of the population. Therefore cannot use the method of Section <a href="chap-confint.html#confint-sec-confint-known">7.3</a> to construct confidence intervals. We have to alter the method and use another pivotal quantity from Section <a href="chap-confint.html#confint-sec-pivotal-unknown">4.1.4</a>.</p>
+<p><span class="math display">\[\frac{\bar{X}_n-\mu}{S/\sqrt{n}} \sim t(n-1)\]</span></p>
+<p>Let <span class="math inline">\(t_{q,d}\)</span> denote the <span class="math inline">\(q\)</span>-quantile of the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(d\)</span> degrees of freedom, i.e., if <span class="math inline">\(T \sim t(d)\)</span> then <span class="math inline">\(\mathbb{P}(T \le t_{q,d}) = q\)</span>. Since <span class="math inline">\(t\)</span> is also symmetric around 0, we can construct the confidence interval in a similar way as we did in Section <a href="chap-confint.html#confint-sec-confint-known">7.3</a> where <span class="math inline">\(\sigma\)</span> is known, but replace</p>
+<ul>
+<li><p>the population standard deviation <span class="math inline">\(\sigma\)</span> by the sample standard deviation <span class="math inline">\(s\)</span>;</p></li>
+<li><p>the standard normal distribution by the <span class="math inline">\(t(n-1)\)</span> distribution,</p></li>
+</ul>
+<p>then we can obtain a <span class="math inline">\((1-\alpha)\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> as
+<span class="math display">\[\bar{x}_n \pm t_{1-\alpha/2,n-1}\frac{s}{\sqrt{n}}.\]</span></p>
+<p>Similar as the normal distribution, we need to look up for <span class="math inline">\(t_{1-\alpha/2,n-1}\)</span> from the <span class="math inline">\(t\)</span>-table. The <span class="math inline">\(t\)</span>-table shows the <span class="math inline">\(t_{d,q}\)</span> values for different degrees of freedom <span class="math inline">\(d\)</span> and quantile <span class="math inline">\(q\)</span>.</p>
+<p><strong><span class="math inline">\(t\)</span>-table:</strong></p>
+<img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" height="10%" style="display: block; margin: auto;" />
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+df
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.80}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.85}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.90}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.95}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.975}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.99}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.995}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.999}\)</span>
+</th>
+<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<span class="math inline">\(t_{0.9995}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+1
+</td>
+<td style="text-align:right;">
+1.3764
+</td>
+<td style="text-align:right;">
+1.9626
+</td>
+<td style="text-align:right;">
+3.0777
+</td>
+<td style="text-align:right;">
+6.3138
+</td>
+<td style="text-align:right;">
+12.7062
+</td>
+<td style="text-align:right;">
+31.8205
+</td>
+<td style="text-align:right;">
+63.6567
+</td>
+<td style="text-align:right;">
+318.3088
+</td>
+<td style="text-align:right;">
+636.6192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+2
+</td>
+<td style="text-align:right;">
+1.0607
+</td>
+<td style="text-align:right;">
+1.3862
+</td>
+<td style="text-align:right;">
+1.8856
+</td>
+<td style="text-align:right;">
+2.9200
+</td>
+<td style="text-align:right;">
+4.3027
+</td>
+<td style="text-align:right;">
+6.9646
+</td>
+<td style="text-align:right;">
+9.9248
+</td>
+<td style="text-align:right;">
+22.3271
+</td>
+<td style="text-align:right;">
+31.5991
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+3
+</td>
+<td style="text-align:right;">
+0.9785
+</td>
+<td style="text-align:right;">
+1.2498
+</td>
+<td style="text-align:right;">
+1.6377
+</td>
+<td style="text-align:right;">
+2.3534
+</td>
+<td style="text-align:right;">
+3.1824
+</td>
+<td style="text-align:right;">
+4.5407
+</td>
+<td style="text-align:right;">
+5.8409
+</td>
+<td style="text-align:right;">
+10.2145
+</td>
+<td style="text-align:right;">
+12.9240
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+4
+</td>
+<td style="text-align:right;">
+0.9410
+</td>
+<td style="text-align:right;">
+1.1896
+</td>
+<td style="text-align:right;">
+1.5332
+</td>
+<td style="text-align:right;">
+2.1318
+</td>
+<td style="text-align:right;">
+2.7764
+</td>
+<td style="text-align:right;">
+3.7469
+</td>
+<td style="text-align:right;">
+4.6041
+</td>
+<td style="text-align:right;">
+7.1732
+</td>
+<td style="text-align:right;">
+8.6103
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+5
+</td>
+<td style="text-align:right;">
+0.9195
+</td>
+<td style="text-align:right;">
+1.1558
+</td>
+<td style="text-align:right;">
+1.4759
+</td>
+<td style="text-align:right;">
+2.0150
+</td>
+<td style="text-align:right;">
+2.5706
+</td>
+<td style="text-align:right;">
+3.3649
+</td>
+<td style="text-align:right;">
+4.0321
+</td>
+<td style="text-align:right;">
+5.8934
+</td>
+<td style="text-align:right;">
+6.8688
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+6
+</td>
+<td style="text-align:right;">
+0.9057
+</td>
+<td style="text-align:right;">
+1.1342
+</td>
+<td style="text-align:right;">
+1.4398
+</td>
+<td style="text-align:right;">
+1.9432
+</td>
+<td style="text-align:right;">
+2.4469
+</td>
+<td style="text-align:right;">
+3.1427
+</td>
+<td style="text-align:right;">
+3.7074
+</td>
+<td style="text-align:right;">
+5.2076
+</td>
+<td style="text-align:right;">
+5.9588
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+7
+</td>
+<td style="text-align:right;">
+0.8960
+</td>
+<td style="text-align:right;">
+1.1192
+</td>
+<td style="text-align:right;">
+1.4149
+</td>
+<td style="text-align:right;">
+1.8946
+</td>
+<td style="text-align:right;">
+2.3646
+</td>
+<td style="text-align:right;">
+2.9980
+</td>
+<td style="text-align:right;">
+3.4995
+</td>
+<td style="text-align:right;">
+4.7853
+</td>
+<td style="text-align:right;">
+5.4079
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+8
+</td>
+<td style="text-align:right;">
+0.8889
+</td>
+<td style="text-align:right;">
+1.1081
+</td>
+<td style="text-align:right;">
+1.3968
+</td>
+<td style="text-align:right;">
+1.8595
+</td>
+<td style="text-align:right;">
+2.3060
+</td>
+<td style="text-align:right;">
+2.8965
+</td>
+<td style="text-align:right;">
+3.3554
+</td>
+<td style="text-align:right;">
+4.5008
+</td>
+<td style="text-align:right;">
+5.0413
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+9
+</td>
+<td style="text-align:right;">
+0.8834
+</td>
+<td style="text-align:right;">
+1.0997
+</td>
+<td style="text-align:right;">
+1.3830
+</td>
+<td style="text-align:right;">
+1.8331
+</td>
+<td style="text-align:right;">
+2.2622
+</td>
+<td style="text-align:right;">
+2.8214
+</td>
+<td style="text-align:right;">
+3.2498
+</td>
+<td style="text-align:right;">
+4.2968
+</td>
+<td style="text-align:right;">
+4.7809
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+10
+</td>
+<td style="text-align:right;">
+0.8791
+</td>
+<td style="text-align:right;">
+1.0931
+</td>
+<td style="text-align:right;">
+1.3722
+</td>
+<td style="text-align:right;">
+1.8125
+</td>
+<td style="text-align:right;">
+2.2281
+</td>
+<td style="text-align:right;">
+2.7638
+</td>
+<td style="text-align:right;">
+3.1693
+</td>
+<td style="text-align:right;">
+4.1437
+</td>
+<td style="text-align:right;">
+4.5869
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+11
+</td>
+<td style="text-align:right;">
+0.8755
+</td>
+<td style="text-align:right;">
+1.0877
+</td>
+<td style="text-align:right;">
+1.3634
+</td>
+<td style="text-align:right;">
+1.7959
+</td>
+<td style="text-align:right;">
+2.2010
+</td>
+<td style="text-align:right;">
+2.7181
+</td>
+<td style="text-align:right;">
+3.1058
+</td>
+<td style="text-align:right;">
+4.0247
+</td>
+<td style="text-align:right;">
+4.4370
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+12
+</td>
+<td style="text-align:right;">
+0.8726
+</td>
+<td style="text-align:right;">
+1.0832
+</td>
+<td style="text-align:right;">
+1.3562
+</td>
+<td style="text-align:right;">
+1.7823
+</td>
+<td style="text-align:right;">
+2.1788
+</td>
+<td style="text-align:right;">
+2.6810
+</td>
+<td style="text-align:right;">
+3.0545
+</td>
+<td style="text-align:right;">
+3.9296
+</td>
+<td style="text-align:right;">
+4.3178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+13
+</td>
+<td style="text-align:right;">
+0.8702
+</td>
+<td style="text-align:right;">
+1.0795
+</td>
+<td style="text-align:right;">
+1.3502
+</td>
+<td style="text-align:right;">
+1.7709
+</td>
+<td style="text-align:right;">
+2.1604
+</td>
+<td style="text-align:right;">
+2.6503
+</td>
+<td style="text-align:right;">
+3.0123
+</td>
+<td style="text-align:right;">
+3.8520
+</td>
+<td style="text-align:right;">
+4.2208
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+14
+</td>
+<td style="text-align:right;">
+0.8681
+</td>
+<td style="text-align:right;">
+1.0763
+</td>
+<td style="text-align:right;">
+1.3450
+</td>
+<td style="text-align:right;">
+1.7613
+</td>
+<td style="text-align:right;">
+2.1448
+</td>
+<td style="text-align:right;">
+2.6245
+</td>
+<td style="text-align:right;">
+2.9768
+</td>
+<td style="text-align:right;">
+3.7874
+</td>
+<td style="text-align:right;">
+4.1405
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+15
+</td>
+<td style="text-align:right;">
+0.8662
+</td>
+<td style="text-align:right;">
+1.0735
+</td>
+<td style="text-align:right;">
+1.3406
+</td>
+<td style="text-align:right;">
+1.7531
+</td>
+<td style="text-align:right;">
+2.1314
+</td>
+<td style="text-align:right;">
+2.6025
+</td>
+<td style="text-align:right;">
+2.9467
+</td>
+<td style="text-align:right;">
+3.7328
+</td>
+<td style="text-align:right;">
+4.0728
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+16
+</td>
+<td style="text-align:right;">
+0.8647
+</td>
+<td style="text-align:right;">
+1.0711
+</td>
+<td style="text-align:right;">
+1.3368
+</td>
+<td style="text-align:right;">
+1.7459
+</td>
+<td style="text-align:right;">
+2.1199
+</td>
+<td style="text-align:right;">
+2.5835
+</td>
+<td style="text-align:right;">
+2.9208
+</td>
+<td style="text-align:right;">
+3.6862
+</td>
+<td style="text-align:right;">
+4.0150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+17
+</td>
+<td style="text-align:right;">
+0.8633
+</td>
+<td style="text-align:right;">
+1.0690
+</td>
+<td style="text-align:right;">
+1.3334
+</td>
+<td style="text-align:right;">
+1.7396
+</td>
+<td style="text-align:right;">
+2.1098
+</td>
+<td style="text-align:right;">
+2.5669
+</td>
+<td style="text-align:right;">
+2.8982
+</td>
+<td style="text-align:right;">
+3.6458
+</td>
+<td style="text-align:right;">
+3.9651
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+18
+</td>
+<td style="text-align:right;">
+0.8620
+</td>
+<td style="text-align:right;">
+1.0672
+</td>
+<td style="text-align:right;">
+1.3304
+</td>
+<td style="text-align:right;">
+1.7341
+</td>
+<td style="text-align:right;">
+2.1009
+</td>
+<td style="text-align:right;">
+2.5524
+</td>
+<td style="text-align:right;">
+2.8784
+</td>
+<td style="text-align:right;">
+3.6105
+</td>
+<td style="text-align:right;">
+3.9216
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+19
+</td>
+<td style="text-align:right;">
+0.8610
+</td>
+<td style="text-align:right;">
+1.0655
+</td>
+<td style="text-align:right;">
+1.3277
+</td>
+<td style="text-align:right;">
+1.7291
+</td>
+<td style="text-align:right;">
+2.0930
+</td>
+<td style="text-align:right;">
+2.5395
+</td>
+<td style="text-align:right;">
+2.8609
+</td>
+<td style="text-align:right;">
+3.5794
+</td>
+<td style="text-align:right;">
+3.8834
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+20
+</td>
+<td style="text-align:right;">
+0.8600
+</td>
+<td style="text-align:right;">
+1.0640
+</td>
+<td style="text-align:right;">
+1.3253
+</td>
+<td style="text-align:right;">
+1.7247
+</td>
+<td style="text-align:right;">
+2.0860
+</td>
+<td style="text-align:right;">
+2.5280
+</td>
+<td style="text-align:right;">
+2.8453
+</td>
+<td style="text-align:right;">
+3.5518
+</td>
+<td style="text-align:right;">
+3.8495
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+21
+</td>
+<td style="text-align:right;">
+0.8591
+</td>
+<td style="text-align:right;">
+1.0627
+</td>
+<td style="text-align:right;">
+1.3232
+</td>
+<td style="text-align:right;">
+1.7207
+</td>
+<td style="text-align:right;">
+2.0796
+</td>
+<td style="text-align:right;">
+2.5176
+</td>
+<td style="text-align:right;">
+2.8314
+</td>
+<td style="text-align:right;">
+3.5272
+</td>
+<td style="text-align:right;">
+3.8193
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+22
+</td>
+<td style="text-align:right;">
+0.8583
+</td>
+<td style="text-align:right;">
+1.0614
+</td>
+<td style="text-align:right;">
+1.3212
+</td>
+<td style="text-align:right;">
+1.7171
+</td>
+<td style="text-align:right;">
+2.0739
+</td>
+<td style="text-align:right;">
+2.5083
+</td>
+<td style="text-align:right;">
+2.8188
+</td>
+<td style="text-align:right;">
+3.5050
+</td>
+<td style="text-align:right;">
+3.7921
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+23
+</td>
+<td style="text-align:right;">
+0.8575
+</td>
+<td style="text-align:right;">
+1.0603
+</td>
+<td style="text-align:right;">
+1.3195
+</td>
+<td style="text-align:right;">
+1.7139
+</td>
+<td style="text-align:right;">
+2.0687
+</td>
+<td style="text-align:right;">
+2.4999
+</td>
+<td style="text-align:right;">
+2.8073
+</td>
+<td style="text-align:right;">
+3.4850
+</td>
+<td style="text-align:right;">
+3.7676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+24
+</td>
+<td style="text-align:right;">
+0.8569
+</td>
+<td style="text-align:right;">
+1.0593
+</td>
+<td style="text-align:right;">
+1.3178
+</td>
+<td style="text-align:right;">
+1.7109
+</td>
+<td style="text-align:right;">
+2.0639
+</td>
+<td style="text-align:right;">
+2.4922
+</td>
+<td style="text-align:right;">
+2.7969
+</td>
+<td style="text-align:right;">
+3.4668
+</td>
+<td style="text-align:right;">
+3.7454
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+25
+</td>
+<td style="text-align:right;">
+0.8562
+</td>
+<td style="text-align:right;">
+1.0584
+</td>
+<td style="text-align:right;">
+1.3163
+</td>
+<td style="text-align:right;">
+1.7081
+</td>
+<td style="text-align:right;">
+2.0595
+</td>
+<td style="text-align:right;">
+2.4851
+</td>
+<td style="text-align:right;">
+2.7874
+</td>
+<td style="text-align:right;">
+3.4502
+</td>
+<td style="text-align:right;">
+3.7251
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+26
+</td>
+<td style="text-align:right;">
+0.8557
+</td>
+<td style="text-align:right;">
+1.0575
+</td>
+<td style="text-align:right;">
+1.3150
+</td>
+<td style="text-align:right;">
+1.7056
+</td>
+<td style="text-align:right;">
+2.0555
+</td>
+<td style="text-align:right;">
+2.4786
+</td>
+<td style="text-align:right;">
+2.7787
+</td>
+<td style="text-align:right;">
+3.4350
+</td>
+<td style="text-align:right;">
+3.7066
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+27
+</td>
+<td style="text-align:right;">
+0.8551
+</td>
+<td style="text-align:right;">
+1.0567
+</td>
+<td style="text-align:right;">
+1.3137
+</td>
+<td style="text-align:right;">
+1.7033
+</td>
+<td style="text-align:right;">
+2.0518
+</td>
+<td style="text-align:right;">
+2.4727
+</td>
+<td style="text-align:right;">
+2.7707
+</td>
+<td style="text-align:right;">
+3.4210
+</td>
+<td style="text-align:right;">
+3.6896
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+28
+</td>
+<td style="text-align:right;">
+0.8546
+</td>
+<td style="text-align:right;">
+1.0560
+</td>
+<td style="text-align:right;">
+1.3125
+</td>
+<td style="text-align:right;">
+1.7011
+</td>
+<td style="text-align:right;">
+2.0484
+</td>
+<td style="text-align:right;">
+2.4671
+</td>
+<td style="text-align:right;">
+2.7633
+</td>
+<td style="text-align:right;">
+3.4082
+</td>
+<td style="text-align:right;">
+3.6739
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+29
+</td>
+<td style="text-align:right;">
+0.8542
+</td>
+<td style="text-align:right;">
+1.0553
+</td>
+<td style="text-align:right;">
+1.3114
+</td>
+<td style="text-align:right;">
+1.6991
+</td>
+<td style="text-align:right;">
+2.0452
+</td>
+<td style="text-align:right;">
+2.4620
+</td>
+<td style="text-align:right;">
+2.7564
+</td>
+<td style="text-align:right;">
+3.3962
+</td>
+<td style="text-align:right;">
+3.6594
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+30
+</td>
+<td style="text-align:right;">
+0.8538
+</td>
+<td style="text-align:right;">
+1.0547
+</td>
+<td style="text-align:right;">
+1.3104
+</td>
+<td style="text-align:right;">
+1.6973
+</td>
+<td style="text-align:right;">
+2.0423
+</td>
+<td style="text-align:right;">
+2.4573
+</td>
+<td style="text-align:right;">
+2.7500
+</td>
+<td style="text-align:right;">
+3.3852
+</td>
+<td style="text-align:right;">
+3.6460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+40
+</td>
+<td style="text-align:right;">
+0.8507
+</td>
+<td style="text-align:right;">
+1.0500
+</td>
+<td style="text-align:right;">
+1.3031
+</td>
+<td style="text-align:right;">
+1.6839
+</td>
+<td style="text-align:right;">
+2.0211
+</td>
+<td style="text-align:right;">
+2.4233
+</td>
+<td style="text-align:right;">
+2.7045
+</td>
+<td style="text-align:right;">
+3.3069
+</td>
+<td style="text-align:right;">
+3.5510
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+60
+</td>
+<td style="text-align:right;">
+0.8477
+</td>
+<td style="text-align:right;">
+1.0455
+</td>
+<td style="text-align:right;">
+1.2958
+</td>
+<td style="text-align:right;">
+1.6706
+</td>
+<td style="text-align:right;">
+2.0003
+</td>
+<td style="text-align:right;">
+2.3901
+</td>
+<td style="text-align:right;">
+2.6603
+</td>
+<td style="text-align:right;">
+3.2317
+</td>
+<td style="text-align:right;">
+3.4602
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+80
+</td>
+<td style="text-align:right;">
+0.8461
+</td>
+<td style="text-align:right;">
+1.0432
+</td>
+<td style="text-align:right;">
+1.2922
+</td>
+<td style="text-align:right;">
+1.6641
+</td>
+<td style="text-align:right;">
+1.9901
+</td>
+<td style="text-align:right;">
+2.3739
+</td>
+<td style="text-align:right;">
+2.6387
+</td>
+<td style="text-align:right;">
+3.1953
+</td>
+<td style="text-align:right;">
+3.4163
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+100
+</td>
+<td style="text-align:right;">
+0.8452
+</td>
+<td style="text-align:right;">
+1.0418
+</td>
+<td style="text-align:right;">
+1.2901
+</td>
+<td style="text-align:right;">
+1.6602
+</td>
+<td style="text-align:right;">
+1.9840
+</td>
+<td style="text-align:right;">
+2.3642
+</td>
+<td style="text-align:right;">
+2.6259
+</td>
+<td style="text-align:right;">
+3.1737
+</td>
+<td style="text-align:right;">
+3.3905
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+1000
+</td>
+<td style="text-align:right;">
+0.8420
+</td>
+<td style="text-align:right;">
+1.0370
+</td>
+<td style="text-align:right;">
+1.2824
+</td>
+<td style="text-align:right;">
+1.6464
+</td>
+<td style="text-align:right;">
+1.9623
+</td>
+<td style="text-align:right;">
+2.3301
+</td>
+<td style="text-align:right;">
+2.5808
+</td>
+<td style="text-align:right;">
+3.0984
+</td>
+<td style="text-align:right;">
+3.3003
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+z
+</td>
+<td style="text-align:right;">
+0.8416
+</td>
+<td style="text-align:right;">
+1.0364
+</td>
+<td style="text-align:right;">
+1.2816
+</td>
+<td style="text-align:right;">
+1.6449
+</td>
+<td style="text-align:right;">
+1.9600
+</td>
+<td style="text-align:right;">
+2.3263
+</td>
+<td style="text-align:right;">
+2.5758
+</td>
+<td style="text-align:right;">
+3.0902
+</td>
+<td style="text-align:right;">
+3.2905
+</td>
+</tr>
+</tbody>
+</table>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-92" class="example"><strong>Example 7.3  </strong></span>Using the <span class="math inline">\(t\)</span>-table</p>
+<ul>
+<li><p>Find <span class="math inline">\(\mathbb{P}(T &lt; 0.92)\)</span> if <span class="math inline">\(T\)</span> has <span class="math inline">\(5\)</span> <span class="math inline">\(\mathrm{df}\)</span>.</p>
+<ul>
+<li><em>Solution:</em> Look at the <span class="math inline">\(5\)</span>th row and first column, the cell is approximately <span class="math inline">\(0.92\)</span>. The column is <span class="math inline">\(t_{0.80}\)</span> so <span class="math inline">\(q = 0.8\)</span> and <span class="math inline">\(\mathbb{P}(T &lt; 0.92) = 0.8\)</span>.</li>
+</ul></li>
+<li><p>Find <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}(T &lt; c) = 0.975\)</span>.</p>
+<ul>
+<li><em>Solution:</em> Look at the <span class="math inline">\(8\)</span>th row and column <span class="math inline">\(t_{0.975}\)</span>, we find <span class="math inline">\(c = 2.3060\)</span>.</li>
+</ul></li>
+<li><p>Find <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}(-c &lt; T &lt; c) = 0.95\)</span>.</p>
+<ul>
+<li><em>Solution:</em> <span class="math inline">\(1-\alpha = 0.95\)</span>, so <span class="math inline">\(\alpha = 0.05\)</span> and <span class="math inline">\(1-\alpha/2 = 0.975\)</span>. So <span class="math inline">\(c = t_{0.975,8} = 2.3060\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-93" class="example"><strong>Example 7.4  </strong></span>A random sample of <span class="math inline">\(20\)</span> purchases at an Internet music site a mean purchase amount of <span class="math inline">\(\$45.26\)</span>, and a standard deviation of <span class="math inline">\(\$20.67\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Construct a <span class="math inline">\(90\%\)</span> confidence interval for the mean purchases of all customers.</p></li>
+<li><p>How would the confidence interval change if you had assumed that the population standard deviation <span class="math inline">\(\sigma\)</span> is known to be <span class="math inline">\(\$20\)</span>.</p></li>
+</ol>
+<p><em>Solution:</em></p>
+<p>In this question: <span class="math inline">\(n = 20\)</span>, <span class="math inline">\(\bar{x} = 45.26\)</span> and <span class="math inline">\(s = 20.67\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Since we want a <span class="math inline">\(90\%\)</span> CI, <span class="math inline">\(\alpha = 1-0.9=0.1\)</span> and we need to look for <span class="math inline">\(t_{1-\alpha/2,n-1} = t_{0.95,19} = 1.7291\)</span>. So a <span class="math inline">\(90\%\)</span> CI for <span class="math inline">\(\mu\)</span> is
+<span class="math display">\[\bar{x} \pm t_{1-\alpha/2,n-1} \frac{s}{\sqrt{n}} = 45.26 \pm 1.7291\times\frac{20.67}{\sqrt{20}} = (37.27, 53.25)\]</span></p></li>
+<li><p>If we assume that <span class="math inline">\(\sigma=20\)</span> then we would use it instead of <span class="math inline">\(s\)</span>. In addition, our critical value would come from the standard normal table, where <span class="math inline">\(z_{1-\alpha/2}=1.645\)</span>. Hence collectively this would cause our interval in a) to get narrower.</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>You can also conveniently use <strong>R</strong> to find the quantiles and probabilities of the <span class="math inline">\(t\)</span>-distribution using functions <code>qt()</code> and <code>pt()</code>. It is in the similar fashion with the normal distribution. For example</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap-confint.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.7</span>, <span class="at">df =</span> <span class="dv">13</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5375041</code></pre>
+<p>means that <span class="math inline">\(P(X &lt; 0.538) = 0.7\)</span> where <span class="math inline">\(X\sim t(13)\)</span>. Another example is</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap-confint.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="dv">3</span>, <span class="at">df =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9933282</code></pre>
+<p>means that <span class="math inline">\(P(X &lt; 3) = 0.9933\)</span> where <span class="math inline">\(X\sim t(10)\)</span>.</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p>When the degree of freedom is greater than 30, i.e., we can not look for the exact value in the <span class="math inline">\(t\)</span>-table, we choose the closest degree of freedom to ours. If the degree of freedom is greater than 1000, we can just use the <span class="math inline">\(Z\)</span>-table instead (or the last row of the <span class="math inline">\(t\)</span>-table).</p></li>
+<li><p>In this section, we have <strong>assumed that the data is normally distributed</strong>. However, <strong>even when the data is not normal</strong>, by approximation, you can still <strong>use the <span class="math inline">\(t\)</span>-table</strong> if either</p>
+<ul>
+<li><p><span class="math inline">\(n &lt; 15\)</span> and the data is close to normal (symmetric, unimodal, no outliers)</p></li>
+<li><p>or <span class="math inline">\(n \ge 15\)</span>, <strong>except</strong> if the data distribution is strongly skewed or if it has outliers</p></li>
+<li><p>or <span class="math inline">\(n \ge 40\)</span>: any data distribution is fine.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="determine-the-sample-size" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Determine the Sample Size<a href="chap-confint.html#determine-the-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the <span class="math inline">\(t\)</span>-distribution case, we cannot use the same analogy as in the case where <span class="math inline">\(\sigma\)</span> is known, i.e., we <strong>cannot</strong> use
+<span class="math display">\[n \ge \left(\frac{t_{1-\alpha/2,n-1}\times s}{m}\right)^2\]</span>
+because we need to know <span class="math inline">\(n\)</span> because the degree of freedom is required for <span class="math inline">\(t_{1-\alpha/2,n-1}\)</span>.</p>
+<p>Instead, we will <strong>always</strong> calculate the sample size using the <span class="math inline">\(Z\)</span>-table and the formula
+<span class="math display">\[n \ge \left(\frac{z_{1-\alpha/2}\times s}{m}\right)^2\]</span>
+where <span class="math inline">\(s\)</span> can be an guess of <span class="math inline">\(\sigma\)</span> or a known <span class="math inline">\(s\)</span> from previous data.</p>
+</div>
+</div>
+<div id="summary" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Summary<a href="chap-confint.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For normal population or for <span class="math inline">\(n\)</span> large:</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="26%" />
+<col width="26%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Cases</th>
+<th align="center">Pivotal Quantity</th>
+<th align="center"><span class="math inline">\((1-\alpha)100\%\)</span> CI</th>
+<th align="center">Minimum <span class="math inline">\(n\)</span> so CI margin <br/> not exceed <span class="math inline">\(m\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sigma\)</span> known</td>
+<td align="center"><span class="math inline">\(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(\bar{x}_n \pm z_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(n \ge \left(\frac{z_{1-\alpha/2}\times \sigma}{m}\right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sigma\)</span> unknown</td>
+<td align="center"><span class="math inline">\(\frac{\bar{X}_n - \mu}{s/\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(\bar{x}_n \pm t_{1-\alpha/2, n-1}\frac{s}{\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(n \ge \left(\frac{z_{1-\alpha/2}\times s}{m}\right)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="18">
+<li id="fn18"><p>This is to differentiate between central <span class="math inline">\(t\)</span>-distribution and non-central <span class="math inline">\(t\)</span>-distribution. From now on, we will call it <span class="math inline">\(t\)</span>-distribution for short because we will only look at central <span class="math inline">\(t\)</span>-distributions in this book.<a href="chap-confint.html#fnref18" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-mean.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-hyp.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

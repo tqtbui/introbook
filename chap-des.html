@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Descriptive Statistics | A First Course In Statistics</title>
+  <meta name="description" content="2 Descriptive Statistics | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Descriptive Statistics | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Descriptive Statistics | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-step.html"/>
+<link rel="next" href="chap-prob.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-des" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Descriptive Statistics<a href="chap-des.html#chap-des" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapter, I have mentioned that there are (i) <strong>descriptive statistics</strong> that describes the <strong>sample data</strong> we collected, and (ii) <strong>inferential statistics</strong> that helps us make conclusions about the <strong>population</strong> using the sample. In this chapter, we will learn about basic descriptive statistics and methods to summarize the <strong>sample</strong> data.</p>
+<p>There are two main ways to summarize the data: <strong>visual presentation</strong> (plots) and <strong>numeric summary</strong>. The type of plots and numeric summaries differ based on the <strong>type</strong> of the data variables that we are considering.</p>
+<div id="types-of-variables" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Types of Variables<a href="chap-des.html#types-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have discussed briefly in the last lesson that there are two types of variables: <strong>quantitative</strong> or <strong>qualitative</strong>. The table below gives a more detailed comparison between these two types of variables.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantitative (numeric) variable</th>
+<th>Qualitative (categorical) variable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>- Takes on numeric values</td>
+<td>- Takes on levels/categories</td>
+</tr>
+<tr class="even">
+<td>- Quantifies some aspect of an individual or object</td>
+<td>- Qualifies some aspect of an individual or object</td>
+</tr>
+<tr class="odd">
+<td>- Can be further classified as discrete or continuous</td>
+<td>- Can be further classified as ordinal  (have a natural ordering) or non-ordinal</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>- Can be binary (two levels) or categorical (more than two levels)</td>
+</tr>
+<tr class="odd">
+<td>- Examples include: Time, Height, Weight, Age, Temperature, Price, etc.</td>
+<td>- Examples include: Color, Race, Gender, Province, Faculty, Blood type, etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summaries-of-qualitative-variables" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Summaries of Qualitative Variables<a href="chap-des.html#summaries-of-qualitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="frequency" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Frequency<a href="chap-des.html#frequency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Qualitative variables can be summarized by</p>
+<ul>
+<li><p><strong>frequency</strong>: the number of units/observations (the count) in each category</p></li>
+<li><p><strong>relative frequency</strong>: the proportion of observations in each category
+<span class="math display">\[\frac{\text{frequency}}{\text{total number of observations}}\]</span></p></li>
+<li><p><strong>precentage relative frequency:</strong> the relative frequency expressed as a percentage
+<span class="math display">\[\frac{\text{frequency}}{\text{total number of observations}}\times 100\%\]</span></p></li>
+</ul>
+</div>
+<div id="plots" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Plots<a href="chap-des.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The frequencies can be plotted using a</p>
+<ul>
+<li><p><strong>bar plot</strong>: can be used for comparison among categories.</p>
+<ul>
+<li><p>The <span class="math inline">\(x\)</span>-axis typically represents the different categories and the <span class="math inline">\(y\)</span>-axis can then capture the frequency, relative frequency or % relative frequency.</p></li>
+<li><p>In a bar plot, the categories can be sorted in any order. However, it is usually prefered to order the categories by some (natural) ordering for clarity.</p></li>
+<li><p>There is usually a space in between the bars to separate the categories.</p></li>
+</ul></li>
+<li><p><strong>pie plot</strong>: can be used to show the composition of the variable (i.e., share of total of each category).</p>
+<ul>
+<li>Typically the (percentage) relative frequency of each category is plotted within a circle so that the area for each category adds up to the area of the whole circle (100%)</li>
+</ul></li>
+</ul>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> It is best to illustrate these plots using an example. We will continue the students’ rent example in Chapter <a href="chap-step.html#chap-step">1</a>. And from this chapter, we will work with the data set <a href="C:/Users/trang/Documents/mybooks/stat_1st_course/book/_book/data/fakeRent.csv" download="fakeRent.csv">fakeRent.csv</a>. We will assume that this data set records the <strong>sample</strong> I collected to study UWaterloo students’ rent<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Learn more about the data set in Appendix <a href="app-dataset.html#app-dataset">C</a>.</p>
+<p>From this chapter, we will also include <strong>R</strong> codes and examples to illustrate concepts and help you analyze real data sets in your future. Learn about <strong>R</strong> in Appendix <a href="app-rintro.html#app-rintro">A</a>.</p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-26" class="example"><strong>Example 2.1  </strong></span>Suppose I am interested in the faculty of students in the sample I collected in the <code>fakeRent.csv</code> data set. I can open the file in Excel and calculate the frequency and relative frequency as follows</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Faculty</th>
+<th align="center">Frequency</th>
+<th align="center">% Relative frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arts</td>
+<td align="center"><span class="math inline">\(160\)</span></td>
+<td align="center"><span class="math inline">\(\frac{160}{1345}\times 100 = 11.9\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Engineering</td>
+<td align="center"><span class="math inline">\(246\)</span></td>
+<td align="center"><span class="math inline">\(18.3\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Environment</td>
+<td align="center"><span class="math inline">\(125\)</span></td>
+<td align="center"><span class="math inline">\(9.3\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Health</td>
+<td align="center"><span class="math inline">\(199\)</span></td>
+<td align="center"><span class="math inline">\(14.8\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Math</td>
+<td align="center"><span class="math inline">\(376\)</span></td>
+<td align="center"><span class="math inline">\(27.9\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Science</td>
+<td align="center"><span class="math inline">\(239\)</span></td>
+<td align="center"><span class="math inline">\(17.8\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="center"><strong>1345</strong></td>
+<td align="center"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Or I can calculate the frequency and % relative frequency in <strong>R</strong> with the following code</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-des.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the data set and save it as &quot;rent&quot; in the environment</span></span>
+<span id="cb1-2"><a href="chap-des.html#cb1-2" aria-hidden="true" tabindex="-1"></a>rent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fakeRent.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chap-des.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the frequency table and save it as &quot;fac.freq&quot; in the R environment</span></span>
+<span id="cb2-2"><a href="chap-des.html#cb2-2" aria-hidden="true" tabindex="-1"></a>fac.freq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)</span>
+<span id="cb2-3"><a href="chap-des.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="chap-des.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the frequency table</span></span>
+<span id="cb2-5"><a href="chap-des.html#cb2-5" aria-hidden="true" tabindex="-1"></a>fac.freq</span></code></pre></div>
+<pre><code>## 
+##        Arts Engineering Environment      Health        Math     Science 
+##         160         246         125         199         376         239</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chap-des.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the relative frequency table and save it as &quot;fac.relfreq&quot; in the R environment</span></span>
+<span id="cb4-2"><a href="chap-des.html#cb4-2" aria-hidden="true" tabindex="-1"></a>fac.relfreq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)<span class="sc">/</span><span class="fu">nrow</span>(rent) <span class="co">#nrow(rent) gives the number of students observed in the &quot;rent&quot; data set</span></span>
+<span id="cb4-3"><a href="chap-des.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="chap-des.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the relative frequency table</span></span>
+<span id="cb4-5"><a href="chap-des.html#cb4-5" aria-hidden="true" tabindex="-1"></a>fac.relfreq</span></code></pre></div>
+<pre><code>## 
+##        Arts Engineering Environment      Health        Math     Science 
+##   0.1189591   0.1828996   0.0929368   0.1479554   0.2795539   0.1776952</code></pre>
+<p>Using these frequency tables, we can plot a bar plot in <strong>R</strong>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chap-des.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the bar plot of the calculated frequency table</span></span>
+<span id="cb6-2"><a href="chap-des.html#cb6-2" aria-hidden="true" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.relfreq,                             <span class="co"># frequency table</span></span>
+<span id="cb6-3"><a href="chap-des.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">space =</span> <span class="fl">0.5</span>,                                   <span class="co"># space in between the bars</span></span>
+<span id="cb6-4"><a href="chap-des.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.names =</span> <span class="fl">0.6</span>,                               <span class="co"># font size of bar names in the x-axis</span></span>
+<span id="cb6-5"><a href="chap-des.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.32</span>),                             <span class="co"># limits for y-axis</span></span>
+<span id="cb6-6"><a href="chap-des.html#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;% Relative frequency&quot;</span>,                 <span class="co"># label of the y-axis</span></span>
+<span id="cb6-7"><a href="chap-des.html#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Bar plot for the faculty of students&quot;</span>) <span class="co"># title of the plot</span></span>
+<span id="cb6-8"><a href="chap-des.html#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="chap-des.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># annotate numbers at the top of the barplot</span></span>
+<span id="cb6-10"><a href="chap-des.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp,                                           <span class="co"># the barplot</span></span>
+<span id="cb6-11"><a href="chap-des.html#cb6-11" aria-hidden="true" tabindex="-1"></a>     fac.relfreq<span class="fl">+0.02</span>,                             <span class="co"># positions of the numbers</span></span>
+<span id="cb6-12"><a href="chap-des.html#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the numbers, as percentage</span></span>
+<span id="cb6-13"><a href="chap-des.html#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)                                      <span class="co"># size of the annotated numbers</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-bar-onevar"></span>
+<img src="_main_files/figure-html/des-bar-onevar-1.png" alt="Bar plot of students' faculties in the sample data" width="672" height="35%" />
+<p class="caption">
+Figure 2.1: Bar plot of students’ faculties in the sample data
+</p>
+</div>
+<p>We can also create a pie plot.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-des.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the pie plot</span></span>
+<span id="cb7-2"><a href="chap-des.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(fac.relfreq,                                    <span class="co"># the frequency table</span></span>
+<span id="cb7-3"><a href="chap-des.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the number annotated in the pie plot</span></span>
+<span id="cb7-4"><a href="chap-des.html#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">clockwise =</span> <span class="cn">TRUE</span>,                               <span class="co"># whether the pie will plot the data clock-wise  </span></span>
+<span id="cb7-5"><a href="chap-des.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
+<span id="cb7-6"><a href="chap-des.html#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),             <span class="co"># colors of the pie slices</span></span>
+<span id="cb7-7"><a href="chap-des.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Pie plot of faculty&quot;</span>)                   <span class="co"># title of the plot</span></span>
+<span id="cb7-8"><a href="chap-des.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="chap-des.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># drawing a legend in the plot</span></span>
+<span id="cb7-10"><a href="chap-des.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>,                       <span class="co"># position of the legend relative to the plot</span></span>
+<span id="cb7-11"><a href="chap-des.html#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">names</span>(fac.relfreq),        <span class="co"># names of the pie slices (i.e., the column names of the frequency table)</span></span>
+<span id="cb7-12"><a href="chap-des.html#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
+<span id="cb7-13"><a href="chap-des.html#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),    <span class="co"># colors of the pie slices </span></span>
+<span id="cb7-14"><a href="chap-des.html#cb7-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.7</span>)                          <span class="co"># size of the legend&#39;s words</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-pie"></span>
+<img src="_main_files/figure-html/des-pie-1.png" alt="Pie plot of students' faculties in the sample data" width="672" height="30%" />
+<p class="caption">
+Figure 2.2: Pie plot of students’ faculties in the sample data
+</p>
+</div>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>To present data about <strong>two</strong> qualitative variables, we can plot a <strong>side-by-side</strong> or a <strong>stacked</strong> bar plot.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-27" class="example"><strong>Example 2.2  </strong></span>Now, suppose that I am interested in both students’ faculty and gender. I can calculate a two-way frequency table.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chap-des.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate a two-way frequency table by gender and faculty and save it as an object called &quot;fac.gender&quot; in R environment</span></span>
+<span id="cb8-2"><a href="chap-des.html#cb8-2" aria-hidden="true" tabindex="-1"></a>fac.gender <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>gender, rent<span class="sc">$</span>faculty)</span>
+<span id="cb8-3"><a href="chap-des.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="chap-des.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the calculated frequency table</span></span>
+<span id="cb8-5"><a href="chap-des.html#cb8-5" aria-hidden="true" tabindex="-1"></a>fac.gender</span></code></pre></div>
+<pre><code>##         
+##          Arts Engineering Environment Health Math Science
+##   Female   80          52          58    104  133      73
+##   Male     63         157          46     62  177     120
+##   Others   17          37          21     33   66      46</code></pre>
+<p>The side-by-side bar plot of students’ faculty and gender can be plotted using the following <strong>R</strong> code:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chap-des.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
+<span id="cb10-2"><a href="chap-des.html#cb10-2" aria-hidden="true" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
+<span id="cb10-3"><a href="chap-des.html#cb10-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
+<span id="cb10-4"><a href="chap-des.html#cb10-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
+<span id="cb10-5"><a href="chap-des.html#cb10-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
+<span id="cb10-6"><a href="chap-des.html#cb10-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">TRUE</span>,                     <span class="co"># whether the bar plot is side-by-side</span></span>
+<span id="cb10-7"><a href="chap-des.html#cb10-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>), <span class="co"># colors of the different genders</span></span>
+<span id="cb10-8"><a href="chap-des.html#cb10-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">190</span>))</span>
+<span id="cb10-9"><a href="chap-des.html#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="chap-des.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
+<span id="cb10-11"><a href="chap-des.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
+<span id="cb10-12"><a href="chap-des.html#cb10-12" aria-hidden="true" tabindex="-1"></a>     fac.gender<span class="sc">+</span><span class="dv">8</span>, </span>
+<span id="cb10-13"><a href="chap-des.html#cb10-13" aria-hidden="true" tabindex="-1"></a>     fac.gender,    <span class="co"># now the numbers are the counts instead of percentages, because fac.gender is a frequency table, not a % relative frequency table as in Figure 2.1</span></span>
+<span id="cb10-14"><a href="chap-des.html#cb10-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-15"><a href="chap-des.html#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="chap-des.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
+<span id="cb10-17"><a href="chap-des.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb10-18"><a href="chap-des.html#cb10-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
+<span id="cb10-19"><a href="chap-des.html#cb10-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
+<span id="cb10-20"><a href="chap-des.html#cb10-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-side-by-side"></span>
+<img src="_main_files/figure-html/des-side-by-side-1.png" alt="Counts of students by faculty and gender" width="65%" />
+<p class="caption">
+Figure 2.3: Counts of students by faculty and gender
+</p>
+</div>
+<p>From the plot, we can see that there are some faculties where the number of males is more than that of females and on the other hand, there are faculties where the opposite applies. Remember that this result is only reflecting the sample that I collected, it does <strong>not</strong> necessarily reflect the real distribution of students in the population. That is the case only when our sample is large and representative of the population.</p>
+<p>To plot a <strong>stacked</strong> bar plot, change the <code>beside</code> argument from <code>TRUE</code> to <code>FALSE</code>. However, it is not straightforward to annotate the numbers into the stacked bar plot. Look at the code below.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-des.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
+<span id="cb11-2"><a href="chap-des.html#cb11-2" aria-hidden="true" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
+<span id="cb11-3"><a href="chap-des.html#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
+<span id="cb11-4"><a href="chap-des.html#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
+<span id="cb11-5"><a href="chap-des.html#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
+<span id="cb11-6"><a href="chap-des.html#cb11-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">FALSE</span>, <span class="co"># now the bar plot is stacked instead of side-by-side</span></span>
+<span id="cb11-7"><a href="chap-des.html#cb11-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),        </span>
+<span id="cb11-8"><a href="chap-des.html#cb11-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>))</span>
+<span id="cb11-9"><a href="chap-des.html#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="chap-des.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate tables to input as annotated texts in the plot</span></span>
+<span id="cb11-11"><a href="chap-des.html#cb11-11" aria-hidden="true" tabindex="-1"></a>fac.gender.txt <span class="ot">&lt;-</span> <span class="fu">t</span>(fac.gender)</span>
+<span id="cb11-12"><a href="chap-des.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="chap-des.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># function to calculate the the y-coordinate at the middle of each stacked bar</span></span>
+<span id="cb11-14"><a href="chap-des.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># you do not need to understand this function in details, just run the code </span></span>
+<span id="cb11-15"><a href="chap-des.html#cb11-15" aria-hidden="true" tabindex="-1"></a>stacked_position <span class="ot">&lt;-</span> <span class="cf">function</span>(mat) {</span>
+<span id="cb11-16"><a href="chap-des.html#cb11-16" aria-hidden="true" tabindex="-1"></a>  ret <span class="ot">&lt;-</span> mat</span>
+<span id="cb11-17"><a href="chap-des.html#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mat)) {</span>
+<span id="cb11-18"><a href="chap-des.html#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb11-19"><a href="chap-des.html#cb11-19" aria-hidden="true" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb11-20"><a href="chap-des.html#cb11-20" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-21"><a href="chap-des.html#cb11-21" aria-hidden="true" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> ret[,i<span class="dv">-1</span>] <span class="sc">+</span> mat[,i<span class="dv">-1</span>]<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb11-22"><a href="chap-des.html#cb11-22" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-23"><a href="chap-des.html#cb11-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-24"><a href="chap-des.html#cb11-24" aria-hidden="true" tabindex="-1"></a>  ret</span>
+<span id="cb11-25"><a href="chap-des.html#cb11-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-26"><a href="chap-des.html#cb11-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-27"><a href="chap-des.html#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the position of the annotated texts in the plot using the stacked_position function defined above</span></span>
+<span id="cb11-28"><a href="chap-des.html#cb11-28" aria-hidden="true" tabindex="-1"></a>fac.gender.txt.position <span class="ot">&lt;-</span> <span class="fu">stacked_position</span>(fac.gender.txt)</span>
+<span id="cb11-29"><a href="chap-des.html#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="chap-des.html#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
+<span id="cb11-31"><a href="chap-des.html#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
+<span id="cb11-32"><a href="chap-des.html#cb11-32" aria-hidden="true" tabindex="-1"></a>     fac.gender.txt.position, </span>
+<span id="cb11-33"><a href="chap-des.html#cb11-33" aria-hidden="true" tabindex="-1"></a>     fac.gender.txt,</span>
+<span id="cb11-34"><a href="chap-des.html#cb11-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb11-35"><a href="chap-des.html#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="chap-des.html#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
+<span id="cb11-37"><a href="chap-des.html#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb11-38"><a href="chap-des.html#cb11-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
+<span id="cb11-39"><a href="chap-des.html#cb11-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
+<span id="cb11-40"><a href="chap-des.html#cb11-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-stacked"></span>
+<img src="_main_files/figure-html/des-stacked-1.png" alt="Counts of students by faculty and gender" width="65%" />
+<p class="caption">
+Figure 2.4: Counts of students by faculty and gender
+</p>
+</div>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-28" class="exercise"><strong>Exercise 2.1  </strong></span></p>
+<ol style="list-style-type: lower-alpha">
+<li>When will the data I collect likely represent the real distribution of students in UWaterloo?</li>
+<li>Recreate the stacked bar plot but with % relative frequency instead of frequency table.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="summaries-of-quantitative-variables" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Summaries of Quantitative Variables<a href="chap-des.html#summaries-of-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="stem-plots" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Stem Plots<a href="chap-des.html#stem-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For a <strong>small</strong> sample size (small number of sampled observations), <strong>one quantitative variable</strong> can be presented using a stem (or stem-and-leaf) plot.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-24-leaf" class="example"><strong>Example 2.3  </strong></span>Consider the first 24 students in the <code>fakeRent.csv</code> data set. Their rents are</p>
+<p><span class="math display">\[\begin{array}{cccccccc}
+890 &amp; 1120 &amp; 590 &amp; 830 &amp; 910 &amp; 940 &amp; 550 &amp; 850 \\
+930 &amp; 1040 &amp; 860 &amp; 720 &amp; 1020 &amp; 540 &amp; 680 &amp; 700 \\
+760 &amp; 730 &amp; 730 &amp; 910 &amp; 960 &amp; 350 &amp; 940 &amp; 710
+\end{array}\]</span></p>
+<p>The stem plot for this 24 observations can be plotted in <strong>R</strong> using the following code:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-des.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the first 24 rent data into a variable called &quot;dat&quot; in the R environment</span></span>
+<span id="cb12-2"><a href="chap-des.html#cb12-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
+<span id="cb12-3"><a href="chap-des.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="chap-des.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the stem plot</span></span>
+<span id="cb12-5"><a href="chap-des.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(dat,         <span class="co"># the data to be plotted</span></span>
+<span id="cb12-6"><a href="chap-des.html#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">scale =</span> <span class="dv">2</span>)   <span class="co"># scale = 1 gives even-numbered stems, scale = 2 gives all available stems</span></span></code></pre></div>
+<pre><code>## 
+##   The decimal point is 2 digit(s) to the right of the |
+## 
+##    3 | 5
+##    4 | 
+##    5 | 459
+##    6 | 8
+##    7 | 012336
+##    8 | 3569
+##    9 | 113446
+##   10 | 24
+##   11 | 2</code></pre>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>There are three parts in a stem plot:</p>
+<ul>
+<li><p><strong>legend</strong>: the legend tells us about the number of digits that the decimal point is to the right of |. In other words, this tells us how the number is split. In the previous example, the legend says that the decimal point is two digits to the right of |. For example, consider the first number in the plot</p>
+<p><img src="data/images/chap-des/stem_plot_rule.png" width="134" style="display: block; margin: auto;" /></p>
+<p>To know the first number, we start by placing the decimal point at the | then move it to the right or left as specified in the legend. In the above picture, we move the decimal point two digits to the right and get 350.0</p></li>
+<li><p><strong>stem</strong>: is the number to be used to categorize the observations. In Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>, the stem is the hundred.</p></li>
+<li><p><strong>leaves</strong>: each leaf represents an observation in our data set. In a stem plot the leaves are ordered in <strong>ascending order</strong>.</p></li>
+</ul>
+<p>From the plot in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>, we can see that there are some “leaves” that are repeated twice. This means that there are two observations having the same value. In the above plot, these are 730, 910, 940.</p>
+<p>The stem plot is</p>
+<ul>
+<li><p><em>pros</em>: easy to create and individual observations (data points) are maintained.</p></li>
+<li><p><em>cons</em>: not practical when data set is large.</p></li>
+</ul>
+</div>
+<div id="des-sec-quantile" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Quantiles<a href="chap-des.html#des-sec-quantile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An <span class="math inline">\(x\)</span>-<strong>quantile</strong> of a distribution is the value at which <span class="math inline">\(x\)</span> of the data lies below this value.</p>
+<p>A <span class="math inline">\(x\)</span>-<strong>percentile</strong> of a distribution is the value at which <span class="math inline">\(x\)</span> percent of the data lies below this value.</p>
+<p>For example, a <span class="math inline">\(0.5\)</span>-quantile (<span class="math inline">\(50\%\)</span>-percentile) is the value at which 50% of the data lies below this value, i.e., half of the data lies <em>below</em> this value and the other half of the data lies <em>above</em> this value. The <span class="math inline">\(0.5\)</span>-quantile is an important descriptive quantity and is called the <strong>median</strong> of a distribution.</p>
+<p>To find the <strong>median</strong>, we follow the following steps. Suppose we have <span class="math inline">\(n\)</span> observations, then</p>
+<ul>
+<li><p>Sort the data from the smallest to largest</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is odd, then the median is the value at the <span class="math inline">\(\frac{n+1}{2}\)</span>th position</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is even, then the median is the average of the <span class="math inline">\(\frac{n}{2}\)</span>th and <span class="math inline">\((\frac{n}{2}+1)\)</span>th value.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-24-median" class="example"><strong>Example 2.4  </strong></span>Consider again the first 24 values of rent in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>. The stem plot helped me sort the values. Now since I have <span class="math inline">\(n=24\)</span> observation, according to step 3, the median will be the average between the <span class="math inline">\(\frac{24}{2}=12\)</span>th and the <span class="math inline">\(12+1 = 13\)</span>th position. Those are the numbers highlighted in the above stem plot: <span class="math inline">\(830\)</span> and <span class="math inline">\(850\)</span>. The median is
+<span class="math display">\[\frac{830+850}{2} = 840.\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class=".{exercise}">
+<p>If I omit the last observation of the data in Example <a href="chap-des.html#exm:ex-des-24-median">2.4</a>, i.e., <span class="math inline">\(710\)</span>, what will be the median of my data now?</p>
+</div>
+</div>
+<p>Generally, to find <span class="math inline">\(x\)</span>-quantile, we follow the following steps</p>
+<ul>
+<li><p>Sort the data from smallest to largest</p></li>
+<li><p>The position of interest is <span class="math inline">\(n \times x\)</span>.</p></li>
+<li><p>If this number is <strong>not an integer</strong>, we round this up to the next whole number. The value in that position is our <span class="math inline">\(x\)</span>-quantile.</p></li>
+<li><p>If this number is an integer, the <span class="math inline">\(x\)</span>-quantile is the average of the values in position <span class="math inline">\(n \times x\)</span> and <span class="math inline">\(n \times x + 1\)</span>.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-29" class="example"><strong>Example 2.5  </strong></span>Consider the sorted data (<span class="math inline">\(n=12\)</span>)</p>
+<p><span class="math display">\[35, 54, 55, 59, 68, 70, 71, 72, 73, 73, 76, 80\]</span></p>
+<p>Suppose we want to find the <span class="math inline">\(0.3\)</span>-quantile. The position of our interest will then be <span class="math inline">\(12 \times 0.3 = 3.6\)</span>. Because this is not an integer, we need to round this up and take the value at the <span class="math inline">\(4\)</span>rd position. So the <span class="math inline">\(0.3\)</span>-quantile is <span class="math inline">\(59\)</span>. We can also calculate this in <strong>R</strong>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chap-des.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the data into a variable called &quot;dat&quot;</span></span>
+<span id="cb14-2"><a href="chap-des.html#cb14-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">54</span>, <span class="dv">55</span>, <span class="dv">59</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">71</span>, <span class="dv">72</span>, <span class="dv">73</span>, <span class="dv">73</span>, <span class="dv">76</span>, <span class="dv">80</span>)</span>
+<span id="cb14-3"><a href="chap-des.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="chap-des.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the 0.3-quantile</span></span>
+<span id="cb14-5"><a href="chap-des.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(dat,         <span class="co"># the data whose quantile is to be calculated</span></span>
+<span id="cb14-6"><a href="chap-des.html#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.3</span>, <span class="co"># the probability at which the quantile is calculated</span></span>
+<span id="cb14-7"><a href="chap-des.html#cb14-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)    <span class="co"># the type of quantile-finding algorithm to use</span></span></code></pre></div>
+<pre><code>## 30% 
+##  59</code></pre>
+<p>Now suppose we want to find the <span class="math inline">\(0.75\)</span>-quantile. The position of interest is <span class="math inline">\(12 \times 0.75 = 9\)</span>, which is an integer. We then take the average of the values in the <span class="math inline">\(9\)</span>th and <span class="math inline">\(10\)</span>th position, i.e., <span class="math inline">\((73+73)/2 = 73\)</span>. The <strong>R</strong> code is then</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chap-des.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(dat,         </span>
+<span id="cb16-2"><a href="chap-des.html#cb16-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.75</span>, </span>
+<span id="cb16-3"><a href="chap-des.html#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## 75% 
+##  73</code></pre>
+</div>
+</div>
+</div>
+<div id="five-number-summary" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Five-number Summary<a href="chap-des.html#five-number-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Besides the <strong>median</strong>, there are two other important quantiles that are usually used in statistics: the <span class="math inline">\(25\)</span> and <span class="math inline">\(75\)</span> percentiles (or the <span class="math inline">\(0.25\)</span>- and <span class="math inline">\(0.75\)</span>-quantiles). We call</p>
+<ul>
+<li><p>the <span class="math inline">\(25\)</span> percentile the <strong>first quartile</strong>, and denote it by <strong>Q1</strong>,</p></li>
+<li><p>the median, i.e., the <span class="math inline">\(50\)</span> percentile, the <strong>second quartile</strong> and denote it by <strong>Q2</strong>,</p></li>
+<li><p>the <span class="math inline">\(75\)</span> percentile the <strong>third quartile</strong>, and denote it by <strong>Q3</strong>.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-24-Q1Q3" class="example"><strong>Example 2.6  </strong></span>Continue with Example <a href="chap-des.html#exm:ex-des-24-median">2.4</a>.</p>
+<p>Q1 is the <span class="math inline">\(0.25\)</span>-quantile, so the position we are looking for is <span class="math inline">\(24\times 0.25 = 6\)</span>. Because this is an integer, we take the average of the values at the <span class="math inline">\(6\)</span>th and the <span class="math inline">\(6+1 = 7\)</span>th position, which gives us
+<span class="math display">\[Q1 = \frac{700+710}{2} = 705.\]</span></p>
+<p>Q3 is the <span class="math inline">\(0.75\)</span>-quantile, so the position we are looking for is <span class="math inline">\(24\times 0.75 = 18\)</span>. Because this is an integer, we take the average of the values of the <span class="math inline">\(18\)</span>th and the <span class="math inline">\(19\)</span>th position, which is 930 and 940. Then Q3 is
+<span class="math display">\[Q3 = \frac{930+940}{2} = 935.\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Q1, Q2 (the median) and Q3, together with the <strong>minimum</strong> and the <strong>maximum</strong> value, are called the <strong>five-number summary</strong> of the variable. The five-number summary roughly tells us about the <strong>distribution</strong> of the variable.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-24-5num" class="example"><strong>Example 2.7  </strong></span>In the above Example <a href="chap-des.html#exm:ex-des-24-Q1Q3">2.6</a>, the five-number summary of the <span class="math inline">\(24\)</span> observations of student rent is</p>
+<ul>
+<li><p>Minimum: <span class="math inline">\(350\)</span></p></li>
+<li><p>Q1: <span class="math inline">\(705\)</span></p></li>
+<li><p>Median (Q2): <span class="math inline">\(840\)</span></p></li>
+<li><p>Q3: <span class="math inline">\(935\)</span></p></li>
+<li><p>Maximum: <span class="math inline">\(1120\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="des-sec-boxplot" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Box Plots<a href="chap-des.html#des-sec-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Box plots</strong> helps us represent the distribution of a quantitative variables using the five-number summary.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-boxplot-explain"></span>
+<img src="data/images/chap-des/boxplot.png" alt="Elements of a box plot" width="90%" />
+<p class="caption">
+Figure 2.5: Elements of a box plot
+</p>
+</div>
+<p>To draw a box plot, we follow the following steps</p>
+<ul>
+<li><p>calculate the five-number summary of the data,</p></li>
+<li><p>draw a box from Q1 to Q3, draw a line at Q2</p></li>
+<li><p>calculate the <strong>interquartile range</strong> (IQR)
+<span class="math display">\[IQR = Q3 - Q1\]</span></p></li>
+<li><p>calculate the <strong>upper</strong> (UL) and <strong>lower</strong> limits (LL)</p>
+<p><span class="math display">\[\begin{align*}
+  LL &amp; = Q1 - 1.5 \times IQR \\
+  UL &amp; = Q3 + 1.5 \times IQR
+  \end{align*}\]</span></p></li>
+<li><p>draw the upper whisker up until the maximum value which is smaller than the UL,</p></li>
+<li><p>draw the lower whisker up until the minimum value which is larger than the LL,</p></li>
+<li><p>sometimes dotted lines are drawn at the UL and the LL,</p></li>
+<li><p>denote any point outside the whiskers by dot(s). These points are called the <strong>outliers</strong>, i.e., the extreme values when compared to the other values in the data.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-30" class="example"><strong>Example 2.8  </strong></span>Consider again the data in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>. From Example <a href="chap-des.html#exm:ex-des-24-5num">2.7</a>, we know the five-number summary</p>
+<ul>
+<li><p>Minimum: <span class="math inline">\(350\)</span></p></li>
+<li><p>Q1: <span class="math inline">\(705\)</span></p></li>
+<li><p>Median (Q2): <span class="math inline">\(840\)</span></p></li>
+<li><p>Q3: <span class="math inline">\(935\)</span></p></li>
+<li><p>Maximum: <span class="math inline">\(1120\)</span></p></li>
+</ul>
+<p>The interquartile is
+<span class="math display">\[IQR = 935-705 = 230\]</span></p>
+<p>LL and UL are
+<span class="math display">\[LL = Q1 - IQR \times 1.5 = 705-230 \times 1.5 = 360\]</span>
+<span class="math display">\[UL = Q3 + IQR \times 1.5 = 935+230 \times 1.5 = 1280\]</span></p>
+<p>The maximum value smaller than UL is <span class="math inline">\(1120\)</span>.</p>
+<p>The minimum value larger than LL is <span class="math inline">\(540\)</span>.</p>
+<p>We can draw the box plot as follows</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chap-des.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the first 24 students&#39; rent into an object called &quot;dat&quot;</span></span>
+<span id="cb18-2"><a href="chap-des.html#cb18-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
+<span id="cb18-3"><a href="chap-des.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="chap-des.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the box plot</span></span>
+<span id="cb18-5"><a href="chap-des.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(dat,                                 <span class="co"># data to be plotted</span></span>
+<span id="cb18-6"><a href="chap-des.html#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>, <span class="co"># title of the plot</span></span>
+<span id="cb18-7"><a href="chap-des.html#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,                       <span class="co"># label of the x-axis</span></span>
+<span id="cb18-8"><a href="chap-des.html#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)                   <span class="co"># whether the box plot is horizontal or vertical</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-boxplot"></span>
+<img src="_main_files/figure-html/des-boxplot-1.png" alt="Box plot of rents for the first 24 students in the data set" width="60%" />
+<p class="caption">
+Figure 2.6: Box plot of rents for the first 24 students in the data set
+</p>
+</div>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>We can also draw side-by-side box-plots to compare the <strong>distribution</strong> of a quantitative variable across different categories of a qualitative variable.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-31" class="example"><strong>Example 2.9  </strong></span>Suppose we want to compare the rent between different genders.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-des.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(rent<span class="sc">~</span>gender,        <span class="co"># box plot of rent column by gender column in the rent data set </span></span>
+<span id="cb19-2"><a href="chap-des.html#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> rent,        <span class="co"># the data set to be plotted from</span></span>
+<span id="cb19-3"><a href="chap-des.html#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,      </span>
+<span id="cb19-4"><a href="chap-des.html#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb19-5"><a href="chap-des.html#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-boxplot-gender"></span>
+<img src="_main_files/figure-html/des-boxplot-gender-1.png" alt="Box plot of students' rents by gender" width="60%" />
+<p class="caption">
+Figure 2.7: Box plot of students’ rents by gender
+</p>
+</div>
+<p>We can see from the plot that male students seem to pay less rent than other genders. Again, this is just an observation in our sample, we should not carelessly generalize this conclusion to the whole population.</p>
+</div>
+</div>
+</div>
+<div id="histogram" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Histogram<a href="chap-des.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another great way to view the distribution of quantitative data is to plot a <strong>histogram</strong>. The histogram is the analogue of bar plots for quantitative data, in which the categories are <strong>intervals of values</strong> and the height of the bars are the <strong>frequency</strong> or the <strong>(percentage) relative frequency</strong> of values that lie <strong>within the intervals</strong>. In a histogram, these intervals (categories) are called the <strong>bins</strong>.</p>
+<p>Conventionally, we design the bins so that they cover the whole <strong>range</strong> of the variable (i.e., from the minimum to the maximum) and the the bins (intervals) are of the same length. Usually, we divide the range into 5 to 20 bins.</p>
+<p>Note that there is <strong>no gap</strong> in between the bins of a histogram (in contrast to the bar plot for qualitative data). This shows the <strong>continuity of scale</strong> of quantitative variables.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-hist" class="example"><strong>Example 2.10  </strong></span>To draw a histogram of rent in the <code>fakeRent.csv</code> data, we use the code</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chap-des.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(rent<span class="sc">$</span>rent,   <span class="co"># data to be plotted</span></span>
+<span id="cb20-2"><a href="chap-des.html#cb20-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">10</span>, <span class="co"># number of breaks to divide the range into bins of equal length</span></span>
+<span id="cb20-3"><a href="chap-des.html#cb20-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of students&#39; of rent&quot;</span>, </span>
+<span id="cb20-4"><a href="chap-des.html#cb20-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-hist-big"></span>
+<img src="_main_files/figure-html/des-hist-big-1.png" alt="Histogram of students' rent" width="55%" />
+<p class="caption">
+Figure 2.8: Histogram of students’ rent
+</p>
+</div>
+<p>In first plot (Figure <a href="chap-des.html#fig:des-hist-big">2.8</a>), there are 9 bins. We can zoom more closely into the data by drawing another histogram using more bins (Figure <a href="chap-des.html#fig:des-hist-small">2.9</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-hist-small"></span>
+<img src="_main_files/figure-html/des-hist-small-1.png" alt="Histogram of students' rent" width="55%" />
+<p class="caption">
+Figure 2.9: Histogram of students’ rent
+</p>
+</div>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Histogram’s advantages and disadvantages:</p>
+<ul>
+<li><p><em>pros</em>: visually summarize data in a nice way. With histograms, we can get an idea about the</p>
+<ul>
+<li><p><strong>center</strong>: the “middle point” of the distribution</p></li>
+<li><p><strong>spread</strong> of the distribution</p></li>
+<li><p><strong>shape</strong> of the distribution</p></li>
+<li><p><strong>outliers</strong>: extreme observations that fall outside of the common range of other observations.</p></li>
+</ul></li>
+<li><p><em>cons</em>: unlike the stem plots, we cannot know the exact value of an observation in histograms.</p></li>
+</ul>
+</div>
+<div id="measure-of-centrality" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Measure of Centrality<a href="chap-des.html#measure-of-centrality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>measure of centrality</strong> is a <strong>numeric</strong> summary which gives us one value that lies in the <strong>center</strong> of the whole distribution. There are three common centrality measures</p>
+<ul>
+<li><p><strong>mode</strong>: the value that is <strong>most popular</strong> in the data,</p>
+<ul>
+<li><p>the value that most individuals/units have may be a candidate the represent the whole distribution.</p></li>
+<li><p>you will see that even though the rationale of the mode is sound, it is the <strong>least popular</strong> because</p>
+<ul>
+<li><p>there can be more than one modes</p></li>
+<li><p>there is no universal formula to calculate the mode for all distribution,</p></li>
+<li><p>it is not always representative and informative.</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>median</strong>: the point that divides the data into <strong>two halves</strong>. (We discussed this in the Section <a href="chap-des.html#des-sec-quantile">2.3.2</a> )</p>
+<ul>
+<li><p>the median lies in the <strong>middle of the distribution</strong> and it gives us a sense of the “middle point”.</p></li>
+<li><p>even though this one is more popular than the mode, it is still less popular than the mean because</p>
+<ul>
+<li><p>there is a universal algorithm to find the median</p></li>
+<li><p>but the algebra is not nice (for anyone familiar with calculus, the formula of the median is usually not <em>smooth</em><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>).</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>mean</strong>: the <strong>average</strong> (or “arithmetic mean”) of the data,</p>
+<ul>
+<li><p>suppose the data I collect the data <span class="math inline">\(x_1, x_2, ..., x_n\)</span> (<span class="math inline">\(n\)</span> observations), then the mean is
+<span class="math display">\[\frac{x_1+x_2 + ... + x_n}{n}\]</span></p></li>
+<li><p>notation: <span class="math inline">\(\bar{x}\)</span></p></li>
+<li><p>the mean is the <strong>closest</strong> to all other values on average and it is the <strong>middle of the values</strong></p></li>
+<li><p>this is the <strong>most popular</strong> measure of centrality because</p>
+<ul>
+<li><p>there is a universal formula to find the mean</p></li>
+<li><p>the algebra is nice</p></li>
+<li><p>the mean has good properties that we will look at in Chapter <a href="chap-mean.html#chap-mean">6</a>.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-24-mean" class="example"><strong>Example 2.11  </strong></span>Come back to the data in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a></p>
+<p><span class="math display">\[\begin{array}{cccccccc}
+890 &amp; 1120 &amp; 590 &amp; 830 &amp; 910 &amp; 940 &amp; 550 &amp; 850 \\
+930 &amp; 1040 &amp; 860 &amp; 720 &amp; 1020 &amp; 540 &amp; 680 &amp; 700 \\
+760 &amp; 730 &amp; 730 &amp; 910 &amp; 960 &amp; 350 &amp; 940 &amp; 710
+\end{array}\]</span></p>
+<p>The mode is the value that appears most of the time. As we discussed in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>, there are 3 values that repeats two times: <span class="math inline">\(730\)</span>, <span class="math inline">\(910\)</span>, <span class="math inline">\(940\)</span>. These are the modes of the distribution. As it shows in this example, the mode <strong>is usually not informative about the centrality of the distribution.</strong></p>
+<p>The median is <span class="math inline">\(840\)</span> as we discussed in Example <a href="chap-des.html#exm:ex-des-24-median">2.4</a>.</p>
+<p>The mean is
+<span class="math display">\[\frac{890 + 1120 + 590 + ... + 940 + 710}{24} = 802.5\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-des-mean" class="example"><strong>Example 2.12  </strong></span>We can calculate the mean, median, and modes using <strong>R</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chap-des.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean of the rent column in the rent data set</span></span>
+<span id="cb21-2"><a href="chap-des.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<pre><code>## [1] 767.0409</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chap-des.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median of the rent </span></span>
+<span id="cb23-2"><a href="chap-des.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<pre><code>## [1] 760</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chap-des.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb25-2"><a href="chap-des.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(rent<span class="sc">$</span>rent, <span class="at">probs =</span> <span class="fl">0.5</span>, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## 50% 
+## 760</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap-des.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a function to calculate the modes</span></span>
+<span id="cb27-2"><a href="chap-des.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># you do not need to understand the function in details, just run the code</span></span>
+<span id="cb27-3"><a href="chap-des.html#cb27-3" aria-hidden="true" tabindex="-1"></a>stat_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb27-4"><a href="chap-des.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(vec)</span>
+<span id="cb27-5"><a href="chap-des.html#cb27-5" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vals), <span class="cf">function</span>(i) {<span class="fu">sum</span>(vec <span class="sc">==</span> vals[i])})</span>
+<span id="cb27-6"><a href="chap-des.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  vals[<span class="fu">which</span>(counts <span class="sc">==</span> <span class="fu">max</span>(counts))]</span>
+<span id="cb27-7"><a href="chap-des.html#cb27-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-8"><a href="chap-des.html#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="chap-des.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mode of the rent</span></span>
+<span id="cb27-10"><a href="chap-des.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_mode</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<pre><code>## [1] 720</code></pre>
+</div>
+</div>
+</div>
+<div id="measure-of-variability" class="section level3 hasAnchor" number="2.3.7">
+<h3><span class="header-section-number">2.3.7</span> Measure of Variability<a href="chap-des.html#measure-of-variability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>variability</strong> or <strong>dispersion</strong> of a variable gives us a sense of the <strong>spread</strong> (i.e., how different the values in our data are) of the distribution of that variable. Some measures of variability is</p>
+<ul>
+<li><p><strong>range</strong>: distance between the <strong>largest</strong> and the <strong>smallest</strong> value in the data set</p>
+<ul>
+<li><p>Formula: Range = Maximum value - Minimum value</p></li>
+<li><p>this gives us the range of <strong>all</strong> the values in our data</p></li>
+</ul></li>
+<li><p><strong>interquartile range (IQR)</strong>: the distance covered by the <strong>middle 50%</strong> of the data</p>
+<ul>
+<li><p>Formula: IQR = Q3 - Q1</p></li>
+<li><p>this gives us the range of the <strong>central</strong> values in our data</p></li>
+</ul></li>
+<li><p><strong>standard deviation</strong>:</p>
+<ul>
+<li><p>this gives us the <strong>average difference of the values from the mean</strong></p></li>
+<li><p>notation: <span class="math inline">\(s\)</span></p></li>
+<li><p>suppose we have the data <span class="math inline">\(x_1, x_2, ..., x_n\)</span></p></li>
+<li><p>one may think that we can simply average the differences
+<span class="math display">\[\frac{(x_1 - \bar{x}) + (x_2-\bar{x}) + ... + (x_n-\bar{x})}{n} = \frac{\sum_{i=1}^n (x_i-\bar{x})}{n},\]</span>
+however, if you pay closer attention, this formula will always be zero no matter what the values <span class="math inline">\(x_1, x_2, ..., x_n\)</span> are. This means this formula will not give us any information about the spread of the distribution.</p></li>
+<li><p>another viable option is to take the absolute value of the differences
+<span class="math display">\[\frac{|x_1 - \bar{x}| + |x_2-\bar{x}| + ... + |x_n-\bar{x}|}{n} = \frac{\sum_{i=1}^n |x_i-\bar{x}|}{n}.\]</span>
+This is a good option, but the algebra is not nice (i.e., again not <em>smooth</em>)</p></li>
+<li><p>finally, we can choose to <strong>square</strong> the differences, calculate the <strong>average</strong> then take the <strong>square root</strong>. In fact, this is the <strong>formula of the standard deviation</strong>
+<span class="math display">\[\begin{align*}
+  s &amp; = \sqrt{\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}} \\
+  &amp; = \sqrt{\frac{(x_1 - \bar{x})^2 + (x_2-\bar{x})^2 + ... + (x_n-\bar{x})^2}{n-1}} \\
+  &amp; = \sqrt{\frac{\sum_{i=1}^n x_i^2 - n\bar{x}^2}{n-1}}.
+  \end{align*}\]</span></p></li>
+<li><p>the <strong>variance</strong> is just the square of the <strong>standard deviation</strong></p>
+<div class="center">
+<div class="highlight">
+<p><span class="math display">\[s^2 = \frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}\]</span></p>
+</div>
+</div></li>
+<li><p></p>
+<ul>
+<li><p>you may wonder why we divide by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span>. We will explain this in later chapters.</p></li>
+<li><p>the variance and the standard deviation are <strong>always positive</strong>.</p></li>
+<li><p>the standard deviation, the mean, mode and median all have the <strong>same unit</strong> as the raw data. For example, the standard deviation of the rent data will be in dollars ($).</p></li>
+<li><p>the variance has the unit squared. In the rent data, the unit of the variance is <span class="math inline">\(\$^2\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-32" class="example"><strong>Example 2.13  </strong></span>Again consider the data in Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a></p>
+<p><span class="math display">\[\begin{array}{cccccccc}
+890 &amp; 1120 &amp; 590 &amp; 830 &amp; 910 &amp; 940 &amp; 550 &amp; 850 \\
+930 &amp; 1040 &amp; 860 &amp; 720 &amp; 1020 &amp; 540 &amp; 680 &amp; 700 \\
+760 &amp; 730 &amp; 730 &amp; 910 &amp; 960 &amp; 350 &amp; 940 &amp; 710
+\end{array}\]</span></p>
+<p>From Example <a href="chap-des.html#exm:ex-des-24-mean">2.11</a>, the mean is <span class="math inline">\(\$ 802.5\)</span>.</p>
+<p>The variance is</p>
+<p><span class="math display">\[\begin{align*}
+s^2 &amp; = \frac{\sum{i=1}^24 x_i^2 - 24\bar{x}^2}{24-1} \\
+&amp; = \frac{[890^2 + 1120^2 + ... + 940^2 + 710^2] - [25\times 802.5^2]}{25-1} \\
+&amp; = 32880.43 \quad (\$^2)
+\end{align*}\]</span></p>
+<p>The standard deviation is
+<span class="math display">\[s = \sqrt{32880.43} = 181.3296 \hspace{2mm} (\$)\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>We can also calculate the variance and standard deviation in <strong>R</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-33" class="example"><strong>Example 2.14  </strong></span>The variance and standard deviation of students’ rent in the <code>fakeRent.csv</code> data set is</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap-des.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variance</span></span>
+<span id="cb29-2"><a href="chap-des.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<pre><code>## [1] 19045.7</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap-des.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation</span></span>
+<span id="cb31-2"><a href="chap-des.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<pre><code>## [1] 138.0062</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-des.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or standard deviation = square root of variance</span></span>
+<span id="cb33-2"><a href="chap-des.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(rent<span class="sc">$</span>rent))</span></code></pre></div>
+<pre><code>## [1] 138.0062</code></pre>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-34" class="exercise"><strong>Exercise 2.2  </strong></span>Prove that for all data <span class="math inline">\(x_1, x_2, ..., x_n\)</span> the following hold</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[\frac{\sum_{i=1}^n (x_i-\bar{x})}{n} = 0\]</span></p></li>
+<li><p><span class="math display">\[s^2 = \frac{\sum_{i=1}^n x_i^2 - n\bar{x}^2}{n-1}\]</span></p></li>
+</ol>
+<p>where, by the formula,</p>
+<p><span class="math display">\[\begin{align*}
+\bar{x} &amp; = \frac{\sum_{i=1}^n x_i}{n}, \\
+s &amp; = \frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}.
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+<div id="shape-of-the-distribution" class="section level3 hasAnchor" number="2.3.8">
+<h3><span class="header-section-number">2.3.8</span> Shape of the Distribution<a href="chap-des.html#shape-of-the-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The stem plots, box plots, histograms help us understand the <strong>shape</strong> of the distribution. We can describe the shape of the distribution using the number of modes and the skewness of the distributions.</p>
+<div id="number-of-modes" class="section level4 hasAnchor" number="2.3.8.1">
+<h4><span class="header-section-number">2.3.8.1</span> Number of Modes<a href="chap-des.html#number-of-modes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A distribution can be</p>
+<ul>
+<li><p><strong>unimodal</strong>: the data is piled around a <strong>single</strong> peak</p></li>
+<li><p><strong>bimodal</strong>: the data is piled around <strong>two</strong> peaks</p></li>
+<li><p><strong>multimodal</strong>: the data is piled around <strong>multiple</strong> peaks</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-mode"></span>
+<img src="data/images/chap-des/modes.png" alt="The number of modes." width="100%" />
+<p class="caption">
+Figure 2.10: The number of modes.
+</p>
+</div>
+</div>
+<div id="skewness" class="section level4 hasAnchor" number="2.3.8.2">
+<h4><span class="header-section-number">2.3.8.2</span> Skewness<a href="chap-des.html#skewness" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are three types of skewness</p>
+<p><strong>symmetric</strong>:</p>
+<ul>
+<li><p>a distribution is symmetric if the right and the left of the distribution are approximately mirror images of each other</p></li>
+<li><p>the values are distributed equally around the center</p></li>
+<li><p>we have: Mean = Median = Mode</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-symmetric"></span>
+<img src="data/images/chap-des/symmetric.png" alt="Symmetric distribution" width="90%" />
+<p class="caption">
+Figure 2.11: Symmetric distribution
+</p>
+</div>
+<p><strong>left-skewed</strong></p>
+<ul>
+<li><p>a distribution is <strong>skewed to the left</strong> if the left side extends further out than the right side, i.e., the distribution has a <strong>longer left tail</strong></p></li>
+<li><p>imagine someone <strong>pulls the left tail</strong> of a symmetric distribution to the right</p></li>
+<li><p>half of the observations <strong>spread on the left</strong> side and the other half of the observations <strong>concentrate on the right</strong> of the distribution, so the median is on the right of the value range.</p></li>
+<li><p>we have: Mean &lt; Median</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-left-skwd"></span>
+<img src="data/images/chap-des/leftskewed.png" alt="Left-skewed distribution" width="90%" />
+<p class="caption">
+Figure 2.12: Left-skewed distribution
+</p>
+</div>
+<p><strong>right-skewed</strong></p>
+<ul>
+<li><p>a distribution is <strong>skewed to the right</strong> if the right side extends further out than the left side, i.e., the distribution has a <strong>longer right tail</strong></p></li>
+<li><p>imagine someone <strong>pulls the right tail</strong> of a symmetric distribution to the right</p></li>
+<li><p>half of the observations <strong>spread on the right</strong> side and the other half of the observations <strong>concentrate on the left</strong> of the distribution, so the median is on the left of the value range.</p></li>
+<li><p>we have: Mean &gt; Median</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-right-skwd"></span>
+<img src="data/images/chap-des/rightskewed.png" alt="Right-skewed distribution" width="90%" />
+<p class="caption">
+Figure 2.13: Right-skewed distribution
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 2.15  </strong></span>Look at the box plot in Figure <a href="chap-des.html#fig:des-boxplot">2.6</a>, the Q2 line is slightly to the right of the middle of the box, we can say that the distribution is slightly skewed to the left.</p>
+<p>Look at the histograms in Figure <a href="chap-des.html#fig:des-hist-big">2.8</a> and <a href="chap-des.html#fig:des-hist-small">2.9</a>, since the two tails look similar to each other, we say that the distribution is symmetric.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="robustness-to-outliers" class="section level3 hasAnchor" number="2.3.9">
+<h3><span class="header-section-number">2.3.9</span> Robustness to outliers<a href="chap-des.html#robustness-to-outliers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We are introduced to <strong>outliers</strong> in Section <a href="chap-des.html#des-sec-boxplot">2.3.4</a> where we discuss Box plot. Recall that outliers are the <strong>extreme values</strong> that lie outside the common range of most other values in our data.</p>
+<p>When we have outliers in our data, we should ask the question:</p>
+<ul>
+<li><p>is the outlier produced by some <strong>error</strong> in measurement or data record?</p></li>
+<li><p>is there another <strong>reason</strong> for such an outlier and is it interesting and worth our concern?</p></li>
+</ul>
+<p>Many of the times, outliers are produced by errors. Because there are only a few of them, outliers will not help us <strong>generalize</strong> or <strong>make conclusions</strong> for the <strong>majority</strong> of the cases. Therefore, we usually omit the outliers from our sample.</p>
+<p>Desirably, we want our numeric summaries (or measures, or statistics) to be <strong>robust</strong> to outliers, i.e., they will <strong>not be affected by the existence or removal of outliers</strong>.</p>
+<p>In this lesson so far</p>
+<ul>
+<li><p><strong>robust</strong> to outliers: mode, median, interquartile range</p></li>
+<li><p><strong>not robust</strong> to outliers: mean, range, standard deviation, variance.</p></li>
+</ul>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> In this chapter we have studied two types of <strong>descriptive statistics</strong>: (i) the <strong>plots</strong> and (ii) the <strong>numeric summaries</strong> (measures). Note that these are only applicable to the data we collect, i.e., <strong>the sample</strong>. In fact, when we talk about numeric summaries of sample data, we usually add the word “sample” in front of the name of the summaries to stress that the quantities were calculated from the sample. For example, <strong>sample mean</strong>, <strong>sample median</strong>, <strong>sample standard deviation</strong>, <strong>sample variance</strong>, etc.</p>
+<p>Since the summaries are calculated based on the collected sample, it may not be appropriate to <strong>directly generalize</strong> some results/patterns from these descriptive statistics to the <strong>population</strong>. That is, it is usually <strong>naive</strong> to say “I see this in my sample so this is what happens in the population”. However, when our sample is, as we discussed in Chapter <a href="chap-step.html#chap-step">1</a>, <strong>large</strong> and <strong>representative</strong> of the population, these conclusions can be made with good confidence. Again, we will understand this better when we study about <strong>inferential statistics</strong>.</p>
+</div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>Note that this data is artificially generated for education purpose, not the actual data collected on actual students. More information about the data set can be found in the Appendix.<a href="chap-des.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>mathematically, smooth means continuously differentiable<a href="chap-des.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-step.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-prob.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

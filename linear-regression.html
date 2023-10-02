@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Linear Regression | A First Course In Statistics</title>
+  <meta name="description" content="12 Linear Regression | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Linear Regression | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Linear Regression | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-cor.html"/>
+<link rel="next" href="app-rintro.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linear-regression" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> Linear Regression<a href="linear-regression.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the last chapter, we have learned that correlation coefficients illustrates the <strong>linear relationship</strong> between two <strong>continuous</strong> variables. Suppose now we want to use one variable to predict another, how do we do that? In this chapter, we will learn the one of the most important statistical models: <strong>linear regression</strong>.</p>
+<div id="ols-sec-simple" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Simple Linear Regression<a href="linear-regression.html#ols-sec-simple" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Chapter <a href="chap-cor.html#chap-cor">11</a>, we have seen that if there is a <strong>linear association</strong> between two continuous variables, we can draw a <strong>trend line</strong> in between the data points. But how do we do find such a line? The answer is to conduct a <strong>linear regression</strong>.</p>
+<div id="the-model" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> The Model<a href="linear-regression.html#the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we have two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Further suppose we are interested in <span class="math inline">\(Y\)</span> and we want to use <span class="math inline">\(X\)</span> to explain <span class="math inline">\(Y\)</span>. More specifically, we <strong>model</strong> <span class="math inline">\(Y\)</span> by a <strong>straight line</strong> with respect to <span class="math inline">\(X\)</span>.</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
+<p>Here</p>
+<ul>
+<li><p><span class="math inline">\(Y\)</span> is the response variable, which is model as a <strong>linear function</strong> of <span class="math inline">\(X\)</span></p></li>
+<li><p><span class="math inline">\(X\)</span> is the explanatory variable</p></li>
+<li><p><span class="math inline">\(\beta_0\)</span> is the intercept of the line</p></li>
+<li><p><span class="math inline">\(\beta_1\)</span> is the slope of the line</p></li>
+<li><p><span class="math inline">\(\epsilon\)</span> is a random error term and represents the <strong>unknown variation</strong>.</p></li>
+</ul>
+<p>In this model, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are model/<strong>population</strong> parameters that are <strong>unknown</strong> and need to be estimated. This model is called a <strong>simple linear regression model</strong>.</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> You can think of the linear regression model as to decompose <span class="math inline">\(Y\)</span> into two components:</p>
+<ul>
+<li><p>One component that can be explained by <span class="math inline">\(X\)</span>. This component is captured by <span class="math inline">\(\beta_1 X\)</span>.</p></li>
+<li><p>One component that cannot be explained by <span class="math inline">\(X\)</span>. This component is captured by <span class="math inline">\(\beta_0 + \epsilon\)</span>.</p>
+<ul>
+<li><p>The value of this component can be due to any other explanatory variable else that we did not use in our model.</p></li>
+<li><p>We suppose that this component has a mean <span class="math inline">\(\beta_0\)</span> and the rest is just <strong>random errors</strong> <span class="math inline">\(\epsilon\)</span> that corresponds to <strong>individual differences</strong> in responses <span class="math inline">\(Y\)</span> among the population.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-linreg-model" class="example"><strong>Example 12.1  </strong></span>Continue with the credit score context of Example <a href="chap-cor.html#exm:ex-cor-cov-sample1">11.4</a>, we are interested in credit score and we want to use income to explain credit score. Therefore, my <strong>response</strong> variable <span class="math inline">\(Y\)</span> is credit score and my <strong>explanatory</strong> variable <span class="math inline">\(X\)</span> is income.</p>
+<p>With the simple linear regression model, I posit that credit score is a <strong>linear function</strong> of income. Moreover, credit score may not be determined entirely by income, but also transaction history, payment history, etc. that we do not have in our data. These constitutes errors in our linear regression model.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> According to the model, <span class="math inline">\(X\)</span> is also a linear function of <span class="math inline">\(Y\)</span>. However, <span class="math inline">\(Y\)</span> is our variable of interest (response variable), in the sense that we want to <strong>predict</strong> <span class="math inline">\(Y\)</span> if we are given <span class="math inline">\(X\)</span>. Therefore, we focus our attention on <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Y\)</span> is on the left hand side of the model equation.</p>
+<ul>
+<li>In Example <a href="linear-regression.html#exm:ex-ols-linreg-model">12.1</a>, we want be able to <strong>predict</strong> credit score <strong>given</strong> some income (i.e., if we know someone’s income, we want to predict their credit score).</li>
+</ul>
+</div>
+</div>
+<div id="fitting-the-model-to-the-sample-data" class="section level3 hasAnchor" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> Fitting the Model to the Sample Data<a href="linear-regression.html#fitting-the-model-to-the-sample-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As in any other statistical problems we have seen, we want to know about the <strong>population</strong> but we cannot afford to know about everything. We therefore need to collect a sample of size <span class="math inline">\(n\)</span> that consists of observations <span class="math inline">\((X_i, Y_i)\)</span>.</p>
+<p>Now, if the model <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span> is true, then for each observation <span class="math inline">\((X_i, Y_i)\)</span> in our data, we have</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + \epsilon_i\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(Y_i\)</span> is the value of <span class="math inline">\(Y\)</span> for individual <span class="math inline">\(i\)</span>.</p></li>
+<li><p><span class="math inline">\(X_i\)</span> is the value of <span class="math inline">\(X\)</span> for individual <span class="math inline">\(i\)</span>.</p></li>
+<li><p><span class="math inline">\(\epsilon_i\)</span> is the <strong>unknown</strong> error of individual <span class="math inline">\(i\)</span>.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-linreg-data" class="example"><strong>Example 12.2  </strong></span>In Example <a href="linear-regression.html#exm:ex-ols-linreg-model">12.1</a>, <span class="math inline">\(Y_1\)</span> is the credit score of the first person in our sample, <span class="math inline">\(X_1\)</span> is the income of that person, and so on.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Now, we want to find the model/population parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. What should be our <strong>best guesses</strong> (estimates) for the line between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> based on what we know from our data? It should be the line that is <strong>closest</strong> to the data points we collected!</p>
+</div>
+<div id="the-least-squares-regression-line" class="section level3 hasAnchor" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> The Least Squares Regression Line<a href="linear-regression.html#the-least-squares-regression-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>closest line</strong> to the data points is the line such that the <strong>total distance</strong> from the line to all the data points is the <strong>smallest</strong>. This is called the <strong>least squares regression line</strong>. Let’s find such a line step by step.</p>
+<p><strong>First</strong>, suppose <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are the <strong>estimates</strong> of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The predicted value of <span class="math inline">\(y\)</span> given <span class="math inline">\(X = x\)</span> is</p>
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\]</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(x\)</span> represents the different values of <span class="math inline">\(X\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}\)</span> represents the <span class="math inline">\(y\)</span>-coordinate of the point on the regression line whose <span class="math inline">\(x\)</span>-coordinate equals to <span class="math inline">\(x\)</span>.</p></li>
+</ul>
+<p><strong>Second,</strong> because our line may not be able to represent all the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, not all of the data points will lie on the line. Therefore, there will be some difference between (i) the value <span class="math inline">\(y_i\)</span> that we observe from individual <span class="math inline">\(i\)</span> in our data and (ii) the value <span class="math inline">\(\hat{y}_i\)</span>, which is the <span class="math inline">\(y\)</span>-coordinate corresponding to <span class="math inline">\(x\)</span>-coordinate <span class="math inline">\(x_i\)</span> <strong>on the line</strong>:</p>
+<p><span class="math display">\[e_i = y_i - \hat{y}_i = y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)\]</span></p>
+<p>These values <span class="math inline">\(e_i\)</span> are called <strong>residuals</strong>/residual terms. They are the part of data that we didn’t capture using our simple linear regression model.</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> Recall that we use <strong>lowercase</strong> notation <span class="math inline">\(x_i, y_i\)</span> for <strong>specific value</strong> that we <strong>obtained</strong> from individual <span class="math inline">\(i\)</span> in our data. We use <strong>uppercase</strong> notation <span class="math inline">\(X_i, Y_i\)</span> when we want to talk about the <strong>random variable</strong> version.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-56"></span>
+<img src="_main_files/figure-html/unnamed-chunk-56-1.png" alt="Regression line and residuals" width="80%" />
+<p class="caption">
+Figure 12.1: Regression line and residuals
+</p>
+</div>
+<p><strong>Third,</strong> because we want to explain our data as best as we can (we want to find a line that is closest to the data points as possible), Hence, we need to <strong>minimize</strong> the <strong>sum of squared residuals</strong> <span class="math inline">\(\sum_{i=1}^n e_i^2\)</span>.</p>
+<p><strong>Fourth,</strong> with some mathematics, we can find appropriate <strong>formulas</strong> for <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> so that <span class="math inline">\(\sum_{i=1}^n e_i^2\)</span> are minimized, and hence we have the <strong>line of best fit</strong> given by</p>
+<div class="myEquation">
+<p><span class="math display">\[\hat{\beta}_1 = \frac{s_{XY}}{s_X^2} = r_{XY}\times\frac{s_Y}{s_X}  \hspace{5mm} \text{and} \hspace{5mm} \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \]</span></p>
+</div>
+</div>
+<div id="ols-sec-interpretation" class="section level3 hasAnchor" number="12.1.4">
+<h3><span class="header-section-number">12.1.4</span> Interpretation<a href="linear-regression.html#ols-sec-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After finding the <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>, we can interpret our result as follows:</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta}_0\)</span> is the <strong>estimated average response</strong> when <span class="math inline">\(X = 0\)</span>.</p>
+<ul>
+<li>This value may not be of interest depending on whether <span class="math inline">\(X = 0\)</span> has any meaning or not.</li>
+</ul></li>
+<li><p><span class="math inline">\(\hat{\beta}_1\)</span> is the <strong>estimated change</strong> in the average response for <strong>one unit increase</strong> in <span class="math inline">\(X\)</span>.</p></li>
+<li><p>For any value <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span> lying <strong>within</strong> the range of the observed values of the explanatory variable <span class="math inline">\(X\)</span>, we can <strong>predict</strong> the value of <span class="math inline">\(Y\)</span> by referring to the corresponding point on the line</p></li>
+</ul>
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\]</span></p>
+<ul>
+<li><p>It is <strong>NOT</strong> recommended to predict <strong>outside</strong> the range of the observed values of <span class="math inline">\(X\)</span>. This practice is called <strong>extrapolation</strong>.</p>
+<ul>
+<li>The line of best fit comes about from the observed values and so it does the best job when looking <strong>within</strong> that range only. Once we move outside that range, it may result in very misleading estimates.</li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-linreg-sample1" class="example"><strong>Example 12.3  </strong></span>Let’s continue with Example <a href="chap-cor.html#exm:ex-cor-cor-sample1">11.7</a> about credit score and income.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Solve for the line of best fit</p></li>
+<li><p>Interpret your intercept and slope</p></li>
+<li><p>Use your model to predict credit score of a person who earns $<span class="math inline">\(60,000\)</span> a year. Do you think this is a good estimate?</p></li>
+</ol>
+<p><em>Solution:</em></p>
+<ol style="list-style-type: lower-alpha">
+<li>Previously, we found that</li>
+</ol>
+<p><span class="math display">\[r_{XY} = 0.27928, \hspace{5mm} \bar{x} = 1.12, \hspace{5mm} \bar{y} = 708.9, \hspace{5mm} s_X = 0.215, \hspace{5mm} s_Y = 52.57\]</span></p>
+<p>Hence we have</p>
+<p><span class="math display">\[\hat{\beta}_1 = r_{XY} \times \frac{s_Y}{s_X} = 0.27928 \times \frac{52.57}{0.215} = 68.29\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} = 708.9 - (68.29 \times 1.12) = 632.42\]</span></p>
+<p>So the line of best fit is given by</p>
+<p><span class="math display">\[\hat{y} = 632.42 + 68.29 \times x\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p><span class="math inline">\(\hat{\beta}_0 = 632.42\)</span> implies that for a person with $<span class="math inline">\(0\)</span> income, the average credit score is <span class="math inline">\(632.42\)</span>.</p>
+<p><span class="math inline">\(\hat{\beta}_1 = 68.29\)</span> implies that on average the credit score increases by <span class="math inline">\(68.32\)</span> for every <strong>1 unit increase</strong> in annual income.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Our prediction is</li>
+</ol>
+<p><span class="math display">\[\hat{y} = 632.42 + (68.29 \times 0.6) = 673.394\]</span></p>
+<p>This estimate is likely not very accurate for two reasons</p>
+<ul>
+<li><p>The data set used is already quite small leading to a model that is likely not very accurate.</p></li>
+<li><p>The <span class="math inline">\(X\)</span>-value being used is far smaller than the minimum value observed in the data set, i.e., we are trying to <strong>extrapolate</strong>. This is likely reducing the accuracy of the prediction even more.<br />
+</p></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-linreg-sample2" class="example"><strong>Example 12.4  </strong></span>Consider the problem of Example <a href="chap-cor.html#exm:ex-cor-cor-sample2">11.8</a>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Solve for the line of best fit</p></li>
+<li><p>Interpret your intercept and slope</p></li>
+</ol>
+<p><em>Solution:</em></p>
+<ol style="list-style-type: lower-alpha">
+<li>Previously, we found that</li>
+</ol>
+<p><span class="math display">\[r_{XY} = 0.75961, \hspace{5mm} \bar{x} = 118, \hspace{5mm} \bar{y} = 3.422, \hspace{5mm} s_X = 57.28874, \hspace{5mm} s_Y = 0.70317\]</span></p>
+<p>Hence we have</p>
+<p><span class="math display">\[\hat{\beta}_1 = r_{XY} \times \frac{s_Y}{s_X} = 0.75961 \times \frac{0.70317}{57.28874} = 0.0093\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} = 3.433 - (0.0093 \times 118) = 2.322\]</span></p>
+<p>So the line of best fit is given by</p>
+<p><span class="math display">\[\hat{y} = 2.322 + 0.0093 \times x\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p><span class="math inline">\(\hat{\beta}_0 = 632.42\)</span> implies that on average the game will be completed in <span class="math inline">\(2.322\)</span> hours when the total number of penalty yards is 0.</p>
+<p><span class="math inline">\(\hat{\beta}_1 = 0.0093\)</span> implies that on average the time to complete the game increases by <span class="math inline">\(0.0093\)</span> hour for every 1 unit increase in the total number of penalty yards.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> The keys to this chapter are</p>
+<ul>
+<li><p>knowing how to apply the formula to solve example/exercise problems;</p></li>
+<li><p>understanding the difference between population parameters and sample statistics so as to choose the correct formula;</p></li>
+<li><p>understanding the difference between the model (together with its parameters <span class="math inline">\(\beta_0, \beta_1\)</span>) and the line of best fit (together with the estimators <span class="math inline">\(\hat{\beta}_0, \hat{\beta}_1\)</span>).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="linear-regression-inference" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Linear Regression Inference<a href="linear-regression.html#linear-regression-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far, we have postulated a <strong>linear</strong> model (a linear relationship) between our response variable <span class="math inline">\(Y\)</span> and and our explanatory variable <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are <strong>model (population) parameters</strong>. and we have tried to calculate a <strong>line of best fit</strong> based on the <strong>sample data</strong> <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>. How can we go from something calculated from the sample as <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> to the true parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>?</p>
+<p>One way to do so is to <strong>assume a distribution</strong> of the random error <span class="math inline">\(\epsilon\)</span>.</p>
+<div id="ols-sec-assumptions" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Assumptions<a href="linear-regression.html#ols-sec-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to do statistical inference on the line of best fit, we make the so-called <strong>LINE assumptions</strong>:</p>
+<ul>
+<li><p>L-inearity: Given the value of <span class="math inline">\(X\)</span>, the expected value of <span class="math inline">\(Y\)</span> is a linear function of <span class="math inline">\(X\)</span>: <span class="math inline">\(\mathbb{E}(Y|X) = \beta_0 + \beta_1 X\)</span>.</p>
+<ul>
+<li>That is, on average, <span class="math inline">\(Y\)</span> is a linear function of <span class="math inline">\(X\)</span>, or, on average, <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> form a straight line/has a <strong>linear trend</strong>.</li>
+</ul></li>
+<li><p>I-ndependence: The random error for each individual <span class="math inline">\(i\)</span>, i.e., <span class="math inline">\(\epsilon_i\)</span> are independently distributed.</p>
+<ul>
+<li>We assume that the random error of one individual is <strong>independent</strong> of the random error of another individual in our population.</li>
+</ul></li>
+<li><p>N-ormality: The random error for each individual <span class="math inline">\(\epsilon_i\)</span> follows a <strong>normal distribution</strong>.</p></li>
+<li><p>E-qual variance: The random error for each individual <span class="math inline">\(\epsilon_i\)</span> has mean zero and <strong>homogeneous variance</strong> <span class="math inline">\(\sigma^2\)</span>.</p>
+<ul>
+<li><strong>homogeneity</strong>: <span class="math inline">\(\sigma^2\)</span> is the same for all individuals in the population.</li>
+</ul></li>
+</ul>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> The I-N-E assumptions can be summarized as: For each individual <span class="math inline">\(i\)</span> in the population, the random error <span class="math inline">\(\epsilon_i\)</span> are <strong>independently and identically distributed</strong> (iid) as a normal distribution of mean 0 and <span class="math inline">\(\sigma^2\)</span>. In short, the I-N-E assumptions assume: <span class="math inline">\(\epsilon_i \overset{iid}{\sim} N(0, \sigma^2)\)</span>.</p>
+</div>
+</div>
+<div id="ols-sec-inference" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Inference<a href="linear-regression.html#ols-sec-inference" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the above assumptions are met, we have the pivotal quantity:</p>
+<div class="myEquation">
+<p><span class="math display">\[T = \frac{\hat{\beta}_1 - \beta_1}{\mathrm{sd}(\hat{\beta}_1)}\sim t(n-2)\]</span></p>
+</div>
+<p>with</p>
+<p><span class="math display">\[\mathrm{sd}(\hat{\beta}_1) = \frac{\hat{\sigma}}{\sqrt{SS_{XX}}} \hspace{5mm} \text{and} \hspace{5mm} \hat{\sigma} = \sqrt{\frac{SSE}{n-2}} = \sqrt{\frac{(y_i-\hat{y}_i)^2}{n-2}} = \sqrt{\frac{SS_{YY} - \hat{\beta}_1SP_{XY}}{n-2}}\]</span></p>
+<p>where</p>
+<p><span class="math display">\[\begin{align*}
+SS_{XX} &amp; = \sum_{i=1}^n (x_i - \bar{x})^2 = (n-1)s_X^2 \\
+SS_{YY} &amp; = \sum_{i=1}^n (y_i - \bar{y})^2 = (n-1)s_Y^2 \\
+SP_{XY} &amp; = \sum_{i=1}^n (x_i - \bar{x})(y_i-\bar{y}) = (n-1)s_{xy}
+\end{align*}\]</span></p>
+<p>Here, <span class="math inline">\(SSE\)</span> is short for sum of squares of residuals, <span class="math inline">\(SS_{XX}\)</span> is the sum of squares of <span class="math inline">\(X\)</span> values, <span class="math inline">\(SS_{YY}\)</span> is the sum of squares of <span class="math inline">\(Y\)</span> values, and <span class="math inline">\(SP_{XY}\)</span> the sum of product of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values.</p>
+<p>Now, with the pivotal quantity, we can calculate confidence intervals and conduct hypothesis tests for <span class="math inline">\(\beta_1\)</span>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-t-test" class="example"><strong>Example 12.5  </strong></span>Let us again consider Example <a href="chap-cor.html#exm:ex-cor-cov-sample1">11.4</a>: A new graduate is thinking ahead and wanting to better understand what goes into a good credit score. They manage to collect a random sample of annual income (in 100’s of thousands) and credit scores values for 10 people.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Income (<span class="math inline">\(X\)</span>)</th>
+<th align="center">Credit score (<span class="math inline">\(Y\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.3\)</span></td>
+<td align="center"><span class="math inline">\(756\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.1\)</span></td>
+<td align="center"><span class="math inline">\(728\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(0.8\)</span></td>
+<td align="center"><span class="math inline">\(635\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.2\)</span></td>
+<td align="center"><span class="math inline">\(599\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.4\)</span></td>
+<td align="center"><span class="math inline">\(760\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(0.9\)</span></td>
+<td align="center"><span class="math inline">\(722\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(0.9\)</span></td>
+<td align="center"><span class="math inline">\(743\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.4\)</span></td>
+<td align="center"><span class="math inline">\(726\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.2\)</span></td>
+<td align="center"><span class="math inline">\(694\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.0\)</span></td>
+<td align="center"><span class="math inline">\(726\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that the LINE assumptions hold,</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Test at a <span class="math inline">\(10\)</span>% level of significance whether <span class="math inline">\(X\)</span> is needed in the model? (i.e., whether the coefficient of “income” <span class="math inline">\(\beta_1\)</span> is significantly different from 0)</p></li>
+<li><p>Create a <span class="math inline">\(90\)</span>% confidence interval for <span class="math inline">\(\beta_1\)</span> and use your results to determine whether “income” is needed in the model explaining credit score.</p></li>
+</ol>
+<p><em>Solution:</em> Let us begin our calculation from beginning:</p>
+<p><span class="math display">\[\begin{align*}
+\bar{x} &amp; = \frac{1.3+1.1+0.8 + ... + 1.0}{10} = 1.12 \\
+\bar{y} &amp; = \frac{756 + 728 + 635 + ... + 726}{10} = 708.9 \\
+SS_{XX} &amp; = (1.3-1.12)^2 + (1.1-1.12)^2 + ... + (1.0-1.12)^2 = 0.416 \\
+SS_{YY} &amp; = (756 - 708.9)^2 + (728-708.9)^2 + ... + (726-708.9)^2 = 24874.9 \\
+SP_{XY} &amp; = (1.3-1.12)(756-708.9) + (1.1-1.12)(728-708.9) + ... + (1.0-1.12)(726-708.9) = 28.42 \\
+\hat{\beta}_1 &amp; = \frac{s_{XY}}{s_X^2} = \frac{SP_{XY}}{SS_{XX}} = \frac{28.42}{0.416} = 68.32 \\
+\hat{\sigma} &amp; = \sqrt{\frac{SS_{YY} - \hat{\beta}_1 SP_{XY}}{n-2}} = \sqrt{\frac{24874.9 - 68.32 \times 28.42}{10-2}} = 53.54
+\end{align*}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Hypothesis test:</li>
+</ol>
+<ul>
+<li><p>Step 1: Hypotheses: <span class="math inline">\(\beta_1 = 0\)</span> vs <span class="math inline">\(\beta_1 \ne 0\)</span>.</p></li>
+<li><p>Step 2: Calculate the observed test statistic:</p></li>
+</ul>
+<p><span class="math display">\[t = \frac{\hat{\beta}_1 - \beta_1}{\hat{\sigma}/\sqrt{SS_{XX}}} = \frac{68.32 - 0}{53.54/\sqrt{0.416}} = 0.8230\]</span></p>
+<ul>
+<li>Step 3: Calculate the critical value:</li>
+</ul>
+<p><span class="math display">\[c = t_{1-\alpha/2, n-2} = t_{0.95, 8} = 1.8595\]</span></p>
+<ul>
+<li>Step 4: Because <span class="math inline">\(|t| &lt; c\)</span>, we do not reject the null hypothesis at <span class="math inline">\(10\)</span>% significance level and conclude that income does not need to be included in the model explaining credit score, i.e., the data does not provide sufficient evidence to suggest that income is associated with credit score.</li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>A <span class="math inline">\(90\)</span>% confidence interval for <span class="math inline">\(\beta_1\)</span> is</li>
+</ol>
+<p><span class="math display">\[\Big(\hat{\beta}_1 \pm t_{1-\alpha/2, n-2}\times \mathrm{sd}(\hat{\beta}_1)\Big) = \Big(68.32 \pm 1.8595 \times \frac{53.54}{\sqrt{0.416}} \Big) = (-86.0376, 222.6776)\]</span></p>
+<p>Therefore we are 90% confident that the true but unknown slope <span class="math inline">\(\beta_1\)</span> lies between -86.0376 and 222.6776. This interval contains zero, therefore it suggests that zero is a possible value for <span class="math inline">\(\beta_1\)</span> and so we do NOT reject the hypothesis in part a.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div id="ex-ols-t-test-2" class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Exercise 12.1  </strong></span>Continue with Example <a href="chap-cor.html#exm:ex-cor-cov-sample2">11.5</a>: Many factors affect the length of a professional football game, for example the number of running plays versus the number of passing plays. A study was conducted to determine the relationship between the total number of penalty yards (<span class="math inline">\(X\)</span>) and the time required to complete a game (<span class="math inline">\(Y\)</span>, in hours). The table below provides the data.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Total (<span class="math inline">\(X\)</span>)</th>
+<th align="center">Time to complete game (<span class="math inline">\(Y\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(196\)</span></td>
+<td align="center"><span class="math inline">\(4.2\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(164\)</span></td>
+<td align="center"><span class="math inline">\(4.1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(167\)</span></td>
+<td align="center"><span class="math inline">\(3.5\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(35\)</span></td>
+<td align="center"><span class="math inline">\(3.2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(111\)</span></td>
+<td align="center"><span class="math inline">\(3.2\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(78\)</span></td>
+<td align="center"><span class="math inline">\(3.6\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(150\)</span></td>
+<td align="center"><span class="math inline">\(4.0\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(121\)</span></td>
+<td align="center"><span class="math inline">\(3.1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(40\)</span></td>
+<td align="center"><span class="math inline">\(1.9\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Suppose that the LINE assumptions hold,</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Test at a <span class="math inline">\(5\)</span>% level of significance whether <span class="math inline">\(X\)</span> is needed in the model? (i.e., whether the coefficient of “total number of penalty yards” <span class="math inline">\(\beta_1\)</span> is significantly different from 0)</p></li>
+<li><p>Create a <span class="math inline">\(95\)</span>% confidence interval for <span class="math inline">\(\beta_1\)</span> and use your results to determine whether “total number of penalty yards” is needed in the model explaining time to complete the game.</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> Here, we do not know <span class="math inline">\(\beta_1\)</span>, we use <span class="math inline">\(\hat{\beta}_1\)</span>, which is calculated from the data we collected, to make conclusions about <span class="math inline">\(\beta_1\)</span>. So the hypotheses in the above examples are to test whether the true parameter <span class="math inline">\(\beta_1\)</span> is different from 0 or not, based on the <span class="math inline">\(\hat{\beta}_1\)</span> value we obtained from the data.</p>
+</div>
+</div>
+</div>
+<div id="goodness-of-fit-of-the-model" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Goodness of Fit of the Model<a href="linear-regression.html#goodness-of-fit-of-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="residuals" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Residuals<a href="linear-regression.html#residuals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s move back a bit and rethink our model is <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span>. We assumed that it should be true for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in general. That is, the model should be correct for all observations in the population.</p>
+<p>So, if <span class="math inline">\((x_i, y_i)\)</span> are <strong>observed</strong> values of <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> for individual (observation) <span class="math inline">\(i\)</span> in the data set we collected, <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> should also satisfy</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 x_i + \epsilon_i\]</span></p>
+<p>Notice here <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the same values as what we have in our general model (<span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span>).</p>
+<p>Now, we know the numbers <span class="math inline">\((x_i, y_i)\)</span> because they exist in our data set. However, we do not know <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> because they are <strong>model (population) parameters</strong>, i.e., they should be the same for all observed observations in our data set <strong>and</strong> all the unobserved observations in our population.</p>
+<p>As a result, <strong>the error <span class="math inline">\(\epsilon_i\)</span> is unknown, too</strong>. We do not know what is the true error (distance) from the model we suppose <span class="math inline">\(\beta_0 + \beta_1 x_i\)</span> to the reality value <span class="math inline">\(y_i\)</span>. Now, if we estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> by <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> respectively, we can <strong>estimate</strong> <span class="math inline">\(\epsilon_i\)</span> by the residual <span class="math inline">\(e_i\)</span>’s</p>
+<p><span class="math display">\[e_i = y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i)\]</span></p>
+<p>To know a line fit the data well, then our residuals should be <strong>small</strong>, more precisely: as small as possible! But we should only care about the <strong>value</strong> of the residuals, not their signs, i.e., we only care about how much we are incorrect, but we don’t care about whether we are overestimating or underestimating, because both are as bad. Therefore, we want <strong>the sum of squares of residuals</strong> to be small. The sum of squares of residuals is, as we learned from Section <a href="linear-regression.html#ols-sec-inference">12.2.2</a>:</p>
+<div class="myEquation">
+<p><span class="math display">\[SSE = \sum_{i=1}^n e_i^2\]</span></p>
+</div>
+</div>
+<div id="coefficient-of-determination-r2" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)<a href="linear-regression.html#coefficient-of-determination-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The coefficient of determination (<span class="math inline">\(R^2\)</span>) is given by the formula</p>
+<div class="myEquation">
+<p><span class="math display">\[R^2 = 1 - \frac{SSE}{SS_{YY}}\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<p>Recall that <span class="math inline">\(SS_{YY} = \sum_{i=1}^n (y_i - y)^2\)</span>, which is the total variation of <span class="math inline">\(Y\)</span> in our data.</p>
+<p><span class="math inline">\(SSE\)</span>, the sum of squares of residuals <span class="math inline">\(e_i\)</span>’s (which estimates the sum of random errors <span class="math inline">\(\epsilon_i\)</span>), is the component in the variation of <span class="math inline">\(Y\)</span> that is <strong>not explained</strong> by the linear model.</p>
+<p>Therefore, the coefficient of determination (<span class="math inline">\(R^2\)</span>) is the fraction of the variation in <span class="math inline">\(Y\)</span> that is explained by the linear model.</p>
+<p>For <strong>simple linear regression</strong>, i.e., for linear model <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span>, it can be proved that</p>
+<p><span class="math display">\[R^2 = r_{XY}^2\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-r-squared" class="example"><strong>Example 12.6  </strong></span>Interpret the <span class="math inline">\(R^2\)</span> value from Example <a href="linear-regression.html#exm:ex-ols-t-test">12.5</a>: credit score and income has <span class="math inline">\(r_{XY} = 0.28\)</span> in the data given.</p>
+<p><em>Solution:</em> The correlation coefficient between credit score and income <span class="math inline">\(r_{XY}\)</span> is equal to <span class="math inline">\(0.28\)</span>. Therefore the coefficient of determination for the linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span> is <span class="math inline">\(r^2 = (0.28)^2 = 0.0784\)</span>. This implies that the simple linear regression model using income (<span class="math inline">\(X\)</span>) as explanatory variable explains about <span class="math inline">\(7.84\%\)</span> of the variation in credit score (<span class="math inline">\(Y\)</span>). In short, the model explains <span class="math inline">\(\sim 7.84\%\)</span> of the variation in <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong>
+In the above example, <span class="math inline">\(7.84\%\)</span> is a very low number. This suggests that income, on its own, is not a good factor to explain credit score.</p>
+</div>
+</div>
+<div id="influential-points" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Influential Points<a href="linear-regression.html#influential-points" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An <strong>influential point</strong> is an observation that has a large influence on the statistical calculation of the model fitting.</p>
+<p>In simple linear regression case, both the correlation coefficient <span class="math inline">\(r_{XY}\)</span> and parameter estimates <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are affected by influential points.</p>
+<p>Under linear regression, such a point is identified as one, which, if we remove it from the data, our line of best fit will <strong>change markedly</strong>.</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p>Typically <strong>outliers</strong> in either <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> direction (or both) are influential points.</p>
+<ul>
+<li>If such point exist, the analyst should make an effort to see if this is due to an error that occurred while collecting the data, or if there is some other interesting factors that affect this specific observations.</li>
+</ul></li>
+<li><p>Usually, when we want to make conclusions about the majority of the data, we may choose to remove influential points from our analysis.</p></li>
+</ul>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-outliers" class="example"><strong>Example 12.7  </strong></span>Suppose in Example <a href="linear-regression.html#exm:ex-ols-t-test">12.5</a>, there is actually another observation in the data set:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Income (<span class="math inline">\(X\)</span>)</th>
+<th align="center">Credit score (<span class="math inline">\(Y\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.3\)</span></td>
+<td align="center"><span class="math inline">\(756\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.1\)</span></td>
+<td align="center"><span class="math inline">\(728\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(0.8\)</span></td>
+<td align="center"><span class="math inline">\(635\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.2\)</span></td>
+<td align="center"><span class="math inline">\(599\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.4\)</span></td>
+<td align="center"><span class="math inline">\(760\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(0.9\)</span></td>
+<td align="center"><span class="math inline">\(722\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(0.9\)</span></td>
+<td align="center"><span class="math inline">\(743\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.4\)</span></td>
+<td align="center"><span class="math inline">\(726\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(1.2\)</span></td>
+<td align="center"><span class="math inline">\(694\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1.0\)</span></td>
+<td align="center"><span class="math inline">\(726\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span style="color:red"> <span class="math inline">\(0.6\)</span> </span></td>
+<td align="center"><span style="color:red"> <span class="math inline">\(480\)</span> </span></td>
+</tr>
+</tbody>
+</table>
+<p>The outlier in red has quite different values in <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> compared to the rest of the data points.</p>
+<p>Now, if we use the full data set above to calculate the line of best fit, we have</p>
+<p><span class="math display">\[\hat{\beta}_0 = 466.6, \hspace{5mm} \hat{\beta}_1 = 206.4, \hspace{5mm} r_{XY} = 0.6237\]</span></p>
+<p>When we remove the outlier, we have</p>
+<p><span class="math display">\[\hat{\beta}_0 = 632.38, \hspace{5mm} \hat{\beta}_1 = 68.32, \hspace{5mm} r_{XY} = 0.2794\]</span></p>
+<p>Observe how the numbers change when we include or exclude the outlier.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> To detect influential points, one can calculate the <strong>Cook’s distance</strong> and see if the value is outstandingly large. In <strong>R</strong>, you can use the function <code>cooks.distance()</code> and identify points whose Cook’s distances are larger than <span class="math inline">\(4/(n-p-1)\)</span> as influential points. Here, <span class="math inline">\(p\)</span> is the number of independent variables in your linear regression. For simple linear regression, <span class="math inline">\(p = 1\)</span>.</p>
+</div>
+</div>
+<div id="checking-assumptions" class="section level3 hasAnchor" number="12.3.4">
+<h3><span class="header-section-number">12.3.4</span> Checking Assumptions<a href="linear-regression.html#checking-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When we try to do inference from the model, i.e., to make conclusions about the model parameter <span class="math inline">\(\beta_1\)</span>, we need to make assumptions about the model.</p>
+<p>The list of assumptions in Section <a href="linear-regression.html#ols-sec-assumptions">12.2.1</a> are all about the <strong>random errors <span class="math inline">\(\epsilon\)</span></strong>.</p>
+<ul>
+<li><p>L-inearity: <span class="math inline">\(\mathbb{E}(Y|X) = \beta_0 + \beta_1 X = \beta_0 + \beta_1 X\)</span>.</p>
+<ul>
+<li>If our model <span class="math inline">\(Y = \beta_0 + \beta_1 X + \epsilon\)</span> is correct, this assumption is equivalent to the assumption that <span class="math inline">\(\mathbb{E}(\epsilon|X) = 0\)</span>.</li>
+</ul></li>
+<li><p>I-ndependence: <span class="math inline">\(\epsilon_i\)</span> are independent of <span class="math inline">\(\epsilon_j\)</span>, for all <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> in the population.</p></li>
+<li><p>N-ormality and E-qual variance: <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span> for individual <span class="math inline">\(i\)</span> in the population</p></li>
+</ul>
+<p>Again, we do not know the true errors <span class="math inline">\(\epsilon_i\)</span> because we only have sample data instead of population data. We need to estimate the errors by the residuals <span class="math inline">\(e_i\)</span>. Therefore, we can try to check if our model satisfies the assumptions by checking the residuals.</p>
+<p>There are essentially two plots that we can use:</p>
+<ul>
+<li><p>The <strong>residuals vs. fitted plot</strong>:</p>
+<ul>
+<li><p>This plots the residual <span class="math inline">\(e_i\)</span> against the fitted value <span class="math inline">\(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\)</span>.</p></li>
+<li><p>This is to check the L-inearity, I-independence, and E-qual variance assumptions.</p></li>
+<li><p>The model will seem to satisfy the LIE assumptions if the points of the plot should look like a band of consistent size, scattering around the line 0, and there should be no pattern, as in Figure <a href="linear-regression.html#fig:ols-fig-resfit">12.2</a> below.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ols-fig-resfit"></span>
+<img src="_main_files/figure-html/ols-fig-resfit-1.png" alt="The residuals vs fitted plot of a model that satisfy the LIE assumption." width="80%" />
+<p class="caption">
+Figure 12.2: The residuals vs fitted plot of a model that satisfy the LIE assumption.
+</p>
+</div></li>
+<li><p>The <strong>QQplot</strong>:</p>
+<ul>
+<li><p>As we learned from Chapter <a href="chap-other.html#chap-other">10</a>, we can use a QQ plot to check the assumption that certain data follows a normal distribution.</p></li>
+<li><p>Therefore, we can check the N-ormality assumption of the linear regression model by plotting a QQplot for the residuals.</p></li>
+<li><p>The model will seem to satisfy the N-assumption if the points on the QQ plot follows a straight diagonal line, as in Figure <a href="linear-regression.html#fig:ols-fig-qq">12.3</a> below.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ols-fig-qq"></span>
+<img src="_main_files/figure-html/ols-fig-qq-1.png" alt="The QQ plot of a model that satisfy the N-assumption." width="80%" />
+<p class="caption">
+Figure 12.3: The QQ plot of a model that satisfy the N-assumption.
+</p>
+</div></li>
+</ul>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p>Usually, the normality assumption (for both ANOVA or linear regression) can be compromised if we have a <strong>large data set</strong> (hundreds or more observations). That is when the Central Limit Theorem kicks in.</p></li>
+<li><p>When the residuals vs fitted plot shows a pattern, we may need other techniques such as <strong>transforming</strong> the data. In this book, we will not cover this. If you are interested, try reading the <a href="#https://www.css.cornell.edu/faculty/dgr2/_static/files/R_html/Transformations.html">Box-Cox transformation</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="predicted-value" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Predicted Value<a href="linear-regression.html#predicted-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As now we have the fitted model, i.e., the line of best fit <span class="math inline">\(y = \hat{\beta}_0 + \hat{\beta}_1 x\)</span>, we can <strong>predict</strong> <span class="math inline">\(y\)</span> if we know a value of <span class="math inline">\(x\)</span>.</p>
+<p>A prediction for a value <span class="math inline">\(x = x_0\)</span> is
+<span class="math display">\[\hat{y}_0 = \hat{\beta}_0 + \hat{\beta}_1 x_0\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-ols-prediction" class="example"><strong>Example 12.8  </strong></span>Continue with Example <a href="linear-regression.html#exm:ex-ols-outliers">12.7</a> and the case where we use the full data. I can predict the credit score for someone who earns <span class="math inline">\(\$100,000\)</span> a year using the fitted model:</p>
+<p><span class="math display">\[\hat{y} = 466.6 +  206.4 \times 1 = 673. \]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p>There are two types of uncertainty we have when we try to make a prediction from a fitted model</p>
+<ul>
+<li><p>The random error <span class="math inline">\(\epsilon\)</span> that comes from other factors we did not account for in our model.</p></li>
+<li><p>The uncertainty that comes from the calculation of the model itself. Recall that the model is calculated from randomly selected samples, and the observations we have in our data set happens to be there by chance!</p></li>
+<li><p>To construct confidence intervals for a predicted value, you will need to take another class in statistics. However, we can do this automatically in <strong>R</strong> with function <code>predict()</code> setting <code>interval = "condience"</code>.</p></li>
+</ul></li>
+<li><p>As mentioned in Section <a href="linear-regression.html#ols-sec-interpretation">12.1.4</a>, do <strong>NOT</strong> predict (far) outside the range of the observed values of <span class="math inline">\(X\)</span>. This practice is called <strong>extrapolation</strong> and it can give misleading predictions.</p>
+<ul>
+<li>This is because, who knows what happens outside what we have seen? Maybe a nonlinear model?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="multiple-linear-regression" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Multiple Linear Regression<a href="linear-regression.html#multiple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We mentioned in Example <a href="linear-regression.html#exm:ex-ols-r-squared">12.6</a>, income only explains <span class="math inline">\(\sim 7.84\%\)</span> of the variation in credit score, which is very low.</p>
+<p>In general, we can actually do a better job in explaining <span class="math inline">\(Y\)</span> by adding not only one, but multiple explanatory variables:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p + \epsilon\]</span></p>
+<p>In this model</p>
+<ul>
+<li><p>We have <span class="math inline">\(p\)</span> explanatory variables <span class="math inline">\(X_1, X_2, ..., X_p\)</span>.</p>
+<ul>
+<li>Usually we do not want these explanatory variables to be correlated (associated) with one another, we’d rather them be <strong>independent</strong>. Casually speaking, this is because we want our model to be meaningful and do not want to include many similar variables into one model. There are more technical reasons for this, too, but probably another book will explain this better.</li>
+</ul></li>
+<li><p>Model fitting:</p>
+<ul>
+<li><p>Since the model now has more explanatory variables, we need another formula for the coefficient estimates and that will not be covered in this book. However, we can calculate the estimates (and their standard deviations) automatically using statistical softwares like <strong>R</strong>.</p></li>
+<li><p>The estimated coefficient <span class="math inline">\(\hat{\beta}_j\)</span> for the <span class="math inline">\(j\)</span>th explanatory variable can be <strong>interpreted</strong> in this way: <strong>keeping all other factors the same</strong>, one unit increase in the <span class="math inline">\(j\)</span>th explanatory variable is associated with an average of <span class="math inline">\(\hat{\beta}_j\)</span> increase in the response variable.</p></li>
+</ul></li>
+<li><p><strong>For categorical variables:</strong></p>
+<ul>
+<li><p>Statistical softwares <strong>R</strong> will treat categorical variables as follows. They will take one category as the baseline (=0), and then create one variable (yes/no or 1/0) for each of the additional category.</p></li>
+<li><p>For example, in the student rent example, I can do a linear regression of falculty on income by first choosing Arts as my baseline, and then create another variable “isEngineering” which will give me 1 for students who go to Engineering major and 0 otherwise. And then I make another variable called “IsEnvironment”, and so forth</p></li>
+<li><p><strong>Interpretation</strong>: Now, suppose our estimated coefficient for “isEngineering” is <span class="math inline">\(\hat{\beta}_{\text{isEngineering}}\)</span>. We interpret this number as: a student in Engineering major will on average pays <span class="math inline">\(\hat{\beta}_{\text{isEngineering}}\)</span> more on rent compared to a student in Arts major, keeping other variables fixed.</p></li>
+</ul></li>
+<li><p>Model Inference:</p>
+<ul>
+<li><p>To do statistical inference, i.e., using the data to make conclusions about the true population parameters <span class="math inline">\(\beta_1, \beta_2, ..., \beta_p\)</span>, we make <strong>the same LINE assumptions</strong> about the random errors <span class="math inline">\(\epsilon\)</span>.</p></li>
+<li><p>Therefore, the model checking process is the same.</p></li>
+<li><p>We still use the similar Wald-type tests as introduced in Section <a href="linear-regression.html#ols-sec-inference">12.2.2</a> with the estimated values and their standard deviation output from software. However, the <strong>degree of freedom</strong> of the <span class="math inline">\(t\)</span>-distribution is now <span class="math inline">\(n - p - 1\)</span>.</p></li>
+</ul></li>
+<li><p>The coefficient of determinant, <span class="math inline">\(R^2\)</span> value, does not simply equal to the square of the correlation coefficient <span class="math inline">\(r^2\)</span> anymore.</p>
+<ul>
+<li><p>We can still get <span class="math inline">\(R^2\)</span> value from the <strong>R</strong> output and interpret it the same way: <span class="math inline">\(R^2 \times 100\%\)</span> of the variation of <span class="math inline">\(Y\)</span> is explained by the model.</p></li>
+<li><p>As we add more variables into the model, <span class="math inline">\(R^2\)</span> will surely increase. However, we need to be very careful, or else we will do <strong>“overfitting”</strong>. That is, when we add too many variables, we are trying too hard to explain all the specific details of a sample, while losing our power to make a generalized conclusion about the population. Model selection is beyond the scope of this book.</p></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-cor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="app-rintro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

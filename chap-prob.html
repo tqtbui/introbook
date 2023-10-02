@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 The Laws of Probability | A First Course In Statistics</title>
+  <meta name="description" content="3 The Laws of Probability | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 The Laws of Probability | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 The Laws of Probability | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-des.html"/>
+<link rel="next" href="chap-rv.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-prob" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> The Laws of Probability<a href="chap-prob.html#chap-prob" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the last chapter, we have learned some basic descriptive summaries of <strong>sample data</strong>. From this chapter onward, we will learn how to generalize and make conclusions about the <strong>population</strong> from the information of the <strong>sample</strong>, i.e., we will learn about <strong>statistical inference</strong>. For such a purpose, we should first learn about <strong>probability</strong> and its laws, which will help us model the <strong>randomness</strong> of the sample.</p>
+<div id="what-is-probability" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> What is Probability?<a href="chap-prob.html#what-is-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="randomness" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Randomness<a href="chap-prob.html#randomness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Chapter <a href="chap-step.html#chap-step">1</a>, we learned something about <strong>randomness</strong>:</p>
+<ul>
+<li><p>we should <strong>randomly</strong> select the individuals in our population in order to obtain a <strong>representative</strong> sample of the population</p></li>
+<li><p>we should <strong>randomly</strong> assign the experimental conditions to sample units so that the effect of confounding variables are neutralized abd we can make causal conclusions from the experiment.</p></li>
+</ul>
+<p>In Chapter <a href="chap-step.html#chap-step">1</a>’s context, randomness meant equal chance of happening, which implies that the selection of individuals or the assignment of experiment conditions should be <strong>non-deterministic</strong>.</p>
+<p>I guess one can argue whether true randomness exists or whether everything happens by cause and effect. However, let us agree on this definition: <strong>Randomness</strong> is the state of being <strong>unable</strong> to be <strong>predicted with certainty</strong>.</p>
+</div>
+<div id="probabilistic-experiment" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Probabilistic Experiment<a href="chap-prob.html#probabilistic-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following the definition of randomness, we have the definition of a <strong>probabilistic experiment</strong><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>: a <strong>repeatable process</strong> in which the complexity of the underlying system leads to an outcome that <strong>cannot be known ahead of time</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-toss-coin" class="example"><strong>Example 3.1  </strong></span>Tossing a coin can be thought of as a probabilistic experiment. First, we also can toss the coin again and again, i.e., we can <strong>repeat</strong> the coin toss. Second, even though we can argue that the result of tossing a coin may depend on</p>
+<ul>
+<li><p>the technique used to toss the coin</p></li>
+<li><p>the force used to toss the coin</p></li>
+<li><p>the air condition of where the coin is tossed</p></li>
+<li><p>the individual who tosses the coin</p></li>
+<li><p>the size of the coin</p></li>
+<li><p>etc.,</p></li>
+</ul>
+<p>however, since there are considerably many factors that can affect the outcome of a coin toss, it is hard for us to <strong>tell exactly</strong> whether the outcome is head or tail. Hence, we say that the outcome is <strong>random</strong> and a coin toss is a <strong>probabilistic experiment</strong>.</p>
+<p>Other examples can be: rolling a die, drawing a card from a playing cards, rotating a spinner, etc.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Some terminologies related to probabilistic experiments:</p>
+<ul>
+<li><p><strong>run/trial</strong>: a repetition of the probabilistic experiment.</p></li>
+<li><p><strong>sample space</strong>: the collection (set) of <strong>all possible outcomes</strong>.</p>
+<ul>
+<li><p>The outcomes in the sample space must be defined in a way such that they are <strong>mutually exclusive</strong> (no overlap) and <strong>collectively exhaustive</strong> (represent all possible scenarios)</p></li>
+<li><p>Notation: <span class="math inline">\(\Omega\)</span> (pronounce “Omega”).</p></li>
+</ul></li>
+<li><p><strong>event</strong>: a <strong>subset</strong> of possible outcomes (i.e., some, but not necessarily all possible outcomes).</p>
+<ul>
+<li><p>These can be <strong>simple events</strong> (made up of one possible outcome) or a <strong>compound events</strong> (made up of two or more outcomes)</p></li>
+<li><p>Notation: capital letters, for example <span class="math inline">\(A, B, C\)</span>, etc.</p></li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-36" class="example"><strong>Example 3.2  </strong></span>Two coins are tossed and their faces are recorded. Let <span class="math inline">\(H\)</span> denote “head” and <span class="math inline">\(T\)</span> denote “tail”.</p>
+<ul>
+<li><p>the sample space: <span class="math inline">\(\Omega = \{HH, HT, TH, TT\}\)</span>.</p>
+<ul>
+<li><p>Here <span class="math inline">\(\{\}\)</span> mathematically denote a set (collection).</p></li>
+<li><p>The sample space is not <span class="math inline">\(\{HH, TT\}\)</span> because it is not exhaustive, i.e., it does not contain all possible outcomes.</p></li>
+</ul></li>
+<li><p>the event that we observe two heads: <span class="math inline">\(A = \{HH\}\)</span>.</p>
+<ul>
+<li>This is a <strong>simple</strong> event.</li>
+</ul></li>
+<li><p>the event that we observe at least one tail: <span class="math inline">\(B = \{HT, TH, TT\}\)</span>.</p>
+<ul>
+<li>This is a <strong>compound</strong> event since it is made up of <strong>multiple outcomes</strong> in <span class="math inline">\(\Omega\)</span>.</li>
+</ul></li>
+</ul>
+<p>Note here that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are just our convenient choice of notation, you can also choose other capital letters to represent any other event.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-6die-samplespace" class="example"><strong>Example 3.3  </strong></span>A fair six-sided die is rolled and the value obtained is recorded.</p>
+<ul>
+<li><p>the sample space: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p></li>
+<li><p>the event that we observe an even number: <span class="math inline">\(A = \{2, 4, 6\}\)</span></p></li>
+<li><p>the event that the outcome is at most 3: <span class="math inline">\(B = \{1, 2, 3\}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-37" class="exercise"><strong>Exercise 3.1  </strong></span>Two students are randomly selected and asked if their rooms have an independent washroom (Y) or not (N). The experiment records the response from both students.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define the sample space <span class="math inline">\(\Omega\)</span></p></li>
+<li><p>List the outcomes in event <span class="math inline">\(A\)</span>: both students have an independent washroom. Is this a simple or compound event?</p></li>
+<li><p>List the outcomes in event <span class="math inline">\(B\)</span>: both students made the same choice. Is this a simple or compound event?</p></li>
+<li><p>List the outcome in event <span class="math inline">\(C\)</span>: at most one student have an independent washroom. Is this a simple or compound event?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="three-views-of-probability" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Three Views of Probability<a href="chap-prob.html#three-views-of-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Probability</strong> is generally defined as a <strong>numeric measure of chance</strong>. However, there have been three different major views on how to understand probability.</p>
+<ul>
+<li><p><strong>subjective probability</strong>: probability is a measure of a person’s <strong>belief</strong> that some given event will occur.</p>
+<ul>
+<li><p>this definition fits the <strong>intuitive</strong> sense of probability</p></li>
+<li><p><em>challenge</em>: it can be <strong>inconsistent</strong> because beliefs can vary from one person to another.</p></li>
+</ul></li>
+<li><p><strong>classical probability</strong>: probability of an event is the proportion of possible outcomes contained in the event compared to the sample space.</p>
+<ul>
+<li><p>mathematically, the probability of an event <span class="math inline">\(A\)</span> is denoted as <span class="math inline">\(\mathbb{P}(A)\)</span> and is defined as
+<span class="math display">\[\mathbb{P}(A) = \frac{\text{number of outcomes in } A}{\text{number of outcomes in }\Omega}\]</span></p></li>
+<li><p>this definition is simple and can be applied to many situations assuming that the outcomes are <strong>equally likely</strong></p></li>
+<li><p><em>challenge</em>: it cannot be applied to situations where</p>
+<ul>
+<li><p>the outcomes are not equally likely, or</p></li>
+<li><p>there are infinitely many possible outcomes.</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>empirical probability</strong> (or frequentist probability, or relative frequency probability): the proportion of times that the event occurs when the probabilistic experiment is <strong>repeated</strong> a <strong>very large (infinite) number of times</strong>.</p>
+<ul>
+<li><p>mathematically, suppose the probabilistic experiment is repeated <span class="math inline">\(n\)</span> times (<span class="math inline">\(n\)</span> is very large), then the probability of event <span class="math inline">\(A\)</span> is
+<span class="math display">\[\mathbb{P}(A) = \lim_{n\to\infty}\frac{\text{number of times that outcomes in $A$ are obtained}}{n},\]</span>
+i.e., <span class="math inline">\(\mathbb{P}(A)\)</span> is the <strong>relative frequency</strong> that the outcomes in <span class="math inline">\(A\)</span> are obtained in <span class="math inline">\(n\)</span> repetitions of the probabilistic experiment.</p></li>
+<li><p>cover more cases than classical probability</p></li>
+<li><p>intuitively agree with classical probability when the outcomes are equally likely</p></li>
+<li><p><em>challenge</em>: how many times is considered “very large” or large enough to approximate the limit in infinite repetitions?</p></li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-38" class="example"><strong>Example 3.4  </strong></span>Consider tossing a fair six-sided die. The sample space is <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>.</p>
+<p>Because the die is fair, the outcomes are equally likely. Then, according to <strong>classical probability</strong>:</p>
+<ul>
+<li><p>the probability to observe each one of the possible outcomes is <span class="math inline">\(\frac{1}{6}\)</span></p></li>
+<li><p>the probability to observe an even number is
+<span class="math display">\[\frac{|\{2,4,6\}|}{|\{1,2,3,4,5,6\}|} = \frac{3}{6} = \frac{1}{2}\]</span>
+<em>Notation:</em> <span class="math inline">\(|A|\)</span> denotes the number of elements of a set <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+<p>According to <strong>empirical probability</strong>, suppose we roll the die for a large number of times and receive, for example
+<span class="math display">\[4 3 6 5 2 1 6 6 2 3 6 1 1 5 1 4 3 3 6 6 4 1 2 2 5 3 6 4 6 3 2 3 1 2 1 3 4 5 6 2 3 4 3 2 4 6 1 1 4 1...\]</span>
+then each number appears roughly <span class="math inline">\(\frac{1}{6}\)</span> of the times and even numbers appears roughly half (<span class="math inline">\(\frac{1}{2}\)</span>) of the times. Hence, the probability to observe an even number is <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="prob-sec-math-def" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Mathematical Definition of Probability<a href="chap-prob.html#prob-sec-math-def" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although the three views of probability differ, all three agree on the <strong>mathematical definition of probability</strong>: <strong>Probability</strong> is a <strong>function</strong> <span class="math inline">\(\mathbb{P}\)</span> that maps events to non-negative numbers, which satisfies</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(0 \le \mathbb{P}(A) \le 1\)</span> for all events <span class="math inline">\(A\)</span></p>
+<ul>
+<li>this means a probability must be non-negative and must not exceed 1.</li>
+</ul></li>
+<li><p><span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></p>
+<ul>
+<li>this means the probability of all possible outcomes must be exactly 1.</li>
+</ul></li>
+<li><p><span class="math inline">\(\mathbb{P}(\text{union of mutually exclusive events}) = \text{sum of } \mathbb{P}( \text{individual events})\)</span></p>
+<ul>
+<li><p>if the sample space is <strong>finite</strong>, i.e., there are finite number of possible outcomes. This implies that the probability of an event is the sum of probability of each individual outcome of the event. We will discuss the case of infinite sample space in Chapter <a href="chap-rv.html#chap-rv">4</a>.</p></li>
+<li><p>we will learn more about this property in the subsequent sections.</p></li>
+</ul></li>
+</ol>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> Up to this point we discussed at length about what is probability. The aim is to help you get a good sense of what probability is. In statistics, many of the times we use the empirical view of probability, some of the times we use the subjective probability. However, for now, it is most important that you know the <strong>classical</strong> and <strong>mathematical</strong> definitions of probability.</p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-39" class="exercise"><strong>Exercise 3.2  </strong></span>An experiment consists of rolling a special fair 8-sided die and recording the number that faces up. All of the numbers are equally likely to occur. Find the probability of each following event.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A\)</span>: obtain an even number</p></li>
+<li><p><span class="math inline">\(B\)</span>: obtain a number divisible by 4</p></li>
+<li><p><span class="math inline">\(C\)</span>: obtain a number less than 6</p></li>
+<li><p><span class="math inline">\(D\)</span>: obtain a number that is divisible by 2 and 3</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="addition-rule" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Addition Rule<a href="chap-prob.html#addition-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Probability is a function of events, and events are basically sets of possible outcomes. Therefore, to learn about probability calculation, we first need to go over some basics about mathematical sets and Venn diagram.</p>
+<div id="venn-diagram" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Venn Diagram<a href="chap-prob.html#venn-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is useful to <strong>visualize</strong> the relationship existing among the events (sets). <strong>Venn diagram</strong> is a way to illustrate such relationships visually. A Venn diagram is made up of</p>
+<ul>
+<li><p>a rectangle that represents the sample space <span class="math inline">\(\Omega\)</span></p></li>
+<li><p>circles within the rectangle which represents the events of interest in <span class="math inline">\(\Omega\)</span></p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-40" class="example"><strong>Example 3.5  </strong></span>Consider tossing 2 coins and the following events</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span>: two heads are obtained</p></li>
+<li><p><span class="math inline">\(B\)</span>: one head is obtained</p></li>
+<li><p><span class="math inline">\(C\)</span>: no heads are obtained</p></li>
+</ul>
+<p>The Venn diagram that represents these three events is</p>
+<p><img src="data/images/chap-prob/venn1.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-41" class="example"><strong>Example 3.6  </strong></span>Consider rolling a six-sided die. We found in Example <a href="chap-prob.html#exm:ex-prob-6die-samplespace">3.3</a> that <span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>. Consider the following events
+<span class="math display">\[E = \{1,2,3\}, \hspace{3mm} F = \{2,3,4\}, \hspace{3mm} G = \{1, 5\}\]</span>
+The Venn diagram that represents these three events is</p>
+<p><img src="data/images/chap-prob/venn2.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-42" class="exercise"><strong>Exercise 3.3  </strong></span>Consider a probabilistic experiment with sample space <span class="math inline">\(\Omega = \{0,1,2,3,4,5,6,7,8,9\}\)</span> and the events</p>
+<p><span class="math display">\[ A = \{0,1,2,7,8,9\}, \hspace{5mm} B = \{0,1,2,4,8\}, \hspace{5mm}
+C = \{0,1,2,9\}, \hspace{5mm} D = \{1,4,9\} \]</span></p>
+<p>Represent these events using a Venn diagram.</p>
+</div>
+</div>
+</div>
+<div id="set-operations" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Set Operations<a href="chap-prob.html#set-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Intersection</strong>: The intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is a set that contains all outcomes in <strong>both</strong> <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<ul>
+<li><p>Notation: <span class="math inline">\(A \cap B\)</span> (pronounce “A intersection B” or “A and B”)</p></li>
+<li><p>Visually:</p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn4.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><strong>Union</strong>: the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is a set that contains all outcomes that either in <span class="math inline">\(A\)</span> or in <span class="math inline">\(B\)</span>, or in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<ul>
+<li><p>Notation: <span class="math inline">\(A \cup B\)</span> (pronounce “A union B” or “A or B”)</p></li>
+<li><p>Visually:</p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn5.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><strong>Complement</strong>: The complement of a set <span class="math inline">\(A\)</span> is a set that contains all outcomes that are <strong>not</strong> in <span class="math inline">\(A\)</span>.</p>
+<ul>
+<li><p>Notation: <span class="math inline">\(A^c\)</span> (pronounce “A complement” or “not A”)</p></li>
+<li><p>Visually:</p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn3.png" width="50%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p><span class="math inline">\(A \cap A^c = \emptyset\)</span> (where <span class="math inline">\(\emptyset\)</span> means “empty set”, i.e., nothing)</p></li>
+<li><p><span class="math inline">\(A \cup A^c = \Omega\)</span></p></li>
+</ul>
+<p><strong>De Morgan’s laws</strong>: Look at the below Venn diagram, we have what is called the <strong>De Morgan’s laws</strong> for sets</p>
+<ul>
+<li><p><span class="math inline">\((A\cup B)^c = A^c \cap B^c\)</span></p></li>
+<li><p><span class="math inline">\((A\cap B)^c = A^c \cup B^c\)</span></p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn6.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-deMorgan" class="example"><strong>Example 3.7  </strong></span>Let us look at the first equality of the De Morgan’s law: <span class="math inline">\((A\cup B)^c = A^c \cap B^c\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A\cup B\)</span> is the pink, purple, and blue regions <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\((A\cup B)^c\)</span> is the yellow region</p></li>
+<li><p><span class="math inline">\(A^c\)</span> is the yellow and blue region, <span class="math inline">\(B^c\)</span> is the yellow and pink region <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(A^c \cap B^c\)</span> is also the yellow region.</p></li>
+</ul>
+<p>Hence, <span class="math inline">\((A\cup B)^c = A^c \cap B^c\)</span>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-43" class="exercise"><strong>Exercise 3.4  </strong></span>Use the same way as Example <a href="chap-prob.html#exm:ex-prob-deMorgan">3.7</a> to prove the second equality of the De Morgan’s law.</p>
+</div>
+</div>
+</div>
+<div id="addition-rule-for-mutually-exclusive-events" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Addition Rule for Mutually Exclusive Events<a href="chap-prob.html#addition-rule-for-mutually-exclusive-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Mutually exclusiveness</strong>: <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are called <strong>mutually exclusive</strong> if and only if there is no possible outcome lying in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<ul>
+<li><p>Notation: <span class="math inline">\(A \cap B = \emptyset\)</span></p></li>
+<li><p>Visually:</p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn7.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><strong>Addition rule</strong>: From the third requirement of the mathematical definition of probability in Section <a href="chap-prob.html#prob-sec-math-def">3.1.4</a>, we have:</p>
+<div class="myEquation">
+<p><span class="math display">\[\text{If } A \cap B = \emptyset, \text{then }\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-44" class="example"><strong>Example 3.8  </strong></span>Consider <span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span> and events <span class="math inline">\(A = \{1,2\}\)</span> and <span class="math inline">\(B = \{5\}\)</span>. Suppose that the outcomes are equally likely, then
+<span class="math display">\[\mathbb{P}(A) = \frac{2}{6} = \frac{1}{3}, \hspace{5mm} \text{and} \hspace{5mm} \mathbb{P}(B) = \frac{1}{6}\]</span></p>
+<p>Because <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive,
+<span class="math display">\[\mathbb{P}(A\text{ or }B) = \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) = \frac{1}{3} + \frac{1}{6} = \frac{1}{2}.\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-45" class="example"><strong>Example 3.9  </strong></span>Since <span class="math inline">\(A \cap A^c = \emptyset\)</span> and <span class="math inline">\(A\cup A^c = \Omega\)</span>, so
+<span class="math display">\[\mathbb{P}(A) + \mathbb{P}(A^c) = \mathbb{P}(A\cup A^c) = \mathbb{P}(\Omega) = 1\]</span>
+because based on the mathematical definition of a probability, <span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span>. From here, we have
+<span class="math display">\[\mathbb{P}(A^c) = 1 - \mathbb{P}(A)\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-46" class="exercise"><strong>Exercise 3.5  </strong></span>Prove that <span class="math inline">\(\mathbb{P}(\emptyset) = 0\)</span>. Hint: Use the fact that <span class="math inline">\(\Omega^c = \emptyset\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="addition-rule-for-non-mutually-exclusive-events" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Addition Rule for Non-mutually-exclusive Events<a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now consider the general case of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, not necessarily mutually exclusive. Again look at the Venn diagram</p>
+<p><img src="data/images/chap-prob/venn6.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>We have
+<span class="math display">\[\begin{align*}
+\mathbb{P}(A\cup B) &amp; = \mathbb{P}(A \cap B^c) + \mathbb{P}(A \cap B) + \mathbb{P}(A^c \cap B) \\
+&amp; = \Big[\mathbb{P}(A \cap B^c) + \mathbb{P}(A \cap B) \Big] + \Big[\mathbb{P}(A^c \cap B) + \mathbb{P}(A \cap B)\Big] - \mathbb{P}(A \cap B) \\
+&amp; = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)
+\end{align*}\]</span></p>
+<p>where the first equation is because the three events are mutually exclusive, the second equation add then subtract <span class="math inline">\(\mathbb{P}(A \cap B)\)</span>. In words, the probability of <span class="math inline">\(A\cup B\)</span> is the sum of the probability of the pink, purple, and blue regions. When we sum the probability of <span class="math inline">\(A\)</span> (pink and purple) and the probability of <span class="math inline">\(B\)</span> (blue and purple), we count the purple region twice. Thus, we need to minus the purple region to get the probability of <span class="math inline">\(A\cup B\)</span>.</p>
+<p>In summary, the <strong>general addition rule</strong> for any event <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is
+<span class="math display">\[\mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B)\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-rent-addRule" class="example"><strong>Example 3.10  </strong></span>Suppose that I am collecting the sample for my rent study. The probability of selecting a female student is <span class="math inline">\(0.6\)</span>, the probability of selecting an undergraduate student is <span class="math inline">\(0.3\)</span>, and the probability of selecting a female undergraduate student is <span class="math inline">\(0.2\)</span>. What is</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>the probability of selecting a non-female student?</p></li>
+<li><p>the probability of selecting <strong>either</strong> a female student <strong>or</strong> an undergraduate student?</p></li>
+<li><p>the probability of selecting a student who is <strong>not</strong> female <strong>and not</strong> undergraduate?</p></li>
+</ol>
+<p><em>Solution:</em></p>
+<p>Let</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> be the event of selecting a female student</p></li>
+<li><p><span class="math inline">\(B\)</span> be the event of selecting an undergraduate student, then</p></li>
+</ul>
+<p><span class="math display">\[\mathbb{P}(A) = 0.6, \hspace{5mm}\mathbb{P}(B) = 0.3, \hspace{5mm} \text{and} \hspace{5mm}\mathbb{P}(A\cap B) = 0.2\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(\mathbb{P}(A^c) = 1-\mathbb{P}(A) = 1 - 0.6 = 0.4\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A\cap B) = 0.6 + 0.3 - 0.2 = 0.7\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{P}(A^c \cap B^c) = \mathbb{P}\Big[(A\cup B)^c\Big] = 1 - \mathbb{P}(A\cup B) = 1-0.7 = 0.3\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-47" class="exercise"><strong>Exercise 3.6  </strong></span>Continue with the rent study. Suppose</p>
+<ul>
+<li><p>the probability of selecting an undergraduate student is <span class="math inline">\(0.3\)</span>,</p></li>
+<li><p>the probability of selecting an Arts students is <span class="math inline">\(0.2\)</span>,</p></li>
+<li><p>the probability of selecting an Engineering student is <span class="math inline">\(0.4\)</span>,</p></li>
+<li><p>the probability of selecting either an undergraduate student or an Arts student is <span class="math inline">\(0.4\)</span>.</p></li>
+</ul>
+<p>What is the probability of</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>selecting a graduate student (suppose there are only two types of students: undergraduate and graduate)?</p></li>
+<li><p>selecting an undergraduate Arts student?</p></li>
+<li><p>selecting a student who major in either Arts or Engineering?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="multiplication-rule" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Multiplication Rule<a href="chap-prob.html#multiplication-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prob-sec-conditional" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Conditional Probability<a href="chap-prob.html#prob-sec-conditional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Example <a href="chap-prob.html#exm:ex-prob-toss-coin">3.1</a>, we discussed that the results of tossing a fair coin can be affected by many factors. Usually, for a fair coin, we believe that there is half a chance to observe a head and half a chance to observe a tail. But, what if we <strong>know</strong> that the person will be tossing the coin is, say, myself, do I know <strong>better</strong> about the probability? That is, will the half-half probabilities <strong>change</strong>? Do I myself tend to toss heads slightly more often than tails? This is the main idea of conditional probability.</p>
+<p>The <strong>conditional probability</strong> <span class="math inline">\(\mathbb{P}(A|B)\)</span> is the probability of event <span class="math inline">\(A\)</span> given event <span class="math inline">\(B\)</span>, i.e. the probability that event <span class="math inline">\(A\)</span> happens if event <span class="math inline">\(B\)</span> happens <strong>with certainty</strong>.</p>
+<p><img src="data/images/chap-prob/venn8.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Let us look at the picture above. If event <span class="math inline">\(B\)</span> happens with certainty, it means that only the outcomes inside of <span class="math inline">\(B\)</span> will be able to happen. This shrinks our sample space from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(B\)</span>. Now, the only cases where <span class="math inline">\(A\)</span> can happen are when the outcomes lie in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, i.e., <span class="math inline">\(A\cap B\)</span>. So the conditional probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is the <strong>proportion</strong> of outcomes of <span class="math inline">\(A\cap B\)</span> in event <span class="math inline">\(B\)</span>, that is,
+<span class="math display">\[\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-condProb" class="example"><strong>Example 3.11  </strong></span>Continue with Example <a href="chap-prob.html#exm:ex-prob-rent-addRule">3.10</a>, we know the probability of selecting an undergraduate student is <span class="math inline">\(\mathbb{P}(B) = 0.3\)</span> and the probability of selecting a female undergraduate student is <span class="math inline">\(\mathbb{P}(A\cap B) = 0.2\)</span>. So the probability of selecting a female student given the student is an undergraduate is
+<span class="math display">\[\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} = \frac{0.2}{0.3} = \frac{2}{3}\]</span></p>
+</div>
+</div>
+</div>
+<div id="multiplication-rule-1" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Multiplication Rule<a href="chap-prob.html#multiplication-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have the multiplication rule</p>
+<div class="myEquation">
+<p><span class="math display">\[\mathbb{P}(A\cap B) = \mathbb{P}(A| B)\mathbb{P}(B)\]</span></p>
+</div>
+</div>
+<div id="independence" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Independence<a href="chap-prob.html#independence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We say that event <span class="math inline">\(A\)</span> is <strong>independent</strong> of event <span class="math inline">\(B\)</span> if we know that no matter <span class="math inline">\(B\)</span> happens or not, the probability of <span class="math inline">\(A\)</span> does not change, that is
+<span class="math display">\[\mathbb{P}(A|B) = \mathbb{P}(A)\]</span></p>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:ec-prob-indep" class="exercise"><strong>Exercise 3.7  </strong></span>Prove that if <span class="math inline">\(A\)</span> is independent of <span class="math inline">\(B\)</span>, then <span class="math inline">\(B\)</span> is independent of <span class="math inline">\(A\)</span>. Hint: Use the definition of <span class="math inline">\(\mathbb{P}(A|B)\)</span> and the definition of <span class="math inline">\(A\)</span> being independent of <span class="math inline">\(B\)</span>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>From Exercise <a href="chap-prob.html#exr:ec-prob-indep">3.7</a>, we say that two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if either
+<span class="math display">\[\mathbb{P}(A|B) = \mathbb{P}(A) \hspace{5mm} \text{or} \hspace{5mm} \mathbb{P}(B|A) = \mathbb{P}(B) \hspace{5mm} \text{or} \hspace{5mm} \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)\]</span></p>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-48" class="exercise"><strong>Exercise 3.8  </strong></span>In Examples <a href="chap-prob.html#exm:ex-prob-rent-addRule">3.10</a> and <a href="chap-prob.html#exm:ex-prob-condProb">3.11</a>, is selecting a female student and selecting an undergraduate</p>
+<ul>
+<li><p>mutually exclusive?</p></li>
+<li><p>independent?</p></li>
+</ul>
+<p>And why?</p>
+</div>
+</div>
+</div>
+</div>
+<div id="law-of-total-probability" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Law of Total Probability<a href="chap-prob.html#law-of-total-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="conditional-probability-of-the-complement" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Conditional Probability of the Complement<a href="chap-prob.html#conditional-probability-of-the-complement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Section <a href="chap-prob.html#prob-sec-conditional">3.3.1</a>, we discussed that <span class="math inline">\(\mathbb{P}(A|B)\)</span> is the proportion of outcomes in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> out of the outcomes in <span class="math inline">\(B\)</span>. Therefore, <span class="math inline">\(1-\mathbb{P}(A|B)\)</span> is the remaining proportion of outcomes not in <span class="math inline">\(A\)</span> and but in <span class="math inline">\(B\)</span>. In the diagram below,</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(A|B)\)</span> is the ratio of the pink part to the whole circle of <span class="math inline">\(B\)</span></p></li>
+<li><p><span class="math inline">\(1-\mathbb{P}(A|B)\)</span> is the ratio of the blue part to the whole circle of <span class="math inline">\(B\)</span>. The blue part contains the outcomes that is not in <span class="math inline">\(A\)</span> but in <span class="math inline">\(B\)</span>, i.e., <span class="math inline">\(A^c \cap B\)</span>.</p></li>
+</ul>
+<p><img src="data/images/chap-prob/venn9.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>So, we have the following equality for the <strong>conditional probability of the complement</strong></p>
+<p><span class="math display">\[\mathbb{P}(A^c|B) = 1-\mathbb{P}(A|B)\]</span></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-49" class="example"><strong>Example 3.12  </strong></span>Continue with Example <a href="chap-prob.html#exm:ex-prob-condProb">3.11</a>, the probability of selecting a non-female student given that the student is an undergraduate is
+<span class="math display">\[\mathbb{P}(A^c|B) = 1 - \mathbb{P}(A|B) = 1 - \frac{0.2}{0.3} = \frac{1}{3}\]</span></p>
+</div>
+</div>
+</div>
+<div id="law-of-total-probability-1" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Law of Total Probability<a href="chap-prob.html#law-of-total-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let us come back to the whole sample space <span class="math inline">\(\Omega\)</span> in the diagram below. We see that <span class="math inline">\(A\)</span> (pink) and <span class="math inline">\(A^c\)</span> (blue) divide the sample space <span class="math inline">\(\Omega\)</span> into two <strong>mutually exclusive</strong> regions. Effectively, they also divide <span class="math inline">\(B\)</span> into two <strong>mutually exclusive</strong> parts: <span class="math inline">\(A \cap B\)</span> and <span class="math inline">\(A^c \cap B\)</span>. This means
+<span class="math display">\[\mathbb{P}(A\cap B) + \mathbb{P}(A^c\cap B) = \mathbb{P}(B)\]</span></p>
+<p><img src="data/images/chap-prob/venn10.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>This law similarly applies to all events <span class="math inline">\(A_1, A_2, ..., A_n\)</span> that are mutually exclusive and make up the sample space <span class="math inline">\(\Omega\)</span>. This is called the <strong>law of total probability</strong>:</p>
+<div class="myEquation">
+<p><span class="math display">\[\text{If }A_1 \cup A_2 \cup ... \cup A_n = \Omega \text{ and } A_i\cap A_j = \emptyset \text{ for all }i\ne j, \text{ then } \mathbb{P}(B) = \sum_{i=1}^n \mathbb{P}(B\cap A_i)\]</span></p>
+</div>
+<p><img src="data/images/chap-prob/venn11.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Look at the above diagram, the events <span class="math inline">\(A_1, A_2, ..., A_n\)</span> divide the sample space <span class="math inline">\(\Omega\)</span> into mutually exclusive parts, and thus effectively also divide <span class="math inline">\(B\)</span> into mutually exclusive parts <span class="math inline">\(A_1\cap B\)</span>, <span class="math inline">\(A_2\cap B\)</span>, …, <span class="math inline">\(A_n\cap B\)</span>. When we add up these parts we will get <span class="math inline">\(B\)</span>.</p>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-50" class="exercise"><strong>Exercise 3.9  </strong></span>Suppose we have the following probabilities of selecting students</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Arts</th>
+<th align="center">Engineering</th>
+<th align="center">Environment</th>
+<th align="center">Health</th>
+<th align="center">Math</th>
+<th align="center">Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="center"><span class="math inline">\(0.059\)</span></td>
+<td align="center"><span class="math inline">\(0.039\)</span></td>
+<td align="center"><span class="math inline">\(0.043\)</span></td>
+<td align="center"><span class="math inline">\(0.077\)</span></td>
+<td align="center"><span class="math inline">\(0.099\)</span></td>
+<td align="center"><span class="math inline">\(0.054\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>What is the probability of selecting a female student?</p></li>
+<li><p>What is the probability of selecting an Engineering student given the student is female?</p></li>
+<li><p>What is the probability of selecting a non-Math student given the student is female?</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Combining the law of total probability and the multiplication rule, we have</p>
+<p><span class="math display">\[\mathbb{P}(B) = \sum_{i=1}^n\mathbb{P}(B\cap A_i) = \sum_{i=1}^n\mathbb{P}(B|A_i)\mathbb{P}(A_i)\]</span></p>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:ec-prob-complement" class="exercise"><strong>Exercise 3.10  </strong></span>Use the law of total probability to prove the conditional probability of the complement.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>From Exercise <a href="chap-prob.html#exr:ec-prob-complement">3.10</a>, we know that the conditional probability of the complement is just a special case of the law of total probability where the mutually exclusive events making up the sample space are <span class="math inline">\(A\)</span> and <span class="math inline">\(A^c\)</span>.</p>
+</div>
+<div id="tree-diagram" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Tree Diagram<a href="chap-prob.html#tree-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the example below</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-rent-tree" class="example"><strong>Example 3.13  </strong></span>Suppose in UWaterloo, <span class="math inline">\(40\%\)</span> of students are graduate students. <span class="math inline">\(60\%\)</span> of graduate students choose rooms that are more than 15 minutes away from school, while <span class="math inline">\(80\%\)</span> of undergraduate students choose rooms that are less than 15 minutes away from school. Then, what is the probability that students choose rooms that are less than 15 minutes away from school?</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>This example may seem a lot more difficult than the ones we considered in this lesson so far, but trust me, you now already have all the probability laws you need to solve this problem.</p>
+<p>However, the wording may be confusing. A great way illustrate the events, their relationships and probabilities more clearly is to draw a <strong>tree diagram</strong>. A tree diagram consists of</p>
+<ul>
+<li><p>nodes: at each node, a choice is made, i.e., from this node we list all the mutually exclusive events for the choice</p></li>
+<li><p>branches: at each branch, write the probability <span class="math inline">\(\mathbb{P}(|...)\)</span> where “…” are the events that occurred before <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-prob-coin-tree" class="example"><strong>Example 3.14  </strong></span>Consider an experiment where we flip a coin twice. Let us denote</p>
+<ul>
+<li><p><span class="math inline">\(H_1\)</span>: the event that we observe a head at the first coin toss</p></li>
+<li><p><span class="math inline">\(T_1\)</span>: the event that we observe a tail at the first coin toss</p></li>
+<li><p><span class="math inline">\(H_2\)</span>: the event that we observe a head at the second coin toss</p></li>
+<li><p><span class="math inline">\(T_2\)</span>: the event that we observe a tail at the second coin toss</p></li>
+</ul>
+<p>Then <span class="math inline">\(H_1\)</span> and <span class="math inline">\(T_1\)</span> are mutually exclusive and they make up the sample space for the results of coin 1. <span class="math inline">\(H_2\)</span> and <span class="math inline">\(T_2\)</span> are mutually exclusive and they make up the sample space for the results of coin 2. Thus we can draw the tree diagram as follows.</p>
+<p><img src="data/images/chap-prob/tree1.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-51" class="example"><strong>Example 3.15  </strong></span>Now, let us come back to Example <a href="chap-prob.html#exm:ex-prob-rent-tree">3.13</a>. Let</p>
+<ul>
+<li><p><span class="math inline">\(G\)</span> be the event that the student is a graduate student. Then the event that the student is an undergraduate student is <span class="math inline">\(G^c\)</span>.</p></li>
+<li><p><span class="math inline">\(T\)</span> be the event that the student chooses a room that is less than 15 minutes away from school. Then the event that the student chooses a room that is more than 15 minutes away from school is <span class="math inline">\(T^c\)</span>.</p></li>
+</ul>
+<p>We can make the following tree diagram</p>
+<p><img src="data/images/chap-prob/tree2.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>in which we</p>
+<ul>
+<li><p>calculate the red probabilities using the complement equality.</p></li>
+<li><p>calculate the blue probabilities using the multiplicative rule.</p></li>
+</ul>
+<p>To calculate the probability that students choose rooms that are less than 15 minutes away from school, we use the law of total probability:
+<span class="math display">\[\mathbb{P}(T) = \mathbb{P}(T\cap G) + \mathbb{P}(T\cap G^c) = 0.48+0.16 = 0.64.\]</span></p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-52" class="exercise"><strong>Exercise 3.11  </strong></span>Use the following information</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Arts</th>
+<th align="center">Engineering</th>
+<th align="center">Environment</th>
+<th align="center">Health</th>
+<th align="center">Math</th>
+<th align="center">Science</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="center"><span class="math inline">\(80\)</span></td>
+<td align="center"><span class="math inline">\(52\)</span></td>
+<td align="center"><span class="math inline">\(58\)</span></td>
+<td align="center"><span class="math inline">\(104\)</span></td>
+<td align="center"><span class="math inline">\(133\)</span></td>
+<td align="center"><span class="math inline">\(73\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Male</td>
+<td align="center"><span class="math inline">\(63\)</span></td>
+<td align="center"><span class="math inline">\(157\)</span></td>
+<td align="center"><span class="math inline">\(46\)</span></td>
+<td align="center"><span class="math inline">\(62\)</span></td>
+<td align="center"><span class="math inline">\(177\)</span></td>
+<td align="center"><span class="math inline">\(120\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Others</td>
+<td align="center"><span class="math inline">\(17\)</span></td>
+<td align="center"><span class="math inline">\(37\)</span></td>
+<td align="center"><span class="math inline">\(21\)</span></td>
+<td align="center"><span class="math inline">\(33\)</span></td>
+<td align="center"><span class="math inline">\(66\)</span></td>
+<td align="center"><span class="math inline">\(46\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Draw a tree diagram that represent the above probabilities.</p></li>
+<li><p>Find the probability of selecting a male student</p></li>
+<li><p>What is the probability of selecting a male student given that the student is from the Environment faculty?</p></li>
+<li><p>Are the event: the student is non-male-and-female, and the event: the student is from Health faculty independent? Why?</p></li>
+</ol>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> In the tree diagram examples, we can think of</p>
+<ul>
+<li><p>each node as a <strong>categorical variable</strong></p>
+<ul>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-coin-tree">3.14</a>, the variables are the result of coin 1 and result of coin 2,</p></li>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-rent-tree">3.13</a>, the variables are level of study and time from room to schools</p></li>
+</ul></li>
+<li><p>the branches coming out of the nodes correspond to different <strong>categories</strong> of the corresponding variables.</p>
+<ul>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-coin-tree">3.14</a>, the categories are head and tail for both variables</p></li>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-rent-tree">3.13</a>, level of study has two categories: graduate and undergraduate; time from room to school has two categories: more than 15 minutes or less than 15 minutes</p></li>
+</ul></li>
+<li><p>the events are that the categorical variables take the value of each of the available categories.</p>
+<ul>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-coin-tree">3.14</a>, <span class="math inline">\(H_1\)</span> is the event that the result of coin 1 is head, <span class="math inline">\(T_2\)</span> is the event that the result of coin 2 is tail, etc.</p></li>
+<li><p>in Example <a href="chap-prob.html#exm:ex-prob-rent-tree">3.13</a>, <span class="math inline">\(G\)</span> is the event that the level of study is graduate, <span class="math inline">\(T\)</span> is the event that the time from room to school is less than 15 minutes.</p></li>
+</ul></li>
+</ul>
+<p>In other texts (that you can find in books or websites), you can find that they describe the branches as the different ways to do something at the node. This also implies that the <strong>branches</strong> are just the <strong>categories/choices</strong> of the <strong>node’s variable</strong>. We will have a closer look at (random) variables and events in Chapter <a href="chap-rv.html#chap-rv">4</a>.</p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> There seem to be a lot of results derived in this lesson. However, you just need to remember the three general rules and how to draw the Venn diagram because all the other results can be retrieved from those tools or laws. Remember that practice makes perfect, try drawing the Venn diagrams or the tree diagrams by yourself, and practice the exercises given in this chapter.</p>
+<p>In general, the steps to solve a probability problem is</p>
+<ol style="list-style-type: decimal">
+<li>Define (give notation for) the events</li>
+<li>Draw a tree diagram with the given information</li>
+<li>Calculate the missing/requested probability using the three laws of probability (addition, multiplication, and the total probability laws)</li>
+</ol>
+</div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>Note that this definition of probabilistic experiment is slightly different from the definition of experiment we discussed in Chapter <a href="chap-step.html#chap-step">1</a>. Therefore here we say “probabilistic experiment” instead of only “experiment” to differentiate the two definitions.<a href="chap-prob.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-des.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-rv.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

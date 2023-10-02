@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Four Research Steps | A First Course In Statistics</title>
+  <meta name="description" content="1 Four Research Steps | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Four Research Steps | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Four Research Steps | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="chap-des.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-step" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Four Research Steps<a href="chap-step.html#chap-step" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-statistics" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Why Statistics?<a href="chap-step.html#why-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Curiosity</strong>, as a part of human nature, motivates us to ask questions and find answers. Imagine our ancestors in their early days. Every night, around the fire, they might have looked at the sky and observed the shapes of the moon changing from day to day, and asked themselves if there is any principle to such change. They might have started by counting the days between two full moons and found a roughly 30-day difference. Will this be true all the time, or is it true only for this instance? To answer this, they might have had to continue to count the days from month to month, year to year, to finally understand the moon cycle.</p>
+<p>This answer-finding process can be applied to almost any question in our lives. Starting with a question or a general area of interest, we collect data (information) around the topic, look at the data to find pattern, and form an answer to the question. We can stop there if we are satisfied with the answer, or we can modify the question, continue to collect data, revise the answer, and so on. These are the main steps of a general <strong>research</strong> process, which can be summarized in Figure <a href="chap-step.html#fig:step-research">1.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step-research"></span>
+<img src="data/images/chap-step/research.png" alt="General research process" width="500" />
+<p class="caption">
+Figure 1.1: General research process
+</p>
+</div>
+<p>Statistics is the study of data<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, hence it involves all steps of the general research process. In particular, statistics will help us with</p>
+<ul>
+<li>forming our research questions in a way that it can be answered using data,</li>
+<li>designing the data collecting process,</li>
+<li>understanding and interpreting the data collected, and</li>
+<li>making an informed (data-driven) conclusion.</li>
+</ul>
+<p>Therefore, we can think of statistics as a supporting field for almost all data-related or quantitative sciences. Besides general procedures and techniques, specialized statistical methods can be developed to cater to specific research areas with specific types of data and requirements. Some specializations of statistics are biostatistics, econometrics, psychometrics, etc. In fact, many important results in statistics were established by non-statisticians. This emphasizes the <strong>interdisciplinary nature</strong> of statistics and its <strong>important role</strong> in scientific research. Knowing statistics will help you <strong>understand</strong> and <strong>critically evaluate</strong> published research and <strong>conduct</strong> research yourselves. Therefore</p>
+<div class="blue">
+<div class="center">
+<p><strong>LET’S LEARN STATISTICS!</strong>
+</p>
+</div>
+</div>
+<p>In this chapter, we will briefly describe each step in Figure <a href="chap-step.html#fig:step-research">1.1</a> while learning some important definitions and concepts in statistics.</p>
+</div>
+<div id="research-question" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Research Question<a href="chap-step.html#research-question" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s start with the first step of a research: <strong>forming a research question</strong>. What can be a research question? And how to look at this research question in a statistical way?</p>
+<div id="variables" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Variables<a href="chap-step.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>variable</strong> is a characteristic or quantity which can take different values. A variable can be</p>
+<ul>
+<li><p><strong>qualitative</strong>: characteristics that can be described or categorized into <strong>categories</strong>.</p>
+<p>Some examples are</p>
+<ul>
+<li><p>gender: this can take the values of female, male, or others;</p></li>
+<li><p>education: this can take the values of high school, undergraduate, graduate, etc.</p></li>
+</ul></li>
+<li><p><strong>quantitative</strong>: characteristics that can be described or quantified by <strong>numerical values</strong>.</p>
+<p>Some examples are</p>
+<ul>
+<li><p>height: this can take numerical values such as 165cm, 180cm, 155cm, etc.</p></li>
+<li><p>age: this can take numerical values such as 19, 5, 67, etc.</p></li>
+</ul></li>
+</ul>
+<p>Variables are the <strong>topics</strong> of research goals:</p>
+<ul>
+<li><p>We may want to <strong>understand</strong> <strong>one</strong> variable.</p>
+<ul>
+<li>e.g., What are the ages of people when they enter college? How much Canadians earn this year? etc.</li>
+</ul></li>
+<li><p>We may want to <strong>understand</strong> the <strong>relationship among multiple variables</strong>.</p>
+<ul>
+<li>e.g., the relationship of gender and income, of age and height, of location and house price, etc.</li>
+</ul></li>
+<li><p>We may want to <strong>predict</strong> the value of one variable given the values of some other variables</p>
+<ul>
+<li>e.g., predict the final exam score given the midterm exam score; predict income given gender, years of education, job types, etc.</li>
+</ul></li>
+</ul>
+<p>If a research is involved with more than one variable, there is usually only one variable of main interest. This is the variable whose trends you want to understand or the one which you want to make predictions about. This variable is called the <strong>response variable</strong> (also known as the dependent variable). Other variables that help explain or predict the response variable are called the <strong>explanatory variables</strong> (also known as the independent variables).</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> I think it is now a good time to take an <strong>example</strong>. I will use this example throughout the book to explain statistical concepts because I myself find it an easier way to understand, especially, a chapter packed with new concepts like this one. For those of you who are new to statistics, the amount of new terminology in this lesson may seem intimidating. I <strong>strongly recommend</strong> you to think of <strong>another example of your own</strong>, and then apply or explain the new definitions in the context of your example. Having your own examples and trying to explain them yourself will be <strong>extremely useful</strong> to help you clearly understand new ideas and definitions.</p>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 1.1  </strong></span>Suppose I am interested in how much students pay for rent. Then <strong>rent</strong> is my response variable. If furthermore I also want to know if gender or level of study (undergraduate/graduate) affects how much students pay for rent. Then <strong>gender</strong> and <strong>level of study</strong> will be my explanatory variables.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 1.1  </strong></span>If I am interested in people’s income, what is my response variable, and what can be my explanatory variables?</p>
+</div>
+</div>
+</div>
+<div id="inference-and-prediction" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Inference and Prediction<a href="chap-step.html#inference-and-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, there are <strong>two general goals</strong> of statistics:</p>
+<ul>
+<li><p><strong>inference</strong>: understanding and inferring a principle of the current situation, and</p></li>
+<li><p><strong>prediction</strong>: making an informed guess about an unseen situation or the future.</p></li>
+</ul>
+<p>Different statistical techniques are developed for each of the two goals. Classical statistics usually involves inference, while the recently popular machine learning researches focuses on prediction.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 1.2  </strong></span>Continue with the rent example. Now, if I am interested in knowing if female students pay more for rent compared to male students, my goal will be <strong>inference</strong>.</p>
+<p>On the other hand, if, for example, I meet a new friend and I know that he is an undergraduate student, based on the data I collected about other students, I want to guess how much he is paying for rent. Now my goal would be <strong>prediction</strong>.</p>
+</div>
+</div>
+</div>
+<div id="population-and-sample" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Population and Sample<a href="chap-step.html#population-and-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Units</strong> (or individuals, or cases) are the objects on which the values of the variables are measured or recorded. In the student rent example, “students” will be our study units.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 1.3  </strong></span>Now that I know the <strong>topics</strong> of my research (i.e., the variables), I will need to decide the <strong>scope</strong> of my research. Who do I want to make conclusions about? Do I want to understand the monthly rent expense of <strong>UWaterloo</strong> students, or do I want to know the monthly rent expense of <strong>all Canadian</strong> students?</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p><strong>Population</strong> is the <strong>entire</strong> group of units that we want to make <strong>conclusions</strong> about.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 1.4  </strong></span>Suppose I want to understand the monthly rent expense of UWaterloo students. If I want to understand this exactly, I will need to ask <strong>every single student</strong> studying at University of Waterloo how much they are paying for rent. But will that ever be possible? There are tens of thousands of students studying at UWaterloo.</p>
+<p>So instead, I will try to get a sense of the monthly rent expense of UWaterloo students by walking around the campus and asking them how much they are paying for rent. However, I cannot meet every student, and even if I’m committed to see every UWaterloo student, it will take a tremendous amount of time to do so. In the end, I will only be able to collect the rent data from <strong>some</strong> students. This is called the <strong>sample</strong> for my study.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>A <strong>sample</strong> is the specific group of units on which we collect our data.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 1.5  </strong></span>Because I will walk around the campus to ask students about their rent, I will only be able to collect information from ones who <strong>actually walk</strong> on campus, and I will hardly meet anyone who studies <strong>remotely</strong>. Furthermore, a person who walks on campus needs not to be a student. In this case, the group that I am able to survey is different from the group that I want to research.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Because of the way we collect our data, there will be two types of population:</p>
+<ul>
+<li><p><strong>Target population</strong>: the group of units that you want to make conclusions about.</p></li>
+<li><p><strong>Accessible population</strong> (or <strong>study population</strong>): the group of units that you are actually able to get access to.</p></li>
+</ul>
+<p>When these two types of population coincide, we just call both of them population for short.</p>
+<p>In summary, we want to use data of the <strong>sample</strong> to make conclusions about the <strong>target population</strong>. However, due to the way we collect our data, we are only able to collect data from the <strong>accessible population</strong>, and hence our conclusions will be <strong>most valid</strong> on the <strong>accessible population</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step-population-sample"></span>
+<img src="data/images/chap-step/population_sample.png" alt="Population and sample" width="500" />
+<p class="caption">
+Figure 1.2: Population and sample
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 1.6  </strong></span>Describe a situation when the accessible population and the target population are the same, and when they are not the same.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 1.2  </strong></span>Cannabis has recently been legalized in Canada. We want to understand the use of cannabis by adult Canadians by surveying 1000 Canadians by phone.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>What can be the variables that we want to collect information about?</p></li>
+<li><p>What is the target population?</p></li>
+<li><p>What is the accessible population? Is it the same with the target population? Is it a subset of the target population?</p></li>
+<li><p>Describe the sample obtained.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="parameter-and-statistic" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Parameter and Statistic<a href="chap-step.html#parameter-and-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 1.7  </strong></span>Now we collect the data about students’ rent, there will be tens to hundreds of observations in our sample. We can look at each observation on its own, for example, how much Phillip, or Sophia, or Jeremy pays for their rent this month. In this way, we will know more about Phillip, and Sophia, and Jeremy. But what can we say about the rent paid by UWaterloo students in general? How can we understand the tens or hundreds of individual observations in a collective way? The answer is, we need to <strong>summarize</strong> the data.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>A <strong>parameter</strong> is a quantity that can be calculated from the <strong>population</strong>. A <strong>statistic</strong> is a quantity that can be calculated from the <strong>sample</strong>. For each parameter, there will be a <strong>corresponding statistic</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 1.8  </strong></span>Continue with our rent example, we may be interested in how much UWaterloo students are paying for rent <strong>on average</strong>. The parameter here is the population average. The corresponding statistic is the average rent that we calculate from the data in our sample.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 1.3  </strong></span>Suppose now I am interested in the vaccination rate in Canada. What is my parameter of interest and what is its corresponding statistic?</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>We can calculate the value of a statistic from the collected sample, thus we <strong>know</strong> the value of the statistic. However, we cannot calculate or know the value of the parameter because we cannot collect all information in the population. Hence, the value of a population parameter is often <strong>unknown</strong><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>So, the goal of statistics is to <strong>use a sample statistic<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> to make conclusions about a population parameter</strong>.</p>
+</div>
+</div>
+<div id="data-collection" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Data Collection<a href="chap-step.html#data-collection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="variability-and-bias" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Variability and Bias<a href="chap-step.html#variability-and-bias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="fixed-population-and-random-sample" class="section level4 hasAnchor" number="1.3.1.1">
+<h4><span class="header-section-number">1.3.1.1</span> Fixed Population and Random Sample<a href="chap-step.html#fixed-population-and-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 1.9  </strong></span>In the rent example, our population is the whole group of students studying at University of Waterloo. In a semester, this set will likely be unchanged. However, in the next semester, there may be students who graduate and new students who just begin. In this case, the population may be different from one semester to another.</p>
+<p>However, in basic statistics, we usually <strong>assume</strong> that our population is <strong>fixed</strong> and the population parameter of interest is thus a fixed quantity<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>While the population is assumed <strong>fixed</strong>, the sample is <strong>random</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 1.10  </strong></span>To understand the average rent expense of UWaterloo students, I decide to walk around the campus and ask 100 students about their rent expenses. In this case, my sample will contain 100 observations (i.e., my <strong>sample size</strong> is 100).</p>
+<p>However, these 100 people are not fixed. If I were to go on another day, there will be a high chance that the people I will meet will be different from the people I am going to meet today. That is, today, I will meet these 100 people <strong>just by chance</strong>. I do not know who I am going to meet before I actually meet them. In this case, I have a <strong>random sample</strong>.</p>
+<p>If I <strong>repeat</strong> the data collection process on several days, I will receive a <strong>different sample</strong> and thus a different statistic <strong>every time</strong> I conduct the data collection.</p>
+</div>
+</div>
+</div>
+<div id="variability" class="section level4 hasAnchor" number="1.3.1.2">
+<h4><span class="header-section-number">1.3.1.2</span> Variability<a href="chap-step.html#variability" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The difference among the <strong>different observed samples</strong> of the <strong>same sampling method</strong> is called the <strong>variability</strong> of the sampling method. A sampling method with <strong>low variability</strong> is a sampling method with <strong>high precision</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-14" class="example"><strong>Example 1.11  </strong></span>Suppose I randomly choose <strong>one</strong> region in Waterloo and Kitchener and then ask students in that region there about their rent. In this case, my sampling scheme will have a <strong>high variability</strong> or a <strong>low precision</strong>.</p>
+<p>This is because if I <strong>repeat</strong> this same sample collecting method for many times, <strong>every time</strong> I will interview students living in a different region. Since rent will depend on specific regions and their distances to school, the rent data I collect will tend to be substantially different from one sample to another.</p>
+</div>
+</div>
+</div>
+<div id="bias" class="section level4 hasAnchor" number="1.3.1.3">
+<h4><span class="header-section-number">1.3.1.3</span> Bias<a href="chap-step.html#bias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>difference</strong> between the <strong>population data</strong> and the <strong>average</strong> of different samples (coming from the same sampling method) is called the <strong>bias</strong> of the sampling method. <strong>Small bias</strong> means <strong>high accuracy</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-step-female-only" class="example"><strong>Example 1.12  </strong></span>Suppose I only interview female students. Even if I repeat this same sample collection method many times, I only get the data that tells me about the rent price for female students. This data will likely be <strong>different</strong> from the rent price of <strong>all</strong> students on campus. Hence I say the <strong>bias</strong> is high and <strong>accuracy</strong> is low.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Figure <a href="chap-step.html#fig:step-accuracy-precision">1.3</a> summarizes concepts about bias, variance, accuracy and precision.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step-accuracy-precision"></span>
+<img src="data/images/chap-step/accuracy_precision.png" alt="Accuracy and precision." width="500" />
+<p class="caption">
+Figure 1.3: Accuracy and precision.
+</p>
+</div>
+</div>
+</div>
+<div id="what-makes-a-good-sample" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> What Makes A Good Sample?<a href="chap-step.html#what-makes-a-good-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because we want to use the sample to understand the population, we need the sample to produce an <strong>accurate</strong> and <strong>precise</strong> estimate of the population parameter. To increase accuracy and precision, i.e., to decrease variability and bias, we want our sample to be</p>
+<ul>
+<li><p><strong>large</strong> because the more units we observe, the closer we will be to the population. Our sample will then be more <strong>accurate</strong>. It will also be more <strong>precise</strong> because when the sample is large, the possible samples will be not very different from each other.</p></li>
+<li><p><strong>representative</strong> of the population. This way, the sample will resemble the population and our estimator will be more <strong>accurate</strong>.</p></li>
+</ul>
+<p>With a good sample, we can generalize our results to the population with better confidence.</p>
+<div id="unmeasured-variables" class="section level4 hasAnchor" number="1.3.2.1">
+<h4><span class="header-section-number">1.3.2.1</span> Unmeasured Variables<a href="chap-step.html#unmeasured-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There can be infinitely many possible variables that contribute to the response variable that we are interested in. And we can never be able to collect information about all those variables. The variables that can affect the variable of interest, but are not recorded in the data are called <strong>unmeasured variables.</strong></p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-15" class="example"><strong>Example 1.13  </strong></span>Together with gender and level study, personal lodging preference can be a factor that affects the rent price a student is paying. However, it is hard to measure this variable, hence it is one of the unmeasured variables.</p>
+</div>
+</div>
+</div>
+<div id="representative-sample" class="section level4 hasAnchor" number="1.3.2.2">
+<h4><span class="header-section-number">1.3.2.2</span> Representative Sample<a href="chap-step.html#representative-sample" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A <strong>representative</strong> sample needs to be representative of all variables, even unmeasured ones.</p>
+<p>If a sample is not representative of a variable, there will be a <strong>systematic difference</strong> between the sample and the population, this will introduce <strong>bias</strong> on our estimator. In this case, we call this a <strong>biased</strong> sample. (Refer to Example <a href="chap-step.html#exm:ex-step-female-only">1.12</a>)</p>
+<ul>
+<li><p>If the accessible population is not representative of the target population, we have a <strong>study bias</strong>.</p></li>
+<li><p>If the sample is not representative of the accessible population, we have a <strong>sample bias</strong>.</p></li>
+</ul>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-16" class="exercise"><strong>Exercise 1.4  </strong></span>Suppose I am interested in Canadians’ overall happiness. I am going to call them by phone to ask them questions about happiness. In what way will my sample be biased, and which bias is it?</p>
+</div>
+</div>
+</div>
+</div>
+<div id="sampling-schemes" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Sampling Schemes<a href="chap-step.html#sampling-schemes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are many sampling methods (a.k.a sampling schemes or protocols) that can be used to select a sample. These can be divided into two categories: <strong>non-probabilistic</strong> and <strong>probabilistic</strong> sampling schemes.</p>
+<div id="non-probabilistic-sampling-schemes" class="section level4 hasAnchor" number="1.3.3.1">
+<h4><span class="header-section-number">1.3.3.1</span> Non-Probabilistic Sampling Schemes<a href="chap-step.html#non-probabilistic-sampling-schemes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Non-probabilistic sampling schemes are ones where the samples are <strong>not</strong> chosen randomly. These include</p>
+<ul>
+<li><p><strong>Convenience sample</strong>: units that are convenient for us to collect data from.</p></li>
+<li><p><strong>Self-selection</strong>: units who volunteer to be a part of the sample.</p></li>
+<li><p><strong>Judgment sampling</strong>: units are selected based on our judgment.</p></li>
+<li><p><strong>Quota sampling</strong>: first divide the population into mutually exclusive subsets, then in each subset, select some units based on judgment.</p></li>
+</ul>
+<p>Since with non-probabilistic sampling, the samples are not chosen randomly, they become more deterministic. This means that the variability of the statistics calculated from these samples will be low, i.e., the different <em>possible</em> samples will not be very different from each other.</p>
+<p>However, because of the non-randomness, there are potentially unmeasured variables where our judgment cannot cover, thus the sample may not be representative of the population. In this sense, the bias will be high.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 1.14  </strong></span>Continue with our rent example. A convenience sampling scheme will be to ask our friends about their monthly rent. A self-selection scheme would be to hold a billboard on campus to ask for volunteers. A judgment sampling scheme would be to select people based on our intuition or judgment.</p>
+<p>The samples obtained by these sampling schemes will likely be biased. This is because we are only asking people that we like/people who volunteer. These people may have the same preference about housing and because of that, our sample will not be representative of the population and is thus biased.</p>
+</div>
+</div>
+</div>
+<div id="probabilistic-sampling-schemes" class="section level4 hasAnchor" number="1.3.3.2">
+<h4><span class="header-section-number">1.3.3.2</span> Probabilistic Sampling Schemes<a href="chap-step.html#probabilistic-sampling-schemes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Probabilistic sampling schemes select samples in a random way. The randomness will eliminate the effect of any unmeasured variables, making the sample more representative and the bias will be reduced. Common schemes include</p>
+<ul>
+<li><p><strong>Simple random sampling</strong> (SRS): List all the units in the population, then randomly choose a fixed number of units in the list.</p>
+<ul>
+<li><p>In this scheme, each unit has the same chance of being selected.</p></li>
+<li><p>However, it is hard to conduct this sampling scheme because we are usually not able to get a full list of all the units in our population.</p></li>
+</ul></li>
+<li><p><strong>Stratified random sampling</strong>: Divide the population into mutually exclusive subgroups called strata. Then we apply an SRS on each stratum.</p>
+<ul>
+<li><p>Stratified sampling helps us increase the representativeness level of our sample.</p></li>
+<li><p>At the same time, it will decrease the variability because we are randomly selecting units from smaller sub-populations.</p></li>
+</ul></li>
+<li><p><strong>Cluster sampling</strong>: The units in the population are grouped into <strong>clusters</strong>. These clusters are usually <em>pre-defined</em>, such as provinces, cities, classes, etc. We then do an SRS on the clusters to select several specific clusters. After that, we include all the units in the chosen clusters in our sample.</p>
+<ul>
+<li><p>Because the clusters are usually pre-defined, cluster sampling is less costly.</p></li>
+<li><p>Depending on the characteristics of the population and the clusters, cluster sampling can increase or decrease the variability.</p></li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step-stratified-cluster"></span>
+<img src="data/images/chap-step/stratified_cluster.png" alt="Stratified and cluster sampling" width="500" />
+<p class="caption">
+Figure 1.4: Stratified and cluster sampling
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-18" class="example"><strong>Example 1.15  </strong></span>If I were to use stratified sampling, I will divide UWaterloo students according to each faculty. In each faculty, I will randomly choose students to be included in my sample. However, it can be hard to get a full list of the students in each of the faculty.</p>
+<p>If I were to use cluster sampling, I will randomly select a number of courses from UWaterloo’s course list. I will then go to ask all the students in those chosen courses about their monthly rent.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 1.5  </strong></span>In which situations will cluster sampling will decrease or increase variability?</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>We can also <strong>combine</strong> different sampling schemes by applying each scheme at a different stage. This is called <strong>multiple-stage sampling</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-20" class="example"><strong>Example 1.16  </strong></span>In our rent example, a multi-stage sampling scheme I can use is that I will divide the population into faculties, and in each faculty, I sample among the courses given by that faculty. Then I will interview all students taking those selected courses.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Exercise 1.6  </strong></span>If my population of interest is Canadian citizens, describe a sampling scheme that you will recommend to me and explain why it will result in a representative sample.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="observational-and-experimental-studies" class="section level3 hasAnchor" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Observational and Experimental Studies<a href="chap-step.html#observational-and-experimental-studies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Having chosen the sample, we need to think about how we are going to collect the data from the sample. At this stage, we can choose to conduct an observational study or an experimental study.</p>
+<ul>
+<li><p><strong>Observational study</strong>: is when we collect <strong>pre-existing</strong> information.</p>
+<ul>
+<li>In an observational study, we can only observe the existing situation, and thus we can only conclude about the <strong>association</strong> among the variables<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</li>
+</ul></li>
+</ul>
+<div class="empty0">
+
+</div>
+<ul>
+<li><p><strong>Experimental study</strong>: is when we <strong>manipulate</strong> (or <strong>control</strong>) some explanatory variables and then collect the information about the response variables.</p>
+<ul>
+<li>In an experiment, we can observe the change in the response variables when the explanatory variable is <strong>intentionally changed</strong>. With data collected from the experiment, we may conclude about the <strong>causal relationship</strong> between the explanatory and the response variables.</li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-step-bad-exp" class="example"><strong>Example 1.17  </strong></span>Coming back to the rent example. If I choose to ask students about the rent they are <strong>currently</strong> paying, I am conducting an <strong>observational study</strong>. I can also collect information about, say, the price of their winter coat. I may find that the higher the price of their winter coat, the higher the monthly rent they pay. I can say that rent expense and winter coat price are <strong>associated</strong> with each other. But I cannot conclude that high winter coat price <strong>causes</strong> high rent expense.</p>
+<p>If instead I choose to conduct an <strong>experimental study</strong> in this way: I <strong>give</strong> some students in my sample cheaper winter coats, and some other students more expensive winter coats. After that, I let them <strong>choose</strong> a place to rent among a list of places with different prices. Now, if I find that the students who are given expensive coats choose more expensive places to rent, I may be able to conclude that high winter coat price <strong>causes</strong> high rent expense because students’ rent choice was made <strong>given</strong> the price of the winter coat.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<p>Experiments can be very useful compared to observational studies because it can support causal conclusions. Indeed, if we can find the <strong>cause</strong> of something, we can change/manipulate the cause to get the desired result.</p>
+<p>However, in many situations, experiments are not possible at all due to time, money, or ethical reasons. For example, if I want to know if smoking causes lung cancer, I cannot force any person to smoke! In those cases, observational study will be our only choice.</p>
+<div class="myExercise">
+<div class="example">
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Example 1.18  </strong></span>In Example <a href="chap-step.html#exm:ex-step-bad-exp">1.17</a>, suppose I choose to conduct the experiment I described. In what situation will my conclusion about the causal relationship between winter coat price and rent expense go wrong?</p>
+</div>
+</div>
+<div id="confounding-variables" class="section level4 hasAnchor" number="1.3.4.1">
+<h4><span class="header-section-number">1.3.4.1</span> Confounding Variables<a href="chap-step.html#confounding-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In an observational study, because we only observe the current, existing situation, we will only be able to make conclusions about the <strong>association</strong> among the variables. The best effort that we can make in an observational study is to try to obtain a sample that is as representative as possible so that our conclusion about the association is <em>accurate</em> and <em>generalizable</em> to the population.</p>
+<p>On the contrary, even in an experiment, a <strong>causal conclusion</strong> (A causes B) can still be difficult to make due to confounders.</p>
+<p>A <strong>confounder</strong> (a.k.a confounding or lurking variable) is a variable that <strong>influences both</strong> the response variable and the explanatory variable. Because of the confounder, we <strong>cannot separate</strong> the effect of the explanatory variable from the effect of the confounder on the response variable. In other words, we cannot conclude whether the change in the response variable is due to the explanatory variable or due to the confounder.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-23" class="example"><strong>Example 1.19  </strong></span>Winter coat price and rent expense may both be influenced by budget. People with higher budgets may tend to buy more expensive winter coats and rent more expensive places. So even with the experiment described in the Example <a href="chap-step.html#exm:ex-step-bad-exp">1.17</a>, we cannot conclude whether the higher rent we observe is due to a more expensive winter coat or because of a higher budget. This can be illustrated in Figure <a href="chap-step.html#fig:step-budget">1.5</a>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step-budget"></span>
+<img src="data/images/chap-step/budget.png" alt="Relationships of winter coat price, budget and rent expense." width="500" />
+<p class="caption">
+Figure 1.5: Relationships of winter coat price, budget and rent expense.
+</p>
+</div>
+</div>
+<div id="neutralizing-confounders" class="section level4 hasAnchor" number="1.3.4.2">
+<h4><span class="header-section-number">1.3.4.2</span> Neutralizing Confounders<a href="chap-step.html#neutralizing-confounders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To <strong>neutralize</strong> the effect of a confounder, we can</p>
+<ul>
+<li><p><strong>control</strong> the confounder at specific levels, and/or</p></li>
+<li><p><strong>randomly assign</strong> the experimental conditions to sample units.</p></li>
+</ul>
+<p>In practice, to neutralize the effects of all possible confounders, scientists try to <strong>randomly assign</strong> the experimental conditions to sample units. These are called <strong>random controlled trials</strong> (RCTs). With RCTs, causal conclusions can be made with better confidence.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-24" class="example"><strong>Example 1.20  </strong></span>To eliminate the effect of budget, I can give all students in my samples the <strong>same</strong> budget. Then I proceed to give some of them expensive coats and some of them cheaper coats and let them choose among different places of different prices. If the group who receive expensive coats still choose places with higher rent, I am more confident to say that winter coat price causes rent expense. However, be aware that this causal relationship is only happening on the level of budget that I give them. We are still not sure if I give them more or less budget, the relationship still exists or not.</p>
+<p>I can also try to <strong>randomly</strong> divide my samples into two groups, one group will be given expensive coats and one group will be given cheaper coats. Because of the randomization, each group will <strong>hopefully</strong> have the same variety of budgets, and the association between winter coats and budget is removed. Now we can make a causal conclusion.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-25" class="exercise"><strong>Exercise 1.7  </strong></span>Researchers are interested in investigating whether smoking causes lung cancer.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Identify the response variable of interest.</li>
+<li>Identify the explanatory variable of interest.</li>
+<li>Describe a possible confounding variable.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="data-analysis" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Data Analysis<a href="chap-step.html#data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Having collected the data we need, we can proceed to analyze the data. In doing so, we can provide both <strong>descriptive</strong> and <strong>inferential</strong> statistics.</p>
+<ul>
+<li><p><strong>Descriptive statistics</strong> helps us describe, show or summarize our data set in a meaningful way.</p>
+<ul>
+<li><p>Some examples of descriptive statistical techniques are <strong>visual plots</strong> or <strong>summary statistics</strong> (for example, average of rent in our sample).</p></li>
+<li><p>With descriptive statistics, we can get a <em>better sense</em> of the data. We can also notice some <strong>pattern</strong> in our data. However, these impressions are only valid for our <strong>sample</strong>.</p></li>
+</ul></li>
+<li><p><strong>Inferential statistics</strong> helps us make <strong>generalizations</strong> or conclusions about the population. In other words, it helps us move from the sample to the population.</p>
+<ul>
+<li>Because we do not have data about the whole population, the conclusions will be made with uncertainty. Inferential statistics attempts to give us a sense of the level of <strong>uncertainty</strong> associated with our conclusion.</li>
+</ul></li>
+</ul>
+<p>In the next chapter, we will cover some topics in descriptive statistics. The rest of the course will be dedicated to inferential statistics.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>The term statistics usually does not include the study of data input, storage, retrieval, or data management in general. These topics are covered in <em>data engineering</em>.<a href="chap-step.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Sometimes you can know some of the population parameter. Think about the Canadian Census.<a href="chap-step.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This is not always the corresponding statistic. Sometimes we will modify them a bit to better estimate the population parameter.<a href="chap-step.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>This is a <em>frequentist</em> point of view. <em>Bayesian</em> statistics assumes that the population parameters are random. Nevertheless, in this course, we will only focus on frequentist statistics, which is the most popular in practice.<a href="chap-step.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Association does not imply causation. You can see some examples of spurious associations (two variables that are related to each other but they do not cause one another) <a href="https://www.tylervigen.com/spurious-correlations">here</a>.<a href="chap-step.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-des.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

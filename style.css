@@ -23,13 +23,26 @@
 }
 
 .myNote {
-  padding: 1em 1em 0em 1em;
+  padding: 1em 1em 1em 1em;
   background: #e5e5e5;
   color: black;
   border: 2px solid black;
   border-radius: 10px;
   font-style: italic;
   /*font-size: 9pt;*/
+}
+
+.myEquation {
+  padding: 1em 1em 0em 1em;
+  background: white;
+  color: black;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+
+.small {
+  padding: 1em 1em 0em 1em;
+  font-size: 10px;
 }
 
 .center {

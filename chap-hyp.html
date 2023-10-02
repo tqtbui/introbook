@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Hypothesis Tests | A First Course In Statistics</title>
+  <meta name="description" content="8 Hypothesis Tests | A First Course In Statistics" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Hypothesis Tests | A First Course In Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Hypothesis Tests | A First Course In Statistics" />
+  
+  
+  
+
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-confint.html"/>
+<link rel="next" href="chap-wald.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Latex macros for html output
+
+A few very common things you should use:
+
+- $\bm{}$: Bold math.  Use bold for everything except scalars.
+- $\tx{}$: Text within math.  Use for abbreviating words, e.g., $A_{\tx{miss}}$.
+- $\xx, \YY$: Default macro convention for bold letters (small and capital case).
+- $\aal, \TTh$: Default macro convention for bold symbols (first two letters of symbol name, i.e., $\bm{\alpha}$ and $\bm{\Theta}$).
+- common stats symbols e.g., $\var$, $\cov$, $\iid$, $\N, defined below.
+-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+	  Macros: {
+	      bm: ["\\boldsymbol{#1}",1], <!--bold math-->
+	      tx: ["\\textrm{#1}",1], <!--text within math-->
+	      rv: ["#2_{#1},\\ldots,#2_{#3}",3,"1"], <!--random variable \rv{X}{n}: X_1, ..., X_n-->
+	      iid: ["\\overset{\\;\\tx{iid}\\;}{\\sim}"], <!--iid follows-->
+	      ind: ["\\overset{\\:\\tx{ind}\\:}{\\sim}"], <!--ind follows-->
+	      var: ["\\operatorname{var}"], <!--variance-->
+	      cov: ["\\operatorname{cov}"], <!--coveraince-->
+	      cor: ["\\operatorname{cor}"], <!--correlation-->
+	      std: ["\\operatorname{se}"], <!--standard error-->
+	      diag: ["\\operatorname{diag}"], <!--diagonal matrix-->
+	      logit: ["\\operatorname{logit}"], <!--logit function-->
+	      N: ["\\mathcal{N}"], <!--normal distribution-->
+	      E: ["{\\mathbb{E}}"], <!--expectation-->
+	      R: ["{\\mathbb{R}}"], <!--real set-->
+	      P: ["{\\mathbb{P}}"], <!--probability-->
+	      unif: ["\\operatorname{Unif}"], <!--Uniform distribution-->
+	      ud: ["\\mathop{}\\!\\mathrm{d}"], <!--d in tegeral-->
+	      der: ["\\frac{\\ud^{#1}}{\\ud{#2}^{#1}}", 2, ""], <!--\der{x}{f} d/dx f--> 
+	      del: ["\\frac{\\partial^{#1}}{\\partial{#2}^{#1}}", 2, ""], <!--\del{x}{f} d/dx f-->
+	      fder: ["\\frac{\\ud^{#1}#3}{\\ud{#2}^{#1}}", 3, ""], <!--\fder{x}{f} df/dx -->
+	      fdel: ["\\frac{\\partial^{#1}#3}{\\partial{#2}^{#1}}", 3, ""], <!--\fdel{x}{f} df/dx -->
+	      hess: ["\\frac{\\partial^2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 1], <!--\hess{x} d/dxdx -->
+	      fhess: ["\\frac{\\partial^2#2}{\\partial{#1}\\partial{#1}^{\\mathsf{T}}}", 2], <!--\fhess{x}{f} df/dxdx -->
+	      eps: ["\\varepsilon"], <!--epsilon-->
+	      L: ["{\\mathcal{L}}"], <!--curl L likelihood-->
+	      <!-- \ell is used for curl l log likelihood -->
+	      bz: ["{\\bm{0}}"], <!--boldface 0-->
+	      bu: ["{\\bm{1}}"], <!--boldface 1-->
+	      xx: ["{\\bm{x}}"], <!--boldface x-->
+	      yy: ["{\\bm{y}}"], <!--boldface y-->
+	      zz: ["{\\bm{z}}"], <!--boldface z-->
+	      II: ["{\\bm{I}}"], <!--boldface I-->
+	      HH: ["{\\bm{H}}"], <!--boldface H-->
+	      XX: ["{\\bm{X}}"], <!--boldface X-->
+	      YY: ["{\\bm{Y}}"], <!--boldface Y-->
+	      ZZ: ["{\\bm{Z}}"], <!--boldface Z-->
+	      WW: ["{\\bm{W}}"], <!--boldface Z-->
+	      aal: ["{\\bm{\\alpha}}"], <!--boldface alpha-->
+	      bbe: ["{\\bm{\\beta}}"], <!--boldface beta-->
+	      gga: ["{\\bm{\\gamma}}"], <!--boldface gamma-->
+	      eet: ["{\\bm{\\eta}}"], <!--boldface eta-->
+	      lla: ["{\\bm{\\lambda}}"], <!--boldface lambda-->
+	      mmu: ["{\\bm{\\mu}}"], <!--boldface mu-->
+	      pph: ["{\\bm{\\phi}}"], <!--boldface phi-->
+	      pps: ["{\\bm{\\psi}}"], <!--boldface psi-->
+	      rrh: ["{\\bm{\\rho}}"], <!--boldface rho-->
+	      ssi: ["{\\bm{\\sigma}}"], <!--boldface sigma-->
+	      tta: ["{\\bm{\\tau}}"], <!--boldface tau-->
+	      tth: ["{\\bm{\\theta}}"], <!--boldface theta-->
+	      eeps: ["{\\bm{\\varepsilon}}"], <!--boldface varepsilon-->
+	      GGa: ["{\\bm{\\Gamma}}"], <!--boldface Gamma-->
+	      SSi: ["{\\bm{\\Sigma}}"], <!--boldface Sigma-->
+	      TTh: ["{\\bm{\\Theta}}"], <!--boldface Theta-->
+	      rx: ["{\\tx{x}}"], <!--text x-->
+	      ry: ["{\\tx{y}}"], <!--text y-->
+	      rz: ["{\\tx{z}}"], <!--text z-->
+	      I: ["{\\mathcal{I}}"], <!--I curl-->
+	      H: ["{\\mathcal{H}}"], <!--H curl-->
+	      kl: ["{\\operatorname{KL}}"], <!--KL divergence-->
+	      sfT: ["{\\mathsf{T}}"], <!--sf T-->
+	      argmin: ["\\operatorname{arg\\,min}"], <!--argmin-->
+	      argmax: ["\\operatorname{arg\\,max}"], <!--argmax-->
+	      indep: ["\\perp \\!\\!\\! \\perp"] <!--independent-->
+	  }
+     }
+  });
+</script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-step.html"><a href="chap-step.html#research-question"><i class="fa fa-check"></i><b>1.2</b> Research Question</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-step.html"><a href="chap-step.html#variables"><i class="fa fa-check"></i><b>1.2.1</b> Variables</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-step.html"><a href="chap-step.html#inference-and-prediction"><i class="fa fa-check"></i><b>1.2.2</b> Inference and Prediction</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-step.html"><a href="chap-step.html#population-and-sample"><i class="fa fa-check"></i><b>1.2.3</b> Population and Sample</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-step.html"><a href="chap-step.html#parameter-and-statistic"><i class="fa fa-check"></i><b>1.2.4</b> Parameter and Statistic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-step.html"><a href="chap-step.html#data-collection"><i class="fa fa-check"></i><b>1.3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-step.html"><a href="chap-step.html#variability-and-bias"><i class="fa fa-check"></i><b>1.3.1</b> Variability and Bias</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-step.html"><a href="chap-step.html#what-makes-a-good-sample"><i class="fa fa-check"></i><b>1.3.2</b> What Makes A Good Sample?</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-step.html"><a href="chap-step.html#sampling-schemes"><i class="fa fa-check"></i><b>1.3.3</b> Sampling Schemes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="chap-step.html"><a href="chap-step.html#observational-and-experimental-studies"><i class="fa fa-check"></i><b>1.3.4</b> Observational and Experimental Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-step.html"><a href="chap-step.html#data-analysis"><i class="fa fa-check"></i><b>1.4</b> Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-des.html"><a href="chap-des.html"><i class="fa fa-check"></i><b>2</b> Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-des.html"><a href="chap-des.html#types-of-variables"><i class="fa fa-check"></i><b>2.1</b> Types of Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-des.html"><a href="chap-des.html#summaries-of-qualitative-variables"><i class="fa fa-check"></i><b>2.2</b> Summaries of Qualitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="chap-des.html"><a href="chap-des.html#frequency"><i class="fa fa-check"></i><b>2.2.1</b> Frequency</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-des.html"><a href="chap-des.html#plots"><i class="fa fa-check"></i><b>2.2.2</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="chap-des.html"><a href="chap-des.html#summaries-of-quantitative-variables"><i class="fa fa-check"></i><b>2.3</b> Summaries of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap-des.html"><a href="chap-des.html#stem-plots"><i class="fa fa-check"></i><b>2.3.1</b> Stem Plots</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-des.html"><a href="chap-des.html#des-sec-quantile"><i class="fa fa-check"></i><b>2.3.2</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-des.html"><a href="chap-des.html#five-number-summary"><i class="fa fa-check"></i><b>2.3.3</b> Five-number Summary</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap-des.html"><a href="chap-des.html#des-sec-boxplot"><i class="fa fa-check"></i><b>2.3.4</b> Box Plots</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap-des.html"><a href="chap-des.html#histogram"><i class="fa fa-check"></i><b>2.3.5</b> Histogram</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap-des.html"><a href="chap-des.html#measure-of-centrality"><i class="fa fa-check"></i><b>2.3.6</b> Measure of Centrality</a></li>
+<li class="chapter" data-level="2.3.7" data-path="chap-des.html"><a href="chap-des.html#measure-of-variability"><i class="fa fa-check"></i><b>2.3.7</b> Measure of Variability</a></li>
+<li class="chapter" data-level="2.3.8" data-path="chap-des.html"><a href="chap-des.html#shape-of-the-distribution"><i class="fa fa-check"></i><b>2.3.8</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="2.3.9" data-path="chap-des.html"><a href="chap-des.html#robustness-to-outliers"><i class="fa fa-check"></i><b>2.3.9</b> Robustness to outliers</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-prob.html"><a href="chap-prob.html"><i class="fa fa-check"></i><b>3</b> The Laws of Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-prob.html"><a href="chap-prob.html#what-is-probability"><i class="fa fa-check"></i><b>3.1</b> What is Probability?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="chap-prob.html"><a href="chap-prob.html#randomness"><i class="fa fa-check"></i><b>3.1.1</b> Randomness</a></li>
+<li class="chapter" data-level="3.1.2" data-path="chap-prob.html"><a href="chap-prob.html#probabilistic-experiment"><i class="fa fa-check"></i><b>3.1.2</b> Probabilistic Experiment</a></li>
+<li class="chapter" data-level="3.1.3" data-path="chap-prob.html"><a href="chap-prob.html#three-views-of-probability"><i class="fa fa-check"></i><b>3.1.3</b> Three Views of Probability</a></li>
+<li class="chapter" data-level="3.1.4" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-math-def"><i class="fa fa-check"></i><b>3.1.4</b> Mathematical Definition of Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule"><i class="fa fa-check"></i><b>3.2</b> Addition Rule</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-prob.html"><a href="chap-prob.html#venn-diagram"><i class="fa fa-check"></i><b>3.2.1</b> Venn Diagram</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-prob.html"><a href="chap-prob.html#set-operations"><i class="fa fa-check"></i><b>3.2.2</b> Set Operations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.3</b> Addition Rule for Mutually Exclusive Events</a></li>
+<li class="chapter" data-level="3.2.4" data-path="chap-prob.html"><a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events"><i class="fa fa-check"></i><b>3.2.4</b> Addition Rule for Non-mutually-exclusive Events</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule"><i class="fa fa-check"></i><b>3.3</b> Multiplication Rule</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-prob.html"><a href="chap-prob.html#prob-sec-conditional"><i class="fa fa-check"></i><b>3.3.1</b> Conditional Probability</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-prob.html"><a href="chap-prob.html#multiplication-rule-1"><i class="fa fa-check"></i><b>3.3.2</b> Multiplication Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="chap-prob.html"><a href="chap-prob.html#independence"><i class="fa fa-check"></i><b>3.3.3</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability"><i class="fa fa-check"></i><b>3.4</b> Law of Total Probability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-prob.html"><a href="chap-prob.html#conditional-probability-of-the-complement"><i class="fa fa-check"></i><b>3.4.1</b> Conditional Probability of the Complement</a></li>
+<li class="chapter" data-level="3.4.2" data-path="chap-prob.html"><a href="chap-prob.html#law-of-total-probability-1"><i class="fa fa-check"></i><b>3.4.2</b> Law of Total Probability</a></li>
+<li class="chapter" data-level="3.4.3" data-path="chap-prob.html"><a href="chap-prob.html#tree-diagram"><i class="fa fa-check"></i><b>3.4.3</b> Tree Diagram</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-rv.html"><a href="chap-rv.html"><i class="fa fa-check"></i><b>4</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-rv.html"><a href="chap-rv.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="chap-rv.html"><a href="chap-rv.html#what-is-a-random-variable"><i class="fa fa-check"></i><b>4.1.1</b> What is A Random Variable?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chap-rv.html"><a href="chap-rv.html#observed-values"><i class="fa fa-check"></i><b>4.1.2</b> Observed Values</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chap-rv.html"><a href="chap-rv.html#defining-probabilities-and-events-with-random-variables"><i class="fa fa-check"></i><b>4.1.3</b> Defining Probabilities and Events with Random Variables</a></li>
+<li class="chapter" data-level="4.1.4" data-path="chap-rv.html"><a href="chap-rv.html#types-of-random-variables"><i class="fa fa-check"></i><b>4.1.4</b> Types of Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chap-rv.html"><a href="chap-rv.html#probability-function"><i class="fa fa-check"></i><b>4.2</b> Probability Function</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-distribution"><i class="fa fa-check"></i><b>4.2.1</b> Probability Distribution</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pf"><i class="fa fa-check"></i><b>4.2.2</b> Probability Function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-discrete-continuous-pf"><i class="fa fa-check"></i><b>4.2.3</b> Discrete and Continuous Probability Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-rv.html"><a href="chap-rv.html#probability-function-for-discrete-random-variables"><i class="fa fa-check"></i><b>4.3</b> Probability Function for Discrete Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-rv.html"><a href="chap-rv.html#probability-mass-function"><i class="fa fa-check"></i><b>4.3.1</b> Probability Mass Function</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-rv.html"><a href="chap-rv.html#cumulative-distribution-function"><i class="fa fa-check"></i><b>4.3.2</b> Cumulative Distribution Function</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-rv.html"><a href="chap-rv.html#expectation"><i class="fa fa-check"></i><b>4.3.3</b> Expectation</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap-rv.html"><a href="chap-rv.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.3.4</b> Bernoulli Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-rv.html"><a href="chap-rv.html#rv-sec-pdf"><i class="fa fa-check"></i><b>4.4</b> Probability Function for Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-rv.html"><a href="chap-rv.html#corresponding-definitions-for-continuous-random-variables"><i class="fa fa-check"></i><b>4.4.1</b> Corresponding Definitions for Continuous Random Variables</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-rv.html"><a href="chap-rv.html#continuous-uniform-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Continuous Uniform Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-rv.html"><a href="chap-rv.html#comparison-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>4.5</b> Comparison of Discrete and Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-normal.html"><a href="chap-normal.html"><i class="fa fa-check"></i><b>5</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-normal.html"><a href="chap-normal.html#normal-distribution"><i class="fa fa-check"></i><b>5.1</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function"><i class="fa fa-check"></i><b>5.1.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-normal.html"><a href="chap-normal.html#expected-value-and-variance"><i class="fa fa-check"></i><b>5.1.2</b> Expected Value and Variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-normal.html"><a href="chap-normal.html#shape-of-the-distribution-1"><i class="fa fa-check"></i><b>5.1.3</b> Shape of the Distribution</a></li>
+<li class="chapter" data-level="5.1.4" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-mean-mu"><i class="fa fa-check"></i><b>5.1.4</b> Effect of the mean <span class="math inline">\((\mu)\)</span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="chap-normal.html"><a href="chap-normal.html#effect-of-the-variance-sigma2"><i class="fa fa-check"></i><b>5.1.5</b> Effect of the Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="chap-normal.html"><a href="chap-normal.html#the-empirical-rule-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.6</b> The Empirical Rule of Normal Distribution</a></li>
+<li class="chapter" data-level="5.1.7" data-path="chap-normal.html"><a href="chap-normal.html#ubiquity-of-normal-distribution"><i class="fa fa-check"></i><b>5.1.7</b> Ubiquity of Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-normal.html"><a href="chap-normal.html#standard-normal-distribution"><i class="fa fa-check"></i><b>5.2</b> Standard Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-normal.html"><a href="chap-normal.html#probability-density-function-1"><i class="fa fa-check"></i><b>5.2.1</b> Probability Density Function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-normal.html"><a href="chap-normal.html#z-table"><i class="fa fa-check"></i><b>5.2.2</b> <span class="math inline">\(Z\)</span>-table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-normal.html"><a href="chap-normal.html#z-score"><i class="fa fa-check"></i><b>5.3</b> <span class="math inline">\(Z\)</span>-score</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-normal.html"><a href="chap-normal.html#linearity-of-normal-distribution"><i class="fa fa-check"></i><b>5.3.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-normal.html"><a href="chap-normal.html#z-score-1"><i class="fa fa-check"></i><b>5.3.2</b> <span class="math inline">\(Z\)</span>-score</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-normal.html"><a href="chap-normal.html#examples"><i class="fa fa-check"></i><b>5.3.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-normal.html"><a href="chap-normal.html#calculate-normal-probabilities-in-r"><i class="fa fa-check"></i><b>5.4</b> Calculate Normal Probabilities in R</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-mean.html"><a href="chap-mean.html"><i class="fa fa-check"></i><b>6</b> Sampling Distribution of the Mean</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution"><i class="fa fa-check"></i><b>6.1</b> Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-random-variables"><i class="fa fa-check"></i><b>6.1.1</b> Sample Random Variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap-mean.html"><a href="chap-mean.html#independent-trials"><i class="fa fa-check"></i><b>6.1.2</b> Independent Trials</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap-mean.html"><a href="chap-mean.html#population-distribution"><i class="fa fa-check"></i><b>6.1.3</b> Population Distribution</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-1"><i class="fa fa-check"></i><b>6.1.4</b> Sampling Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean"><i class="fa fa-check"></i><b>6.2</b> Sample Mean</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-random-variable"><i class="fa fa-check"></i><b>6.2.1</b> Sample Mean Random Variable</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-mean.html"><a href="chap-mean.html#observed-sample-means"><i class="fa fa-check"></i><b>6.2.2</b> Observed Sample Means</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-mean.html"><a href="chap-mean.html#sampling-distribution-of-the-sample-mean"><i class="fa fa-check"></i><b>6.2.3</b> Sampling Distribution of the Sample Mean</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-mean.html"><a href="chap-mean.html#expectation-and-variance"><i class="fa fa-check"></i><b>6.2.4</b> Expectation and Variance</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-mean.html"><a href="chap-mean.html#sample-mean-of-independent-normal-draws"><i class="fa fa-check"></i><b>6.2.5</b> Sample Mean of Independent Normal Draws</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-mean.html"><a href="chap-mean.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-confint.html"><a href="chap-confint.html"><i class="fa fa-check"></i><b>7</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal"><i class="fa fa-check"></i><b>7.1</b> Pivotal Quantity</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap-confint.html"><a href="chap-confint.html#linearity-of-normal-distribution-1"><i class="fa fa-check"></i><b>7.1.1</b> Linearity of Normal Distribution</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-the-mean-of-a-normal-population"><i class="fa fa-check"></i><b>7.1.2</b> Pivotal Quantity for the Mean of a Normal Population</a></li>
+<li class="chapter" data-level="7.1.3" data-path="chap-confint.html"><a href="chap-confint.html#pivotal-quantity-for-population-mean-via-clt"><i class="fa fa-check"></i><b>7.1.3</b> Pivotal Quantity for Population Mean via CLT</a></li>
+<li class="chapter" data-level="7.1.4" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-pivotal-unknown"><i class="fa fa-check"></i><b>7.1.4</b> Pivotal Quantity for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint"><i class="fa fa-check"></i><b>7.2</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-confint.html"><a href="chap-confint.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.1</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-confint.html"><a href="chap-confint.html#interpret-a-confidence-interval"><i class="fa fa-check"></i><b>7.2.2</b> Interpret a Confidence Interval</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-confint.html"><a href="chap-confint.html#confint-sec-confint-known"><i class="fa fa-check"></i><b>7.3</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval"><i class="fa fa-check"></i><b>7.3.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-confint.html"><a href="chap-confint.html#margin-of-error"><i class="fa fa-check"></i><b>7.3.2</b> Margin of Error</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-confint.html"><a href="chap-confint.html#determining-the-minimum-sample-size-n"><i class="fa fa-check"></i><b>7.3.3</b> Determining the Minimum Sample Size <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-confint.html"><a href="chap-confint.html#confidence-interval-for-mu-when-sigma-is-unknown"><i class="fa fa-check"></i><b>7.4</b> Confidence Interval for <span class="math inline">\(\mu\)</span> When <span class="math inline">\(\sigma\)</span> is Unknown</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-confint.html"><a href="chap-confint.html#construct-the-confidence-interval-1"><i class="fa fa-check"></i><b>7.4.1</b> Construct the Confidence Interval</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-confint.html"><a href="chap-confint.html#determine-the-sample-size"><i class="fa fa-check"></i><b>7.4.2</b> Determine the Sample Size</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="chap-confint.html"><a href="chap-confint.html#summary"><i class="fa fa-check"></i><b>7.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-hyp.html"><a href="chap-hyp.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Tests</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses"><i class="fa fa-check"></i><b>8.1</b> Hypotheses</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chap-hyp.html"><a href="chap-hyp.html#research-questions"><i class="fa fa-check"></i><b>8.1.1</b> Research Questions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypotheses-1"><i class="fa fa-check"></i><b>8.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chap-hyp.html"><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu"><i class="fa fa-check"></i><b>8.1.3</b> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chap-hyp.html"><a href="chap-hyp.html#hypothesis-test"><i class="fa fa-check"></i><b>8.2</b> Hypothesis Test</a></li>
+<li class="chapter" data-level="8.3" data-path="chap-hyp.html"><a href="chap-hyp.html#error-of-a-test"><i class="fa fa-check"></i><b>8.3</b> Error of a Test</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-hyp.html"><a href="chap-hyp.html#hyp-sec-one-sample"><i class="fa fa-check"></i><b>8.4</b> One-sample Hypothesis Tests of the Mean</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known"><i class="fa fa-check"></i><b>8.4.1</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-hyp.html"><a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown"><i class="fa fa-check"></i><b>8.4.2</b> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-hyp.html"><a href="chap-hyp.html#some-more-examples"><i class="fa fa-check"></i><b>8.4.3</b> Some More Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-wald.html"><a href="chap-wald.html"><i class="fa fa-check"></i><b>9</b> Two-sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-indp-two-sample"><i class="fa fa-check"></i><b>9.1</b> Independent Two-Sample Tests</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test"><i class="fa fa-check"></i><b>9.1.1</b> Two-sample Test</a></li>
+<li class="chapter" data-level="9.1.2" data-path="chap-wald.html"><a href="chap-wald.html#distribution-of-the-difference-of-two-normal-means"><i class="fa fa-check"></i><b>9.1.2</b> Distribution of the Difference of Two Normal Means</a></li>
+<li class="chapter" data-level="9.1.3" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-known"><i class="fa fa-check"></i><b>9.1.3</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Known</a></li>
+<li class="chapter" data-level="9.1.4" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-sigma_2-sigma"><i class="fa fa-check"></i><b>9.1.4</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span></a></li>
+<li class="chapter" data-level="9.1.5" data-path="chap-wald.html"><a href="chap-wald.html#when-sigma_1-and-sigma_2-are-unknown-and-sigma_1-ne-sigma_2"><i class="fa fa-check"></i><b>9.1.5</b> When <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are Unknown and <span class="math inline">\(\sigma_1 \ne \sigma_2\)</span></a></li>
+<li class="chapter" data-level="9.1.6" data-path="chap-wald.html"><a href="chap-wald.html#summary-1"><i class="fa fa-check"></i><b>9.1.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="chap-wald.html"><a href="chap-wald.html#wald-type-tests-and-confidence-intervals"><i class="fa fa-check"></i><b>9.2</b> Wald-type Tests and Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-wald.html"><a href="chap-wald.html#from-hypothesis-testing-to-confidence-interval"><i class="fa fa-check"></i><b>9.2.1</b> From Hypothesis Testing to Confidence Interval</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-wald.html"><a href="chap-wald.html#from-confidence-interval-to-hypothesis-testing"><i class="fa fa-check"></i><b>9.2.2</b> From Confidence Interval to Hypothesis Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-wald.html"><a href="chap-wald.html#wald-sec-paired"><i class="fa fa-check"></i><b>9.3</b> <span class="math inline">\(t\)</span>-test for Paired Data</a></li>
+<li class="chapter" data-level="9.4" data-path="chap-wald.html"><a href="chap-wald.html#t-test-for-proportions"><i class="fa fa-check"></i><b>9.4</b> <span class="math inline">\(t\)</span>-test for Proportions</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="chap-wald.html"><a href="chap-wald.html#one-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.1</b> One-sample Test of Proportion</a></li>
+<li class="chapter" data-level="9.4.2" data-path="chap-wald.html"><a href="chap-wald.html#two-sample-test-of-proportion"><i class="fa fa-check"></i><b>9.4.2</b> Two-sample Test of Proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="chap-wald.html"><a href="chap-wald.html#summary-of-wald-type-hypothesis-tests"><i class="fa fa-check"></i><b>9.5</b> Summary of Wald-type hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-wald.html"><a href="chap-wald.html#two-sided-vs-one-sided-tests"><i class="fa fa-check"></i><b>9.5.1</b> Two-sided vs One-sided Tests</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-wald.html"><a href="chap-wald.html#table-of-wald-tests"><i class="fa fa-check"></i><b>9.5.2</b> Table of Wald-tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-other.html"><a href="chap-other.html"><i class="fa fa-check"></i><b>10</b> Other Useful tests</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-other.html"><a href="chap-other.html#anova"><i class="fa fa-check"></i><b>10.1</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-other.html"><a href="chap-other.html#assumptions"><i class="fa fa-check"></i><b>10.1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-2"><i class="fa fa-check"></i><b>10.1.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r"><i class="fa fa-check"></i><b>10.1.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-other.html"><a href="chap-other.html#chi-square-test"><i class="fa fa-check"></i><b>10.2</b> Chi-square Test</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-1"><i class="fa fa-check"></i><b>10.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
+<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
+<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
+<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
+<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
+<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
+<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
+<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
+<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
+<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
+<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
+<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
+<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
+<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
+<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
+<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
+<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
+<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
+<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
+<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
+<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
+<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
+<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
+<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A First Course In Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-hyp" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Hypothesis Tests<a href="chap-hyp.html#chap-hyp" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="hypotheses" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Hypotheses<a href="chap-hyp.html#hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="research-questions" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Research Questions<a href="chap-hyp.html#research-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall in Chapter <a href="chap-step.html#chap-step">1</a>, we discussed that a data analysis starts with a research questions.</p>
+<p><strong>Hypothesis tests</strong> help us answer <strong>questions</strong> regarding <strong>the values or the range of values of population parameters</strong>.</p>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-questions" class="example"><strong>Example 8.1  </strong></span>Examples of questions that can be answered using hypothesis tests</p>
+<ul>
+<li><p>Is the mean highway fuel consumption of a new car model different from what the manufacturer claims?</p></li>
+<li><p>Has the average age of online consumers increased over the last few years?</p></li>
+<li><p>On average does a bottle filling machine under-fill bottles?</p></li>
+</ul>
+<p>We can see that the all the above questions are related to the values of population mean <span class="math inline">\(\mu\)</span>, but for different random variables.</p>
+</div>
+</div>
+</div>
+<div id="hypotheses-1" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Hypotheses<a href="chap-hyp.html#hypotheses-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we have a research question in mind, we need to form <strong>hypotheses</strong>. In hypothesis testing, we have <strong>two</strong> types of hypotheses:</p>
+<ul>
+<li><p>the <strong>null hypotheses</strong>: the statement/claim to be tested/challenged</p>
+<ul>
+<li><p>Typically, a null hypothesis is a statement of “no effect” or “no difference”</p></li>
+<li><p>We usually want to find <strong>evidence against the null hypothesis</strong>.</p></li>
+<li><p>Notation: <span class="math inline">\(H_0\)</span></p></li>
+</ul></li>
+<li><p>the <strong>alternative hypotheses</strong>: the statement/claim <strong>against</strong> the null hypothesis</p>
+<ul>
+<li><p>Evidence <strong>supporting the alternative hypothesis</strong> is evidence against the null hypothesis.</p></li>
+<li><p>Notation: <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_A\)</span>. In this chapter, I will use <span class="math inline">\(H_0\)</span> for null hypothesis and <span class="math inline">\(H_1\)</span> for alternative hypothesis.</p></li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-hypotheses-pair" class="example"><strong>Example 8.2  </strong></span>Continue with Example <a href="chap-hyp.html#exm:ex-hyp-questions">8.1</a></p>
+<ul>
+<li><p>Is the mean highway fuel consumption of a new car model different from what the manufacturer claims?</p>
+<ul>
+<li><p><span class="math inline">\(H_0\)</span>: mean highway fuel consumption of the new car model is <strong>the same</strong> as what the manufacturer claims.</p></li>
+<li><p><span class="math inline">\(H_1\)</span>: mean highway fuel consumption of the new car model is <strong>different</strong> from what the manufacturer claims.</p></li>
+</ul></li>
+<li><p>Has the average age of online consumers increased over the last few years?</p>
+<ul>
+<li><p><span class="math inline">\(H_0\)</span>: The average age of online consumers this year is <strong>the same</strong> with the average age of online consumers a few years ago.</p></li>
+<li><p><span class="math inline">\(H_1\)</span>: The average age of online consumers this year is <strong>more than</strong> with the average age of online consumers a few years ago.</p></li>
+</ul></li>
+<li><p>On average does a bottle filling machine under-fill bottles?</p>
+<ul>
+<li><p><span class="math inline">\(H_0\)</span>: On average, the bottle filling machine fill the bottles at <strong>the exact required amount</strong>.</p></li>
+<li><p><span class="math inline">\(H_1\)</span>: On average, the bottle filling machine fill the bottles <strong>less than the required amount</strong>.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="example-hypothesis-about-a-specific-value-of-mu" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Example: Hypothesis About A Specific Value of <span class="math inline">\(\mu\)</span><a href="chap-hyp.html#example-hypothesis-about-a-specific-value-of-mu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we are interested in the <strong>unknown</strong> population mean <span class="math inline">\(\mu\)</span> and we want to challenge the claim that <span class="math inline">\(\mu\)</span> is in fact <span class="math inline">\(\mu_0\)</span> (<span class="math inline">\(\mu_0\)</span> is called the <strong>hypothesized value</strong> of <span class="math inline">\(\mu\)</span>). Then our null hypothesis is</p>
+<p><span class="math display">\[H_0: \mu = \mu_0\]</span></p>
+<p>The alternative hypothesis can be <strong>one</strong> of the three possibilities</p>
+<ul>
+<li><p><span class="math inline">\(H_1: \mu \ne \mu_0\)</span>.</p>
+<ul>
+<li>The combination of <span class="math inline">\(H_0\)</span> and this <span class="math inline">\(H_1\)</span> is called a <strong>two-sided test</strong>, meaning <span class="math inline">\(H_1\)</span> is on <strong>both</strong> sides of <span class="math inline">\(\mu_0\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>.</p>
+<ul>
+<li>This is called a <strong>one-sided upper-tail test</strong>, meaning <span class="math inline">\(H_1\)</span> is on the <strong>upper</strong> side of <span class="math inline">\(\mu_0\)</span>.</li>
+</ul></li>
+<li><p><span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>.</p>
+<ul>
+<li>This is called a <strong>one-sided lower-tail test</strong>, meaning <span class="math inline">\(H_1\)</span> is on the <strong>lower</strong> side of <span class="math inline">\(\mu_0\)</span>.</li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-hypothesized-value" class="example"><strong>Example 8.3  </strong></span>In Example <a href="chap-hyp.html#exm:ex-hyp-hypotheses-pair">8.2</a>:</p>
+<ul>
+<li><p>Suppose the mean highway fuel consumption claimed of the new car model is <span class="math inline">\(30\)</span> miles per gallon (mpg). Let <span class="math inline">\(\mu\)</span>: the actual mean highway fuel consumption of the new model. Then our hypotheses are</p>
+<p><span class="math display">\[H_0: \mu = 30 \hspace{5mm} \text{versus} \hspace{5mm} H_1: \mu \ne 30\]</span></p></li>
+<li><p>Suppose the average age of online consumers a few years ago was <span class="math inline">\(23.3\)</span>. Let <span class="math inline">\(\mu\)</span> be the mean age of online consumers nowadays. Then we have</p>
+<p><span class="math display">\[H_0: \mu = 23.3 \hspace{5mm} \text{versus} \hspace{5mm} H_1: \mu &gt; 23.3\]</span></p></li>
+<li><p>Suppose the required amount of cola that the machine should fill is <span class="math inline">\(355\)</span> ml. Let <span class="math inline">\(\mu\)</span> be the actual mean amount of colar fill be the filling machine. Then our hypotheses are</p>
+<p><span class="math display">\[H_0: \mu = 355 \hspace{5mm} \text{versus} \hspace{5mm} H_1: \mu &lt; 355\]</span></p></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-94" class="exercise"><strong>Exercise 8.1  </strong></span>Which one of the above is a two-sided test? a one-sided test?</p>
+</div>
+</div>
+</div>
+</div>
+<div id="hypothesis-test" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Hypothesis Test<a href="chap-hyp.html#hypothesis-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A hypothesis test is a <strong>decision rule</strong> to answer the research questions. In statistics, we usually establish decision rules based on an event <span class="math inline">\(R\)</span> which is <strong>in favor of <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span></strong>.</p>
+<ul>
+<li><p>If event <span class="math inline">\(R\)</span> actually happens in our obtained data, we <strong>reject</strong> <span class="math inline">\(H_0\)</span>.</p>
+<ul>
+<li>The fact that event <span class="math inline">\(R\)</span> happens is an evidence supporting <span class="math inline">\(H_1\)</span> and against <span class="math inline">\(H_0\)</span>.</li>
+</ul></li>
+<li><p>If event <span class="math inline">\(R\)</span> does not happen, then we say we <strong>do not reject</strong> <span class="math inline">\(H_0\)</span>.</p>
+<ul>
+<li>We do not say: “we accept <span class="math inline">\(H_0\)</span>” because we never know what is the truth in the population, if we only based our decision on the sample data. But because we do not have good evidence against <span class="math inline">\(H_0\)</span>, we say that we do not reject <span class="math inline">\(H_0\)</span>.</li>
+</ul></li>
+</ul>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-critical-event" class="example"><strong>Example 8.4  </strong></span>In Example <a href="chap-hyp.html#exm:ex-hyp-hypothesized-value">8.3</a></p>
+<ul>
+<li><p>The fuel consumption case:</p>
+<ul>
+<li><p>Suppose we sample <span class="math inline">\(n\)</span> cars from that new car model and calculate the sample mean highway fuel consumptions from those cars <span class="math inline">\(\bar{X}_n\)</span> (<span class="math inline">\(\bar{X}_n\)</span> is random).</p></li>
+<li><p>An evidence supporting <span class="math inline">\(H_1: \mu \ne 30\)</span> will be that the sample mean we obtain from data will be <strong>either a lot greater than <span class="math inline">\(30\)</span> or a lot smaller than <span class="math inline">\(30\)</span></strong>.</p></li>
+<li><p>Then the event <span class="math inline">\(R\)</span> can be, for example, <span class="math inline">\(|\bar{X}_n| &gt; 40\)</span>.</p></li>
+<li><p>We reject <span class="math inline">\(H_0\)</span> if the actual data we collect <span class="math inline">\(\bar{x}_n\)</span> has the absolute value that is greater than 40 and we do not reject <span class="math inline">\(H_0\)</span> otherwise.</p></li>
+</ul></li>
+<li><p>The online consumers case:</p>
+<ul>
+<li><p>Suppose we survey <span class="math inline">\(n\)</span> online consumers about their age and calculate their mean age <span class="math inline">\(\bar{X}_n\)</span>.</p></li>
+<li><p>An evidence supporting <span class="math inline">\(H_1: \mu &gt; 23.3\)</span> will be that the sample mean is <strong>a lot greater than 23.3</strong>.</p></li>
+<li><p>For example, we can let <span class="math inline">\(R\)</span> be the event that <span class="math inline">\(\bar{X}_n &gt; 30\)</span>.</p></li>
+<li><p>If the mean age of people in the survey we conduct <span class="math inline">\(\bar{x}_n\)</span> is greater than 30, we reject <span class="math inline">\(H_0\)</span>. We do not reject <span class="math inline">\(H_0\)</span> otherwise.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-95" class="exercise"><strong>Exercise 8.2  </strong></span>Give a possible event <span class="math inline">\(R\)</span> for the bottle filling case in Example <a href="chap-hyp.html#exm:ex-hyp-hypothesized-value">8.3</a>.</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p><span class="math inline">\(H_0, H_1\)</span>, <span class="math inline">\(R\)</span> define a <strong>hypothesis test</strong>.</p></li>
+<li><p><span class="math inline">\(R\)</span> is called the <strong>critical event</strong> of the test, i.e., when this event is observed, we <strong>reject</strong> the null hypothesis <span class="math inline">\(H_0\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div id="error-of-a-test" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Error of a Test<a href="chap-hyp.html#error-of-a-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We cannot just define whatever critical event <span class="math inline">\(R\)</span> we want, that would not be called a <strong>statistical</strong> test! We have to take into account the fact that <strong><span class="math inline">\(\bar{X}_n\)</span> can vary</strong> according to the sample. Because of that, any test rule can <strong>never be correct all the time</strong>. To conduct the test and make conclusions <strong>with confidence</strong>, we need to <strong>control the error</strong> of the test.</p>
+<p>A hypothesis test can make two types of possible error:</p>
+<ul>
+<li><p><strong>Type I error</strong>: When we reject <span class="math inline">\(H_0\)</span> while in fact <span class="math inline">\(H_0\)</span> is true</p></li>
+<li><p><strong>Type II error</strong>: When we do not reject <span class="math inline">\(H_0\)</span> while in fact <span class="math inline">\(H_1\)</span> is true</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center"><span class="math inline">\(H_0\)</span> is true</th>
+<th align="center"><span class="math inline">\(H_1\)</span> is true</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Type I error</td>
+<td align="center">Correct</td>
+</tr>
+<tr class="even">
+<td align="left">Do not reject <span class="math inline">\(H_0\)</span></td>
+<td align="center">Correct</td>
+<td align="center">Type II error</td>
+</tr>
+</tbody>
+</table>
+<p>The probability that</p>
+<ul>
+<li><p><strong>Type I error</strong> happens is called the <strong>significance level</strong> or the <strong>size</strong> of the test. Notation: <span class="math inline">\(\alpha\)</span></p>
+<p><span class="math display">\[\alpha = \mathbb{P}(\text{Reject }H_0|H_0\text{ is true})\]</span></p></li>
+<li><p><strong>Type II error</strong> happens is denoted as</p>
+<p><span class="math display">\[\beta = \mathbb{P}(\text{Do not reject }H_0|H_1\text{ is true})\]</span></p>
+<ul>
+<li><p>Then <span class="math inline">\(1-\beta\)</span> is called the <strong>power</strong> of the test.</p>
+<p><span class="math display">\[1-\beta = \mathbb{P}(\text{Reject }H_0\text{ correctly}|H_1\text{ is true})\]</span></p></li>
+</ul></li>
+</ul>
+<p>In Hypothesis Testing, it is most common<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> that we want to <strong>control for Type I error</strong>, i.e., we want Type I error of the test to be controlled at a <strong>specified significance level</strong> <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li><p>Most popularly, we specify <span class="math inline">\(\alpha = 5\% = 0.05\)</span>.</p></li>
+<li><p>Recall in Chapter <a href="chap-confint.html#chap-confint">7</a>, the confidence level is defined as <span class="math inline">\(1-\alpha\)</span>.</p></li>
+</ul>
+<p>By specifying the <strong>significance level</strong> <span class="math inline">\(\alpha\)</span>, we can derive the test we want, i.e., we can find <strong>an appropriate critical event <span class="math inline">\(R\)</span></strong> such that Type I error is controlled at <span class="math inline">\(\alpha\)</span>. Similar to confidence level, we will also use pivotal quantities to construct the tests.</p>
+</div>
+<div id="hyp-sec-one-sample" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> One-sample Hypothesis Tests of the Mean<a href="chap-hyp.html#hyp-sec-one-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="testing-h_0-mu-mu_0-when-sigma-is-known" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> When <span class="math inline">\(\sigma\)</span> is Known<a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-known" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall from Section <a href="chap-confint.html#confint-sec-pivotal">7.1</a>, if</p>
+<ul>
+<li><p>either <span class="math inline">\(X_1, X_2, ..., X_n \overset{\text{iid}}{\sim} \mathcal{N}(\mu, \sigma^2)\)</span>,</p></li>
+<li><p>or <span class="math inline">\(X_1, X_2, ..., X_n \overset{\text{iid}}{\sim} (\mu, \sigma^2)\)</span> for <span class="math inline">\(n &gt; 30\)</span></p></li>
+</ul>
+<p>and <span class="math inline">\(\sigma\)</span> is known, then we have the pivotal quantity</p>
+<p><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1)\]</span></p>
+<p>Because the distribution of the pivotal quantity above is known, we can construct the critical event based on this, calculate and hence control for type I error.</p>
+<p>Let us re-state <strong>our problem</strong>: Suppose that I have the data <span class="math inline">\(X_1, ..., X_n\)</span> coming from</p>
+<ul>
+<li><p>either a normal distribution of mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>,</p></li>
+<li><p>or an arbitrary distribution of mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> but <span class="math inline">\(n\)</span> is large</p></li>
+</ul>
+<p>Further suppose that I know the population variance <span class="math inline">\(\sigma^2\)</span>, I want to conduct a hypothesis test on the population mean <span class="math inline">\(\mu\)</span>.</p>
+<div id="two-sided-test" class="section level4 hasAnchor" number="8.4.1.1">
+<h4><span class="header-section-number">8.4.1.1</span> Two-sided Test<a href="chap-hyp.html#two-sided-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To begin with, a <strong>two-sided test</strong> for <span class="math inline">\(\mu\)</span> is of the form
+<span class="math display">\[H_0: \mu = \mu_0 \hspace{5mm} \text{versus} \hspace{5mm} H_1: \mu \ne \mu_0\]</span>
+where <span class="math inline">\(\mu_0\)</span> is some value that <span class="math inline">\(\mu\)</span> is believed to be, but we want to challenge this belief. To construct a <strong>statistical hypothesis test</strong> in this case, we need to define a critical event <span class="math inline">\(R\)</span> so that</p>
+<ul>
+<li><p>if <span class="math inline">\(R\)</span> actually happens, that is an evidence against <span class="math inline">\(H_0\)</span> and supporting <span class="math inline">\(H_1\)</span>.</p></li>
+<li><p>Type I error of the test is controlled at a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span>, i.e., <span class="math inline">\(\mathbb{P}(R|H_0) = \alpha\)</span>.</p></li>
+</ul>
+<p>First, because the test is two-sided, a supporting evidence for <span class="math inline">\(H_1\)</span> is that <span class="math inline">\(\bar{X}_n\)</span> is either much bigger or much smaller compared to <span class="math inline">\(\mu_0\)</span>. This is equivalent to the event that <span class="math inline">\(\frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}}\)</span> is very far from 0. Therefore, a critical event will be of the form
+<span class="math display">\[\Big|\frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}} \Big| &gt; c,\]</span>
+where <span class="math inline">\(c\)</span> is called the <strong>critical value</strong>.</p>
+<p>Second, I want to <strong>control Type I error</strong> of the test at a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span>, that is
+<span class="math display">\[\begin{align*}
+\alpha &amp; = \mathbb{P}(R|H_0) \\
+&amp; = \mathbb{P}\left(|\frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}}| &gt; c | \mu = \mu_0\right) \\
+&amp; = \mathbb{P}\left(\Big|\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}\Big| &gt; c\right) \\
+&amp; = \mathbb{P}(|Z| &gt; c) \\
+&amp; = 2\times \mathbb{P}(Z &lt; -c) \\
+\frac{\alpha}{2} &amp; = \mathbb{P}(Z &lt; -c)
+\end{align*}\]</span></p>
+<p>This means that <span class="math inline">\(-c\)</span> is the <span class="math inline">\(\frac{\alpha}{2}\)</span>-quantile of the standard normal distribution <span class="math inline">\(Z\)</span>, i.e., <span class="math inline">\(-c = z_{\alpha/2}\)</span>. This is equivalent to <span class="math inline">\(c = z_{1-\alpha/2}\)</span> (From Chapter <a href="chap-normal.html#chap-normal">5</a>).</p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p><span class="math inline">\(T = \frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}}\)</span> is called the <strong>test statistic</strong>, i.e., a statistic that has a <strong>known</strong> distribution <strong>under the null hypothesis</strong>.</p>
+<ul>
+<li>Here, you can see that if <span class="math inline">\(H_0: \mu = \mu_0\)</span> is in fact true, then the distribution of <span class="math inline">\(T\)</span> is known</li>
+</ul>
+<p><span class="math display">\[T = \frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}} \hspace{3mm} \overset{H_0: \mu = \mu_0}{\sim} \hspace{3mm} \mathcal{N}(0,1)\]</span></p></li>
+<li><p>The <strong>observed</strong> test statistic is
+<span class="math display">\[t = \frac{\bar{x}_n - \mu_0}{\sigma/\sqrt{n}}\]</span></p></li>
+<li><p>We reject <span class="math inline">\(H_0\)</span> if event <span class="math inline">\(R\)</span> happens, i.e., the observed test statistic actually exceed the <strong>critical value</strong>: <span class="math inline">\(|t| &gt; c = z_{1-\alpha/2}\)</span>.</p></li>
+</ul>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-bottling-cv" class="example"><strong>Example 8.5  </strong></span>The Classic Bottling Company has just installed a new bottling procedure that will fill <span class="math inline">\(355\)</span> ml cans of its Classic Cola soft drink. Under-filling leads to customer complaints, and over-filling costs the company considerable money. The bottling company wants to set up a hypothesis to test if on average the machine fills an amount <strong>different</strong> from <span class="math inline">\(355\)</span>ml.</p>
+<p>To test this hypothesis the company drew a random sample of <span class="math inline">\(36\)</span> filled cans and found that the sample average was <span class="math inline">\(354.96\)</span>. Suppose that the standard deviation for the population is <span class="math inline">\(\sigma = 0.1\)</span>. Conduct a statistic test at <span class="math inline">\(5\%\)</span> level of significance.</p>
+<p><em>Solution:</em></p>
+<ul>
+<li><p>Step 1: Hypotheses: <span class="math inline">\(H_0: \mu = 355\)</span> vs. <span class="math inline">\(H_1: \mu \ne 355\)</span>.</p></li>
+<li><p>Step 2: Calculate the test statistic</p></li>
+</ul>
+<p><span class="math display">\[t = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{354.96-355}{0.1/\sqrt{36}} = -2.4\]</span></p>
+<ul>
+<li><p>Step 3: Because we have a two-sided test at <span class="math inline">\(\alpha = 5\% = 0.05\)</span> level of significance, our critical value is <span class="math inline">\(c = z_{1-\alpha/2} = z_{0.975} = 1.96\)</span>.</p></li>
+<li><p>Step 4: Since <span class="math inline">\(|t| = 2.4 &gt; z_{1-\alpha/2} = z_{0.975} = 1.96\)</span>, we <strong>reject</strong> the null hypothesis <span class="math inline">\(H_0\)</span> <strong>at 5% level of significance</strong>. We conclude that there is <strong>sufficient evidence</strong> in our data to support the claim that the machine fills an amount <strong>different</strong> from the claimed amount of <span class="math inline">\(355\)</span>ml.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="p-value" class="section level4 hasAnchor" number="8.4.1.2">
+<h4><span class="header-section-number">8.4.1.2</span> <span class="math inline">\(p\)</span>-value<a href="chap-hyp.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Another popular way to conduct the test is to calculate the probability</p>
+<p><span class="math display">\[p = \mathbb{P}(|T| &gt; |t| \Big| H_0)\]</span></p>
+<p>We call this the <span class="math inline">\(p\)</span>-value, i.e., the probability of getting a <strong>test statistic</strong> that is <strong>at least as extreme as the one observed</strong>, assuming the null hypothesis is true.</p>
+<ul>
+<li><p>We know that <span class="math inline">\(\mathbb{P}(|T| &gt; z_{1-\alpha/2} \Big| \mu = \mu_0) = \alpha\)</span> and we will reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t| &gt; z_{1-\alpha/2}\)</span></p></li>
+<li><p>However, for any <span class="math inline">\(0 &lt; a &lt; b\)</span> and any random variable <span class="math inline">\(X\)</span>, then <span class="math inline">\(\mathbb{P}(|X| &gt; a) &gt; \mathbb{P}(|X| &gt; b)\)</span>.</p></li>
+<li><p>So the test is <strong>equivalent</strong> to rejecting <span class="math inline">\(H_0\)</span> if <span class="math inline">\(p &lt; \alpha\)</span> and do not reject <span class="math inline">\(H_0\)</span> otherwise.</p></li>
+<li><p>In the two-sided test,</p></li>
+</ul>
+<p><span class="math display">\[p = \mathbb{P}(|T| &gt; |t|\Big|\mu = \mu_0) = \mathbb{P}(|Z| &gt; |t|)\]</span></p>
+<ul>
+<li>For majority of the tests (not only the test about the population mean <span class="math inline">\(\mu\)</span>) run by statistical software, the <span class="math inline">\(p\)</span>-value will be printed and we will always reject the null hypothesis at <span class="math inline">\(\alpha\)</span> level of significance if <span class="math inline">\(p &lt; \alpha\)</span>.</li>
+</ul>
+<p>The following figure illustrate the two-sided test.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-41"></span>
+<img src="_main_files/figure-html/unnamed-chunk-41-1.png" alt="Regions of rejecting $H_0: \mu = \mu_0$ when $H_1: \mu \ne \mu_0$." width="672" height="15%" />
+<p class="caption">
+Figure 8.1: Regions of rejecting <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(H_1: \mu \ne \mu_0\)</span>.
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-bottling-pv" class="example"><strong>Example 8.6  </strong></span>Conduct the test in Example <a href="chap-hyp.html#exm:ex-hyp-bottling-cv">8.5</a> using the <span class="math inline">\(p\)</span>-value method.</p>
+<p><em>Solution:</em></p>
+<ul>
+<li><p>Step 1: Hypotheses: <span class="math inline">\(H_0: \mu = 355\)</span> vs. <span class="math inline">\(H_1: \mu \ne 355\)</span>.</p></li>
+<li><p>Step 2: Calculate the test statistic</p></li>
+</ul>
+<p><span class="math display">\[t = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{354.96-355}{0.1/\sqrt{36}} = -2.4\]</span></p>
+<ul>
+<li><p>Step 3: The <span class="math inline">\(p\)</span>-value is
+<span class="math display">\[p = \mathbb{P}(|Z| &gt; |t|) = \mathbb{P}(|Z| &gt; 2.4) = 2\times \mathbb{P}(Z &lt; -2.4) = 0.0164\]</span></p></li>
+<li><p>Step 4: Since <span class="math inline">\(p = 0.0164 &lt; \alpha = 0.05\)</span>, we <strong>reject</strong> the null hypothesis <span class="math inline">\(H_0\)</span> <strong>at 5% level of significance</strong>. We conclude that there is <strong>sufficient evidence</strong> in our data to support the claim that the machine fills an amount <strong>different</strong> from the claimed amount of <span class="math inline">\(355\)</span>ml.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="lower-tail-one-sided-test" class="section level4 hasAnchor" number="8.4.1.3">
+<h4><span class="header-section-number">8.4.1.3</span> Lower-tail One-sided Test<a href="chap-hyp.html#lower-tail-one-sided-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose we are interested in testing</p>
+<p><span class="math display">\[H_0: \mu = \mu_0 \hspace{5mm} \text{versus} \hspace{5mm} H_1:\mu&lt;\mu_0\]</span></p>
+<p>The critical event that supports <span class="math inline">\(H_1\)</span> would be that the sample mean <span class="math inline">\(\bar{X}_n\)</span> is much less than <span class="math inline">\(\mu_0\)</span>, i.e., <span class="math inline">\(\frac{\bar{X}_n-\mu_0}{\sigma/\sqrt{n}}\)</span> is much less than 0. So, the critical event should be of the form
+<span class="math display">\[T = \frac{\bar{X}_n-\mu_0}{\sigma/\sqrt{n}} &lt; c\]</span></p>
+<p>To control the Type I error at <span class="math inline">\(\alpha\)</span>, we have
+<span class="math display">\[\begin{align*}
+\alpha &amp; = \mathbb{P}\left(\frac{\bar{X}_n-\mu_0}{\sigma/\sqrt{n}} &lt; c\Big|\mu = \mu_0\right) \\
+&amp; = \mathbb{P}\left(\frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} &lt; c\right) \\
+&amp; = \mathbb{P}(Z &lt; c)
+\end{align*}\]</span>
+so <span class="math inline">\(c = z_{\alpha}\)</span>. Similar to the two-sided test, we will use either the critical value or the <span class="math inline">\(p\)</span>-value to conduct the test. In particular, we will reject <span class="math inline">\(H_0\)</span> if either</p>
+<ul>
+<li><p>the <strong>observed test statistic</strong> is smaller than the critical value
+<span class="math display">\[t = \frac{\bar{x}_n-\mu_0}{\sigma/\sqrt{n}} &lt; z_{\alpha}\]</span></p></li>
+<li><p>the <strong><span class="math inline">\(p\)</span>-value</strong> is less than <span class="math inline">\(\alpha\)</span>:
+<span class="math display">\[p = \mathbb{P}(T &lt; t \Big| \mu = \mu_0) = \mathbb{P}(Z &lt; t) &lt; \alpha\]</span></p></li>
+</ul>
+<p>The following figure illustrate the lower-tail one-sided test.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<img src="_main_files/figure-html/unnamed-chunk-42-1.png" alt="Regions of rejecting $H_0: \mu = \mu_0$ when $H_1: \mu &lt; \mu_0$." width="672" height="15%" />
+<p class="caption">
+Figure 8.2: Regions of rejecting <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>.
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:ex-hyp-bottling-one-sided" class="example"><strong>Example 8.7  </strong></span>Suppose in Example <a href="chap-hyp.html#exm:ex-hyp-bottling-cv">8.5</a>, we want to test a lower-tail one-sided test instead of a two-sided test. What will be our test result?</p>
+<p><em>Solution:</em></p>
+<ul>
+<li><p>Step 1: We want to know if the bottling machine is under filling the bottles, so my hypotheses are <span class="math inline">\(H_0: \mu = 355\)</span> vs. <span class="math inline">\(H_1: \mu &lt; 355\)</span>.</p></li>
+<li><p>Step 2: The test statistic <span class="math inline">\(t\)</span> is still the same: <span class="math inline">\(t = -2.4\)</span>.</p></li>
+<li><p>Step 3: Our critical value is <span class="math inline">\(c = z_{\alpha} = z_{0.05} = -1.645\)</span>.</p></li>
+<li><p>Step 4: Because <span class="math inline">\(-2.4 = t &lt; c = z_{0.05} = -1.645\)</span>, we <strong>reject</strong> the null hypothesis <span class="math inline">\(H_0\)</span> <strong>at <span class="math inline">\(5\)</span>% level of significance</strong> and conclude that there is <strong>sufficient evidence</strong> that the machine fills an amount that is <strong>less</strong> than the claimed amount of <span class="math inline">\(355\)</span>ml.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="upper-tail-one-sided-test" class="section level4 hasAnchor" number="8.4.1.4">
+<h4><span class="header-section-number">8.4.1.4</span> Upper-tail One-sided Test<a href="chap-hyp.html#upper-tail-one-sided-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The upper-tail one-sided test is of the form
+<span class="math display">\[H_0: \mu = \mu_0 \hspace{5mm} \text{versus} \hspace{5mm} H_1:\mu &gt; \mu_0\]</span>
+Similar to the lower-tail case, the test statistic is
+<span class="math display">\[T = \frac{\bar{X}_n - \mu_0}{\sigma/\sqrt{n}}.\]</span>
+But we need to reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t &gt; z_{1-\alpha}\)</span> or if <span class="math inline">\(p = \mathbb{P}(Z &gt; t) &lt; \alpha\)</span>. The following figure illustrate the upper-tail one-sided test.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
+<img src="_main_files/figure-html/unnamed-chunk-43-1.png" alt="Regions of rejecting $H_0: \mu = \mu_0$ when $H_1: \mu &gt; \mu_0$." width="672" height="15%" />
+<p class="caption">
+Figure 8.3: Regions of rejecting <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>.
+</p>
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-96" class="example"><strong>Example 8.8  </strong></span></p>
+<ul>
+<li><p>Step 1: Suppose we are testing <span class="math inline">\(H_0: \mu = 355\)</span> vs. <span class="math inline">\(H_1: \mu &gt; 355\)</span> in Example <a href="chap-hyp.html#exm:ex-hyp-bottling-cv">8.5</a>.</p></li>
+<li><p>Step 2: The test statistic <span class="math inline">\(t\)</span> is the same.</p></li>
+<li><p>Step 3: The <span class="math inline">\(p\)</span>-value for this test is
+<span class="math display">\[\mathbb{P}(Z &gt; t) = \mathbb{P}(Z &gt; -2.4) = 1 - \mathbb{P}(Z &lt; -2.4) = 0.9918\]</span></p></li>
+<li><p>Step 4: Because <span class="math inline">\(p = 0.9918 &gt; \alpha = 0.05\)</span>, we <strong>do not reject</strong> the null hypothesis <span class="math inline">\(H_0\)</span> <strong>at <span class="math inline">\(5\)</span>% significance level</strong> and we conclude that there is <strong>not sufficient evidence</strong> to claim that the machine fills an amount that is <strong>greater</strong> than <span class="math inline">\(355\)</span>ml.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="one-sided-or-two-sided-test" class="section level4 hasAnchor" number="8.4.1.5">
+<h4><span class="header-section-number">8.4.1.5</span> One-sided or Two-sided Test?<a href="chap-hyp.html#one-sided-or-two-sided-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can see that for different choices of <span class="math inline">\(H_1\)</span>, the results of our test can be very different. It is <strong>very important</strong> to note that, we need to state the the hypotheses <strong>before</strong> we see the data, <strong>not after</strong> we see the data.</p>
+<p>For example, suppose the sample mean of our collected data <strong>happen to be</strong> less than our hypothesized <span class="math inline">\(\mu_0\)</span> value, and after that, we decide for a one-sided test <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs. <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>.</p>
+<ul>
+<li><p>In this case our Type I error is more than <span class="math inline">\(\alpha\)</span> because there are some chance that even if in fact <span class="math inline">\(\mu &gt; \mu_0\)</span>, we still obtain <span class="math inline">\(\bar{x}_n &lt; \mu_0\)</span>, which leads us to choose to test the lower-tail one-sided test.</p></li>
+<li><p>But we are not accounting for such an uncertainty when conducting <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs. <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>. Now, our Type I error will be actually more than what we claim. And that is a <strong>scientific fraud</strong>!</p></li>
+</ul>
+</div>
+<div id="hyp-sec-known-summary" class="section level4 hasAnchor" number="8.4.1.6">
+<h4><span class="header-section-number">8.4.1.6</span> Summary of Hypothesis Tests for the Mean When <span class="math inline">\(\sigma\)</span> is Known<a href="chap-hyp.html#hyp-sec-known-summary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Test:</strong> For a significance level of <span class="math inline">\(\alpha\)</span>:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(H_1\)</span></th>
+<th align="center">Test statistic <span class="math inline">\(t\)</span></th>
+<th align="center">Critical value <span class="math inline">\(c\)</span></th>
+<th align="center">Reject <span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(p\)</span>-value</th>
+<th align="center">Illustration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\mu \ne \mu_0\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(z_{1-\alpha/2}\)</span></td>
+<td align="center"><span class="math inline">\(|t| &gt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(|Z| &gt; |t|)\)</span></td>
+<td align="center"><img src="data/images/chap-hyp/two_sided.png" /></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu = \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu &gt; \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(t = \frac{\bar{x}_n-\mu_0}{\sigma/\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(z_{1-\alpha}\)</span></td>
+<td align="center"><span class="math inline">\(t &gt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(Z &gt; t)\)</span></td>
+<td align="center"><img src="data/images/chap-hyp/upper_tail.png" /></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\mu &lt; \mu_0\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(z_{\alpha}\)</span></td>
+<td align="center"><span class="math inline">\(t &lt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(Z &lt; t)\)</span>}</td>
+<td align="center"><img src="data/images/chap-hyp/lower_tail.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusion statements:</strong></p>
+<ul>
+<li><p><em>Reject</em> <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha\)</span> level of significance. Conclude: There is <em>sufficient</em> evidence in our data that ….</p></li>
+<li><p><em>Do not reject</em> <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha\)</span> level of significance. Conclude: There is <em>not sufficient</em> evidence in our data that ….</p></li>
+</ul>
+<p><strong>Type I and type II error:</strong></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hyp-fig-error"></span>
+<img src="data/images/chap-hyp/type_error.jpg" alt="Type I and Type II error^[Image adapted from https://microbenotes.com/type-i-and-type-ii-error/]" width="400" height="60%" />
+<p class="caption">
+Figure 8.4: Type I and Type II error<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>
+</p>
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong> The above summaries about the conclusion statements and types of errors are applicable for most hypothesis tests, not only the tests for <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is known.</p>
+</div>
+</div>
+</div>
+<div id="testing-h_0-mu-mu_0-when-sigma-is-unknown" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> when <span class="math inline">\(\sigma\)</span> is unknown<a href="chap-hyp.html#testing-h_0-mu-mu_0-when-sigma-is-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For <span class="math inline">\(X_1, X_2, ..., X_n \sim \mathcal{N}(\mu, \sigma^2)\)</span> and <span class="math inline">\(\sigma\)</span> is <strong>unknown</strong>, we use the following pivotal quantity</p>
+<p><span class="math display">\[\frac{\bar{X_n} - \mu}{S/\sqrt{n}} \sim t(n-1)\]</span></p>
+<p>When <span class="math inline">\(H_0: \mu = \mu_0\)</span> is true, we have the test statistic</p>
+<div class="myEquation">
+<p><span class="math display">\[T = \frac{\bar{X_n} - \mu_0}{S/\sqrt{n}} \hspace{3mm} \overset{H_0: \mu = \mu_0}{\sim} \hspace{3mm} t(n-1)\]</span></p>
+</div>
+<div class="empty">
+
+</div>
+<p>whose <strong>distribution is known under <span class="math inline">\(H_0: \mu = \mu_0\)</span></strong>.</p>
+<p>Now, the test for <span class="math inline">\(H_0: \mu = \mu_0\)</span> is very similar to the case where <span class="math inline">\(\sigma\)</span> is known. We just need to replace <span class="math inline">\(\sigma\)</span> by <span class="math inline">\(s\)</span> and <span class="math inline">\(z\)</span> by <span class="math inline">\(t(n-1)\)</span> in the summary table in Section <a href="chap-hyp.html#hyp-sec-known-summary">8.4.1.6</a> above to obtain the test table for the case where <span class="math inline">\(\sigma\)</span> is unknown.</p>
+<p><strong>Summary:</strong> Suppose <span class="math inline">\(Y\)</span> is a random variable that follows <span class="math inline">\(t(n-1)\)</span> distribution</p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(H_1\)</span></th>
+<th align="center">Test statistic <span class="math inline">\(t\)</span></th>
+<th align="center">Critical value <span class="math inline">\(c\)</span></th>
+<th align="center">Reject <span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(p\)</span>-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\mu \ne \mu_0\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(t_{1-\alpha/2, n-1}\)</span></td>
+<td align="center"><span class="math inline">\(|t| &gt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(|Y| &gt; |t|)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu = \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu &gt; \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(t = \frac{\bar{x}_n - \mu_0}{s/\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(t_{1-\alpha,n-1}\)</span></td>
+<td align="center"><span class="math inline">\(t &gt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(Y &gt; t)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\mu &lt; \mu_0\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(t_{\alpha,n-1}\)</span></td>
+<td align="center"><span class="math inline">\(t &lt; c\)</span></td>
+<td align="center"><span class="math inline">\(\mathbb{P}(Y &lt; t)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-97" class="example"><strong>Example 8.9  </strong></span>The average age of online consumers a few years before <span class="math inline">\(2007\)</span> was <span class="math inline">\(23.3\)</span> years. As older individuals gain confidence with the Internet, it is believed that the average age has increased.</p>
+<p>A random sample of <span class="math inline">\(40\)</span> individuals who made an online purchase during <span class="math inline">\(2007\)</span> was drawn and it was found that their average age was <span class="math inline">\(24.2\)</span> years and the standard deviation in the sample was <span class="math inline">\(5.3\)</span> years.</p>
+<p>Test the hypothesis at a <span class="math inline">\(1\)</span>% level of significance.</p>
+<p><em>Solution:</em></p>
+<ul>
+<li><p>Step 1: Let <span class="math inline">\(\mu\)</span> be the population mean age of online consumers in <span class="math inline">\(2007\)</span>. Hypotheses:</p>
+<p><span class="math display">\[H_0: \mu = 23.3 \hspace{5mm} \text{vs.} \hspace{5mm} H_1: \mu &gt; 23.3\]</span></p></li>
+<li><p>Step 2: The test statistic is</p></li>
+</ul>
+<p><span class="math display">\[t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{24.2-23.3}{5.3/\sqrt{40}} = 1.074\]</span></p>
+<ul>
+<li><p>Step 3: <span class="math inline">\(\alpha = 0.01\)</span>, and the test is a upper-tail one-sided test. We need to use the critical value <span class="math inline">\(c = t_{1-\alpha, n-1} = t_{0.99, 39} = 2.4233\)</span> from the <span class="math inline">\(t\)</span> table. (We use <span class="math inline">\(df = 40\)</span> because it is closest to <span class="math inline">\(39\)</span>)</p></li>
+<li><p>Step 3: Because <span class="math inline">\(t = 1.074 &lt; c = t_{1-\alpha, n-1} = 2.423\)</span> and this is a <strong>upper-tail</strong> test, we <strong>do not reject</strong> the null hypothesis and conclude that there is not sufficient evidence to suggest that the average age has increased.</p></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExercise">
+<div class="exercise">
+<p><span id="exr:unlabeled-div-98" class="exercise"><strong>Exercise 8.3  </strong></span>What will the result change if the test is two sided? one-sided lower-tail?</p>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
+<ul>
+<li><p><strong>NEVER</strong> decide the hypotheses after seeing the data. Hypotheses must be decided <strong>before</strong> you collect the data. If you do not know which direction from <span class="math inline">\(\mu_0\)</span> that the true <span class="math inline">\(\mu\)</span> lies, always choose the two-sided test.</p></li>
+<li><p>When you conduct tests using computer software, they will always output the <span class="math inline">\(p\)</span>-values. For <strong>all</strong> kinds of hypothesis tests, you reject the null hypothesis if <span class="math inline">\(p &lt; \alpha\)</span> where <span class="math inline">\(\alpha\)</span> is the significance level you decide.</p>
+<ul>
+<li><p>Caveats: The <span class="math inline">\(p\)</span>-value will change whether you use a two-sided test or a on-sided one, so when use software, make sure you set the correct test you want.</p></li>
+<li><p>Convention in scientific research: <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
+</ul></li>
+<li><p>It is very useful to draw a some graphics like Figure 7.1-3 to have a sense of which kind of critical value or rejection criteria to use. When doing so, remember that you are trying to <strong>find evidence to support the alternative hypothesis</strong>. This will always help you navigate to the correct answer.</p>
+<ul>
+<li><p><strong>one-sided test</strong>: look at one of the two tails of the distribution.</p></li>
+<li><p><strong>two-sided test</strong>: look at both tails of the distribution.</p></li>
+</ul></li>
+<li><p>We have learned the two most important concepts in <strong>inferential statistics</strong>: confidence intervals and hypothesis testing.</p>
+<ul>
+<li><p>Both uses <strong>pivotal quantity</strong> to construct the intervals or the test.</p></li>
+<li><p>CI give us the <strong>range of possible values</strong> of the population parameter, while hypothesis testing helps us <strong>evaluate some claims</strong> about the population parameter.</p></li>
+<li><p>Usually, in a data analysis, although it is possible to choose freely, by convention, people choose confidence level = 1 - significance level.</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="some-more-examples" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> Some More Examples<a href="chap-hyp.html#some-more-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-99" class="example"><strong>Example 8.10  </strong></span>A pet food manufacturer suspects that one of its machines is not filling the amount required for bags of dog food that are supposed to contain <span class="math inline">\(20\)</span>kg of food. They want to test the null hypothesis that the mean fill is <span class="math inline">\(20\)</span>kg against the alternative hypothesis that it is different from <span class="math inline">\(20\)</span>kg. They sample <span class="math inline">\(100\)</span> randomly selected bags and find a sample mean of <span class="math inline">\(20.1\)</span> kg. Assume that the population standard deviation is known to be <span class="math inline">\(0.5\)</span>kg. Test their hypothesis at a <span class="math inline">\(10\)</span>% level of significance.</p>
+<p><em>Solution:</em> Information</p>
+<ul>
+<li><p><span class="math inline">\(\mu_0 = 20\)</span></p></li>
+<li><p><span class="math inline">\(\bar{x} = 20.1\)</span></p></li>
+<li><p><span class="math inline">\(n = 100\)</span></p></li>
+<li><p><span class="math inline">\(\sigma = 0.5\)</span></p></li>
+<li><p><span class="math inline">\(\alpha = 0.1\)</span></p></li>
+<li><p>Step 1: The <span class="math inline">\(\mu\)</span> be the mean weight of food that the machine fills for each bag of dog food. In this question, <span class="math inline">\(\sigma\)</span> is known and we need to use a two-sided test. Hypotheses:
+<span class="math display">\[H_0: \mu = 20 \hspace{5mm} \text{vs.} \hspace{5mm} H_1: \mu \ne 20\]</span></p></li>
+<li><p>Step 2: The test statistic is
+<span class="math display">\[t = \frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}} = \frac{20.1-20}{0.5/\sqrt{100}} = 2\]</span></p></li>
+<li><p>Step 3: <span class="math inline">\(\alpha = 0.1\)</span> and the test is two-sided test for <span class="math inline">\(\sigma\)</span> is known. So the critical value is
+<span class="math display">\[c = z_{1-\alpha/2} = z_{0.95} = 1.645\]</span></p></li>
+<li><p>Step 4: Because <span class="math inline">\(|t| = 2 &gt; c = 1.645\)</span> and the test is two-sided, we reject the null hypothesis at <span class="math inline">\(10\%\)</span> level of significance. We conclude that there is sufficient evidence in the data that the machine is not filling the required amount of dog food.</p></li>
+</ul>
+</div>
+</div>
+<div class="empty">
+
+</div>
+<div class="myExample">
+<div class="example">
+<p><span id="exm:unlabeled-div-100" class="example"><strong>Example 8.11  </strong></span>A study by the Center for Science in the Public Interest found that movie theatre popcorn is often very high in calories and saturated fat. The CSPI found that on top of the poor stated nutritional characteristics, in reality the popcorn had much higher calorie and fat content than what was claimed. Suppose you wish to investigate the calorie content of large bags of popcorn at your local theatre, where the theatre chain claims that a large untopped bag of their popcorn contains <span class="math inline">\(920\)</span> calories on average. You purchase <span class="math inline">\(14\)</span> bags of this type of popcorn, and suppose that it is reasonable to think that these <span class="math inline">\(14\)</span> bags represent a random sample from the population of bags of this type. You have these bags of popcorn analyzed and find that the mean calorie content is <span class="math inline">\(1082\)</span> and the standard deviation is <span class="math inline">\(60\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Suppose we wish to carry out a test of the null hypothesis that the population mean calorie content is what the company claims it to be. If we feel a one-sided alternative hypothesis is most appropriate in this situation, what are the appropriate hypotheses?</p></li>
+<li><p>Which procedure (<span class="math inline">\(z\)</span> or <span class="math inline">\(t\)</span>) is appropriate here? Why?</p></li>
+<li><p>What is the value of the appropriate test statistic?</p></li>
+<li><p>What is the critical value for the test statistic at 5% level of significance?</p></li>
+<li><p>Give an appropriate conclusion of the results of the analysis.</p></li>
+</ol>
+<p><em>Solution:</em> Let <span class="math inline">\(\mu\)</span> be the mean calories of movie theatre popcorn.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The hypothesis is <span class="math inline">\(H_0: \mu = 920\)</span> versus <span class="math inline">\(H_0: \mu &gt; 920\)</span>.</p></li>
+<li><p>Because we collect the standard deviation from the sample, <span class="math inline">\(\sigma\)</span> is unknown and we need to use the <span class="math inline">\(t\)</span>-table.</p></li>
+<li><p>The test statistic is</p></li>
+</ol>
+<p><span class="math display">\[t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{1082-920}{60/\sqrt{14}} = 10.1025\]</span></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\alpha = 0.05\)</span> and we want to conduct a one-sided upper-tail test where <span class="math inline">\(\sigma\)</span> is unknown, our critical value need to be</li>
+</ol>
+<p><span class="math display">\[c = t_{1-\alpha, n-1} = t_{0.95, 13} = 1.7709\]</span></p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Because <span class="math inline">\(t &gt; c\)</span> and the test is one-sided upper-tail test, we reject the null hypothesis at <span class="math inline">\(5\%\)</span> level of significance. We conclude that there is sufficient evidence in the data that the average calories is greater than what is claimed.</li>
+</ol>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="19">
+<li id="fn19"><p>There are other methods or philosophy about constructing a test, such as Bayesian tests, but we will not talk about it in this book.<a href="chap-hyp.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>Image adapted from <a href="https://microbenotes.com/type-i-and-type-ii-error/" class="uri">https://microbenotes.com/type-i-and-type-ii-error/</a><a href="chap-hyp.html#fnref20" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-confint.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-wald.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
