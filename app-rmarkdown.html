@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-10-01" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -566,15 +566,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">B.1</span> Install Rmarkdown<a href="app-rmarkdown.html#install-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Rmarkdown</strong> is a file format that helps you write reports which combine texts and codes and code outputs in an easy way. In fact, this book was written in Rmarkdown as well!</p>
 <p>In order to work with Rmarkdown, you will need to install the <code>rmarkdown</code> package</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="app-rmarkdown.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="app-rmarkdown.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</span></code></pre></div>
 <p>To write a new Rmarkdown file:</p>
 <ul>
 <li><p>Click File &gt; New File &gt; R Markdown or</p></li>
 <li><p>click the New File button under the File button in the top left of the RStudio window, choose R Markdown.</p></li>
 </ul>
 <p>You can choose the output format that you want, but usually we will choose PDF or HTML format. To generate PDF output, you will need to install LaTeX. You can install an independent LaTeX distribution, for example, personally I use <a href="https://miktex.org/">MiKTeX</a>. However, for anyone who never uses LaTeX before, you can just install <code>tinytex</code>, which is a convenient, lightweight, and beginner-friendly LaTeX distribution</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="app-rmarkdown.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
-<span id="cb142-2"><a href="app-rmarkdown.html#cb142-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="app-rmarkdown.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
+<span id="cb144-2"><a href="app-rmarkdown.html#cb144-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code></pre></div>
 </div>
 <div id="components-of-a-rmarkdown-file" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">B.2</span> Components of A Rmarkdown File<a href="app-rmarkdown.html#components-of-a-rmarkdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -674,7 +674,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
