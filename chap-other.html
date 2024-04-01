@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-10-02" />
+<meta name="date" content="2024-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -774,12 +774,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chap-other.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
 <p>Now, you can run a Levene’s test in <strong>R</strong> as follows</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="chap-other.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load the library/package needed</span></span>
-<span id="cb50-2"><a href="chap-other.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
-<pre><code>## Loading required package: carData</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="chap-other.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#run the levene test on the rent variable of data set rent</span></span>
-<span id="cb52-2"><a href="chap-other.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#the groups to be compared are different faculties</span></span>
-<span id="cb52-3"><a href="chap-other.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#the data about the faculties are encoded in variable faculty of data set rent</span></span>
-<span id="cb52-4"><a href="chap-other.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(rent<span class="sc">$</span>rent, rent<span class="sc">$</span>faculty)</span></code></pre></div>
+<span id="cb50-2"><a href="chap-other.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb50-3"><a href="chap-other.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="chap-other.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#run the levene test on the rent variable of data set rent</span></span>
+<span id="cb50-5"><a href="chap-other.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">#the groups to be compared are different faculties</span></span>
+<span id="cb50-6"><a href="chap-other.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">#the data about the faculties are encoded in variable faculty of data set rent</span></span>
+<span id="cb50-7"><a href="chap-other.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(rent<span class="sc">$</span>rent, rent<span class="sc">$</span>faculty)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##         Df F value Pr(&gt;F)
 ## group    5   0.384   0.86
@@ -810,56 +810,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="example">
 <p><span id="exm:ex-other-rent-faculty-qq" class="example"><strong>Example 10.11  </strong></span>Continue with Example <a href="chap-other.html#exm:ex-other-rent-faculty-R">10.4</a>, now let us check the normality assumption. In the ANOVA, we assumed that the rent expenses of students coming from <strong>each faculty</strong> follows a normal distribution.</p>
 <p>To check if the rent expenses of students coming from Arts follows a normal distribution, we use the following code</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="chap-other.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check whether the distribution of the rent variable</span></span>
-<span id="cb54-2"><a href="chap-other.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for observations coming from Arts faculty, </span></span>
-<span id="cb54-3"><a href="chap-other.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#i.e., for observations where the value of variable faculty equals to &quot;Arts&quot;</span></span>
-<span id="cb54-4"><a href="chap-other.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>])</span>
-<span id="cb54-5"><a href="chap-other.html#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-6"><a href="chap-other.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co">#add a reference line to the qqnorm plot</span></span>
-<span id="cb54-7"><a href="chap-other.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co">#0.2 and 0.8 are the quantiles where the line is drawn</span></span>
-<span id="cb54-8"><a href="chap-other.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb54-9"><a href="chap-other.html#cb54-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="chap-other.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check whether the distribution of the rent variable</span></span>
+<span id="cb52-2"><a href="chap-other.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for observations coming from Arts faculty, </span></span>
+<span id="cb52-3"><a href="chap-other.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#i.e., for observations where the value of variable faculty equals to &quot;Arts&quot;</span></span>
+<span id="cb52-4"><a href="chap-other.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>])</span>
+<span id="cb52-5"><a href="chap-other.html#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="chap-other.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#add a reference line to the qqnorm plot</span></span>
+<span id="cb52-7"><a href="chap-other.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co">#0.2 and 0.8 are the quantiles where the line is drawn</span></span>
+<span id="cb52-8"><a href="chap-other.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb52-9"><a href="chap-other.html#cb52-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The points on the plot form a reasonably straight line, therefore, the normal assumption is quite reasonable for the rent expenses for Arts students.</p>
 <p>Now, if we want to plot QQplots for students from all faculties, we use the following code</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chap-other.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a grid of two rows and three columns for the plots </span></span>
-<span id="cb55-2"><a href="chap-other.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb55-3"><a href="chap-other.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-4"><a href="chap-other.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#arts faculty</span></span>
-<span id="cb55-5"><a href="chap-other.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb55-6"><a href="chap-other.html#cb55-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Arts students&#39; rent&quot;</span>)</span>
-<span id="cb55-7"><a href="chap-other.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb55-8"><a href="chap-other.html#cb55-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb55-9"><a href="chap-other.html#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-10"><a href="chap-other.html#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co">#engineering faculty</span></span>
-<span id="cb55-11"><a href="chap-other.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
-<span id="cb55-12"><a href="chap-other.html#cb55-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Engineering students&#39; rent&quot;</span>)</span>
-<span id="cb55-13"><a href="chap-other.html#cb55-13" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
-<span id="cb55-14"><a href="chap-other.html#cb55-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb55-15"><a href="chap-other.html#cb55-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-16"><a href="chap-other.html#cb55-16" aria-hidden="true" tabindex="-1"></a><span class="co">#environment faculty</span></span>
-<span id="cb55-17"><a href="chap-other.html#cb55-17" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
-<span id="cb55-18"><a href="chap-other.html#cb55-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Environment students&#39; rent&quot;</span>)</span>
-<span id="cb55-19"><a href="chap-other.html#cb55-19" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
-<span id="cb55-20"><a href="chap-other.html#cb55-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb55-21"><a href="chap-other.html#cb55-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-22"><a href="chap-other.html#cb55-22" aria-hidden="true" tabindex="-1"></a><span class="co">#health faculty</span></span>
-<span id="cb55-23"><a href="chap-other.html#cb55-23" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
-<span id="cb55-24"><a href="chap-other.html#cb55-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Health students&#39; rent&quot;</span>)</span>
-<span id="cb55-25"><a href="chap-other.html#cb55-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
-<span id="cb55-26"><a href="chap-other.html#cb55-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb55-27"><a href="chap-other.html#cb55-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-28"><a href="chap-other.html#cb55-28" aria-hidden="true" tabindex="-1"></a><span class="co">#math faculty</span></span>
-<span id="cb55-29"><a href="chap-other.html#cb55-29" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
-<span id="cb55-30"><a href="chap-other.html#cb55-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Math students&#39; rent&quot;</span>)</span>
-<span id="cb55-31"><a href="chap-other.html#cb55-31" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
-<span id="cb55-32"><a href="chap-other.html#cb55-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb55-33"><a href="chap-other.html#cb55-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-34"><a href="chap-other.html#cb55-34" aria-hidden="true" tabindex="-1"></a><span class="co">#science faculty</span></span>
-<span id="cb55-35"><a href="chap-other.html#cb55-35" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
-<span id="cb55-36"><a href="chap-other.html#cb55-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Science students&#39; rent&quot;</span>)</span>
-<span id="cb55-37"><a href="chap-other.html#cb55-37" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
-<span id="cb55-38"><a href="chap-other.html#cb55-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chap-other.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a grid of two rows and three columns for the plots </span></span>
+<span id="cb53-2"><a href="chap-other.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb53-3"><a href="chap-other.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="chap-other.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co">#arts faculty</span></span>
+<span id="cb53-5"><a href="chap-other.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb53-6"><a href="chap-other.html#cb53-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Arts students&#39; rent&quot;</span>)</span>
+<span id="cb53-7"><a href="chap-other.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb53-8"><a href="chap-other.html#cb53-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb53-9"><a href="chap-other.html#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="chap-other.html#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co">#engineering faculty</span></span>
+<span id="cb53-11"><a href="chap-other.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
+<span id="cb53-12"><a href="chap-other.html#cb53-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Engineering students&#39; rent&quot;</span>)</span>
+<span id="cb53-13"><a href="chap-other.html#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
+<span id="cb53-14"><a href="chap-other.html#cb53-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb53-15"><a href="chap-other.html#cb53-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-16"><a href="chap-other.html#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="co">#environment faculty</span></span>
+<span id="cb53-17"><a href="chap-other.html#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
+<span id="cb53-18"><a href="chap-other.html#cb53-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Environment students&#39; rent&quot;</span>)</span>
+<span id="cb53-19"><a href="chap-other.html#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
+<span id="cb53-20"><a href="chap-other.html#cb53-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb53-21"><a href="chap-other.html#cb53-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-22"><a href="chap-other.html#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="co">#health faculty</span></span>
+<span id="cb53-23"><a href="chap-other.html#cb53-23" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
+<span id="cb53-24"><a href="chap-other.html#cb53-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Health students&#39; rent&quot;</span>)</span>
+<span id="cb53-25"><a href="chap-other.html#cb53-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
+<span id="cb53-26"><a href="chap-other.html#cb53-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb53-27"><a href="chap-other.html#cb53-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-28"><a href="chap-other.html#cb53-28" aria-hidden="true" tabindex="-1"></a><span class="co">#math faculty</span></span>
+<span id="cb53-29"><a href="chap-other.html#cb53-29" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
+<span id="cb53-30"><a href="chap-other.html#cb53-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Math students&#39; rent&quot;</span>)</span>
+<span id="cb53-31"><a href="chap-other.html#cb53-31" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
+<span id="cb53-32"><a href="chap-other.html#cb53-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb53-33"><a href="chap-other.html#cb53-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-34"><a href="chap-other.html#cb53-34" aria-hidden="true" tabindex="-1"></a><span class="co">#science faculty</span></span>
+<span id="cb53-35"><a href="chap-other.html#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
+<span id="cb53-36"><a href="chap-other.html#cb53-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Science students&#39; rent&quot;</span>)</span>
+<span id="cb53-37"><a href="chap-other.html#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
+<span id="cb53-38"><a href="chap-other.html#cb53-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Based on the plots, we can see that our data seem to satisfy the normality (normal distributions) assumption.</p>
 </div>
@@ -923,12 +923,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="example">
 <p><span id="exm:ex-other-rent-study" class="example"><strong>Example 10.12  </strong></span>Suppose we want to know if the medians of rent expense are different among undergraduate and graduate students. We can think about running a two-sample <span class="math inline">\(t\)</span>-test.</p>
 <p>However, if the assumptions do not work, we can use a Wilcoxon’s rank sum test instead using the following code</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="chap-other.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use a wilcoxon&#39;s rank sum test for rent expenses of </span></span>
-<span id="cb56-2"><a href="chap-other.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#undergraduate and graduate student</span></span>
-<span id="cb56-3"><a href="chap-other.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Undergraduate&quot;</span>], </span>
-<span id="cb56-4"><a href="chap-other.html#cb56-4" aria-hidden="true" tabindex="-1"></a>            rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Graduate&quot;</span>], </span>
-<span id="cb56-5"><a href="chap-other.html#cb56-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </span>
-<span id="cb56-6"><a href="chap-other.html#cb56-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="chap-other.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use a wilcoxon&#39;s rank sum test for rent expenses of </span></span>
+<span id="cb54-2"><a href="chap-other.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#undergraduate and graduate student</span></span>
+<span id="cb54-3"><a href="chap-other.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Undergraduate&quot;</span>], </span>
+<span id="cb54-4"><a href="chap-other.html#cb54-4" aria-hidden="true" tabindex="-1"></a>            rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Graduate&quot;</span>], </span>
+<span id="cb54-5"><a href="chap-other.html#cb54-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </span>
+<span id="cb54-6"><a href="chap-other.html#cb54-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -982,10 +982,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-other-rent-study" class="example"><strong>Example 10.12  </strong></span>Although we can use an ANOVA as we did in Example <a href="chap-other.html#exm:ex-other-rent-faculty-R">10.4</a>, let’s apply the Kruskal-Wallis test to rent expenses of students of different faculties.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="chap-other.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kruskal-wallis test of the rent variable </span></span>
-<span id="cb58-2"><a href="chap-other.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#among the different categories of the variable faculty</span></span>
-<span id="cb58-3"><a href="chap-other.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">#from the data set rent</span></span>
-<span id="cb58-4"><a href="chap-other.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="chap-other.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kruskal-wallis test of the rent variable </span></span>
+<span id="cb56-2"><a href="chap-other.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#among the different categories of the variable faculty</span></span>
+<span id="cb56-3"><a href="chap-other.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">#from the data set rent</span></span>
+<span id="cb56-4"><a href="chap-other.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
