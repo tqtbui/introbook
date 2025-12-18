@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Confidence Intervals | A First Course In Statistics</title>
   <meta name="description" content="7 Confidence Intervals | A First Course In Statistics" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Confidence Intervals | A First Course In Statistics" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2024-04-01" />
+<meta name="date" content="2025-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <!-- Latex macros for html output
 
 A few very common things you should use:
@@ -138,6 +140,7 @@ A few very common things you should use:
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -175,7 +178,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -188,7 +191,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -202,6 +205,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -445,104 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
 <li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
-<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
-<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
-<ul>
-<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
-<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
-<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
-<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
-<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
-<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
-<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
-<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
-<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
-<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
-<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
-<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
-<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
-</ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
-<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
-<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
-<ul>
-<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
-<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
-<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
-</ul></li>
-<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
-<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
-<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
-<ul>
-<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
-<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
-<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
-</ul></li>
-<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
-<ul>
-<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
-<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
-<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
-<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -689,7 +599,7 @@ where <span class="math inline">\(L_n\)</span> and <span class="math inline">\(U
 <li><p><span class="math inline">\(\mathbb{P}(L_n &lt; \mu &lt; U_n) = 1-\alpha\)</span> means: if we <strong>repeat</strong> collecting the sample of the <strong>same</strong> size <span class="math inline">\(n\)</span> <strong>for many times</strong> and each times obtain a <strong>different</strong> interval <span class="math inline">\((l_n, u_n)\)</span>, then <strong><span class="math inline">\((1-\alpha)100\%\)</span> of those intervals will contain the true population parameter <span class="math inline">\(\mu\)</span></strong>.</p></li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
-<img src="data/images/chap-confint/confint.png" alt="Suppose we are interested in the mean $\mu$. If we repeat collecting samples many times and then calculate many $95\%$ confidence intervals for $\mu$, then $95\%$ of those intervals will contain the true population parameter $\mu$ (will cross the green vertical line) and $5\%$ of the intervals will not contain $\mu$." width="302" height="50%" />
+<img src="data/images/chap-confint/confint.png" alt="Suppose we are interested in the mean $\mu$. If we repeat collecting samples many times and then calculate many $95\%$ confidence intervals for $\mu$, then $95\%$ of those intervals will contain the true population parameter $\mu$ (will cross the green vertical line) and $5\%$ of the intervals will not contain $\mu$." height="50%" />
 <p class="caption">
 Figure 7.2: Suppose we are interested in the mean <span class="math inline">\(\mu\)</span>. If we repeat collecting samples many times and then calculate many <span class="math inline">\(95\%\)</span> confidence intervals for <span class="math inline">\(\mu\)</span>, then <span class="math inline">\(95\%\)</span> of those intervals will contain the true population parameter <span class="math inline">\(\mu\)</span> (will cross the green vertical line) and <span class="math inline">\(5\%\)</span> of the intervals will not contain <span class="math inline">\(\mu\)</span>.
 </p>
@@ -881,41 +791,41 @@ n &amp; \ge 139
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 df
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.80}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.85}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.90}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.95}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.975}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.99}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.995}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.999}\)</span>
 </th>
-<th style="text-align:right;font-weight: bold;background-color: #89b6f0 !important;">
+<th style="text-align:right;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 <span class="math inline">\(t_{0.9995}\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 1
 </td>
 <td style="text-align:right;">
@@ -947,7 +857,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 2
 </td>
 <td style="text-align:right;">
@@ -979,7 +889,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 3
 </td>
 <td style="text-align:right;">
@@ -1011,7 +921,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 4
 </td>
 <td style="text-align:right;">
@@ -1043,7 +953,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 5
 </td>
 <td style="text-align:right;">
@@ -1075,7 +985,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 6
 </td>
 <td style="text-align:right;">
@@ -1107,7 +1017,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 7
 </td>
 <td style="text-align:right;">
@@ -1139,7 +1049,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 8
 </td>
 <td style="text-align:right;">
@@ -1171,7 +1081,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 9
 </td>
 <td style="text-align:right;">
@@ -1203,7 +1113,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 10
 </td>
 <td style="text-align:right;">
@@ -1235,7 +1145,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 11
 </td>
 <td style="text-align:right;">
@@ -1267,7 +1177,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 12
 </td>
 <td style="text-align:right;">
@@ -1299,7 +1209,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 13
 </td>
 <td style="text-align:right;">
@@ -1331,7 +1241,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 14
 </td>
 <td style="text-align:right;">
@@ -1363,7 +1273,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 15
 </td>
 <td style="text-align:right;">
@@ -1395,7 +1305,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 16
 </td>
 <td style="text-align:right;">
@@ -1427,7 +1337,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 17
 </td>
 <td style="text-align:right;">
@@ -1459,7 +1369,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 18
 </td>
 <td style="text-align:right;">
@@ -1491,7 +1401,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 19
 </td>
 <td style="text-align:right;">
@@ -1523,7 +1433,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 20
 </td>
 <td style="text-align:right;">
@@ -1555,7 +1465,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 21
 </td>
 <td style="text-align:right;">
@@ -1587,7 +1497,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 22
 </td>
 <td style="text-align:right;">
@@ -1619,7 +1529,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 23
 </td>
 <td style="text-align:right;">
@@ -1651,7 +1561,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 24
 </td>
 <td style="text-align:right;">
@@ -1683,7 +1593,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 25
 </td>
 <td style="text-align:right;">
@@ -1715,7 +1625,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 26
 </td>
 <td style="text-align:right;">
@@ -1747,7 +1657,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 27
 </td>
 <td style="text-align:right;">
@@ -1779,7 +1689,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 28
 </td>
 <td style="text-align:right;">
@@ -1811,7 +1721,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 29
 </td>
 <td style="text-align:right;">
@@ -1843,7 +1753,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 30
 </td>
 <td style="text-align:right;">
@@ -1875,7 +1785,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 40
 </td>
 <td style="text-align:right;">
@@ -1907,7 +1817,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 60
 </td>
 <td style="text-align:right;">
@@ -1939,7 +1849,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 80
 </td>
 <td style="text-align:right;">
@@ -1971,7 +1881,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 100
 </td>
 <td style="text-align:right;">
@@ -2003,7 +1913,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 1000
 </td>
 <td style="text-align:right;">
@@ -2035,7 +1945,7 @@ df
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;background-color: #89b6f0 !important;">
+<td style="text-align:left;font-weight: bold;background-color: rgba(137, 182, 240, 255) !important;">
 z
 </td>
 <td style="text-align:right;">
@@ -2110,10 +2020,10 @@ z
 
 </div>
 <p>You can also conveniently use <strong>R</strong> to find the quantiles and probabilities of the <span class="math inline">\(t\)</span>-distribution using functions <code>qt()</code> and <code>pt()</code>. It is in the similar fashion with the normal distribution. For example</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap-confint.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.7</span>, <span class="at">df =</span> <span class="dv">13</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap-confint.html#cb41-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.7</span>, <span class="at">df =</span> <span class="dv">13</span>)</span></code></pre></div>
 <pre><code>## [1] 0.5375041</code></pre>
 <p>means that <span class="math inline">\(P(X &lt; 0.538) = 0.7\)</span> where <span class="math inline">\(X\sim t(13)\)</span>. Another example is</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap-confint.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="dv">3</span>, <span class="at">df =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap-confint.html#cb43-1" tabindex="-1"></a><span class="fu">pt</span>(<span class="dv">3</span>, <span class="at">df =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9933282</code></pre>
 <p>means that <span class="math inline">\(P(X &lt; 3) = 0.9933\)</span> where <span class="math inline">\(X\sim t(10)\)</span>.</p>
 <div class="myNote">
@@ -2201,42 +2111,42 @@ where <span class="math inline">\(s\)</span> can be an guess of <span class="mat
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

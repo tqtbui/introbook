@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Other Useful tests | A First Course In Statistics</title>
   <meta name="description" content="10 Other Useful tests | A First Course In Statistics" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Other Useful tests | A First Course In Statistics" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2024-04-01" />
+<meta name="date" content="2025-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <!-- Latex macros for html output
 
 A few very common things you should use:
@@ -138,6 +140,7 @@ A few very common things you should use:
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -175,7 +178,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -188,7 +191,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -202,6 +205,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -445,104 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
 <li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
-<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
-<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
-<ul>
-<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
-<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
-<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
-<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
-<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
-<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
-<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
-<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
-<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
-<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
-<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
-<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
-<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
-</ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
-<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
-<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
-<ul>
-<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
-<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
-<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
-</ul></li>
-<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
-<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
-<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
-<ul>
-<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
-<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
-<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
-</ul></li>
-<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
-<ul>
-<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
-<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
-<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
-<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -627,13 +537,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-other-rent-faculty-R" class="example"><strong>Example 10.4  </strong></span>To know if the mean <code>rent</code> are different among the different <code>faculty</code> values, we conduct an ANOVA on the data set we have collected <code>fakeRent.csv</code>. We use the following <strong>R</strong> code</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chap-other.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#do an anova of variable rent with respect to variable faculty </span></span>
-<span id="cb45-2"><a href="chap-other.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">#the two variables are called rent and faculty of the data set called `rent`</span></span>
-<span id="cb45-3"><a href="chap-other.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#memorize the anova results into an object called rentFaculty</span></span>
-<span id="cb45-4"><a href="chap-other.html#cb45-4" aria-hidden="true" tabindex="-1"></a>rentFaculty <span class="ot">&lt;-</span> <span class="fu">aov</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span>
-<span id="cb45-5"><a href="chap-other.html#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-6"><a href="chap-other.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">#show the summary of the anova results </span></span>
-<span id="cb45-7"><a href="chap-other.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rentFaculty)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chap-other.html#cb45-1" tabindex="-1"></a><span class="co">#do an anova of variable rent with respect to variable faculty </span></span>
+<span id="cb45-2"><a href="chap-other.html#cb45-2" tabindex="-1"></a><span class="co">#the two variables are called rent and faculty of the data set called `rent`</span></span>
+<span id="cb45-3"><a href="chap-other.html#cb45-3" tabindex="-1"></a><span class="co">#memorize the anova results into an object called rentFaculty</span></span>
+<span id="cb45-4"><a href="chap-other.html#cb45-4" tabindex="-1"></a>rentFaculty <span class="ot">&lt;-</span> <span class="fu">aov</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span>
+<span id="cb45-5"><a href="chap-other.html#cb45-5" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="chap-other.html#cb45-6" tabindex="-1"></a><span class="co">#show the summary of the anova results </span></span>
+<span id="cb45-7"><a href="chap-other.html#cb45-7" tabindex="-1"></a><span class="fu">summary</span>(rentFaculty)</span></code></pre></div>
 <pre><code>##               Df   Sum Sq Mean Sq F value Pr(&gt;F)
 ## faculty        5   144104   28821   1.516  0.182
 ## Residuals   1339 25453319   19009</code></pre>
@@ -715,9 +625,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-other-faculty-gender-R" class="example"><strong>Example 10.9  </strong></span>For the question in Example <a href="chap-other.html#exm:ex-other-faculty-gender">10.6</a>, we want to test whether the variable <code>faculty</code> and the variable <code>gender</code> of the data set <code>fakeRent.csv</code> are independent. We use the following code</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chap-other.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#a chi-square test of the gender and faculty variables </span></span>
-<span id="cb47-2"><a href="chap-other.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#of the data set rent we loaded from fakeRent.csv as in anova</span></span>
-<span id="cb47-3"><a href="chap-other.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(rent<span class="sc">$</span>gender, rent<span class="sc">$</span>faculty)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chap-other.html#cb47-1" tabindex="-1"></a><span class="co">#a chi-square test of the gender and faculty variables </span></span>
+<span id="cb47-2"><a href="chap-other.html#cb47-2" tabindex="-1"></a><span class="co">#of the data set rent we loaded from fakeRent.csv as in anova</span></span>
+<span id="cb47-3"><a href="chap-other.html#cb47-3" tabindex="-1"></a><span class="fu">chisq.test</span>(rent<span class="sc">$</span>gender, rent<span class="sc">$</span>faculty)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -737,8 +647,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="empty">
 
 </div>
-<p>::: {.myNote data-latex=““}
-<strong><ins>Notes:</ins></strong></p>
+<div class="myNote">
+<p><strong><ins>Notes:</ins></strong></p>
 <ul>
 <li><p>In a hypothesis test, always decide your level of significance <strong>before</strong> you see the data. If you do not have a level of significance in your mind, you either</p>
 <ul>
@@ -747,8 +657,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Read more about the chi-square test <a href="https://en.wikipedia.org/wiki/Chi-squared_test">here</a>.</p></li>
 </ul>
-</div>
-</div>
 <div id="levenes-test" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Levene’s Test<a href="chap-other.html#levenes-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Levene’s test is used to <strong>compare the variances</strong> of different populations. You can think of the Levene’s test as a version of ANOVA, but applied to the variances, instead of the means. The test can be useful in cases where</p>
@@ -771,15 +679,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="example">
 <p><span id="exm:ex-other-rent-faculty-levene" class="example"><strong>Example 10.10  </strong></span>We used ANOVA back in Example <a href="chap-other.html#exm:ex-other-rent-faculty-R">10.4</a>. Therefore, we would need to check for the assumption of equal variances among the rent expenses of students coming from the different faculties. We will do this using the Levene’s test.</p>
 <p>First, you need to install the <code>car</code> package if you haven’t already</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chap-other.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chap-other.html#cb49-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
 <p>Now, you can run a Levene’s test in <strong>R</strong> as follows</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="chap-other.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load the library/package needed</span></span>
-<span id="cb50-2"><a href="chap-other.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb50-3"><a href="chap-other.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="chap-other.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#run the levene test on the rent variable of data set rent</span></span>
-<span id="cb50-5"><a href="chap-other.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">#the groups to be compared are different faculties</span></span>
-<span id="cb50-6"><a href="chap-other.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">#the data about the faculties are encoded in variable faculty of data set rent</span></span>
-<span id="cb50-7"><a href="chap-other.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(rent<span class="sc">$</span>rent, rent<span class="sc">$</span>faculty)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="chap-other.html#cb50-1" tabindex="-1"></a><span class="co">#load the library/package needed</span></span>
+<span id="cb50-2"><a href="chap-other.html#cb50-2" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<pre><code>## Loading required package: carData</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="chap-other.html#cb52-1" tabindex="-1"></a><span class="co">#run the levene test on the rent variable of data set rent</span></span>
+<span id="cb52-2"><a href="chap-other.html#cb52-2" tabindex="-1"></a><span class="co">#the groups to be compared are different faculties</span></span>
+<span id="cb52-3"><a href="chap-other.html#cb52-3" tabindex="-1"></a><span class="co">#the data about the faculties are encoded in variable faculty of data set rent</span></span>
+<span id="cb52-4"><a href="chap-other.html#cb52-4" tabindex="-1"></a><span class="fu">leveneTest</span>(rent<span class="sc">$</span>rent, rent<span class="sc">$</span>faculty)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##         Df F value Pr(&gt;F)
 ## group    5   0.384   0.86
@@ -810,56 +718,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="example">
 <p><span id="exm:ex-other-rent-faculty-qq" class="example"><strong>Example 10.11  </strong></span>Continue with Example <a href="chap-other.html#exm:ex-other-rent-faculty-R">10.4</a>, now let us check the normality assumption. In the ANOVA, we assumed that the rent expenses of students coming from <strong>each faculty</strong> follows a normal distribution.</p>
 <p>To check if the rent expenses of students coming from Arts follows a normal distribution, we use the following code</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="chap-other.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check whether the distribution of the rent variable</span></span>
-<span id="cb52-2"><a href="chap-other.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for observations coming from Arts faculty, </span></span>
-<span id="cb52-3"><a href="chap-other.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#i.e., for observations where the value of variable faculty equals to &quot;Arts&quot;</span></span>
-<span id="cb52-4"><a href="chap-other.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>])</span>
-<span id="cb52-5"><a href="chap-other.html#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-6"><a href="chap-other.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#add a reference line to the qqnorm plot</span></span>
-<span id="cb52-7"><a href="chap-other.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co">#0.2 and 0.8 are the quantiles where the line is drawn</span></span>
-<span id="cb52-8"><a href="chap-other.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb52-9"><a href="chap-other.html#cb52-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="chap-other.html#cb54-1" tabindex="-1"></a><span class="co">#check whether the distribution of the rent variable</span></span>
+<span id="cb54-2"><a href="chap-other.html#cb54-2" tabindex="-1"></a><span class="co">#for observations coming from Arts faculty, </span></span>
+<span id="cb54-3"><a href="chap-other.html#cb54-3" tabindex="-1"></a><span class="co">#i.e., for observations where the value of variable faculty equals to &quot;Arts&quot;</span></span>
+<span id="cb54-4"><a href="chap-other.html#cb54-4" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>])</span>
+<span id="cb54-5"><a href="chap-other.html#cb54-5" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="chap-other.html#cb54-6" tabindex="-1"></a><span class="co">#add a reference line to the qqnorm plot</span></span>
+<span id="cb54-7"><a href="chap-other.html#cb54-7" tabindex="-1"></a><span class="co">#0.2 and 0.8 are the quantiles where the line is drawn</span></span>
+<span id="cb54-8"><a href="chap-other.html#cb54-8" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb54-9"><a href="chap-other.html#cb54-9" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The points on the plot form a reasonably straight line, therefore, the normal assumption is quite reasonable for the rent expenses for Arts students.</p>
 <p>Now, if we want to plot QQplots for students from all faculties, we use the following code</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chap-other.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a grid of two rows and three columns for the plots </span></span>
-<span id="cb53-2"><a href="chap-other.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb53-3"><a href="chap-other.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="chap-other.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co">#arts faculty</span></span>
-<span id="cb53-5"><a href="chap-other.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb53-6"><a href="chap-other.html#cb53-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Arts students&#39; rent&quot;</span>)</span>
-<span id="cb53-7"><a href="chap-other.html#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
-<span id="cb53-8"><a href="chap-other.html#cb53-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb53-9"><a href="chap-other.html#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-10"><a href="chap-other.html#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co">#engineering faculty</span></span>
-<span id="cb53-11"><a href="chap-other.html#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
-<span id="cb53-12"><a href="chap-other.html#cb53-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Engineering students&#39; rent&quot;</span>)</span>
-<span id="cb53-13"><a href="chap-other.html#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
-<span id="cb53-14"><a href="chap-other.html#cb53-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb53-15"><a href="chap-other.html#cb53-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-16"><a href="chap-other.html#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="co">#environment faculty</span></span>
-<span id="cb53-17"><a href="chap-other.html#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
-<span id="cb53-18"><a href="chap-other.html#cb53-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Environment students&#39; rent&quot;</span>)</span>
-<span id="cb53-19"><a href="chap-other.html#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
-<span id="cb53-20"><a href="chap-other.html#cb53-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb53-21"><a href="chap-other.html#cb53-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-22"><a href="chap-other.html#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="co">#health faculty</span></span>
-<span id="cb53-23"><a href="chap-other.html#cb53-23" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
-<span id="cb53-24"><a href="chap-other.html#cb53-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Health students&#39; rent&quot;</span>)</span>
-<span id="cb53-25"><a href="chap-other.html#cb53-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
-<span id="cb53-26"><a href="chap-other.html#cb53-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb53-27"><a href="chap-other.html#cb53-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-28"><a href="chap-other.html#cb53-28" aria-hidden="true" tabindex="-1"></a><span class="co">#math faculty</span></span>
-<span id="cb53-29"><a href="chap-other.html#cb53-29" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
-<span id="cb53-30"><a href="chap-other.html#cb53-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Math students&#39; rent&quot;</span>)</span>
-<span id="cb53-31"><a href="chap-other.html#cb53-31" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
-<span id="cb53-32"><a href="chap-other.html#cb53-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
-<span id="cb53-33"><a href="chap-other.html#cb53-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-34"><a href="chap-other.html#cb53-34" aria-hidden="true" tabindex="-1"></a><span class="co">#science faculty</span></span>
-<span id="cb53-35"><a href="chap-other.html#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
-<span id="cb53-36"><a href="chap-other.html#cb53-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Science students&#39; rent&quot;</span>)</span>
-<span id="cb53-37"><a href="chap-other.html#cb53-37" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
-<span id="cb53-38"><a href="chap-other.html#cb53-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chap-other.html#cb55-1" tabindex="-1"></a><span class="co">#create a grid of two rows and three columns for the plots </span></span>
+<span id="cb55-2"><a href="chap-other.html#cb55-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb55-3"><a href="chap-other.html#cb55-3" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="chap-other.html#cb55-4" tabindex="-1"></a><span class="co">#arts faculty</span></span>
+<span id="cb55-5"><a href="chap-other.html#cb55-5" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb55-6"><a href="chap-other.html#cb55-6" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Arts students&#39; rent&quot;</span>)</span>
+<span id="cb55-7"><a href="chap-other.html#cb55-7" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
+<span id="cb55-8"><a href="chap-other.html#cb55-8" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb55-9"><a href="chap-other.html#cb55-9" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="chap-other.html#cb55-10" tabindex="-1"></a><span class="co">#engineering faculty</span></span>
+<span id="cb55-11"><a href="chap-other.html#cb55-11" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
+<span id="cb55-12"><a href="chap-other.html#cb55-12" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Engineering students&#39; rent&quot;</span>)</span>
+<span id="cb55-13"><a href="chap-other.html#cb55-13" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Engineering&quot;</span>], </span>
+<span id="cb55-14"><a href="chap-other.html#cb55-14" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb55-15"><a href="chap-other.html#cb55-15" tabindex="-1"></a></span>
+<span id="cb55-16"><a href="chap-other.html#cb55-16" tabindex="-1"></a><span class="co">#environment faculty</span></span>
+<span id="cb55-17"><a href="chap-other.html#cb55-17" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
+<span id="cb55-18"><a href="chap-other.html#cb55-18" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Environment students&#39; rent&quot;</span>)</span>
+<span id="cb55-19"><a href="chap-other.html#cb55-19" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Environment&quot;</span>], </span>
+<span id="cb55-20"><a href="chap-other.html#cb55-20" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb55-21"><a href="chap-other.html#cb55-21" tabindex="-1"></a></span>
+<span id="cb55-22"><a href="chap-other.html#cb55-22" tabindex="-1"></a><span class="co">#health faculty</span></span>
+<span id="cb55-23"><a href="chap-other.html#cb55-23" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
+<span id="cb55-24"><a href="chap-other.html#cb55-24" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Health students&#39; rent&quot;</span>)</span>
+<span id="cb55-25"><a href="chap-other.html#cb55-25" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Health&quot;</span>], </span>
+<span id="cb55-26"><a href="chap-other.html#cb55-26" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb55-27"><a href="chap-other.html#cb55-27" tabindex="-1"></a></span>
+<span id="cb55-28"><a href="chap-other.html#cb55-28" tabindex="-1"></a><span class="co">#math faculty</span></span>
+<span id="cb55-29"><a href="chap-other.html#cb55-29" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
+<span id="cb55-30"><a href="chap-other.html#cb55-30" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Math students&#39; rent&quot;</span>)</span>
+<span id="cb55-31"><a href="chap-other.html#cb55-31" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Math&quot;</span>], </span>
+<span id="cb55-32"><a href="chap-other.html#cb55-32" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span>
+<span id="cb55-33"><a href="chap-other.html#cb55-33" tabindex="-1"></a></span>
+<span id="cb55-34"><a href="chap-other.html#cb55-34" tabindex="-1"></a><span class="co">#science faculty</span></span>
+<span id="cb55-35"><a href="chap-other.html#cb55-35" tabindex="-1"></a><span class="fu">qqnorm</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
+<span id="cb55-36"><a href="chap-other.html#cb55-36" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Science students&#39; rent&quot;</span>)</span>
+<span id="cb55-37"><a href="chap-other.html#cb55-37" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
+<span id="cb55-38"><a href="chap-other.html#cb55-38" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Based on the plots, we can see that our data seem to satisfy the normality (normal distributions) assumption.</p>
 </div>
@@ -923,12 +831,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="example">
 <p><span id="exm:ex-other-rent-study" class="example"><strong>Example 10.12  </strong></span>Suppose we want to know if the medians of rent expense are different among undergraduate and graduate students. We can think about running a two-sample <span class="math inline">\(t\)</span>-test.</p>
 <p>However, if the assumptions do not work, we can use a Wilcoxon’s rank sum test instead using the following code</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="chap-other.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use a wilcoxon&#39;s rank sum test for rent expenses of </span></span>
-<span id="cb54-2"><a href="chap-other.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#undergraduate and graduate student</span></span>
-<span id="cb54-3"><a href="chap-other.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Undergraduate&quot;</span>], </span>
-<span id="cb54-4"><a href="chap-other.html#cb54-4" aria-hidden="true" tabindex="-1"></a>            rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Graduate&quot;</span>], </span>
-<span id="cb54-5"><a href="chap-other.html#cb54-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </span>
-<span id="cb54-6"><a href="chap-other.html#cb54-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="chap-other.html#cb56-1" tabindex="-1"></a><span class="co">#use a wilcoxon&#39;s rank sum test for rent expenses of </span></span>
+<span id="cb56-2"><a href="chap-other.html#cb56-2" tabindex="-1"></a><span class="co">#undergraduate and graduate student</span></span>
+<span id="cb56-3"><a href="chap-other.html#cb56-3" tabindex="-1"></a><span class="fu">wilcox.test</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Undergraduate&quot;</span>], </span>
+<span id="cb56-4"><a href="chap-other.html#cb56-4" tabindex="-1"></a>            rent<span class="sc">$</span>rent[rent<span class="sc">$</span>study <span class="sc">==</span> <span class="st">&quot;Graduate&quot;</span>], </span>
+<span id="cb56-5"><a href="chap-other.html#cb56-5" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </span>
+<span id="cb56-6"><a href="chap-other.html#cb56-6" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -982,10 +890,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-other-rent-study" class="example"><strong>Example 10.12  </strong></span>Although we can use an ANOVA as we did in Example <a href="chap-other.html#exm:ex-other-rent-faculty-R">10.4</a>, let’s apply the Kruskal-Wallis test to rent expenses of students of different faculties.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="chap-other.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kruskal-wallis test of the rent variable </span></span>
-<span id="cb56-2"><a href="chap-other.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#among the different categories of the variable faculty</span></span>
-<span id="cb56-3"><a href="chap-other.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">#from the data set rent</span></span>
-<span id="cb56-4"><a href="chap-other.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="chap-other.html#cb58-1" tabindex="-1"></a><span class="co">#kruskal-wallis test of the rent variable </span></span>
+<span id="cb58-2"><a href="chap-other.html#cb58-2" tabindex="-1"></a><span class="co">#among the different categories of the variable faculty</span></span>
+<span id="cb58-3"><a href="chap-other.html#cb58-3" tabindex="-1"></a><span class="co">#from the data set rent</span></span>
+<span id="cb58-4"><a href="chap-other.html#cb58-4" tabindex="-1"></a><span class="fu">kruskal.test</span>(rent<span class="sc">~</span>faculty, <span class="at">data =</span> rent)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -1062,7 +970,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 </div>
-</div>
             </section>
 
           </div>
@@ -1083,42 +990,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

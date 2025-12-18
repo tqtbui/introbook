@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Descriptive Statistics | A First Course In Statistics</title>
   <meta name="description" content="2 Descriptive Statistics | A First Course In Statistics" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Descriptive Statistics | A First Course In Statistics" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2024-04-01" />
+<meta name="date" content="2025-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,6 +53,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <!-- Latex macros for html output
 
 A few very common things you should use:
@@ -138,6 +140,7 @@ A few very common things you should use:
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -175,7 +178,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -188,7 +191,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -202,6 +205,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -445,104 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-3"><i class="fa fa-check"></i><b>10.2.2</b> Hypotheses</a></li>
 <li class="chapter" data-level="10.2.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-1"><i class="fa fa-check"></i><b>10.2.3</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="chap-other.html"><a href="chap-other.html#levenes-test"><i class="fa fa-check"></i><b>10.3</b> Levene’s Test</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="chap-other.html"><a href="chap-other.html#hypotheses-4"><i class="fa fa-check"></i><b>10.3.1</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.3.2" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-2"><i class="fa fa-check"></i><b>10.3.2</b> Analysis in R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="chap-other.html"><a href="chap-other.html#qq-plot"><i class="fa fa-check"></i><b>10.4</b> QQ plot</a></li>
-<li class="chapter" data-level="10.5" data-path="chap-other.html"><a href="chap-other.html#nonparametric-tests"><i class="fa fa-check"></i><b>10.5</b> Nonparametric Tests</a></li>
-<li class="chapter" data-level="10.6" data-path="chap-other.html"><a href="chap-other.html#wilcoxons-rank-sum-test"><i class="fa fa-check"></i><b>10.6</b> Wilcoxon’s Rank Sum Test</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-2"><i class="fa fa-check"></i><b>10.6.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.6.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-5"><i class="fa fa-check"></i><b>10.6.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.6.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-3"><i class="fa fa-check"></i><b>10.6.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="chap-other.html"><a href="chap-other.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>10.7</b> Kruskal-Wallis test</a>
-<ul>
-<li class="chapter" data-level="10.7.1" data-path="chap-other.html"><a href="chap-other.html#assumptions-3"><i class="fa fa-check"></i><b>10.7.1</b> Assumptions</a></li>
-<li class="chapter" data-level="10.7.2" data-path="chap-other.html"><a href="chap-other.html#hypotheses-6"><i class="fa fa-check"></i><b>10.7.2</b> Hypotheses</a></li>
-<li class="chapter" data-level="10.7.3" data-path="chap-other.html"><a href="chap-other.html#analysis-in-r-4"><i class="fa fa-check"></i><b>10.7.3</b> Analysis in R</a></li>
-</ul></li>
-<li class="chapter" data-level="10.8" data-path="chap-other.html"><a href="chap-other.html#summary-of-the-tests"><i class="fa fa-check"></i><b>10.8</b> Summary of the Tests</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="chap-cor.html"><a href="chap-cor.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="chap-cor.html"><a href="chap-cor.html#covariance"><i class="fa fa-check"></i><b>11.1</b> Covariance</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="chap-cor.html"><a href="chap-cor.html#population-covariance"><i class="fa fa-check"></i><b>11.1.1</b> Population Covariance</a></li>
-<li class="chapter" data-level="11.1.2" data-path="chap-cor.html"><a href="chap-cor.html#relationship-with-variance"><i class="fa fa-check"></i><b>11.1.2</b> Relationship with Variance</a></li>
-<li class="chapter" data-level="11.1.3" data-path="chap-cor.html"><a href="chap-cor.html#interpretation"><i class="fa fa-check"></i><b>11.1.3</b> Interpretation</a></li>
-<li class="chapter" data-level="11.1.4" data-path="chap-cor.html"><a href="chap-cor.html#sample-covariance"><i class="fa fa-check"></i><b>11.1.4</b> Sample Covariance</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="chap-cor.html"><a href="chap-cor.html#correlation-coefficient"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficient</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="chap-cor.html"><a href="chap-cor.html#population-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.1</b> Population Correlation Coefficient</a></li>
-<li class="chapter" data-level="11.2.2" data-path="chap-cor.html"><a href="chap-cor.html#interpretation-1"><i class="fa fa-check"></i><b>11.2.2</b> Interpretation</a></li>
-<li class="chapter" data-level="11.2.3" data-path="chap-cor.html"><a href="chap-cor.html#sample-correlation-coefficient"><i class="fa fa-check"></i><b>11.2.3</b> Sample Correlation Coefficient</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="chap-cor.html"><a href="chap-cor.html#correlation-test"><i class="fa fa-check"></i><b>11.3</b> Correlation Test</a></li>
-<li class="chapter" data-level="11.4" data-path="chap-cor.html"><a href="chap-cor.html#summary-2"><i class="fa fa-check"></i><b>11.4</b> Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-simple"><i class="fa fa-check"></i><b>12.1</b> Simple Linear Regression</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="linear-regression.html"><a href="linear-regression.html#the-model"><i class="fa fa-check"></i><b>12.1.1</b> The Model</a></li>
-<li class="chapter" data-level="12.1.2" data-path="linear-regression.html"><a href="linear-regression.html#fitting-the-model-to-the-sample-data"><i class="fa fa-check"></i><b>12.1.2</b> Fitting the Model to the Sample Data</a></li>
-<li class="chapter" data-level="12.1.3" data-path="linear-regression.html"><a href="linear-regression.html#the-least-squares-regression-line"><i class="fa fa-check"></i><b>12.1.3</b> The Least Squares Regression Line</a></li>
-<li class="chapter" data-level="12.1.4" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-interpretation"><i class="fa fa-check"></i><b>12.1.4</b> Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#linear-regression-inference"><i class="fa fa-check"></i><b>12.2</b> Linear Regression Inference</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-assumptions"><i class="fa fa-check"></i><b>12.2.1</b> Assumptions</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#ols-sec-inference"><i class="fa fa-check"></i><b>12.2.2</b> Inference</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-of-the-model"><i class="fa fa-check"></i><b>12.3</b> Goodness of Fit of the Model</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3.1</b> Residuals</a></li>
-<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.2</b> Coefficient of Determination (<span class="math inline">\(R^2\)</span>)</a></li>
-<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#influential-points"><i class="fa fa-check"></i><b>12.3.3</b> Influential Points</a></li>
-<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#checking-assumptions"><i class="fa fa-check"></i><b>12.3.4</b> Checking Assumptions</a></li>
-</ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#predicted-value"><i class="fa fa-check"></i><b>12.4</b> Predicted Value</a></li>
-<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>12.5</b> Multiple Linear Regression</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="app-rintro.html"><a href="app-rintro.html"><i class="fa fa-check"></i><b>A</b> Introduction to R</a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="app-rintro.html"><a href="app-rintro.html#why-r"><i class="fa fa-check"></i><b>A.1</b> Why R?</a></li>
-<li class="chapter" data-level="A.2" data-path="app-rintro.html"><a href="app-rintro.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="app-rintro.html"><a href="app-rintro.html#the-rstudio-interface"><i class="fa fa-check"></i><b>A.3</b> The RStudio Interface</a></li>
-<li class="chapter" data-level="A.4" data-path="app-rintro.html"><a href="app-rintro.html#helper-codes"><i class="fa fa-check"></i><b>A.4</b> Helper Codes</a>
-<ul>
-<li class="chapter" data-level="A.4.1" data-path="app-rintro.html"><a href="app-rintro.html#packages"><i class="fa fa-check"></i><b>A.4.1</b> Packages</a></li>
-<li class="chapter" data-level="A.4.2" data-path="app-rintro.html"><a href="app-rintro.html#rintro-sec-help"><i class="fa fa-check"></i><b>A.4.2</b> Getting Help</a></li>
-<li class="chapter" data-level="A.4.3" data-path="app-rintro.html"><a href="app-rintro.html#leaving-comments"><i class="fa fa-check"></i><b>A.4.3</b> Leaving Comments</a></li>
-</ul></li>
-<li class="chapter" data-level="A.5" data-path="app-rintro.html"><a href="app-rintro.html#basic-calculations"><i class="fa fa-check"></i><b>A.5</b> Basic Calculations</a></li>
-<li class="chapter" data-level="A.6" data-path="app-rintro.html"><a href="app-rintro.html#objects"><i class="fa fa-check"></i><b>A.6</b> Objects</a></li>
-<li class="chapter" data-level="A.7" data-path="app-rintro.html"><a href="app-rintro.html#vectors"><i class="fa fa-check"></i><b>A.7</b> Vectors</a>
-<ul>
-<li class="chapter" data-level="A.7.1" data-path="app-rintro.html"><a href="app-rintro.html#vector-creation"><i class="fa fa-check"></i><b>A.7.1</b> Vector Creation</a></li>
-<li class="chapter" data-level="A.7.2" data-path="app-rintro.html"><a href="app-rintro.html#vector-operations"><i class="fa fa-check"></i><b>A.7.2</b> Vector Operations</a></li>
-<li class="chapter" data-level="A.7.3" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-vectors"><i class="fa fa-check"></i><b>A.7.3</b> Extracting Elements from Vectors</a></li>
-</ul></li>
-<li class="chapter" data-level="A.8" data-path="app-rintro.html"><a href="app-rintro.html#data-sets"><i class="fa fa-check"></i><b>A.8</b> Data Sets</a>
-<ul>
-<li class="chapter" data-level="A.8.1" data-path="app-rintro.html"><a href="app-rintro.html#data-frame"><i class="fa fa-check"></i><b>A.8.1</b> Data Frame</a></li>
-<li class="chapter" data-level="A.8.2" data-path="app-rintro.html"><a href="app-rintro.html#load-data-files"><i class="fa fa-check"></i><b>A.8.2</b> Load Data Files</a></li>
-<li class="chapter" data-level="A.8.3" data-path="app-rintro.html"><a href="app-rintro.html#working-directory"><i class="fa fa-check"></i><b>A.8.3</b> Working Directory</a></li>
-<li class="chapter" data-level="A.8.4" data-path="app-rintro.html"><a href="app-rintro.html#extracting-elements-from-a-data-frame"><i class="fa fa-check"></i><b>A.8.4</b> Extracting Elements from a Data Frame</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -687,38 +597,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Or I can calculate the frequency and % relative frequency in <strong>R</strong> with the following code</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-des.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the data set and save it as &quot;rent&quot; in the environment</span></span>
-<span id="cb1-2"><a href="chap-des.html#cb1-2" aria-hidden="true" tabindex="-1"></a>rent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fakeRent.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chap-des.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the frequency table and save it as &quot;fac.freq&quot; in the R environment</span></span>
-<span id="cb2-2"><a href="chap-des.html#cb2-2" aria-hidden="true" tabindex="-1"></a>fac.freq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)</span>
-<span id="cb2-3"><a href="chap-des.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="chap-des.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the frequency table</span></span>
-<span id="cb2-5"><a href="chap-des.html#cb2-5" aria-hidden="true" tabindex="-1"></a>fac.freq</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-des.html#cb1-1" tabindex="-1"></a><span class="co"># read the data set and save it as &quot;rent&quot; in the environment</span></span>
+<span id="cb1-2"><a href="chap-des.html#cb1-2" tabindex="-1"></a>rent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fakeRent.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chap-des.html#cb2-1" tabindex="-1"></a><span class="co"># calculate the frequency table and save it as &quot;fac.freq&quot; in the R environment</span></span>
+<span id="cb2-2"><a href="chap-des.html#cb2-2" tabindex="-1"></a>fac.freq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)</span>
+<span id="cb2-3"><a href="chap-des.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="chap-des.html#cb2-4" tabindex="-1"></a><span class="co"># print the frequency table</span></span>
+<span id="cb2-5"><a href="chap-des.html#cb2-5" tabindex="-1"></a>fac.freq</span></code></pre></div>
 <pre><code>## 
 ##        Arts Engineering Environment      Health        Math     Science 
 ##         160         246         125         199         376         239</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chap-des.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the relative frequency table and save it as &quot;fac.relfreq&quot; in the R environment</span></span>
-<span id="cb4-2"><a href="chap-des.html#cb4-2" aria-hidden="true" tabindex="-1"></a>fac.relfreq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)<span class="sc">/</span><span class="fu">nrow</span>(rent) <span class="co">#nrow(rent) gives the number of students observed in the &quot;rent&quot; data set</span></span>
-<span id="cb4-3"><a href="chap-des.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="chap-des.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the relative frequency table</span></span>
-<span id="cb4-5"><a href="chap-des.html#cb4-5" aria-hidden="true" tabindex="-1"></a>fac.relfreq</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chap-des.html#cb4-1" tabindex="-1"></a><span class="co"># calculate the relative frequency table and save it as &quot;fac.relfreq&quot; in the R environment</span></span>
+<span id="cb4-2"><a href="chap-des.html#cb4-2" tabindex="-1"></a>fac.relfreq <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>faculty)<span class="sc">/</span><span class="fu">nrow</span>(rent) <span class="co">#nrow(rent) gives the number of students observed in the &quot;rent&quot; data set</span></span>
+<span id="cb4-3"><a href="chap-des.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="chap-des.html#cb4-4" tabindex="-1"></a><span class="co"># print the relative frequency table</span></span>
+<span id="cb4-5"><a href="chap-des.html#cb4-5" tabindex="-1"></a>fac.relfreq</span></code></pre></div>
 <pre><code>## 
 ##        Arts Engineering Environment      Health        Math     Science 
 ##   0.1189591   0.1828996   0.0929368   0.1479554   0.2795539   0.1776952</code></pre>
 <p>Using these frequency tables, we can plot a bar plot in <strong>R</strong>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chap-des.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the bar plot of the calculated frequency table</span></span>
-<span id="cb6-2"><a href="chap-des.html#cb6-2" aria-hidden="true" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.relfreq,                             <span class="co"># frequency table</span></span>
-<span id="cb6-3"><a href="chap-des.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">space =</span> <span class="fl">0.5</span>,                                   <span class="co"># space in between the bars</span></span>
-<span id="cb6-4"><a href="chap-des.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.names =</span> <span class="fl">0.6</span>,                               <span class="co"># font size of bar names in the x-axis</span></span>
-<span id="cb6-5"><a href="chap-des.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.32</span>),                             <span class="co"># limits for y-axis</span></span>
-<span id="cb6-6"><a href="chap-des.html#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;% Relative frequency&quot;</span>,                 <span class="co"># label of the y-axis</span></span>
-<span id="cb6-7"><a href="chap-des.html#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Bar plot for the faculty of students&quot;</span>) <span class="co"># title of the plot</span></span>
-<span id="cb6-8"><a href="chap-des.html#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="chap-des.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># annotate numbers at the top of the barplot</span></span>
-<span id="cb6-10"><a href="chap-des.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp,                                           <span class="co"># the barplot</span></span>
-<span id="cb6-11"><a href="chap-des.html#cb6-11" aria-hidden="true" tabindex="-1"></a>     fac.relfreq<span class="fl">+0.02</span>,                             <span class="co"># positions of the numbers</span></span>
-<span id="cb6-12"><a href="chap-des.html#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the numbers, as percentage</span></span>
-<span id="cb6-13"><a href="chap-des.html#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)                                      <span class="co"># size of the annotated numbers</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chap-des.html#cb6-1" tabindex="-1"></a><span class="co"># plot the bar plot of the calculated frequency table</span></span>
+<span id="cb6-2"><a href="chap-des.html#cb6-2" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.relfreq,                             <span class="co"># frequency table</span></span>
+<span id="cb6-3"><a href="chap-des.html#cb6-3" tabindex="-1"></a>        <span class="at">space =</span> <span class="fl">0.5</span>,                                   <span class="co"># space in between the bars</span></span>
+<span id="cb6-4"><a href="chap-des.html#cb6-4" tabindex="-1"></a>        <span class="at">cex.names =</span> <span class="fl">0.6</span>,                               <span class="co"># font size of bar names in the x-axis</span></span>
+<span id="cb6-5"><a href="chap-des.html#cb6-5" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.32</span>),                             <span class="co"># limits for y-axis</span></span>
+<span id="cb6-6"><a href="chap-des.html#cb6-6" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;% Relative frequency&quot;</span>,                 <span class="co"># label of the y-axis</span></span>
+<span id="cb6-7"><a href="chap-des.html#cb6-7" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Bar plot for the faculty of students&quot;</span>) <span class="co"># title of the plot</span></span>
+<span id="cb6-8"><a href="chap-des.html#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="chap-des.html#cb6-9" tabindex="-1"></a><span class="co"># annotate numbers at the top of the barplot</span></span>
+<span id="cb6-10"><a href="chap-des.html#cb6-10" tabindex="-1"></a><span class="fu">text</span>(bp,                                           <span class="co"># the barplot</span></span>
+<span id="cb6-11"><a href="chap-des.html#cb6-11" tabindex="-1"></a>     fac.relfreq<span class="fl">+0.02</span>,                             <span class="co"># positions of the numbers</span></span>
+<span id="cb6-12"><a href="chap-des.html#cb6-12" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the numbers, as percentage</span></span>
+<span id="cb6-13"><a href="chap-des.html#cb6-13" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)                                      <span class="co"># size of the annotated numbers</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-bar-onevar"></span>
 <img src="_main_files/figure-html/des-bar-onevar-1.png" alt="Bar plot of students' faculties in the sample data" width="672" height="35%" />
 <p class="caption">
@@ -726,20 +636,20 @@ Figure 2.1: Bar plot of students’ faculties in the sample data
 </p>
 </div>
 <p>We can also create a pie plot.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-des.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the pie plot</span></span>
-<span id="cb7-2"><a href="chap-des.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(fac.relfreq,                                    <span class="co"># the frequency table</span></span>
-<span id="cb7-3"><a href="chap-des.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the number annotated in the pie plot</span></span>
-<span id="cb7-4"><a href="chap-des.html#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">clockwise =</span> <span class="cn">TRUE</span>,                               <span class="co"># whether the pie will plot the data clock-wise  </span></span>
-<span id="cb7-5"><a href="chap-des.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
-<span id="cb7-6"><a href="chap-des.html#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),             <span class="co"># colors of the pie slices</span></span>
-<span id="cb7-7"><a href="chap-des.html#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Pie plot of faculty&quot;</span>)                   <span class="co"># title of the plot</span></span>
-<span id="cb7-8"><a href="chap-des.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="chap-des.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># drawing a legend in the plot</span></span>
-<span id="cb7-10"><a href="chap-des.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>,                       <span class="co"># position of the legend relative to the plot</span></span>
-<span id="cb7-11"><a href="chap-des.html#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">names</span>(fac.relfreq),        <span class="co"># names of the pie slices (i.e., the column names of the frequency table)</span></span>
-<span id="cb7-12"><a href="chap-des.html#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
-<span id="cb7-13"><a href="chap-des.html#cb7-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),    <span class="co"># colors of the pie slices </span></span>
-<span id="cb7-14"><a href="chap-des.html#cb7-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.7</span>)                          <span class="co"># size of the legend&#39;s words</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-des.html#cb7-1" tabindex="-1"></a><span class="co"># create the pie plot</span></span>
+<span id="cb7-2"><a href="chap-des.html#cb7-2" tabindex="-1"></a><span class="fu">pie</span>(fac.relfreq,                                    <span class="co"># the frequency table</span></span>
+<span id="cb7-3"><a href="chap-des.html#cb7-3" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(fac.relfreq<span class="sc">*</span><span class="dv">100</span>, <span class="dv">1</span>),<span class="st">&quot;%&quot;</span>), <span class="co"># the number annotated in the pie plot</span></span>
+<span id="cb7-4"><a href="chap-des.html#cb7-4" tabindex="-1"></a>    <span class="at">clockwise =</span> <span class="cn">TRUE</span>,                               <span class="co"># whether the pie will plot the data clock-wise  </span></span>
+<span id="cb7-5"><a href="chap-des.html#cb7-5" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
+<span id="cb7-6"><a href="chap-des.html#cb7-6" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),             <span class="co"># colors of the pie slices</span></span>
+<span id="cb7-7"><a href="chap-des.html#cb7-7" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">&quot;Pie plot of faculty&quot;</span>)                   <span class="co"># title of the plot</span></span>
+<span id="cb7-8"><a href="chap-des.html#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="chap-des.html#cb7-9" tabindex="-1"></a><span class="co"># drawing a legend in the plot</span></span>
+<span id="cb7-10"><a href="chap-des.html#cb7-10" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>,                       <span class="co"># position of the legend relative to the plot</span></span>
+<span id="cb7-11"><a href="chap-des.html#cb7-11" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">names</span>(fac.relfreq),        <span class="co"># names of the pie slices (i.e., the column names of the frequency table)</span></span>
+<span id="cb7-12"><a href="chap-des.html#cb7-12" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, </span>
+<span id="cb7-13"><a href="chap-des.html#cb7-13" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;violet&quot;</span>),    <span class="co"># colors of the pie slices </span></span>
+<span id="cb7-14"><a href="chap-des.html#cb7-14" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.7</span>)                          <span class="co"># size of the legend&#39;s words</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-pie"></span>
 <img src="_main_files/figure-html/des-pie-1.png" alt="Pie plot of students' faculties in the sample data" width="672" height="30%" />
 <p class="caption">
@@ -755,37 +665,37 @@ Figure 2.2: Pie plot of students’ faculties in the sample data
 <div class="myExample">
 <div class="example">
 <p><span id="exm:unlabeled-div-27" class="example"><strong>Example 2.2  </strong></span>Now, suppose that I am interested in both students’ faculty and gender. I can calculate a two-way frequency table.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chap-des.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate a two-way frequency table by gender and faculty and save it as an object called &quot;fac.gender&quot; in R environment</span></span>
-<span id="cb8-2"><a href="chap-des.html#cb8-2" aria-hidden="true" tabindex="-1"></a>fac.gender <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>gender, rent<span class="sc">$</span>faculty)</span>
-<span id="cb8-3"><a href="chap-des.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="chap-des.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print the calculated frequency table</span></span>
-<span id="cb8-5"><a href="chap-des.html#cb8-5" aria-hidden="true" tabindex="-1"></a>fac.gender</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chap-des.html#cb8-1" tabindex="-1"></a><span class="co"># calculate a two-way frequency table by gender and faculty and save it as an object called &quot;fac.gender&quot; in R environment</span></span>
+<span id="cb8-2"><a href="chap-des.html#cb8-2" tabindex="-1"></a>fac.gender <span class="ot">&lt;-</span> <span class="fu">table</span>(rent<span class="sc">$</span>gender, rent<span class="sc">$</span>faculty)</span>
+<span id="cb8-3"><a href="chap-des.html#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="chap-des.html#cb8-4" tabindex="-1"></a><span class="co"># print the calculated frequency table</span></span>
+<span id="cb8-5"><a href="chap-des.html#cb8-5" tabindex="-1"></a>fac.gender</span></code></pre></div>
 <pre><code>##         
 ##          Arts Engineering Environment Health Math Science
 ##   Female   80          52          58    104  133      73
 ##   Male     63         157          46     62  177     120
 ##   Others   17          37          21     33   66      46</code></pre>
 <p>The side-by-side bar plot of students’ faculty and gender can be plotted using the following <strong>R</strong> code:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chap-des.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
-<span id="cb10-2"><a href="chap-des.html#cb10-2" aria-hidden="true" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
-<span id="cb10-3"><a href="chap-des.html#cb10-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
-<span id="cb10-4"><a href="chap-des.html#cb10-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
-<span id="cb10-5"><a href="chap-des.html#cb10-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
-<span id="cb10-6"><a href="chap-des.html#cb10-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">TRUE</span>,                     <span class="co"># whether the bar plot is side-by-side</span></span>
-<span id="cb10-7"><a href="chap-des.html#cb10-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>), <span class="co"># colors of the different genders</span></span>
-<span id="cb10-8"><a href="chap-des.html#cb10-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">190</span>))</span>
-<span id="cb10-9"><a href="chap-des.html#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="chap-des.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
-<span id="cb10-11"><a href="chap-des.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
-<span id="cb10-12"><a href="chap-des.html#cb10-12" aria-hidden="true" tabindex="-1"></a>     fac.gender<span class="sc">+</span><span class="dv">8</span>, </span>
-<span id="cb10-13"><a href="chap-des.html#cb10-13" aria-hidden="true" tabindex="-1"></a>     fac.gender,    <span class="co"># now the numbers are the counts instead of percentages, because fac.gender is a frequency table, not a % relative frequency table as in Figure 2.1</span></span>
-<span id="cb10-14"><a href="chap-des.html#cb10-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
-<span id="cb10-15"><a href="chap-des.html#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="chap-des.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
-<span id="cb10-17"><a href="chap-des.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
-<span id="cb10-18"><a href="chap-des.html#cb10-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
-<span id="cb10-19"><a href="chap-des.html#cb10-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
-<span id="cb10-20"><a href="chap-des.html#cb10-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chap-des.html#cb10-1" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
+<span id="cb10-2"><a href="chap-des.html#cb10-2" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
+<span id="cb10-3"><a href="chap-des.html#cb10-3" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
+<span id="cb10-4"><a href="chap-des.html#cb10-4" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
+<span id="cb10-5"><a href="chap-des.html#cb10-5" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
+<span id="cb10-6"><a href="chap-des.html#cb10-6" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">TRUE</span>,                     <span class="co"># whether the bar plot is side-by-side</span></span>
+<span id="cb10-7"><a href="chap-des.html#cb10-7" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>), <span class="co"># colors of the different genders</span></span>
+<span id="cb10-8"><a href="chap-des.html#cb10-8" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">190</span>))</span>
+<span id="cb10-9"><a href="chap-des.html#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="chap-des.html#cb10-10" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
+<span id="cb10-11"><a href="chap-des.html#cb10-11" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
+<span id="cb10-12"><a href="chap-des.html#cb10-12" tabindex="-1"></a>     fac.gender<span class="sc">+</span><span class="dv">8</span>, </span>
+<span id="cb10-13"><a href="chap-des.html#cb10-13" tabindex="-1"></a>     fac.gender,    <span class="co"># now the numbers are the counts instead of percentages, because fac.gender is a frequency table, not a % relative frequency table as in Figure 2.1</span></span>
+<span id="cb10-14"><a href="chap-des.html#cb10-14" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-15"><a href="chap-des.html#cb10-15" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="chap-des.html#cb10-16" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
+<span id="cb10-17"><a href="chap-des.html#cb10-17" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb10-18"><a href="chap-des.html#cb10-18" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
+<span id="cb10-19"><a href="chap-des.html#cb10-19" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
+<span id="cb10-20"><a href="chap-des.html#cb10-20" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-side-by-side"></span>
 <img src="_main_files/figure-html/des-side-by-side-1.png" alt="Counts of students by faculty and gender" width="65%" />
 <p class="caption">
@@ -794,46 +704,46 @@ Figure 2.3: Counts of students by faculty and gender
 </div>
 <p>From the plot, we can see that there are some faculties where the number of males is more than that of females and on the other hand, there are faculties where the opposite applies. Remember that this result is only reflecting the sample that I collected, it does <strong>not</strong> necessarily reflect the real distribution of students in the population. That is the case only when our sample is large and representative of the population.</p>
 <p>To plot a <strong>stacked</strong> bar plot, change the <code>beside</code> argument from <code>TRUE</code> to <code>FALSE</code>. However, it is not straightforward to annotate the numbers into the stacked bar plot. Look at the code below.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-des.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
-<span id="cb11-2"><a href="chap-des.html#cb11-2" aria-hidden="true" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
-<span id="cb11-3"><a href="chap-des.html#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
-<span id="cb11-4"><a href="chap-des.html#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
-<span id="cb11-5"><a href="chap-des.html#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
-<span id="cb11-6"><a href="chap-des.html#cb11-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">FALSE</span>, <span class="co"># now the bar plot is stacked instead of side-by-side</span></span>
-<span id="cb11-7"><a href="chap-des.html#cb11-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),        </span>
-<span id="cb11-8"><a href="chap-des.html#cb11-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>))</span>
-<span id="cb11-9"><a href="chap-des.html#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="chap-des.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate tables to input as annotated texts in the plot</span></span>
-<span id="cb11-11"><a href="chap-des.html#cb11-11" aria-hidden="true" tabindex="-1"></a>fac.gender.txt <span class="ot">&lt;-</span> <span class="fu">t</span>(fac.gender)</span>
-<span id="cb11-12"><a href="chap-des.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="chap-des.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># function to calculate the the y-coordinate at the middle of each stacked bar</span></span>
-<span id="cb11-14"><a href="chap-des.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># you do not need to understand this function in details, just run the code </span></span>
-<span id="cb11-15"><a href="chap-des.html#cb11-15" aria-hidden="true" tabindex="-1"></a>stacked_position <span class="ot">&lt;-</span> <span class="cf">function</span>(mat) {</span>
-<span id="cb11-16"><a href="chap-des.html#cb11-16" aria-hidden="true" tabindex="-1"></a>  ret <span class="ot">&lt;-</span> mat</span>
-<span id="cb11-17"><a href="chap-des.html#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mat)) {</span>
-<span id="cb11-18"><a href="chap-des.html#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb11-19"><a href="chap-des.html#cb11-19" aria-hidden="true" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb11-20"><a href="chap-des.html#cb11-20" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb11-21"><a href="chap-des.html#cb11-21" aria-hidden="true" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> ret[,i<span class="dv">-1</span>] <span class="sc">+</span> mat[,i<span class="dv">-1</span>]<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb11-22"><a href="chap-des.html#cb11-22" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-23"><a href="chap-des.html#cb11-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-24"><a href="chap-des.html#cb11-24" aria-hidden="true" tabindex="-1"></a>  ret</span>
-<span id="cb11-25"><a href="chap-des.html#cb11-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-26"><a href="chap-des.html#cb11-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-27"><a href="chap-des.html#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the position of the annotated texts in the plot using the stacked_position function defined above</span></span>
-<span id="cb11-28"><a href="chap-des.html#cb11-28" aria-hidden="true" tabindex="-1"></a>fac.gender.txt.position <span class="ot">&lt;-</span> <span class="fu">stacked_position</span>(fac.gender.txt)</span>
-<span id="cb11-29"><a href="chap-des.html#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="chap-des.html#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
-<span id="cb11-31"><a href="chap-des.html#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
-<span id="cb11-32"><a href="chap-des.html#cb11-32" aria-hidden="true" tabindex="-1"></a>     fac.gender.txt.position, </span>
-<span id="cb11-33"><a href="chap-des.html#cb11-33" aria-hidden="true" tabindex="-1"></a>     fac.gender.txt,</span>
-<span id="cb11-34"><a href="chap-des.html#cb11-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
-<span id="cb11-35"><a href="chap-des.html#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-36"><a href="chap-des.html#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
-<span id="cb11-37"><a href="chap-des.html#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
-<span id="cb11-38"><a href="chap-des.html#cb11-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
-<span id="cb11-39"><a href="chap-des.html#cb11-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
-<span id="cb11-40"><a href="chap-des.html#cb11-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-des.html#cb11-1" tabindex="-1"></a><span class="co"># create a side-by-side bar plot</span></span>
+<span id="cb11-2"><a href="chap-des.html#cb11-2" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(fac.gender, </span>
+<span id="cb11-3"><a href="chap-des.html#cb11-3" tabindex="-1"></a>               <span class="at">cex.names =</span> <span class="fl">0.6</span>, </span>
+<span id="cb11-4"><a href="chap-des.html#cb11-4" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;frequency&quot;</span>, </span>
+<span id="cb11-5"><a href="chap-des.html#cb11-5" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Number of students by faculty and gender&quot;</span>, </span>
+<span id="cb11-6"><a href="chap-des.html#cb11-6" tabindex="-1"></a>               <span class="at">beside =</span> <span class="cn">FALSE</span>, <span class="co"># now the bar plot is stacked instead of side-by-side</span></span>
+<span id="cb11-7"><a href="chap-des.html#cb11-7" tabindex="-1"></a>               <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),        </span>
+<span id="cb11-8"><a href="chap-des.html#cb11-8" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>))</span>
+<span id="cb11-9"><a href="chap-des.html#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="chap-des.html#cb11-10" tabindex="-1"></a><span class="co"># calculate tables to input as annotated texts in the plot</span></span>
+<span id="cb11-11"><a href="chap-des.html#cb11-11" tabindex="-1"></a>fac.gender.txt <span class="ot">&lt;-</span> <span class="fu">t</span>(fac.gender)</span>
+<span id="cb11-12"><a href="chap-des.html#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="chap-des.html#cb11-13" tabindex="-1"></a><span class="co"># function to calculate the the y-coordinate at the middle of each stacked bar</span></span>
+<span id="cb11-14"><a href="chap-des.html#cb11-14" tabindex="-1"></a><span class="co"># you do not need to understand this function in details, just run the code </span></span>
+<span id="cb11-15"><a href="chap-des.html#cb11-15" tabindex="-1"></a>stacked_position <span class="ot">&lt;-</span> <span class="cf">function</span>(mat) {</span>
+<span id="cb11-16"><a href="chap-des.html#cb11-16" tabindex="-1"></a>  ret <span class="ot">&lt;-</span> mat</span>
+<span id="cb11-17"><a href="chap-des.html#cb11-17" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mat)) {</span>
+<span id="cb11-18"><a href="chap-des.html#cb11-18" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb11-19"><a href="chap-des.html#cb11-19" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb11-20"><a href="chap-des.html#cb11-20" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb11-21"><a href="chap-des.html#cb11-21" tabindex="-1"></a>      ret[,i] <span class="ot">&lt;-</span> ret[,i<span class="dv">-1</span>] <span class="sc">+</span> mat[,i<span class="dv">-1</span>]<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> mat[,i]<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb11-22"><a href="chap-des.html#cb11-22" tabindex="-1"></a>    }</span>
+<span id="cb11-23"><a href="chap-des.html#cb11-23" tabindex="-1"></a>  }</span>
+<span id="cb11-24"><a href="chap-des.html#cb11-24" tabindex="-1"></a>  ret</span>
+<span id="cb11-25"><a href="chap-des.html#cb11-25" tabindex="-1"></a>}</span>
+<span id="cb11-26"><a href="chap-des.html#cb11-26" tabindex="-1"></a>  </span>
+<span id="cb11-27"><a href="chap-des.html#cb11-27" tabindex="-1"></a><span class="co"># calculate the position of the annotated texts in the plot using the stacked_position function defined above</span></span>
+<span id="cb11-28"><a href="chap-des.html#cb11-28" tabindex="-1"></a>fac.gender.txt.position <span class="ot">&lt;-</span> <span class="fu">stacked_position</span>(fac.gender.txt)</span>
+<span id="cb11-29"><a href="chap-des.html#cb11-29" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="chap-des.html#cb11-30" tabindex="-1"></a><span class="co"># add text annotation to the bar plot</span></span>
+<span id="cb11-31"><a href="chap-des.html#cb11-31" tabindex="-1"></a><span class="fu">text</span>(bp2, </span>
+<span id="cb11-32"><a href="chap-des.html#cb11-32" tabindex="-1"></a>     fac.gender.txt.position, </span>
+<span id="cb11-33"><a href="chap-des.html#cb11-33" tabindex="-1"></a>     fac.gender.txt,</span>
+<span id="cb11-34"><a href="chap-des.html#cb11-34" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb11-35"><a href="chap-des.html#cb11-35" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="chap-des.html#cb11-36" tabindex="-1"></a><span class="co"># add a legend to the bar plot</span></span>
+<span id="cb11-37"><a href="chap-des.html#cb11-37" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, </span>
+<span id="cb11-38"><a href="chap-des.html#cb11-38" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">rownames</span>(fac.gender), </span>
+<span id="cb11-39"><a href="chap-des.html#cb11-39" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>),</span>
+<span id="cb11-40"><a href="chap-des.html#cb11-40" tabindex="-1"></a>       <span class="at">cex =</span> <span class="dv">1</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-stacked"></span>
 <img src="_main_files/figure-html/des-stacked-1.png" alt="Counts of students by faculty and gender" width="65%" />
 <p class="caption">
@@ -870,12 +780,12 @@ Figure 2.4: Counts of students by faculty and gender
 760 &amp; 730 &amp; 730 &amp; 910 &amp; 960 &amp; 350 &amp; 940 &amp; 710
 \end{array}\]</span></p>
 <p>The stem plot for this 24 observations can be plotted in <strong>R</strong> using the following code:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-des.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the first 24 rent data into a variable called &quot;dat&quot; in the R environment</span></span>
-<span id="cb12-2"><a href="chap-des.html#cb12-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
-<span id="cb12-3"><a href="chap-des.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="chap-des.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the stem plot</span></span>
-<span id="cb12-5"><a href="chap-des.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(dat,         <span class="co"># the data to be plotted</span></span>
-<span id="cb12-6"><a href="chap-des.html#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">scale =</span> <span class="dv">2</span>)   <span class="co"># scale = 1 gives even-numbered stems, scale = 2 gives all available stems</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-des.html#cb12-1" tabindex="-1"></a><span class="co"># save the first 24 rent data into a variable called &quot;dat&quot; in the R environment</span></span>
+<span id="cb12-2"><a href="chap-des.html#cb12-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
+<span id="cb12-3"><a href="chap-des.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="chap-des.html#cb12-4" tabindex="-1"></a><span class="co"># create the stem plot</span></span>
+<span id="cb12-5"><a href="chap-des.html#cb12-5" tabindex="-1"></a><span class="fu">stem</span>(dat,         <span class="co"># the data to be plotted</span></span>
+<span id="cb12-6"><a href="chap-des.html#cb12-6" tabindex="-1"></a>     <span class="at">scale =</span> <span class="dv">2</span>)   <span class="co"># scale = 1 gives even-numbered stems, scale = 2 gives all available stems</span></span></code></pre></div>
 <pre><code>## 
 ##   The decimal point is 2 digit(s) to the right of the |
 ## 
@@ -896,7 +806,7 @@ Figure 2.4: Counts of students by faculty and gender
 <p>There are three parts in a stem plot:</p>
 <ul>
 <li><p><strong>legend</strong>: the legend tells us about the number of digits that the decimal point is to the right of |. In other words, this tells us how the number is split. In the previous example, the legend says that the decimal point is two digits to the right of |. For example, consider the first number in the plot</p>
-<p><img src="data/images/chap-des/stem_plot_rule.png" width="134" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-des/stem_plot_rule.png" style="display: block; margin: auto;" /></p>
 <p>To know the first number, we start by placing the decimal point at the | then move it to the right or left as specified in the legend. In the above picture, we move the decimal point two digits to the right and get 350.0</p></li>
 <li><p><strong>stem</strong>: is the number to be used to categorize the observations. In Example <a href="chap-des.html#exm:ex-des-24-leaf">2.3</a>, the stem is the hundred.</p></li>
 <li><p><strong>leaves</strong>: each leaf represents an observation in our data set. In a stem plot the leaves are ordered in <strong>ascending order</strong>.</p></li>
@@ -945,19 +855,19 @@ Figure 2.4: Counts of students by faculty and gender
 <p><span id="exm:unlabeled-div-29" class="example"><strong>Example 2.5  </strong></span>Consider the sorted data (<span class="math inline">\(n=12\)</span>)</p>
 <p><span class="math display">\[35, 54, 55, 59, 68, 70, 71, 72, 73, 73, 76, 80\]</span></p>
 <p>Suppose we want to find the <span class="math inline">\(0.3\)</span>-quantile. The position of our interest will then be <span class="math inline">\(12 \times 0.3 = 3.6\)</span>. Because this is not an integer, we need to round this up and take the value at the <span class="math inline">\(4\)</span>rd position. So the <span class="math inline">\(0.3\)</span>-quantile is <span class="math inline">\(59\)</span>. We can also calculate this in <strong>R</strong>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chap-des.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the data into a variable called &quot;dat&quot;</span></span>
-<span id="cb14-2"><a href="chap-des.html#cb14-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">54</span>, <span class="dv">55</span>, <span class="dv">59</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">71</span>, <span class="dv">72</span>, <span class="dv">73</span>, <span class="dv">73</span>, <span class="dv">76</span>, <span class="dv">80</span>)</span>
-<span id="cb14-3"><a href="chap-des.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="chap-des.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the 0.3-quantile</span></span>
-<span id="cb14-5"><a href="chap-des.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(dat,         <span class="co"># the data whose quantile is to be calculated</span></span>
-<span id="cb14-6"><a href="chap-des.html#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.3</span>, <span class="co"># the probability at which the quantile is calculated</span></span>
-<span id="cb14-7"><a href="chap-des.html#cb14-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)    <span class="co"># the type of quantile-finding algorithm to use</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chap-des.html#cb14-1" tabindex="-1"></a><span class="co"># save the data into a variable called &quot;dat&quot;</span></span>
+<span id="cb14-2"><a href="chap-des.html#cb14-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">54</span>, <span class="dv">55</span>, <span class="dv">59</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">71</span>, <span class="dv">72</span>, <span class="dv">73</span>, <span class="dv">73</span>, <span class="dv">76</span>, <span class="dv">80</span>)</span>
+<span id="cb14-3"><a href="chap-des.html#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="chap-des.html#cb14-4" tabindex="-1"></a><span class="co"># calculate the 0.3-quantile</span></span>
+<span id="cb14-5"><a href="chap-des.html#cb14-5" tabindex="-1"></a><span class="fu">quantile</span>(dat,         <span class="co"># the data whose quantile is to be calculated</span></span>
+<span id="cb14-6"><a href="chap-des.html#cb14-6" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.3</span>, <span class="co"># the probability at which the quantile is calculated</span></span>
+<span id="cb14-7"><a href="chap-des.html#cb14-7" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)    <span class="co"># the type of quantile-finding algorithm to use</span></span></code></pre></div>
 <pre><code>## 30% 
 ##  59</code></pre>
 <p>Now suppose we want to find the <span class="math inline">\(0.75\)</span>-quantile. The position of interest is <span class="math inline">\(12 \times 0.75 = 9\)</span>, which is an integer. We then take the average of the values in the <span class="math inline">\(9\)</span>th and <span class="math inline">\(10\)</span>th position, i.e., <span class="math inline">\((73+73)/2 = 73\)</span>. The <strong>R</strong> code is then</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chap-des.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(dat,         </span>
-<span id="cb16-2"><a href="chap-des.html#cb16-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.75</span>, </span>
-<span id="cb16-3"><a href="chap-des.html#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chap-des.html#cb16-1" tabindex="-1"></a><span class="fu">quantile</span>(dat,         </span>
+<span id="cb16-2"><a href="chap-des.html#cb16-2" tabindex="-1"></a>         <span class="at">probs =</span> <span class="fl">0.75</span>, </span>
+<span id="cb16-3"><a href="chap-des.html#cb16-3" tabindex="-1"></a>         <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 75% 
 ##  73</code></pre>
 </div>
@@ -1040,14 +950,14 @@ Figure 2.5: Elements of a box plot
 <p>The maximum value smaller than UL is <span class="math inline">\(1120\)</span>.</p>
 <p>The minimum value larger than LL is <span class="math inline">\(540\)</span>.</p>
 <p>We can draw the box plot as follows</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chap-des.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the first 24 students&#39; rent into an object called &quot;dat&quot;</span></span>
-<span id="cb18-2"><a href="chap-des.html#cb18-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
-<span id="cb18-3"><a href="chap-des.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="chap-des.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the box plot</span></span>
-<span id="cb18-5"><a href="chap-des.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(dat,                                 <span class="co"># data to be plotted</span></span>
-<span id="cb18-6"><a href="chap-des.html#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>, <span class="co"># title of the plot</span></span>
-<span id="cb18-7"><a href="chap-des.html#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,                       <span class="co"># label of the x-axis</span></span>
-<span id="cb18-8"><a href="chap-des.html#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)                   <span class="co"># whether the box plot is horizontal or vertical</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chap-des.html#cb18-1" tabindex="-1"></a><span class="co"># save the first 24 students&#39; rent into an object called &quot;dat&quot;</span></span>
+<span id="cb18-2"><a href="chap-des.html#cb18-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> rent<span class="sc">$</span>rent[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>]</span>
+<span id="cb18-3"><a href="chap-des.html#cb18-3" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="chap-des.html#cb18-4" tabindex="-1"></a><span class="co"># draw the box plot</span></span>
+<span id="cb18-5"><a href="chap-des.html#cb18-5" tabindex="-1"></a><span class="fu">boxplot</span>(dat,                                 <span class="co"># data to be plotted</span></span>
+<span id="cb18-6"><a href="chap-des.html#cb18-6" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>, <span class="co"># title of the plot</span></span>
+<span id="cb18-7"><a href="chap-des.html#cb18-7" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,                       <span class="co"># label of the x-axis</span></span>
+<span id="cb18-8"><a href="chap-des.html#cb18-8" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>)                   <span class="co"># whether the box plot is horizontal or vertical</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-boxplot"></span>
 <img src="_main_files/figure-html/des-boxplot-1.png" alt="Box plot of rents for the first 24 students in the data set" width="60%" />
 <p class="caption">
@@ -1063,11 +973,11 @@ Figure 2.6: Box plot of rents for the first 24 students in the data set
 <div class="myExample">
 <div class="example">
 <p><span id="exm:unlabeled-div-31" class="example"><strong>Example 2.9  </strong></span>Suppose we want to compare the rent between different genders.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-des.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(rent<span class="sc">~</span>gender,        <span class="co"># box plot of rent column by gender column in the rent data set </span></span>
-<span id="cb19-2"><a href="chap-des.html#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> rent,        <span class="co"># the data set to be plotted from</span></span>
-<span id="cb19-3"><a href="chap-des.html#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,      </span>
-<span id="cb19-4"><a href="chap-des.html#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb19-5"><a href="chap-des.html#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-des.html#cb19-1" tabindex="-1"></a><span class="fu">boxplot</span>(rent<span class="sc">~</span>gender,        <span class="co"># box plot of rent column by gender column in the rent data set </span></span>
+<span id="cb19-2"><a href="chap-des.html#cb19-2" tabindex="-1"></a>        <span class="at">data =</span> rent,        <span class="co"># the data set to be plotted from</span></span>
+<span id="cb19-3"><a href="chap-des.html#cb19-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>,      </span>
+<span id="cb19-4"><a href="chap-des.html#cb19-4" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb19-5"><a href="chap-des.html#cb19-5" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Box plot of students&#39; rent&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-boxplot-gender"></span>
 <img src="_main_files/figure-html/des-boxplot-gender-1.png" alt="Box plot of students' rents by gender" width="60%" />
 <p class="caption">
@@ -1086,10 +996,10 @@ Figure 2.7: Box plot of students’ rents by gender
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-des-hist" class="example"><strong>Example 2.10  </strong></span>To draw a histogram of rent in the <code>fakeRent.csv</code> data, we use the code</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chap-des.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(rent<span class="sc">$</span>rent,   <span class="co"># data to be plotted</span></span>
-<span id="cb20-2"><a href="chap-des.html#cb20-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">10</span>, <span class="co"># number of breaks to divide the range into bins of equal length</span></span>
-<span id="cb20-3"><a href="chap-des.html#cb20-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of students&#39; of rent&quot;</span>, </span>
-<span id="cb20-4"><a href="chap-des.html#cb20-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chap-des.html#cb20-1" tabindex="-1"></a><span class="fu">hist</span>(rent<span class="sc">$</span>rent,   <span class="co"># data to be plotted</span></span>
+<span id="cb20-2"><a href="chap-des.html#cb20-2" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">10</span>, <span class="co"># number of breaks to divide the range into bins of equal length</span></span>
+<span id="cb20-3"><a href="chap-des.html#cb20-3" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram of students&#39; of rent&quot;</span>, </span>
+<span id="cb20-4"><a href="chap-des.html#cb20-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;rent&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:des-hist-big"></span>
 <img src="_main_files/figure-html/des-hist-big-1.png" alt="Histogram of students' rent" width="55%" />
 <p class="caption">
@@ -1177,26 +1087,26 @@ Figure 2.9: Histogram of students’ rent
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-des-mean" class="example"><strong>Example 2.12  </strong></span>We can calculate the mean, median, and modes using <strong>R</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chap-des.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean of the rent column in the rent data set</span></span>
-<span id="cb21-2"><a href="chap-des.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chap-des.html#cb21-1" tabindex="-1"></a><span class="co"># mean of the rent column in the rent data set</span></span>
+<span id="cb21-2"><a href="chap-des.html#cb21-2" tabindex="-1"></a><span class="fu">mean</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
 <pre><code>## [1] 767.0409</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chap-des.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median of the rent </span></span>
-<span id="cb23-2"><a href="chap-des.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chap-des.html#cb23-1" tabindex="-1"></a><span class="co"># median of the rent </span></span>
+<span id="cb23-2"><a href="chap-des.html#cb23-2" tabindex="-1"></a><span class="fu">median</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
 <pre><code>## [1] 760</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chap-des.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb25-2"><a href="chap-des.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(rent<span class="sc">$</span>rent, <span class="at">probs =</span> <span class="fl">0.5</span>, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chap-des.html#cb25-1" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb25-2"><a href="chap-des.html#cb25-2" tabindex="-1"></a><span class="fu">quantile</span>(rent<span class="sc">$</span>rent, <span class="at">probs =</span> <span class="fl">0.5</span>, <span class="at">type =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 50% 
 ## 760</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap-des.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a function to calculate the modes</span></span>
-<span id="cb27-2"><a href="chap-des.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># you do not need to understand the function in details, just run the code</span></span>
-<span id="cb27-3"><a href="chap-des.html#cb27-3" aria-hidden="true" tabindex="-1"></a>stat_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
-<span id="cb27-4"><a href="chap-des.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(vec)</span>
-<span id="cb27-5"><a href="chap-des.html#cb27-5" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vals), <span class="cf">function</span>(i) {<span class="fu">sum</span>(vec <span class="sc">==</span> vals[i])})</span>
-<span id="cb27-6"><a href="chap-des.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  vals[<span class="fu">which</span>(counts <span class="sc">==</span> <span class="fu">max</span>(counts))]</span>
-<span id="cb27-7"><a href="chap-des.html#cb27-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-8"><a href="chap-des.html#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="chap-des.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mode of the rent</span></span>
-<span id="cb27-10"><a href="chap-des.html#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_mode</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap-des.html#cb27-1" tabindex="-1"></a><span class="co"># a function to calculate the modes</span></span>
+<span id="cb27-2"><a href="chap-des.html#cb27-2" tabindex="-1"></a><span class="co"># you do not need to understand the function in details, just run the code</span></span>
+<span id="cb27-3"><a href="chap-des.html#cb27-3" tabindex="-1"></a>stat_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
+<span id="cb27-4"><a href="chap-des.html#cb27-4" tabindex="-1"></a>  vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(vec)</span>
+<span id="cb27-5"><a href="chap-des.html#cb27-5" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vals), <span class="cf">function</span>(i) {<span class="fu">sum</span>(vec <span class="sc">==</span> vals[i])})</span>
+<span id="cb27-6"><a href="chap-des.html#cb27-6" tabindex="-1"></a>  vals[<span class="fu">which</span>(counts <span class="sc">==</span> <span class="fu">max</span>(counts))]</span>
+<span id="cb27-7"><a href="chap-des.html#cb27-7" tabindex="-1"></a>}</span>
+<span id="cb27-8"><a href="chap-des.html#cb27-8" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="chap-des.html#cb27-9" tabindex="-1"></a><span class="co"># mode of the rent</span></span>
+<span id="cb27-10"><a href="chap-des.html#cb27-10" tabindex="-1"></a><span class="fu">stat_mode</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
 <pre><code>## [1] 720</code></pre>
 </div>
 </div>
@@ -1273,14 +1183,14 @@ s^2 &amp; = \frac{\sum{i=1}^24 x_i^2 - 24\bar{x}^2}{24-1} \\
 <div class="myExample">
 <div class="example">
 <p><span id="exm:unlabeled-div-33" class="example"><strong>Example 2.14  </strong></span>The variance and standard deviation of students’ rent in the <code>fakeRent.csv</code> data set is</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap-des.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variance</span></span>
-<span id="cb29-2"><a href="chap-des.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap-des.html#cb29-1" tabindex="-1"></a><span class="co"># variance</span></span>
+<span id="cb29-2"><a href="chap-des.html#cb29-2" tabindex="-1"></a><span class="fu">var</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
 <pre><code>## [1] 19045.7</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap-des.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation</span></span>
-<span id="cb31-2"><a href="chap-des.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap-des.html#cb31-1" tabindex="-1"></a><span class="co"># standard deviation</span></span>
+<span id="cb31-2"><a href="chap-des.html#cb31-2" tabindex="-1"></a><span class="fu">sd</span>(rent<span class="sc">$</span>rent)</span></code></pre></div>
 <pre><code>## [1] 138.0062</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-des.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or standard deviation = square root of variance</span></span>
-<span id="cb33-2"><a href="chap-des.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(rent<span class="sc">$</span>rent))</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-des.html#cb33-1" tabindex="-1"></a><span class="co"># or standard deviation = square root of variance</span></span>
+<span id="cb33-2"><a href="chap-des.html#cb33-2" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(rent<span class="sc">$</span>rent))</span></code></pre></div>
 <pre><code>## [1] 138.0062</code></pre>
 </div>
 </div>
@@ -1419,42 +1329,42 @@ Figure 2.13: Right-skewed distribution
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>
