@@ -249,6 +249,7 @@ fig:rintro-load-rstudio
 exr:exr-rintro-data-set
 fig:rmarkdown-chunk
 fig:rmarkdown-chunk-explain
+fig:rmarkdown-image-example
 fig:rmarkdown-knit
 exr:unlabeled-div-126
 chap-step
@@ -490,4 +491,9 @@ extracting-elements-from-a-data-frame
 app-rmarkdown
 install-rmarkdown
 components-of-a-rmarkdown-file
+metadata
+texts-and-maths
+r-codes-and-results
+images
+knitting-a-rmarkdown-file
 app-dataset

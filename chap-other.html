@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-12-18" />
+<meta name="date" content="2026-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>Main Content</b></span></li>
 <li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
@@ -546,7 +547,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
 <ul>
 <li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#metadata"><i class="fa fa-check"></i><b>B.2.1</b> Metadata</a></li>
+<li class="chapter" data-level="B.2.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#texts-and-maths"><i class="fa fa-check"></i><b>B.2.2</b> Texts and Maths</a></li>
+<li class="chapter" data-level="B.2.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#r-codes-and-results"><i class="fa fa-check"></i><b>B.2.3</b> R Codes and Results</a></li>
+<li class="chapter" data-level="B.2.4" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#images"><i class="fa fa-check"></i><b>B.2.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#knitting-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.3</b> Knitting A Rmarkdown File</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -827,7 +835,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb52-7"><a href="chap-other.html#cb52-7" tabindex="-1"></a><span class="co">#0.2 and 0.8 are the quantiles where the line is drawn</span></span>
 <span id="cb52-8"><a href="chap-other.html#cb52-8" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Arts&quot;</span>], </span>
 <span id="cb52-9"><a href="chap-other.html#cb52-9" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p>The points on the plot form a reasonably straight line, therefore, the normal assumption is quite reasonable for the rent expenses for Arts students.</p>
 <p>Now, if we want to plot QQplots for students from all faculties, we use the following code</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chap-other.html#cb53-1" tabindex="-1"></a><span class="co">#create a grid of two rows and three columns for the plots </span></span>
@@ -868,7 +876,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-36"><a href="chap-other.html#cb53-36" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">&quot;Science students&#39; rent&quot;</span>)</span>
 <span id="cb53-37"><a href="chap-other.html#cb53-37" tabindex="-1"></a><span class="fu">qqline</span>(rent<span class="sc">$</span>rent[rent<span class="sc">$</span>faculty <span class="sc">==</span> <span class="st">&quot;Science&quot;</span>], </span>
 <span id="cb53-38"><a href="chap-other.html#cb53-38" tabindex="-1"></a>       <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>Based on the plots, we can see that our data seem to satisfy the normality (normal distributions) assumption.</p>
 </div>
 </div>

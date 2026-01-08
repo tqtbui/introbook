@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-12-18" />
+<meta name="date" content="2026-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>Main Content</b></span></li>
 <li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
@@ -546,7 +547,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
 <ul>
 <li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#metadata"><i class="fa fa-check"></i><b>B.2.1</b> Metadata</a></li>
+<li class="chapter" data-level="B.2.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#texts-and-maths"><i class="fa fa-check"></i><b>B.2.2</b> Texts and Maths</a></li>
+<li class="chapter" data-level="B.2.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#r-codes-and-results"><i class="fa fa-check"></i><b>B.2.3</b> R Codes and Results</a></li>
+<li class="chapter" data-level="B.2.4" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#images"><i class="fa fa-check"></i><b>B.2.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#knitting-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.3</b> Knitting A Rmarkdown File</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -768,7 +776,7 @@ then each number appears roughly <span class="math inline">\(\frac{1}{6}\)</span
 <li><p><span class="math inline">\(C\)</span>: no heads are obtained</p></li>
 </ul>
 <p>The Venn diagram that represents these three events is</p>
-<p><img src="data/images/chap-prob/venn1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="empty">
@@ -779,7 +787,7 @@ then each number appears roughly <span class="math inline">\(\frac{1}{6}\)</span
 <p><span id="exm:unlabeled-div-41" class="example"><strong>Example 3.6  </strong></span>Consider rolling a six-sided die. We found in Example <a href="chap-prob.html#exm:ex-prob-6die-samplespace">3.3</a> that <span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>. Consider the following events
 <span class="math display">\[E = \{1,2,3\}, \hspace{3mm} F = \{2,3,4\}, \hspace{3mm} G = \{1, 5\}\]</span>
 The Venn diagram that represents these three events is</p>
-<p><img src="data/images/chap-prob/venn2.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn2.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="empty">
@@ -801,19 +809,19 @@ C = \{0,1,2,9\}, \hspace{5mm} D = \{1,4,9\} \]</span></p>
 <li><p>Notation: <span class="math inline">\(A \cap B\)</span> (pronounce “A intersection B” or “A and B”)</p></li>
 <li><p>Visually:</p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn4.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn4.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>Union</strong>: the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is a set that contains all outcomes that either in <span class="math inline">\(A\)</span> or in <span class="math inline">\(B\)</span>, or in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
 <ul>
 <li><p>Notation: <span class="math inline">\(A \cup B\)</span> (pronounce “A union B” or “A or B”)</p></li>
 <li><p>Visually:</p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn5.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn5.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>Complement</strong>: The complement of a set <span class="math inline">\(A\)</span> is a set that contains all outcomes that are <strong>not</strong> in <span class="math inline">\(A\)</span>.</p>
 <ul>
 <li><p>Notation: <span class="math inline">\(A^c\)</span> (pronounce “A complement” or “not A”)</p></li>
 <li><p>Visually:</p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn3.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn3.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p><span class="math inline">\(A \cap A^c = \emptyset\)</span> (where <span class="math inline">\(\emptyset\)</span> means “empty set”, i.e., nothing)</p></li>
 <li><p><span class="math inline">\(A \cup A^c = \Omega\)</span></p></li>
@@ -823,7 +831,7 @@ C = \{0,1,2,9\}, \hspace{5mm} D = \{1,4,9\} \]</span></p>
 <li><p><span class="math inline">\((A\cup B)^c = A^c \cap B^c\)</span></p></li>
 <li><p><span class="math inline">\((A\cap B)^c = A^c \cup B^c\)</span></p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn6.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn6.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <div class="myExample">
 <div class="example">
 <p><span id="exm:ex-prob-deMorgan" class="example"><strong>Example 3.7  </strong></span>Let us look at the first equality of the De Morgan’s law: <span class="math inline">\((A\cup B)^c = A^c \cap B^c\)</span></p>
@@ -850,7 +858,7 @@ C = \{0,1,2,9\}, \hspace{5mm} D = \{1,4,9\} \]</span></p>
 <li><p>Notation: <span class="math inline">\(A \cap B = \emptyset\)</span></p></li>
 <li><p>Visually:</p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn7.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn7.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>Addition rule</strong>: From the third requirement of the mathematical definition of probability in Section <a href="chap-prob.html#prob-sec-math-def">3.1.4</a>, we have:</p>
 <div class="myEquation">
 <p><span class="math display">\[\text{If } A \cap B = \emptyset, \text{then }\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)\]</span></p>
@@ -889,7 +897,7 @@ because based on the mathematical definition of a probability, <span class="math
 <div id="addition-rule-for-non-mutually-exclusive-events" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Addition Rule for Non-mutually-exclusive Events<a href="chap-prob.html#addition-rule-for-non-mutually-exclusive-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now consider the general case of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, not necessarily mutually exclusive. Again look at the Venn diagram</p>
-<p><img src="data/images/chap-prob/venn6.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn6.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>We have
 <span class="math display">\[\begin{align*}
 \mathbb{P}(A\cup B) &amp; = \mathbb{P}(A \cap B^c) + \mathbb{P}(A \cap B) + \mathbb{P}(A^c \cap B) \\
@@ -947,9 +955,9 @@ because based on the mathematical definition of a probability, <span class="math
 <h2><span class="header-section-number">3.3</span> Multiplication Rule<a href="chap-prob.html#multiplication-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="prob-sec-conditional" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Conditional Probability<a href="chap-prob.html#prob-sec-conditional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In Example <a href="chap-prob.html#exm:ex-prob-toss-coin">3.1</a>, we discussed that the results of tossing a fair coin can be affected by many factors. Usually, for a fair coin, we believe that there is half a chance to observe a head and half a chance to observe a tail. But, what if we <strong>know</strong> that the person will be tossing the coin is, say, myself, do I know <strong>better</strong> about the probability? That is, will the half-half probabilities <strong>change</strong>? Do I myself tend to toss heads slightly more often than tails? This is the main idea of conditional probability.</p>
+<p>In Example <a href="chap-prob.html#exm:ex-prob-toss-coin">3.1</a>, we discussed that the results of tossing a fair coin can be affected by many factors. Usually, for a fair coin, we believe that there is half a chance to observe a head and half a chance to observe a tail. But, what if we <strong>know</strong> that the person will be tossing the coin is, say, myself, do we know <strong>better</strong> about the probability? That is, do we still have the half-half probabilities for head and tail <em>if</em> for example, I myself tend to toss heads slightly more often than tails? This is the main idea of conditional probability.</p>
 <p>The <strong>conditional probability</strong> <span class="math inline">\(\mathbb{P}(A|B)\)</span> is the probability of event <span class="math inline">\(A\)</span> given event <span class="math inline">\(B\)</span>, i.e. the probability that event <span class="math inline">\(A\)</span> happens if event <span class="math inline">\(B\)</span> happens <strong>with certainty</strong>.</p>
-<p><img src="data/images/chap-prob/venn8.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn8.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p>Let us look at the picture above. If event <span class="math inline">\(B\)</span> happens with certainty, it means that only the outcomes inside of <span class="math inline">\(B\)</span> will be able to happen. This shrinks our sample space from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(B\)</span>. Now, the only cases where <span class="math inline">\(A\)</span> can happen are when the outcomes lie in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, i.e., <span class="math inline">\(A\cap B\)</span>. So the conditional probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is the <strong>proportion</strong> of outcomes of <span class="math inline">\(A\cap B\)</span> in event <span class="math inline">\(B\)</span>, that is,
 <span class="math display">\[\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}\]</span></p>
 <div class="myExample">
@@ -1001,7 +1009,7 @@ because based on the mathematical definition of a probability, <span class="math
 <li><p><span class="math inline">\(\mathbb{P}(A|B)\)</span> is the ratio of the pink part to the whole circle of <span class="math inline">\(B\)</span></p></li>
 <li><p><span class="math inline">\(1-\mathbb{P}(A|B)\)</span> is the ratio of the blue part to the whole circle of <span class="math inline">\(B\)</span>. The blue part contains the outcomes that is not in <span class="math inline">\(A\)</span> but in <span class="math inline">\(B\)</span>, i.e., <span class="math inline">\(A^c \cap B\)</span>.</p></li>
 </ul>
-<p><img src="data/images/chap-prob/venn9.png" width="40%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn9.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
 <p>So, we have the following equality for the <strong>conditional probability of the complement</strong></p>
 <p><span class="math display">\[\mathbb{P}(A^c|B) = 1-\mathbb{P}(A|B)\]</span></p>
 <div class="myExample">
@@ -1015,12 +1023,12 @@ because based on the mathematical definition of a probability, <span class="math
 <h3><span class="header-section-number">3.4.2</span> Law of Total Probability<a href="chap-prob.html#law-of-total-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us come back to the whole sample space <span class="math inline">\(\Omega\)</span> in the diagram below. We see that <span class="math inline">\(A\)</span> (pink) and <span class="math inline">\(A^c\)</span> (blue) divide the sample space <span class="math inline">\(\Omega\)</span> into two <strong>mutually exclusive</strong> regions. Effectively, they also divide <span class="math inline">\(B\)</span> into two <strong>mutually exclusive</strong> parts: <span class="math inline">\(A \cap B\)</span> and <span class="math inline">\(A^c \cap B\)</span>. This means
 <span class="math display">\[\mathbb{P}(A\cap B) + \mathbb{P}(A^c\cap B) = \mathbb{P}(B)\]</span></p>
-<p><img src="data/images/chap-prob/venn10.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn10.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>This law similarly applies to all events <span class="math inline">\(A_1, A_2, ..., A_n\)</span> that are mutually exclusive and make up the sample space <span class="math inline">\(\Omega\)</span>. This is called the <strong>law of total probability</strong>:</p>
 <div class="myEquation">
 <p><span class="math display">\[\text{If }A_1 \cup A_2 \cup ... \cup A_n = \Omega \text{ and } A_i\cap A_j = \emptyset \text{ for all }i\ne j, \text{ then } \mathbb{P}(B) = \sum_{i=1}^n \mathbb{P}(B\cap A_i)\]</span></p>
 </div>
-<p><img src="data/images/chap-prob/venn11.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/venn11.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>Look at the above diagram, the events <span class="math inline">\(A_1, A_2, ..., A_n\)</span> divide the sample space <span class="math inline">\(\Omega\)</span> into mutually exclusive parts, and thus effectively also divide <span class="math inline">\(B\)</span> into mutually exclusive parts <span class="math inline">\(A_1\cap B\)</span>, <span class="math inline">\(A_2\cap B\)</span>, …, <span class="math inline">\(A_n\cap B\)</span>. When we add up these parts we will get <span class="math inline">\(B\)</span>.</p>
 <div class="myExercise">
 <div class="exercise">
@@ -1098,7 +1106,7 @@ because based on the mathematical definition of a probability, <span class="math
 <li><p><span class="math inline">\(T_2\)</span>: the event that we observe a tail at the second coin toss</p></li>
 </ul>
 <p>Then <span class="math inline">\(H_1\)</span> and <span class="math inline">\(T_1\)</span> are mutually exclusive and they make up the sample space for the results of coin 1. <span class="math inline">\(H_2\)</span> and <span class="math inline">\(T_2\)</span> are mutually exclusive and they make up the sample space for the results of coin 2. Thus we can draw the tree diagram as follows.</p>
-<p><img src="data/images/chap-prob/tree1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/tree1.png" alt="" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div class="empty">
@@ -1112,7 +1120,7 @@ because based on the mathematical definition of a probability, <span class="math
 <li><p><span class="math inline">\(T\)</span> be the event that the student chooses a room that is less than 15 minutes away from school. Then the event that the student chooses a room that is more than 15 minutes away from school is <span class="math inline">\(T^c\)</span>.</p></li>
 </ul>
 <p>We can make the following tree diagram</p>
-<p><img src="data/images/chap-prob/tree2.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="data/images/chap-prob/tree2.png" alt="" width="90%" style="display: block; margin: auto;" /></p>
 <p>in which we</p>
 <ul>
 <li><p>calculate the red probabilities using the complement equality.</p></li>

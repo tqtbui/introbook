@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-12-18" />
+<meta name="date" content="2026-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>Main Content</b></span></li>
 <li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
@@ -546,7 +547,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
 <ul>
 <li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#metadata"><i class="fa fa-check"></i><b>B.2.1</b> Metadata</a></li>
+<li class="chapter" data-level="B.2.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#texts-and-maths"><i class="fa fa-check"></i><b>B.2.2</b> Texts and Maths</a></li>
+<li class="chapter" data-level="B.2.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#r-codes-and-results"><i class="fa fa-check"></i><b>B.2.3</b> R Codes and Results</a></li>
+<li class="chapter" data-level="B.2.4" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#images"><i class="fa fa-check"></i><b>B.2.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#knitting-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.3</b> Knitting A Rmarkdown File</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -571,7 +579,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">B</span> Introduction to Rmarkdown<a href="app-rmarkdown.html#app-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="install-rmarkdown" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">B.1</span> Install Rmarkdown<a href="app-rmarkdown.html#install-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Rmarkdown</strong> is a file format that helps you write reports which combine texts and codes and code outputs in an easy way. In fact, this book was written in <strong>Rmarkdown</strong> as well!</p>
+<p><strong>Rmarkdown</strong> is a file format that helps you write reports which combine texts and codes and code outputs in an easy way. This will be very helpful when you write a data analysis report or a tutorial where you want to include the results or plots of your code directly into a reader-friendly document file format such as HTML, PDF or Word. In fact, this book was written in <strong>Rmarkdown</strong> as well!</p>
 <p>In order to work with <strong>Rmarkdown</strong>, you will need to install the <code>rmarkdown</code> package</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="app-rmarkdown.html#cb141-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</span></code></pre></div>
 <p>To write a new <code>.Rmarkdown</code> file:</p>
@@ -585,20 +593,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="components-of-a-rmarkdown-file" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">B.2</span> Components of A Rmarkdown File<a href="app-rmarkdown.html#components-of-a-rmarkdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When you open a new <code>.Rmarkdown</code> file, you will see that the top of the file contains some information about the file, for example, title, date, output format, etc. This component is written in between two <code>---</code> signs. This is called the metadata of the file. You can change the metadata by typing the name, date, author of your file.</p>
-<p>Then, you can start writing the texts. The text is written in using the markdown language. Basically you can just write the text you want. Other caveats about headings, tables, colors, etc. can be found <a href="https://www.markdownguide.org/basic-syntax/">here</a>.</p>
+<div id="metadata" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">B.2.1</span> Metadata<a href="app-rmarkdown.html#metadata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you open a new <code>.Rmarkdown</code> file, you will see that the top of the file contains some information about the file, for example, title, date, output format, etc. This component is written in between two <code>---</code> signs. This is called the metadata block, or the YAML front matter, of the file. You can change information of the file such as title, date, and author.</p>
+</div>
+<div id="texts-and-maths" class="section level3 hasAnchor" number="14.2.2">
+<h3><span class="header-section-number">B.2.2</span> Texts and Maths<a href="app-rmarkdown.html#texts-and-maths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After specifying the metadata, you can start writing the texts. The text is written in using the markdown language. Basically you can just write the text you want. Other caveats about headings, tables, colors, links, etc. can be found <a href="https://www.markdownguide.org/basic-syntax/">here</a>.</p>
 <p>Maths can be typed using LaTeX syntax inside two dollar signs, for example <code>$3^2$</code> will result in <span class="math inline">\(3^2\)</span>. More information about LaTeX math syntax can be found <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>.</p>
-Finally, you can add <strong>R</strong> code chunks into the <strong>Rmarkdown</strong> document by clicking the green <kbd>+C</kbd> button under the code file tab and choose <strong>R</strong>.
+</div>
+<div id="r-codes-and-results" class="section level3 hasAnchor" number="14.2.3">
+<h3><span class="header-section-number">B.2.3</span> R Codes and Results<a href="app-rmarkdown.html#r-codes-and-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+You can add <strong>R</strong> code chunks into the <strong>Rmarkdown</strong> document by clicking the green <kbd>+C</kbd> button under the code file tab and choose <strong>R</strong>.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rmarkdown-chunk"></span>
 <img src="data/images/app-rintro/rchunk.png" alt="Adding a code chunk" width="80%" />
 <p class="caption">
 Figure B.1: Adding a code chunk
 </p>
 </div>
-<p>An <strong>R</strong> code chunk starts with <code>```{r}</code> and end with three back ticks. You can set some options to the code chunks. Two of the most important options are</p>
+<p>An <strong>R</strong> code chunk starts with <code>```{r}</code> and end with three back ticks. You can set some options to the code chunks. Three of the most important options are</p>
 <ul>
 <li><code>eval=TRUE</code>: This means that <strong>Rmarkdown</strong> will evaluate your code when “knitting” the <code>.Rmarkdown</code> file into PDF (or HTML, or Words). If <code>eval=FALSE</code>, then <strong>Rmarkdown</strong> will not evaluate your code when knitting. You can use this option by typing <code>```{r, eval=FALSE}</code>. This is useful when you just want to show the code but don’t want to run it.</li>
 <li><code>echo=TRUE</code>: This means that <strong>Rmarkdown</strong> will display your code when “knitting” the file. <code>echo=FALSE</code> means that <strong>Rmarkdown</strong> will not display your code when knitting the file.</li>
+<li><code>include=TRUE</code>: This means that <strong>Rmarkdown</strong> will display your code and its output/result when “knitting” the file. <code>include=FALSE</code> means that <strong>Rmarkdown</strong> will not display your code and its output/result while still running the code in the background if <code>eval=TRUE</code>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rmarkdown-chunk-explain"></span>
 <img src="data/images/app-rintro/rmarkdown.PNG" alt="Components of a code chunk" width="80%" />
@@ -606,13 +623,32 @@ Figure B.1: Adding a code chunk
 Figure B.2: Components of a code chunk
 </p>
 </div>
+<p>You can also name the code chunk by typing the name before the comma, for example <code>```{r your-code-chunk-name, echo=TRUE}</code>.</p>
+</div>
+<div id="images" class="section level3 hasAnchor" number="14.2.4">
+<h3><span class="header-section-number">B.2.4</span> Images<a href="app-rmarkdown.html#images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To include images into your file, use</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="app-rmarkdown.html#cb143-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;pat-to-your-file/your-image-file-name&quot;</span>)</span></code></pre></div>
+<p>You can change the image alignment, width, height, or write the image caption by specifying the code chunk options <code>fig.align, out.width, out.height, fig.cap</code>. For example: specifying <code>```{r include-image, fig.align='center', out.width = '50%', fig.cap = 'A cute dog'}</code> for the following code, you will get</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="app-rmarkdown.html#cb144-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;data/images/cute-dog.png&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rmarkdown-image-example"></span>
+<img src="data/images/cute-dog.png" alt="A cute dog" width="50%" />
+<p class="caption">
+Figure B.3: A cute dog
+</p>
+</div>
+</div>
+</div>
+<div id="knitting-a-rmarkdown-file" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">B.3</span> Knitting A Rmarkdown File<a href="app-rmarkdown.html#knitting-a-rmarkdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Finally, you can “knit” your <strong>Rmarkdown</strong> file into a PDF file by hitting the <kbd>Knit</kbd> button on the top bar under the file tabs.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rmarkdown-knit"></span>
 <img src="data/images/app-rintro/knit.png" alt="Knitting an Rmarkdown file" width="80%" />
 <p class="caption">
-Figure B.3: Knitting an Rmarkdown file
+Figure B.4: Knitting an Rmarkdown file
 </p>
 </div>
+<p>You can also “knit” your file into an HTML file by choosing the corresponding drop-down option. Specially, if you want to produce a PDF but LaTeX is not working, you can knit your file into an HTML and then convert it into a PDF.</p>
 <div class="myExercise">
 <div class="exercise">
 <p><span id="exr:unlabeled-div-126" class="exercise"><strong>Exercise B.1  </strong></span>Create a PDF file that includes the solution (code and output) to Exercises <a href="app-rintro.html#exr:exr-rintro-calculation">A.1</a> and <a href="app-rintro.html#exr:exr-rintro-data-set">A.2</a>.</p>

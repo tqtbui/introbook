@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-12-18" />
+<meta name="date" content="2026-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>Main Content</b></span></li>
 <li class="chapter" data-level="1" data-path="chap-step.html"><a href="chap-step.html"><i class="fa fa-check"></i><b>1</b> Four Research Steps</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="chap-step.html"><a href="chap-step.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why Statistics?</a></li>
@@ -546,7 +547,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html"><i class="fa fa-check"></i><b>B</b> Introduction to Rmarkdown</a>
 <ul>
 <li class="chapter" data-level="B.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#install-rmarkdown"><i class="fa fa-check"></i><b>B.1</b> Install Rmarkdown</a></li>
-<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a></li>
+<li class="chapter" data-level="B.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#components-of-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.2</b> Components of A Rmarkdown File</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#metadata"><i class="fa fa-check"></i><b>B.2.1</b> Metadata</a></li>
+<li class="chapter" data-level="B.2.2" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#texts-and-maths"><i class="fa fa-check"></i><b>B.2.2</b> Texts and Maths</a></li>
+<li class="chapter" data-level="B.2.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#r-codes-and-results"><i class="fa fa-check"></i><b>B.2.3</b> R Codes and Results</a></li>
+<li class="chapter" data-level="B.2.4" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#images"><i class="fa fa-check"></i><b>B.2.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="app-rmarkdown.html"><a href="app-rmarkdown.html#knitting-a-rmarkdown-file"><i class="fa fa-check"></i><b>B.3</b> Knitting A Rmarkdown File</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="app-dataset.html"><a href="app-dataset.html"><i class="fa fa-check"></i><b>C</b> Data Set</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -810,8 +818,8 @@ Figure A.1: RStduio windows
 <p>Join the two vectors together</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="app-rintro.html#cb109-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x,y)</span>
 <span id="cb109-2"><a href="app-rintro.html#cb109-2" tabindex="-1"></a>z</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
-## [35] 25 26 27 28 29 30</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
+## [30] 20 21 22 23 24 25 26 27 28 29 30</code></pre>
 <p>What if we now want to extract certain values from this new vector <code>z</code>?</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="app-rintro.html#cb111-1" tabindex="-1"></a>z[<span class="dv">22</span>]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
@@ -824,11 +832,12 @@ Figure A.1: RStduio windows
 <p>returns the the fourth and the eighth elements in to vector <code>z</code>.</p>
 <p>Negative indices can be used to <strong>remove</strong> certain elements</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="app-rintro.html#cb117-1" tabindex="-1"></a>z[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
-<pre><code>##  [1]  1  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-## [35] 26 27 28 29 30</code></pre>
+<pre><code>##  [1]  1  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+## [30] 21 22 23 24 25 26 27 28 29 30</code></pre>
 <p>returns a the same vector as <code>z</code> but with the second element removed. The third to eleventh elements of <code>z</code> can be skipped using</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="app-rintro.html#cb119-1" tabindex="-1"></a>z[<span class="sc">-</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>)]</span></code></pre></div>
-<pre><code>##  [1]  1  2  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</code></pre>
+<pre><code>##  [1]  1  2  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+## [30] 29 30</code></pre>
 <p>Do not mix positive and negative indices. Consider</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="app-rintro.html#cb121-1" tabindex="-1"></a>z[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <p>which will throw an error.</p>
