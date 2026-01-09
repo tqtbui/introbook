@@ -579,13 +579,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">A</span> Introduction to R<a href="app-rintro.html#app-rintro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="why-r" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">A.1</span> Why R?<a href="app-rintro.html#why-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For conducting analyses with data sets of hundreds to thousands of observations, calculating by hand is not feasible and you will need a statistical software. <strong>R</strong> is one of those. <strong>R</strong> can also be thought of as a high-level programming language. In fact, <strong>R</strong> is one of the <a href="https://statisticstimes.com/tech/top-computer-languages.php">top languages</a> to be used by data analysts and data scientists. There are a lot of analysis packages in <strong>R</strong> that are currently developed and maintained by researchers around the world to deal with different data problems. And most importantly, <strong>R</strong> is <strong>free</strong>. In this book, we will learn how to use <strong>R</strong> to conduct basic statistical analyses.</p>
+<p>When conducting analyses of data sets with hundreds to thousands of observations, calculating by hand is not feasible and you will need a statistical software. <strong>R</strong> is one of those. <strong>R</strong> can also be thought of as a high-level programming language. In fact, <strong>R</strong> is one of the <a href="https://statisticstimes.com/tech/top-computer-languages.php">top languages</a> to be used by data analysts and data scientists. There are a lot of analysis packages in <strong>R</strong> that are currently developed and maintained by researchers around the world to deal with different data problems. And most importantly, <strong>R</strong> is <strong>free</strong>. In this book, we will learn how to use <strong>R</strong> to conduct basic statistical analyses.</p>
 </div>
 <div id="installing-r-and-rstudio" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">A.2</span> Installing R and RStudio<a href="app-rintro.html#installing-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To install <strong>R</strong>, go to the following link: <a href="https://www.r-project.org/">https://www.r-project.org/</a>. You can choose the CRAN closest to your location.</p>
 <p>To work with <strong>R</strong> more easily, download <strong>RStudio</strong>, an interface software for <strong>R</strong>, from the following link: <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a>. The free version is good enough for our use.</p>
-<p>After downloading, install <strong>R</strong> and <strong>RStudio</strong> on your computer following the instruction of the installation exe file.</p>
+<p>After downloading, install <strong>R</strong> and <strong>RStudio</strong> on your computer following the instruction of the installation <code>.exe</code> file.</p>
 </div>
 <div id="the-rstudio-interface" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">A.3</span> The RStudio Interface<a href="app-rintro.html#the-rstudio-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -601,11 +601,11 @@ Figure A.1: RStduio windows
 <li><p><strong>Source code panel</strong>: This is where we write scripts that contains codes to be saved for later use. You can create a new <strong>R</strong> script by clicking the white button below <strong>File</strong> and choose <strong>R Script</strong>.</p></li>
 <li><p><strong>Console panel</strong>: This is where we execute the codes (in our script) interactively and where we see the <strong>printed output</strong> of the code. We can run our code by</p>
 <ul>
-<li><p>selecting the code in our script and click run, or</p></li>
-<li><p>typing or pasting the code in the console,</p></li>
+<li><p>selecting the code in our script file and click run, or</p></li>
+<li><p>typing or pasting the code in the console, then hit <kbd>Enter</kbd>.</p></li>
 </ul></li>
 </ol>
-<p>then hit <kbd>Enter</kbd>. The output of our code will appear in the console.</p>
+<p>The output of our code will appear in the console.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p><strong>Environment panel</strong>:</p>
 <ul>
@@ -651,7 +651,7 @@ Figure A.1: RStduio windows
 </div>
 <div id="basic-calculations" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">A.5</span> Basic Calculations<a href="app-rintro.html#basic-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As <strong>R</strong> will help us to analyze the data, it is able to handle many calculations. Try typing the code below in the console and hit <kbd>Enter</kbd>, you will see the calculated result printed in the console.</p>
+<p>Remember that <strong>R</strong> helps us to analyze the data, so it is able to handle many calculations. Try typing the code below in the console and hit <kbd>Enter</kbd>, you will see the calculated result printed in the console.</p>
 <ol style="list-style-type: decimal">
 <li><strong>Addition</strong></li>
 </ol>
@@ -729,10 +729,8 @@ Figure A.1: RStduio windows
 <ul>
 <li><p>The string can contain word characters, numbers, no space, and no special characters except for dot <code>.</code> and underscore <code>_</code>.</p></li>
 <li><p>The name should not start with a number or a special character.</p></li>
-<li><p>Give informative names so that you can recall what this object is when you read the code later.</p></li>
-<li><p>Avoid using the same name with <strong>R</strong> built-in values (e.g., <code>pi</code>) or functions (e.g., <code>round</code>).</p></li>
-<li><p><strong>R</strong> differentiates between capital and lowercase letters in object names. So objects <code>Three</code> and <code>three</code> can refer to different objects in <strong>R</strong>.</p></li>
 </ul>
+<p>Try to give informative names so that you can recall what this object is when you read the code later. Avoid using the same name with <strong>R</strong> built-in values (e.g., <code>pi</code>) or functions (e.g., <code>round</code>). Note that <strong>R</strong> differentiates between capital and lowercase letters in object names. For example, objects <code>Three</code> and <code>three</code> refer to different objects in <strong>R</strong>.</p>
 </div>
 <div id="vectors" class="section level2 hasAnchor" number="13.7">
 <h2><span class="header-section-number">A.7</span> Vectors<a href="app-rintro.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -744,7 +742,7 @@ Figure A.1: RStduio windows
 <li><p><code>rep()</code>: function to repeat values of a vector</p></li>
 <li><p><code>seq()</code>: create equally-spaced sequences of number.</p></li>
 </ul>
-<p>Try looking these functions up following instruction in Section <a href="app-rintro.html#rintro-sec-help">A.4.2</a>.</p>
+<p>Try looking these functions up following instructions in Section <a href="app-rintro.html#rintro-sec-help">A.4.2</a>.</p>
 <div class="myExample">
 <div class="example">
 <p><span id="exm:unlabeled-div-120" class="example"><strong>Example A.1  </strong></span>Create the vector <span class="math inline">\(\mathbf{x} = (-1,0,1)\)</span>:</p>
@@ -794,55 +792,75 @@ Figure A.1: RStduio windows
 <div id="vector-operations" class="section level3 hasAnchor" number="13.7.2">
 <h3><span class="header-section-number">A.7.2</span> Vector Operations<a href="app-rintro.html#vector-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can perform mathematical operations on the vector. For example,</p>
+<ul>
+<li>the element-wise sum of the two vectors <code>x</code> and <code>y</code>:</li>
+</ul>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="app-rintro.html#cb101-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb101-2"><a href="app-rintro.html#cb101-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
 <span id="cb101-3"><a href="app-rintro.html#cb101-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
 <span id="cb101-4"><a href="app-rintro.html#cb101-4" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>## [1] 1 4 7</code></pre>
-<p>will give the element-wise sum of the two vectors <code>x</code> and <code>y</code>.</p>
+<ul>
+<li>the number of values (length) stored in vector <code>x</code>:</li>
+</ul>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="app-rintro.html#cb103-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>will give the number of values (length) of vector <code>x</code>.</p>
+<ul>
+<li>the sum of the elements of vector <code>x</code>:</li>
+</ul>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="app-rintro.html#cb105-1" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>will give the sum of the elements of vector <code>x</code>.</p>
 </div>
 <div id="extracting-elements-from-vectors" class="section level3 hasAnchor" number="13.7.3">
 <h3><span class="header-section-number">A.7.3</span> Extracting Elements from Vectors<a href="app-rintro.html#extracting-elements-from-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="myExample">
-<div class="example">
-<p><span id="exm:unlabeled-div-124" class="example"><strong>Example A.5  </strong></span>Create a vector <code>x</code> that contains numbers 1 to 11</p>
+<p>For example,</p>
+<ul>
+<li>if we want to create a vector <code>x</code> that contains numbers 1 to 11:</li>
+</ul>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="app-rintro.html#cb107-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">11</span>,<span class="at">by=</span><span class="dv">1</span>)</span></code></pre></div>
-<p>Create another vector <code>y</code> that contains numbers 2 to 30</p>
+<ul>
+<li>create another vector <code>y</code> that contains numbers 2 to 30:</li>
+</ul>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="app-rintro.html#cb108-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>,<span class="dv">30</span>,<span class="at">by=</span><span class="dv">1</span>)</span></code></pre></div>
-<p>Join the two vectors together</p>
+<ul>
+<li>join the two vectors together:</li>
+</ul>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="app-rintro.html#cb109-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x,y)</span>
 <span id="cb109-2"><a href="app-rintro.html#cb109-2" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
 ## [30] 20 21 22 23 24 25 26 27 28 29 30</code></pre>
-<p>What if we now want to extract certain values from this new vector <code>z</code>?</p>
+<p>What if we now want to extract certain values from this new vector <code>z</code>? For example,</p>
+<ul>
+<li>to get the 22nd element of vector <code>z</code>:</li>
+</ul>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="app-rintro.html#cb111-1" tabindex="-1"></a>z[<span class="dv">22</span>]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<p>returns the 22nd element of vector <code>z</code>.</p>
+<ul>
+<li>to get the fourth to eighth elements in the vector <code>z</code>:</li>
+</ul>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="app-rintro.html#cb113-1" tabindex="-1"></a>z[<span class="dv">4</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## [1] 4 5 6 7 8</code></pre>
-<p>returns the fourth to eighth elements in the vector <code>z</code>.</p>
+<ul>
+<li>to get the fourth and the eighth elements in to vector <code>z</code>:</li>
+</ul>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="app-rintro.html#cb115-1" tabindex="-1"></a>z[<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">8</span>)]</span></code></pre></div>
 <pre><code>## [1] 4 8</code></pre>
-<p>returns the the fourth and the eighth elements in to vector <code>z</code>.</p>
-<p>Negative indices can be used to <strong>remove</strong> certain elements</p>
+<p>Negative indices can be used to <strong>remove</strong> certain elements. For example:</p>
+<ul>
+<li>to get a the same vector as <code>z</code> but with the second element removed:</li>
+</ul>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="app-rintro.html#cb117-1" tabindex="-1"></a>z[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##  [1]  1  3  4  5  6  7  8  9 10 11  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
 ## [30] 21 22 23 24 25 26 27 28 29 30</code></pre>
-<p>returns a the same vector as <code>z</code> but with the second element removed. The third to eleventh elements of <code>z</code> can be skipped using</p>
+<ul>
+<li>the third to eleventh elements of <code>z</code> can be skipped using</li>
+</ul>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="app-rintro.html#cb119-1" tabindex="-1"></a>z[<span class="sc">-</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>)]</span></code></pre></div>
 <pre><code>##  [1]  1  2  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
 ## [30] 29 30</code></pre>
-<p>Do not mix positive and negative indices. Consider</p>
+<p>Do not mix positive and negative indices. For example,</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="app-rintro.html#cb121-1" tabindex="-1"></a>z[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">3</span>)]</span></code></pre></div>
-<p>which will throw an error.</p>
-</div>
-</div>
+<p>will throw an error.</p>
 </div>
 </div>
 <div id="data-sets" class="section level2 hasAnchor" number="13.8">
@@ -852,11 +870,11 @@ Figure A.1: RStduio windows
 <p>A data frame consists of columns that are vectors. You can group the vectors together to create a data set using the <code>data.frame()</code> function.</p>
 <div class="myExample">
 <div class="example">
-<p><span id="exm:unlabeled-div-125" class="example"><strong>Example A.6  </strong></span></p>
+<p><span id="exm:unlabeled-div-124" class="example"><strong>Example A.5  </strong></span></p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="app-rintro.html#cb122-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb122-2"><a href="app-rintro.html#cb122-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
 <span id="cb122-3"><a href="app-rintro.html#cb122-3" tabindex="-1"></a>datset <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x,y)</span>
-<span id="cb122-4"><a href="app-rintro.html#cb122-4" tabindex="-1"></a>datset</span></code></pre></div>
+<span id="cb122-4"><a href="app-rintro.html#cb122-4" tabindex="-1"></a>datset </span></code></pre></div>
 <pre><code>##    x y
 ## 1 -1 2
 ## 2  0 4
@@ -866,7 +884,7 @@ Figure A.1: RStduio windows
 </div>
 <div id="load-data-files" class="section level3 hasAnchor" number="13.8.2">
 <h3><span class="header-section-number">A.8.2</span> Load Data Files<a href="app-rintro.html#load-data-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose that your data is saved in a file called <a href="data/mydata.txt" download="mydata.txt">mydata.txt</a>. You can import the dataset into <strong>R</strong> environment.</p>
+<p>Suppose that your data is saved in a file called <a href="data/mydata.txt" download="mydata.txt">mydata.txt</a>. You can import the data set into <strong>R</strong> environment using</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="app-rintro.html#cb124-1" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;mydata.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The argument <code>header=TRUE</code> tells <strong>R</strong> to use the first line in the text file as the names of the columns. If the column headings are not included in the file, the argument can be omitted.</p>
 <p>Now, the <code>mydata.txt</code> data set is loaded into <strong>R</strong> environment and is saved as a <strong>data-frame</strong> object called <code>mydata</code>. We can then work with this data set using <strong>R</strong>.</p>
@@ -906,16 +924,16 @@ Figure A.2: Importing Datasets in RStudio
 <p>i.e., to load the data without specifying the full directory, you need to set the working directory to be same as the directory where the file is saved. You can set the working directory using one of these ways</p>
 <ul>
 <li><p>In <strong>RStudio</strong> along the top bar choose Session &gt; Set Working Directory &gt; Choose Directory</p></li>
-<li><p>Use the function <code>getwd()</code> to see what the current working directory (wd) is and use <code>setwd()</code> to set a working directory. For example</p>
+<li><p>Use the function <code>getwd()</code> to see what the current working directory (wd) is and use <code>setwd()</code> to set a new working directory. For example</p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="app-rintro.html#cb134-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;Your directory&quot;</span>)</span></code></pre></div></li>
 </ul>
-<p>Now, if you go to the <strong>Files</strong> tab, you can see all the files in your directory. One tip is to (i) save your <code>.R</code> or <code>.Rmarkdown</code> file and the data set in the <strong>same folder</strong> and then (ii) open a new <strong>RStudio</strong> window by opening <code>.R</code> or <code>.Rmarkdown</code> file from that folder. This way the default working directory will be the directory your files are stored. It’s also easier to manage all your files in one folder.</p>
+<p>Now, if you go to the <strong>Files</strong> tab, you can see all the files in your directory. One tip is to (i) save your <code>.R</code> or <code>.Rmarkdown</code> file and the data set in the <strong>same folder</strong> and then (ii) open a new <strong>RStudio</strong> window by opening <code>.R</code> or <code>.Rmarkdown</code> file from that folder. This way, the default working directory will be the directory your files are stored. It’s also easier to manage all your files in one folder.</p>
 </div>
 <div id="extracting-elements-from-a-data-frame" class="section level3 hasAnchor" number="13.8.4">
 <h3><span class="header-section-number">A.8.4</span> Extracting Elements from a Data Frame<a href="app-rintro.html#extracting-elements-from-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can use the column names of a data frame as defined objects in the <strong>Environment</strong> by attaching the data frame to <strong>R</strong></p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="app-rintro.html#cb135-1" tabindex="-1"></a><span class="fu">attach</span>(mydata)</span></code></pre></div>
-<p>For example, the data framw <code>mydata</code> has column <code>Gender</code>. We can work with this column directly as a saved vector in <strong>R</strong>.</p>
+<p>For example, the data frame <code>mydata</code> has column <code>Gender</code>. After attaching <code>mydata</code>, we can work with column <code>Gender</code> directly as a saved vector in <strong>R</strong>.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="app-rintro.html#cb136-1" tabindex="-1"></a>Gender</span></code></pre></div>
 <pre><code>## [1] &quot;M&quot; &quot;F&quot; &quot;M&quot; &quot;F&quot; &quot;M&quot;</code></pre>
 <p>Once you have completed work with the data set, you can detach them from use</p>

@@ -577,7 +577,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="app-dataset" class="section level1 hasAnchor" number="15">
 <h1><span class="header-section-number">C</span> Data Set<a href="app-dataset.html#app-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We use an artificially generated pseudo data set <a href="data/fakeRent.csv" download="fakeRent.csv">fakeRent.csv</a> as a running example throughout the book. The data set contains information about students’ rent expenses. The variables collected in the data set corresponds to columns in the data set, namely</p>
+<p>We will use an <em>artificially generated</em> pseudo data set <a href="data/fakeRent.csv" download="fakeRent.csv">fakeRent.csv</a> as a running example throughout the book. The data set contains information about students’ rent expenses. The variables collected in the data set corresponds to columns in the data set, namely</p>
 <ul>
 <li><p><code>rent</code>: the rent price of students, which is continuous.</p></li>
 <li><p><code>study</code>: indicates whether the level of study of the student is undergraduate or graduate. This variable is categorical.</p></li>
@@ -587,7 +587,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>washroom</code>: whether the rented place has a private washroom. <code>1</code> indicates there is a private washroom and <code>0</code> otherwise. This variable is binary.</p></li>
 <li><p><code>area</code>: the area of the rented place in <span class="math inline">\(m^2\)</span>. This variable is continuous.</p></li>
 </ul>
-<p>Read the data set and save it into <strong>R</strong> working environment as an object called <code>rent</code> using the following code</p>
+<p>To read the data set and save it into <strong>R</strong> working environment as an object called <code>rent</code>, use the following code</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="app-dataset.html#cb145-1" tabindex="-1"></a>rent <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fakeRent.csv&quot;</span>)</span></code></pre></div>
 <p>This <code>rent</code> object will be used throughout the book.</p>
 

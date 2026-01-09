@@ -244,14 +244,13 @@ exm:unlabeled-div-121
 exm:unlabeled-div-122
 exm:unlabeled-div-123
 exm:unlabeled-div-124
-exm:unlabeled-div-125
 fig:rintro-load-rstudio
 exr:exr-rintro-data-set
 fig:rmarkdown-chunk
 fig:rmarkdown-chunk-explain
 fig:rmarkdown-image-example
 fig:rmarkdown-knit
-exr:unlabeled-div-126
+exr:unlabeled-div-125
 chap-step
 why-statistics
 research-question
